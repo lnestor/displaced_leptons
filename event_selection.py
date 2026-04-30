@@ -1,75 +1,115 @@
 import awkward as ak
 from pocket_coffea.lib.cut_definition import Cut
 
+
 def dilepton(events, params, year, sample, **kwargs):
     mask = (events.nLeptonGood >= 2)
-
     return ak.where(ak.is_none(mask), False, mask)
 
 dilepton_presel = Cut(
     name="dilepton",
-    params={ },
+    params={},
     function=dilepton
 )
 
-def b2b_muons(events, params, year, sample, **kwargs):
+
+def b2b_muons_mask(events, alpha_max=-0.99):
     mu1, mu2 = ak.unzip(ak.combinations(events.MuonGood, 2))
     cos_alpha = (mu1.px*mu2.px + mu1.py*mu2.py + mu1.pz*mu2.pz) / (mu1.p * mu2.p)
-    has_back_to_back = ak.any(cos_alpha < params["alpha_max"], axis=1)
+    has_back_to_back = ak.any(cos_alpha < alpha_max, axis=1)
     mask = ~has_back_to_back
     return ak.where(ak.is_none(mask), False, mask)
 
+def _b2b_muons_impl(events, params, year, sample, **kwargs):
+    return b2b_muons_mask(events, params["alpha_max"])
+
 no_b2b_muons = Cut(
-    name="Has back to back muons",
+    name="no_b2b_muons",
     params={"alpha_max": -0.99},
-    function=b2b_muons
+    function=_b2b_muons_impl
 )
 
-def _deltaR_impl(events, params, year, sample, **kwargs):
-    col1 = getattr(events, params["col1"])
-    col2 = getattr(events, params["col2"])
-    if params["col1"] == params["col2"]:
-      l1, l2 = ak.unzip(ak.combinations(col1, 2))
+
+def delta_r_mask(coll1, coll2, min_dr):
+    if coll1 is coll2:
+        obj1, obj2 = ak.unzip(ak.combinations(coll1, 2))
     else:
-      l1, l2 = ak.unzip(ak.cartesian([col1, col2]))
-    dr = l1.delta_r(l2)
-    mask = ak.any(dr > params["dr_min"], axis=1)
+        obj1, obj2 = ak.unzip(ak.cartesian([coll1, coll2]))
+    dr = obj1.delta_r(obj2)
+    mask = ak.any(dr > min_dr, axis=1)
     return ak.where(ak.is_none(mask), False, mask)
 
 def dilepton_pair(pair_str, dr_min):
     if pair_str == "ee":
-        col1 = "ElectronGood"
-        col2 = "ElectronGood"
+        coll1, coll2 = "ElectronGood", "ElectronGood"
     elif pair_str == "mumu":
-        col1 = "MuonGood"
-        col2 = "MuonGood"
-    elif pair_str == "emu" or pair_str == "mue":
-        col1 = "ElectronGood"
-        col2 = "MuonGood"
+        coll1, coll2 = "MuonGood", "MuonGood"
+    elif pair_str in ("emu", "mue"):
+        coll1, coll2 = "ElectronGood", "MuonGood"
     else:
         raise ValueError(f"Lepton pair key {pair_str} is not valid in cut dilepton_pair")
 
+    def _impl(events, params, year, sample, **kwargs):
+        return delta_r_mask(getattr(events, params["coll1"]), getattr(events, params["coll2"]), params["dr_min"])
+
     return Cut(
-      name=f"{pair_str}_deltaR_gt_{dr_min}",
-      params={"col1": col1, "col2": col2, "dr_min": dr_min},
-      function=_deltaR_impl,
+        name=f"{pair_str}_deltaR_gt_{dr_min}",
+        params={"coll1": coll1, "coll2": coll2, "dr_min": dr_min},
+        function=_impl,
     )
 
+
+def nObj_mask(coll, N, min_pt):
+    return ak.sum(coll.pt >= min_pt, axis=1) >= N
+
 def _get_nObj_impl(events, params, year, sample, **kwargs):
-    return ak.sum(events[params["coll"]].pt >= params["min_pts"][year], axis=1) >= params["N"]
+    coll = getattr(events, params["coll"])
+    min_pt = params["min_pts"][year]
+    return nObj_mask(coll, params["N"], min_pt)
 
 def get_nElectrons(N, min_pts):
-    name = f"nElectrons_min{N}"
     return Cut(
-        name=name,
+        name=f"nElectrons_min{N}",
         params={"N": N, "coll": "ElectronGood", "min_pts": min_pts},
         function=_get_nObj_impl
     )
 
 def get_nMuons(N, min_pts):
-    name = f"nMuons_min{N}"
     return Cut(
-        name=name,
+        name=f"nMuons_min{N}",
         params={"N": N, "coll": "MuonGood", "min_pts": min_pts},
         function=_get_nObj_impl
+    )
+
+def _d0_impl(events, params, year, sample, **kwargs):
+    coll1 = getattr(events, params["coll1"])
+    coll2 = getattr(events, params["coll2"])
+    if params["coll1"] == params["coll2"]:
+        has_enough = ak.num(coll1) >= 2
+        padded = ak.pad_none(coll1, 2)
+        l1, l2 = padded[:, 0], padded[:, 1]
+    else:
+        has_enough = (ak.num(coll1) >= 1) & (ak.num(coll2) >= 1)
+        l1 = ak.firsts(coll1)
+        l2 = ak.firsts(coll2)
+
+    d0_1 = ak.fill_none(l1.absd0_um, -1.0)
+    d0_2 = ak.fill_none(l2.absd0_um, -1.0)
+
+    mask = has_enough
+    if params["min1"] is not None:
+        mask = mask & (d0_1 > params["min1"])
+    if params["max1"] is not None:
+        mask = mask & (d0_1 < params["max1"])
+    if params["min2"] is not None:
+        mask = mask & (d0_2 > params["min2"])
+    if params["max2"] is not None:
+        mask = mask & (d0_2 < params["max2"])
+    return mask
+
+def d0_cuts(coll1, min1, max1, coll2, min2, max2):
+    return Cut(
+        name=f"d0_{coll1}{min1}{max1}_{coll2}{min2}{max2}",
+        params={"coll1": coll1, "min1": min1, "max1": max1, "coll2": coll2, "min2": min2, "max2": max2},
+        function=_d0_impl
     )

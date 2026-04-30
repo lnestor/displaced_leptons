@@ -20,13 +20,16 @@ import workflow
 import event_selection
 import object_selection
 import hists
+import channel_selection
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(event_selection)
 cloudpickle.register_pickle_by_value(object_selection)
 cloudpickle.register_pickle_by_value(hists)
+cloudpickle.register_pickle_by_value(channel_selection)
 
 from workflow import DisplacedLeptonProcessor
-from event_selection import dilepton_presel, no_b2b_muons, dilepton_pair, get_nElectrons, get_nMuons
+from event_selection import dilepton_presel, d0_cuts
+from channel_selection import ee_channel, emu_channel, mumu_channel, emu_veto
 
 from omegaconf import OmegaConf
 from pocket_coffea.utils.configurator import Configurator
@@ -56,34 +59,14 @@ cfg = Configurator(
         get_HLTsel(primaryDatasets=["EMu"])
     ],
     preselections = [dilepton_presel],
-    categories = CartesianSelection(
-        multicuts = [
-            Multicut(
-                name = "channel",
-                cuts = [
-                    ee_channel(),
-                    emu_channel(),
-                    mumu_channel()
-                ],
-                cut_names = ["ee", "emu", "mumu"]
-            ),
-            Multicut(
-                name="region",
-                cuts = [
-                    lepton_d0_cuts(50, None, 50, None),
-                    lepton_d0_cuts(100, 10000, 100, 10000),
-                ]
-                cut_names = ["prompt_CR", "SR"]
-            )
-        ],
-        common_cats = {
-            "baseline": [passthrough],
-        }
-    ),
     categories = {
-        "emu": [no_b2b_muons, dilepton_pair("emu", 0.2), get_nElectrons(1, OmegaConf.to_container(parameters.categories.emu.Electron)), get_nMuons(1, OmegaConf.to_container(parameters.categories.emu.Muon))],
-        "mumu": [no_b2b_muons, dilepton_pair("mumu", 0.2), get_nMuons(2, OmegaConf.to_container(parameters.categories.mumu.Muon))],
-        "ee": [dilepton_pair("ee", 0.2), get_nElectrons(2, OmegaConf.to_container(parameters.categories.ee.Electron))]
+        "baseline": [passthrough],
+        "ee_cr": [ee_channel(parameters), emu_veto(parameters), d0_cuts("ElectronGood", None, 50, "ElectronGood", None, 50)],
+        "ee_sr": [ee_channel(parameters), emu_veto(parameters), d0_cuts("ElectronGood", 100, 10000, "ElectronGood", 100, 10000)],
+        "emu_cr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)],
+        "emu_sr": [emu_channel(parameters), d0_cuts("ElectronGood", 100, 10000, "MuonGood", 100, 10000)],
+        "mumu_cr": [mumu_channel(parameters), emu_veto(parameters), d0_cuts("MuonGood", None, 50, "MuonGood", None, 50)],
+        "mumu_sr": [mumu_channel(parameters), emu_veto(parameters), d0_cuts("MuonGood", 100, 10000, "MuonGood", 100, 10000)],
     },
     weights = {
         "common": {

@@ -30,3 +30,4 @@ dist/
 # Not sure
 .sites_map.json
 output_test/
+output/

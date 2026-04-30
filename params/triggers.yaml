@@ -1,0 +1,7 @@
+HLT_triggers:
+  "2017":
+    EMu:
+      - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL
+  "2018":
+    EMu:
+      - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL

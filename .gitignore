@@ -1,0 +1,31 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# PocketCoffea Outputs
+output/
+plots/
+hists/
+*.coffea
+*.pkl
+*.parquet
+
+# Data and Local Setup
+datasets/
+parameters/local/
+*.json.bak
+.voms_proxy
+
+# Environment and Distribution
+.env
+.venv/
+env/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Not sure
+.sites_map.json

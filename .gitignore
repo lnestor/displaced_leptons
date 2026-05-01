@@ -13,7 +13,7 @@ hists/
 *.parquet
 
 # Data and Local Setup
-datasets/
+# datasets/
 parameters/local/
 *.json.bak
 .voms_proxy

@@ -1,0 +1,4602 @@
+{
+  "DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v3/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLBottom_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1000_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v3/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_1800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_200_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_300_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_400_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_600_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_0p3mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_10mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_1mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  },
+  "DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8": {
+    "sample": "DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8",
+    "json_output": "datasets/built/DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8.json",
+    "files": [
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PostVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL16NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2016_PreVFP",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL17NanoAODv9-106X_mc2017_realistic_v9-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      },
+      {
+        "das_names": [
+          "/DisplacedSUSY_stopToLD_M_800_30mm_TuneCP5_13TeV-madgraph-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v2/NANOAODSIM"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": true,
+          "xsec": 1.0
+        }
+      }
+    ]
+  }
+}

@@ -10,10 +10,10 @@
             "size": "2999056497"
         },
         "files": [
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/2430000/FBB6B29B-51FF-9245-BAA5-DA64E1FA81E3.root",
-            "root://ccxrdcms.in2p3.fr:1094//store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/965B5EA1-A284-C04A-8E18-0FB023309AD4.root",
-            "root://ccxrdcms.in2p3.fr:1094//store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/99978320-87E5-9B4F-899A-29433BBCA6DB.root",
-            "root://ccxrdcms.in2p3.fr:1094//store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/EE4FC62B-42CF-2542-8C0B-BCB31A2F8B8D.root"
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/2430000/FBB6B29B-51FF-9245-BAA5-DA64E1FA81E3.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/965B5EA1-A284-C04A-8E18-0FB023309AD4.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/EE4FC62B-42CF-2542-8C0B-BCB31A2F8B8D.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_v17-v2/250000/99978320-87E5-9B4F-899A-29433BBCA6DB.root"
         ]
     },
     "QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8_2016_PreVFP": {
@@ -27,13 +27,13 @@
             "size": "3025403997"
         },
         "files": [
-            "root://cms-se0.kipt.kharkov.ua//dpm/kipt.kharkov.ua/home/cms/store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/32FFFCFF-270D-904E-9225-16108D06AD63.root",
-            "root://cms-se0.kipt.kharkov.ua//dpm/kipt.kharkov.ua/home/cms/store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/7D539B9D-D9BE-C547-B2CA-049FF9AF1B7F.root",
-            "root://cmsdcadisk.fnal.gov//dcache/uscmsdisk/store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/7D9B5AAE-4D3E-B441-8B06-0DFB2EA0D291.root",
-            "root://cmsio2.rc.ufl.edu:1094//store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/B6709764-1714-8740-BE71-F597EF5BE80F.root",
-            "root://cms-se0.kipt.kharkov.ua//dpm/kipt.kharkov.ua/home/cms/store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/D1057CE7-B1B6-0A47-9E6F-A169993F9784.root",
-            "root://cmsxrootd.hep.wisc.edu:1094//store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/30000/DAA7C532-6081-574E-AD9C-53F4E6F50329.root",
-            "root://cmsdcadisk.fnal.gov//dcache/uscmsdisk/store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/80000/74A14593-EF28-E640-A055-4C32A2BB8013.root"
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/D1057CE7-B1B6-0A47-9E6F-A169993F9784.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/32FFFCFF-270D-904E-9225-16108D06AD63.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/7D539B9D-D9BE-C547-B2CA-049FF9AF1B7F.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/30000/DAA7C532-6081-574E-AD9C-53F4E6F50329.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/B6709764-1714-8740-BE71-F597EF5BE80F.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/80000/74A14593-EF28-E640-A055-4C32A2BB8013.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL16NanoAODAPVv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mcRun2_asymptotic_preVFP_v11-v2/2550000/7D9B5AAE-4D3E-B441-8B06-0DFB2EA0D291.root"
         ]
     },
     "QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8_2017": {
@@ -47,11 +47,11 @@
             "size": "6175697236"
         },
         "files": [
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/0A8D183E-E022-7B49-B9EB-BC8187F6DC5E.root",
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/18B01DE4-7B66-3E44-92D9-DCAD580CECD5.root",
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/49BCAC0B-1891-5442-8DA2-C5775D371F71.root",
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/5F63637F-C2D2-5F47-828F-0F8B7429DD04.root",
-            "root://cmsdcache-kit-disk.gridka.de:1094//store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/BB10F79D-1007-E64C-B321-DA50E5378075.root"
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/5F63637F-C2D2-5F47-828F-0F8B7429DD04.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/0A8D183E-E022-7B49-B9EB-BC8187F6DC5E.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/BB10F79D-1007-E64C-B321-DA50E5378075.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/18B01DE4-7B66-3E44-92D9-DCAD580CECD5.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v2/260000/49BCAC0B-1891-5442-8DA2-C5775D371F71.root"
         ]
     },
     "QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8_2018": {
@@ -65,11 +65,11 @@
             "size": "6082195694"
         },
         "files": [
-            "root://cms-t2-se01.sdfarm.kr:1094//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/2430000/763BDB0F-3D17-A342-B6F4-AA8DA08A6D45.root",
-            "root://cms-t2-se01.sdfarm.kr:1094//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/3861392C-D7EF-E440-BC8E-50D6D4917F25.root",
-            "root://cms-t2-se01.sdfarm.kr:1094//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/D661982A-04A9-E247-9BB9-A47ACA2229F8.root",
-            "root://cms-t2-se01.sdfarm.kr:1094//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/E9F238E8-B0E2-BE4B-B205-8730ACBFFBBC.root",
-            "root://cms-t2-se01.sdfarm.kr:1094//store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/260000/CD860725-4552-134D-B08D-B37841261DA3.root"
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/260000/CD860725-4552-134D-B08D-B37841261DA3.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/3861392C-D7EF-E440-BC8E-50D6D4917F25.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/D661982A-04A9-E247-9BB9-A47ACA2229F8.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/250000/E9F238E8-B0E2-BE4B-B205-8730ACBFFBBC.root",
+            "root://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL18NanoAODv9/QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8/NANOAODSIM/106X_upgrade2018_realistic_v16_L1v1-v2/2430000/763BDB0F-3D17-A342-B6F4-AA8DA08A6D45.root"
         ]
     }
 }

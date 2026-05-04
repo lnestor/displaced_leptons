@@ -1,1 +1,7 @@
-dask-scheduler-port: 8785
+worker-image: /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-analysis/general/pocketcoffea:lxplus-el9-latest
+scaleout: 80
+cores-per-worker: 1
+mem-per-worker: "4GB"
+disk-per-worker: "2GB"
+ignore-grid-certificate: false
+custom-setup-commands: null

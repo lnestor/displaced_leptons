@@ -12,9 +12,17 @@ def get_worker_env(x509_path, run_options):
     env_worker = [
         'export XRD_RUNFORKHANDLER=1',
         'export MALLOC_TRIM_THRESHOLD_=0',
+        # Diagnostics — output goes to dask_job_output.out
+        'echo "=== WORKER DIAGNOSTICS ==="',
+        'echo "hostname: $(hostname)"',
+        'echo "/home/lnestor: $(ls -d /home/lnestor 2>&1)"',
+        'echo "/scratch0:    $(ls -d /scratch0 2>&1)"',
+        'echo "/etc/condor:  $(ls -d /etc/condor 2>&1)"',
     ]
     if not run_options['ignore-grid-certificate']:
         env_worker.append(f'export X509_USER_PROXY={x509_path}')
+        env_worker.append(f'echo "proxy file:   $(ls -la {x509_path} 2>&1)"')
+    env_worker.append('echo "==========================="')
     if run_options.get('custom-setup-commands'):
         env_worker += run_options['custom-setup-commands']
     return env_worker
@@ -50,7 +58,9 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             },
             job_script_prologue=get_worker_env(self.x509_path, self.run_options),
             job_extra_directives={
-                '+SingularityImage': f'"{self.run_options["worker-image"]}"',
+                'universe': 'container',
+                'container_image': self.run_options.get('worker-image', '/home/lnestor/scratch0/pocketcoffea-lxplus-el9-latest.sif'),
+                'container_mount_points': '/home/lnestor, /scratch0, /etc/condor',
                 'log': f'{log_dir}/dask_job_output.log',
                 'output': f'{log_dir}/dask_job_output.out',
                 'error': f'{log_dir}/dask_job_output.err',

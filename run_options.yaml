@@ -1,4 +1,4 @@
-worker-image: /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-analysis/general/pocketcoffea:lxplus-el9-latest
+worker-image: /home/lnestor/scratch0/pocketcoffea-lxplus-el9-latest.sif
 scaleout: 80
 cores-per-worker: 1
 mem-per-worker: "4GB"

@@ -5,3 +5,4 @@ mem-per-worker: "4GB"
 disk-per-worker: "2GB"
 ignore-grid-certificate: false
 custom-setup-commands: null
+retries: 0

@@ -12,6 +12,7 @@ def get_worker_env(x509_path, run_options):
     env_worker = [
         'export XRD_RUNFORKHANDLER=1',
         'export MALLOC_TRIM_THRESHOLD_=0',
+        'echo "CVMFS cms-griddata: $(ls -d /cvmfs/cms-griddata.cern.ch/cat 2>&1)"',
     ]
     if not run_options['ignore-grid-certificate']:
         proxy_filename = os.path.basename(x509_path)

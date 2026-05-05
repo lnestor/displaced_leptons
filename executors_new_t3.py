@@ -12,18 +12,11 @@ def get_worker_env(x509_path, run_options):
     env_worker = [
         'export XRD_RUNFORKHANDLER=1',
         'export MALLOC_TRIM_THRESHOLD_=0',
-        # Diagnostics — output goes to dask_job_output.out
-        'echo "=== WORKER DIAGNOSTICS ==="',
-        'echo "hostname:  $(hostname)"',
-        'echo "SCRATCH:   $_CONDOR_SCRATCH_DIR"',
-        'echo "pwd:       $(pwd)"',
     ]
     if not run_options['ignore-grid-certificate']:
         proxy_filename = os.path.basename(x509_path)
-        # File is delivered via HTCondor transfer_input_files into _CONDOR_SCRATCH_DIR
+        # Proxy delivered via HTCondor transfer_input_files into _CONDOR_SCRATCH_DIR
         env_worker.append(f'export X509_USER_PROXY=$_CONDOR_SCRATCH_DIR/{proxy_filename}')
-        env_worker.append(f'echo "proxy file: $(ls -la $X509_USER_PROXY 2>&1)"')
-    env_worker.append('echo "==========================="')
     if run_options.get('custom-setup-commands'):
         env_worker += run_options['custom-setup-commands']
     return env_worker
@@ -52,6 +45,7 @@ class DaskExecutorFactory(ExecutorFactoryABC):
         job_extra = {
             'universe': 'container',
             'container_image': self.run_options.get('worker-image', '/home/lnestor/scratch0/pocketcoffea-lxplus-el9-latest.sif'),
+            'container_mount_points': '/cvmfs',
             'log': f'{log_dir}/dask_job_output.log',
             'output': f'{log_dir}/dask_job_output.out',
             'error': f'{log_dir}/dask_job_output.err',

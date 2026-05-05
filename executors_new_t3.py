@@ -14,14 +14,15 @@ def get_worker_env(x509_path, run_options):
         'export MALLOC_TRIM_THRESHOLD_=0',
         # Diagnostics — output goes to dask_job_output.out
         'echo "=== WORKER DIAGNOSTICS ==="',
-        'echo "hostname: $(hostname)"',
-        'echo "/home/lnestor: $(ls -d /home/lnestor 2>&1)"',
-        'echo "/scratch0:    $(ls -d /scratch0 2>&1)"',
-        'echo "/etc/condor:  $(ls -d /etc/condor 2>&1)"',
+        'echo "hostname:  $(hostname)"',
+        'echo "SCRATCH:   $_CONDOR_SCRATCH_DIR"',
+        'echo "pwd:       $(pwd)"',
     ]
     if not run_options['ignore-grid-certificate']:
-        env_worker.append(f'export X509_USER_PROXY={x509_path}')
-        env_worker.append(f'echo "proxy file:   $(ls -la {x509_path} 2>&1)"')
+        proxy_filename = os.path.basename(x509_path)
+        # File is delivered via HTCondor transfer_input_files into _CONDOR_SCRATCH_DIR
+        env_worker.append(f'export X509_USER_PROXY=$_CONDOR_SCRATCH_DIR/{proxy_filename}')
+        env_worker.append(f'echo "proxy file: $(ls -la $X509_USER_PROXY 2>&1)"')
     env_worker.append('echo "==========================="')
     if run_options.get('custom-setup-commands'):
         env_worker += run_options['custom-setup-commands']
@@ -46,6 +47,21 @@ class DaskExecutorFactory(ExecutorFactoryABC):
         # Use IP — interactive-0-0.localdomain may not resolve from worker nodes
         scheduler_host = socket.gethostbyname(socket.gethostname())
 
+        x509_path = getattr(self, 'x509_path', None)
+
+        job_extra = {
+            'universe': 'container',
+            'container_image': self.run_options.get('worker-image', '/home/lnestor/scratch0/pocketcoffea-lxplus-el9-latest.sif'),
+            'log': f'{log_dir}/dask_job_output.log',
+            'output': f'{log_dir}/dask_job_output.out',
+            'error': f'{log_dir}/dask_job_output.err',
+        }
+        if not self.run_options.get('ignore-grid-certificate', False) and x509_path:
+            # HTCondor copies this file to _CONDOR_SCRATCH_DIR on the worker,
+            # which is visible inside the container. get_worker_env sets X509_USER_PROXY there.
+            job_extra['transfer_input_files'] = x509_path
+            print(f'>> Transferring proxy {x509_path} to workers via HTCondor file transfer')
+
         print(f'>> Creating HTCondorCluster, scheduler on {scheduler_host}')
         self.dask_cluster = HTCondorCluster(
             cores=self.run_options.get('cores-per-worker', 1),
@@ -56,15 +72,8 @@ class DaskExecutorFactory(ExecutorFactoryABC):
                 'host': scheduler_host,
                 'dashboard_address': ':8787',
             },
-            job_script_prologue=get_worker_env(self.x509_path, self.run_options),
-            job_extra_directives={
-                'universe': 'container',
-                'container_image': self.run_options.get('worker-image', '/home/lnestor/scratch0/pocketcoffea-lxplus-el9-latest.sif'),
-                'container_mount_points': '/home/lnestor, /scratch0, /etc/condor',
-                'log': f'{log_dir}/dask_job_output.log',
-                'output': f'{log_dir}/dask_job_output.out',
-                'error': f'{log_dir}/dask_job_output.err',
-            },
+            job_script_prologue=get_worker_env(x509_path, self.run_options),
+            job_extra_directives=job_extra,
         )
 
         print('>> Sending out jobs')

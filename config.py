@@ -44,7 +44,7 @@ from hists import lepton_hists
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f for f in glob.glob(f"{localdir}/datasets/built/*.json") if "_redirector" not in f],
+        "jsons": [f for f in glob.glob(f"{localdir}/datasets/built/*.json")],
         "filter": {
             "samples": [
                 "DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8",

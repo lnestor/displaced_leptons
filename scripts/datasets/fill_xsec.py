@@ -21,7 +21,7 @@ SOURCES_DIR = Path("datasets/sources")
 BUILT_DIR = Path("datasets/built")
 
 
-def query_xsdb(process_name: str) -> float | None:
+def query_xsdb(process_name):
     try:
         response = requests.post(XSDB_URL, json={"process_name": process_name}, timeout=10)
         response.raise_for_status()
@@ -34,15 +34,15 @@ def query_xsdb(process_name: str) -> float | None:
         return None
 
 
-def extract_process_name(das_name: str) -> str:
+def extract_process_name(das_name):
     return das_name.strip("/").split("/")[0]
 
 
-def is_signal(process_name: str) -> bool:
+def is_signal(process_name):
     return process_name.startswith("DisplacedSUSY")
 
 
-def update_source_file(path: Path, xsec_map: dict[str, float], dry_run: bool) -> int:
+def update_source_file(path, xsec_map, dry_run):
     with open(path) as f:
         data = json.load(f)
 
@@ -65,7 +65,7 @@ def update_source_file(path: Path, xsec_map: dict[str, float], dry_run: bool) ->
     return updated
 
 
-def update_built_file(path: Path, xsec: float, dry_run: bool) -> int:
+def update_built_file(path, xsec, dry_run):
     with open(path) as f:
         data = json.load(f)
 
@@ -106,7 +106,7 @@ def main():
         sys.exit(1)
 
     # Collect all unique process names across all source files
-    process_names: dict[str, str] = {}  # process_name -> built json_output path
+    process_names = {}  # process_name -> built json_output path
     for source_path in source_files:
         with open(source_path) as f:
             data = json.load(f)
@@ -115,7 +115,7 @@ def main():
             process_names[process_name] = sample["json_output"]
 
     # Query XSDB for each unique process name
-    xsec_map: dict[str, float] = {}
+    xsec_map = {}
     print(f"Querying XSDB for {len(process_names)} processes...\n")
     for process_name, built_path in sorted(process_names.items()):
         if is_signal(process_name):

@@ -73,7 +73,8 @@ def plot_variable(out, var_name, category, year, xlabel, ylim, xlim, log_y, outd
             for dataset, h in datasets.items():
                 if year not in dataset:
                     continue
-                h_sel = h[category, "nominal", :]
+                has_variation = "variation" in [ax.name for ax in h.axes]
+                h_sel = h[category, "nominal", :] if has_variation else h[category, :]
                 values = h_sel.values()
                 edges = h_sel.axes[0].edges
                 if combined_values is None:
@@ -94,7 +95,8 @@ def plot_variable(out, var_name, category, year, xlabel, ylim, xlim, log_y, outd
             for dataset, h in datasets.items():
                 if year not in dataset:
                     continue
-                h_sel = h[category, "nominal", :]
+                has_variation = "variation" in [ax.name for ax in h.axes]
+                h_sel = h[category, "nominal", :] if has_variation else h[category, :]
                 values = np.array(h_sel.values(), dtype=float)
                 edges = h_sel.axes[0].edges
 

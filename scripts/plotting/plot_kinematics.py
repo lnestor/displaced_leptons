@@ -135,12 +135,29 @@ def main():
     parser.add_argument("--year",            default="2017",       help="Year string to filter datasets")
     parser.add_argument("--normalize",       action="store_true",  help="Normalize each histogram to unit area")
     parser.add_argument("--combine",         action="store_true",  help="Sum all datasets within a sample into one line")
+    parser.add_argument("--xmin",  type=float, default=None, help="Override x-axis lower bound for all variables")
+    parser.add_argument("--xmax",  type=float, default=None, help="Override x-axis upper bound for all variables")
+    parser.add_argument("--ymin",  type=float, default=None, help="Override y-axis lower bound for all variables")
+    parser.add_argument("--ymax",  type=float, default=None, help="Override y-axis upper bound for all variables")
+    parser.add_argument("--logy",  action="store_true",      help="Force log scale on y-axis for all variables")
     args = parser.parse_args()
 
     print(f"Loading {args.input}...")
     out = load(args.input)
 
     for var_name, (xlabel, ylim, xlim, log_y) in VARIABLES.items():
+        # CLI overrides take precedence over per-variable defaults
+        if args.xmin is not None or args.xmax is not None:
+            xlo = args.xmin if args.xmin is not None else (xlim[0] if xlim is not None else None)
+            xhi = args.xmax if args.xmax is not None else (xlim[1] if xlim is not None else None)
+            xlim = (xlo, xhi)
+        if args.ymin is not None or args.ymax is not None:
+            ylo = args.ymin if args.ymin is not None else (ylim[0] if ylim is not None else None)
+            yhi = args.ymax if args.ymax is not None else (ylim[1] if ylim is not None else None)
+            ylim = (ylo, yhi)
+        if args.logy:
+            log_y = True
+
         print(f"Plotting {var_name}...")
         plot_variable(
             out, var_name, args.category, args.year,

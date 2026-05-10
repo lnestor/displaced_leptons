@@ -140,12 +140,20 @@ def main():
     parser.add_argument("--ymin",  type=float, default=None, help="Override y-axis lower bound for all variables")
     parser.add_argument("--ymax",  type=float, default=None, help="Override y-axis upper bound for all variables")
     parser.add_argument("--logy",  action="store_true",      help="Force log scale on y-axis for all variables")
+    parser.add_argument("--variable", nargs="+", metavar="VAR",
+                        help="Only plot these variables (e.g. Electron_pt Muon_eta). Default: all.")
     args = parser.parse_args()
+
+    if args.variable:
+        unknown = [v for v in args.variable if v not in VARIABLES]
+        if unknown:
+            parser.error(f"Unknown variable(s): {', '.join(unknown)}. Choose from: {', '.join(VARIABLES)}")
 
     print(f"Loading {args.input}...")
     out = load(args.input)
 
-    for var_name, (xlabel, ylim, xlim, log_y) in VARIABLES.items():
+    variables = {k: v for k, v in VARIABLES.items() if args.variable is None or k in args.variable}
+    for var_name, (xlabel, ylim, xlim, log_y) in variables.items():
         # CLI overrides take precedence over per-variable defaults
         if args.xmin is not None or args.xmax is not None:
             xlo = args.xmin if args.xmin is not None else (xlim[0] if xlim is not None else None)

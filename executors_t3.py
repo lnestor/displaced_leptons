@@ -7,6 +7,7 @@ def get_worker_env(x509_path):
     """Setup environment for workers"""
     env_worker = [
         'export XRD_RUNFORKHANDLER=1',
+        'export XRD_REDIRECTLIMIT=255',
         'export MALLOC_TRIM_THRESHOLD_=0',
         f'export X509_USER_PROXY={x509_path}',
         f'export PATH=/share/scratch0/lnestor/micromamba/envs/pocket-coffea/bin:$PATH',

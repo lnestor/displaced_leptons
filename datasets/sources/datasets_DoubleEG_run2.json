@@ -72,7 +72,7 @@
     ]
   },
   "EGamma": {
-    "sample": "EGamma",
+    "sample": "DoubleEG",
     "json_output": "datasets/EGamma.json",
     "files": [
       {

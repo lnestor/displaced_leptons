@@ -1,7 +1,27 @@
 HLT_triggers:
+  2016_PostVFP:
+    MuMu:
+      - HLT_DoubleMu33NoFiltersNoVtx
+      - HLT_DoubleMu23NoFiltersNoVtxDisplaced
+    EE:
+      - HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton60
+    EMu:
+      - HLT_Mu38NoFiltersNoVtx_Photon38_CaloIdL
+      - HLT_Mu28NoFiltersNoVtxDisplaced_Photon28_CaloIdL
   "2017":
+    MuMu:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EE:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
     EMu:
       - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL
   "2018":
+    MuMu:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EE:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
     EMu:
       - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL

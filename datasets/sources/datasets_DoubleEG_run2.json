@@ -1,0 +1,102 @@
+{
+  "DoubleEG": {
+    "sample": "DoubleEG",
+    "json_output": "datasets/DoubleEG.json",
+    "files": [
+      {
+        "das_names": [
+          "/DoubleEG/Run2016G-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleEG/Run2016H-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleEG/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleEG/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleEG/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleEG/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleEG",
+          "era": "F"
+        }
+      }
+    ]
+  },
+  "EGamma": {
+    "sample": "EGamma",
+    "json_output": "datasets/EGamma.json",
+    "files": [
+      {
+        "das_names": [
+          "/EGamma/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma/Run2018D-UL2018_MiniAODv2_NanoAODv9-v3/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      }
+    ]
+  }
+}

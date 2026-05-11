@@ -1,0 +1,96 @@
+{
+  "DoubleMuon": {
+    "sample": "DoubleMuon",
+    "json_output": "datasets/DoubleMuon.json",
+    "files": [
+      {
+        "das_names": [
+          "/DoubleMuon/Run2016G-UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2016H-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/DoubleMuon/Run2018D-UL2018_MiniAODv2_NanoAODv9-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "D"
+        }
+      }
+    ]
+  }
+}

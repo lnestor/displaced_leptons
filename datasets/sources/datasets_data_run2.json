@@ -5,7 +5,7 @@
     "files": [
       {
         "das_names": [
-          "/MuonEG/Run2018D-UL2018_MiniAODv2_NanoAODv9_GT36-v1/NANOAOD"
+          "/MuonEG/Run2018D-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
         ],
         "metadata": {
           "year": "2018",
@@ -16,7 +16,7 @@
       },
       {
         "das_names": [
-          "/MuonEG/Run2018C-UL2018_MiniAODv2_NanoAODv9_GT36-v1/NANOAOD"
+          "/MuonEG/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
         ],
         "metadata": {
           "year": "2018",

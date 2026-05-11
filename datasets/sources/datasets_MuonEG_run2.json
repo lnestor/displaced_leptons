@@ -1,0 +1,96 @@
+{
+  "MuonEG": {
+    "sample": "MuonEG",
+    "json_output": "datasets/MuonEG.json",
+    "files": [
+      {
+        "das_names": [
+          "/MuonEG/Run2016G-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2016H-UL2016_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2016",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2017C-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2017D-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2017E-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2017F-UL2017_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2017",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2018D-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2018",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      }
+    ]
+  }
+}

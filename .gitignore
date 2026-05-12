@@ -31,3 +31,4 @@ dist/
 .sites_map.json
 output_test/
 output/
+*.swp

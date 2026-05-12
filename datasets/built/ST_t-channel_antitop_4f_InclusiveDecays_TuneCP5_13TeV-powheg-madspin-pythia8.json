@@ -5,7 +5,7 @@
             "sample": "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "67.93",
             "nevents": "30609000",
             "size": "50855485124"
         },
@@ -53,7 +53,7 @@
             "sample": "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "67.93",
             "nevents": "31024000",
             "size": "51961989832"
         },
@@ -112,7 +112,7 @@
             "sample": "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "67.93",
             "nevents": "69793000",
             "size": "120886632668"
         },
@@ -185,7 +185,7 @@
             "sample": "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "67.93",
             "nevents": "95627000",
             "size": "162127100330"
         },

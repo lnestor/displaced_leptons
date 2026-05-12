@@ -5,7 +5,7 @@
             "sample": "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "32.51",
             "nevents": "3654510",
             "size": "7246892319"
         },
@@ -28,7 +28,7 @@
             "sample": "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "32.51",
             "nevents": "3176485",
             "size": "6343658000"
         },
@@ -53,7 +53,7 @@
             "sample": "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "32.51",
             "nevents": "8433998",
             "size": "17327778559"
         },
@@ -75,7 +75,7 @@
             "sample": "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "32.51",
             "nevents": "10949620",
             "size": "22028429438"
         },

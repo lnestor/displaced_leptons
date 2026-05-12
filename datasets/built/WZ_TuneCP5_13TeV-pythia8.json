@@ -5,7 +5,7 @@
             "sample": "WZ_TuneCP5_13TeV-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "27.55",
             "nevents": "7584000",
             "size": "9010706908"
         },
@@ -34,7 +34,7 @@
             "sample": "WZ_TuneCP5_13TeV-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "27.55",
             "nevents": "7934000",
             "size": "9523610852"
         },
@@ -60,7 +60,7 @@
             "sample": "WZ_TuneCP5_13TeV-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "27.55",
             "nevents": "7889000",
             "size": "9939921179"
         },
@@ -93,7 +93,7 @@
             "sample": "WZ_TuneCP5_13TeV-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "27.55",
             "nevents": "7940000",
             "size": "9716206542"
         },

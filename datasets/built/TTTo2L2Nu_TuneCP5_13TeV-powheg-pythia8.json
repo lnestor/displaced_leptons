@@ -5,7 +5,7 @@
             "sample": "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "72.15",
             "nevents": "43546000",
             "size": "91175567890"
         },
@@ -67,7 +67,7 @@
             "sample": "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "72.15",
             "nevents": "37505000",
             "size": "78828463189"
         },
@@ -113,7 +113,7 @@
             "sample": "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "72.15",
             "nevents": "106724000",
             "size": "232429644332"
         },
@@ -225,7 +225,7 @@
             "sample": "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "72.15",
             "nevents": "145020000",
             "size": "309022244066"
         },

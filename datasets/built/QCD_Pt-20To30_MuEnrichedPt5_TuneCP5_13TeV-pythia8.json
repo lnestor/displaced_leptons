@@ -5,7 +5,7 @@
             "sample": "QCD_Pt-20To30_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "2527000.0",
             "nevents": "30853571",
             "size": "33406760527"
         },
@@ -41,7 +41,7 @@
             "sample": "QCD_Pt-20To30_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "2527000.0",
             "nevents": "31926643",
             "size": "35136625571"
         },
@@ -104,7 +104,7 @@
             "sample": "QCD_Pt-20To30_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "2527000.0",
             "nevents": "64623134",
             "size": "74565406333"
         },
@@ -204,7 +204,7 @@
             "sample": "QCD_Pt-20To30_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "2527000.0",
             "nevents": "60640516",
             "size": "69031860004"
         },

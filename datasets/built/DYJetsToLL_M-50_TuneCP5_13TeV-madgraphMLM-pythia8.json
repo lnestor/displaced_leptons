@@ -5,7 +5,7 @@
             "sample": "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "5379.0",
             "nevents": "82448537",
             "size": "97272458991"
         },
@@ -79,7 +79,7 @@
             "sample": "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "5379.0",
             "nevents": "95170542",
             "size": "113699777037"
         },
@@ -158,7 +158,7 @@
             "sample": "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "5379.0",
             "nevents": "100865609",
             "size": "126773848585"
         },
@@ -284,7 +284,7 @@
             "sample": "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "5379.0",
             "nevents": "101415750",
             "size": "124779835189"
         },

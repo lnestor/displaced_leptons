@@ -5,7 +5,7 @@
             "sample": "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
             "year": "2016_PostVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "3.549",
             "nevents": "5471000",
             "size": "8679047980"
         },
@@ -37,7 +37,7 @@
             "sample": "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
             "year": "2016_PreVFP",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "3.549",
             "nevents": "5518000",
             "size": "8792611031"
         },
@@ -62,7 +62,7 @@
             "sample": "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
             "year": "2017",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "3.549",
             "nevents": "13620000",
             "size": "22561990396"
         },
@@ -91,7 +91,7 @@
             "sample": "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
             "year": "2018",
             "isMC": "True",
-            "xsec": "1.0",
+            "xsec": "3.549",
             "nevents": "19365999",
             "size": "31359845271"
         },

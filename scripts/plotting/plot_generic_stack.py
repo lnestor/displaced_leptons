@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import mplhep as hep
 import pathlib
 
+import util as plot_util
+
 hep.style.use("CMS")
 
 _ALIASES = {
@@ -58,36 +60,61 @@ def plot_compare(stack_root, compare_root, output, variable, year, category, sta
     stack_hists = [h * sf for h in stack_hists]
 
     unit = compare_hist.axes[0].label.split("(")[1][0:-1]
-    fig, ax_stack, ax_comp = hep.comp.data_model(
-        data_hist = compare_hist,
-        stacked_components = stack_hists,
-        stacked_labels = stack[::-1],
+    fig, ax_stack, ax_ratio = hep.comp.data_model(
+        data_hist=compare_hist,
+        stacked_components=stack_hists,
+        stacked_labels=stack[::-1],
         xlabel=compare_hist.axes[0].label,
         ylabel=f"Entries / {compare_hist.axes[0].widths[0]:.1f} {unit}",
         comparison="relative_difference",
+        stacked_colors=[
+            "#F19EF9",
+            "#FFFF7F",
+            "#9268C6",
+            "#80CA72"
+        ],
+        h1_label="exp",
+        h2_label="obs",
+        marker="+", # Marker for ratio plot
         flow="none" # Prevents placing a "step connection" on x axis
     )
+
+    # Make the lines between stacked histograms thicker
+    for patch in ax_stack.patches:
+        patch.set_linewidth(1.5)
+
+    # hep.comp.data_model doesn't allow for styling the data histogram
+    # To get around that, we remove it and redraw it with our custom styling
+    for line in ax_stack.lines:
+        line.remove() # Removes data points
+
+    for coll in ax_stack.collections:
+        coll.remove() # Removes data error bars
+
+    hep.histplot(
+        compare_hist,
+        ax=ax_stack,
+        histtype="errorbar",
+        color="black",
+        marker="o",
+        markersize=8,
+        flow="none",
+        label="Data"
+    )
+
     hep.cms.label("Preliminary", ax=ax_stack, data=True, loc=1) # loc=1 is top left interior
+    plot_util.apply_common_args(ax_stack, **kwargs)
 
-    if kwargs["xlim"][0] is not None:
-        ax_stack.set_xlim(left=kwargs["xlim"][0])
+    # We want the Data label to be on the top of the legend
+    handles, labels = ax_stack.get_legend_handles_labels()
+    # Remove the data_model data legend entry since it has wrong marker style
+    handles = [*handles[0:-2], handles[-1]]
+    labels = [*labels[0:-2], labels[-1]]
+    # Rearrange so data/MC unc. is first
+    handles = [handles[-1], handles[-2], *handles[0:-2]]
+    labels = [labels[-1], labels[-2], *labels[0:-2]]
+    ax_stack.legend(handles, labels, loc="lower left")
 
-    if kwargs["xlim"][1] is not None:
-        ax_stack.set_xlim(right=kwargs["xlim"][1])
-
-    if kwargs["ylim"][0] is not None:
-        ax_stack.set_ylim(bottom=kwargs["ylim"][0])
-
-    if kwargs["ylim"][1] is not None:
-        ax_stack.set_ylim(top=kwargs["ylim"][1])
-
-    if kwargs["xlog"]:
-        ax_stack.set_xscale("log")
-
-    if kwargs["ylog"]:
-        ax_stack.set_yscale("log")
-
-    ax_stack.legend(loc="lower left")
     fig.savefig(output)
 
 def plot_stack(root, output, variable, year, category, stack, **kwargs):
@@ -106,23 +133,7 @@ def plot_stack(root, output, variable, year, category, stack, **kwargs):
         ax=ax
     )
 
-    if kwargs["xlim"][0] is not None:
-        ax.set_xlim(left=kwargs["xlim"][0])
-
-    if kwargs["xlim"][1] is not None:
-        ax.set_xlim(right=kwargs["xlim"][1])
-
-    if kwargs["ylim"][0] is not None:
-        ax.set_ylim(bottom=kwargs["ylim"][0])
-
-    if kwargs["ylim"][1] is not None:
-        ax.set_ylim(top=kwargs["ylim"][1])
-
-    if kwargs["xlog"]:
-        ax.set_xscale("log")
-
-    if kwargs["ylog"]:
-        ax.set_yscale("log")
+    plot_util.apply_common_args(ax, **kwargs)
 
     ax.legend(loc="upper right")
     fig.savefig(output)
@@ -136,15 +147,9 @@ def main():
     parser.add_argument("-c", "--category")
     parser.add_argument("-y", "--year")
     parser.add_argument("-s", "--stack", nargs="+")
-    parser.add_argument("--xmin", type=float, default=None)
-    parser.add_argument("--xmax", type=float, default=None)
-    parser.add_argument("--ymin", type=float, default=None)
-    parser.add_argument("--ymax", type=float, default=None)
-    parser.add_argument("--xlog", action="store_true")
-    parser.add_argument("--ylog", action="store_true")
-    parser.add_argument("--xstart", type=float, default=None)
     parser.add_argument("--compare-file", type=pathlib.Path)
     parser.add_argument("--compare-sample")
+    plot_util.add_common_args(parser)
     args = parser.parse_args()
 
     print(f"Loading {args.input}")
@@ -177,13 +182,10 @@ def main():
             args.year,
             args.category,
             args.stack,
-            compare_f,
-            args.compare_sample,
             xlim=(args.xmin, args.xmax),
             ylim=(args.ymin, args.ymax),
             xlog=args.xlog,
-            ylog=args.ylog,
-            xstart=args.xstart
+            ylog=args.ylog
         )
 
 

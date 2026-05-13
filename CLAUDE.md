@@ -1,23 +1,8 @@
-# Displaced Leptons Analysis — lxplus Project
+# Displaced Leptons Analysis
 
-This directory (`~/leptons` on lxplus) contains a CMS analysis searching for displaced leptons, using the [PocketCoffea](https://pocketcoffea.readthedocs.io) framework. The signal model is DisplacedSUSY: stop quarks decaying to a lepton and a displaced vertex (`stopToLD`), producing dilepton final states (ee, μμ, eμ) with large impact parameters.
+CMS Run 3 analysis searching for displaced leptons using the [PocketCoffea](https://pocketcoffea.readthedocs.io) framework. Signal model: stop quarks decaying to a lepton and a displaced vertex (`stopToLD`), producing dilepton final states (ee, μμ, eμ) with large impact parameters.
 
----
-
-## Environment
-
-All analysis code runs inside an Apptainer container. Launch it with:
-
-```bash
-apptainer shell \
-  -B /afs -B /cvmfs/cms-griddata.cern.ch/ -B /cvmfs/cms.cern.ch \
-  -B /tmp -B /eos/cms -B /etc/sysconfig/ngbauth-submit \
-  -B ${XDG_RUNTIME_DIR} \
-  --env KRB5CCNAME="FILE:${XDG_RUNTIME_DIR}/krb5cc" \
-  /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-analysis/general/pocketcoffea:lxplus-el9-latest/
-```
-
-`pocket_coffea` is provided by the container — do not try to install it locally.
+Jobs run on the OSU Tier3 via Condor. Claude cannot access the Tier3 — ask the user to run commands there manually.
 
 ---
 
@@ -50,17 +35,3 @@ apptainer shell \
    - `ee`: ΔR > 0.2, ≥2 e
 
 **Object selection** (`object_selection.py`): pt, |η|, optional η-φ veto, lepton ID, supercluster gap veto (electrons), isolation (pt-dependent for electrons in Run 2 except 2016)
-
----
-
-## Running
-
-Inside the Apptainer container, from `~/leptons`:
-
-```bash
-# Test run
-pocket-coffea run --cfg config.py -o output_test/
-
-# Check output
-pocket-coffea plot --cfg config.py -i output_test/ -o plots/
-```

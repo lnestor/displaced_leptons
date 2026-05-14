@@ -96,13 +96,9 @@ cfg = Configurator(
     preselections = [dilepton_presel],
     categories = {
         "baseline": [passthrough],
-        "emu_pre": [emu_channel(parameters)],
-        "ee_cr": [ee_channel(parameters), emu_veto(parameters), d0_cuts("ElectronGood", None, 50, "ElectronGood", None, 50)],
-        "ee_sr": [ee_channel(parameters), emu_veto(parameters), d0_cuts("ElectronGood", 100, 10000, "ElectronGood", 100, 10000)],
-        "emu_cr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)],
-        "emu_sr": [emu_channel(parameters), d0_cuts("ElectronGood", 100, 10000, "MuonGood", 100, 10000)],
-        "mumu_cr": [mumu_channel(parameters), emu_veto(parameters), d0_cuts("MuonGood", None, 50, "MuonGood", None, 50)],
-        "mumu_sr": [mumu_channel(parameters), emu_veto(parameters), d0_cuts("MuonGood", 100, 10000, "MuonGood", 100, 10000)],
+        "ee": [ee_channel(parameters), emu_veto(parameters)],
+        "emu": [emu_channel(parameters)],
+        "mumu": [mumu_channel(parameters), emu_veto(parameters)],
     },
     weights = {
         "common": {
@@ -127,5 +123,6 @@ cfg = Configurator(
     variables = {
         **lepton_hists(coll="ElectronGood", label="Electron"),
         **lepton_hists(coll="MuonGood", label="Muon"),
+        **abcd_hists()
     }
 )

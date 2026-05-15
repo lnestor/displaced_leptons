@@ -1,8 +1,9 @@
 import argparse
 import coffea.util
+from matplotlib.colorbar import Colorbar
 import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
 import mplhep as hep
+import numpy as np
 import sys
 from util import (
     add_common_args,
@@ -14,15 +15,17 @@ from util import (
     get_datasets,
     get_categories,
     get_combined_hist,
-    get_is_data
+    get_is_data,
+    get_axis_names,
+    cms_loc_val
 )
 
 hep.style.use("CMS")
 
 
-def plot(h, output, is_data, **kwargs):
+def plot1d(h, output, is_data, **kwargs):
     fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=1) # loc=1 is top left interior
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
     hep.histplot(
         h,
         histtype="errorbar",
@@ -43,41 +46,46 @@ def plot(h, output, is_data, **kwargs):
 
 def plot2d(h, output, is_data, **kwargs):
     fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=1) # loc=1 is top left interior
-    hep.hist2dplot(h, ax=ax, norm=LogNorm())
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
 
-    ax.set_xscale("log")
-    ax.set_yscale("log")
-    ax.set_xlim(1, 200000)
-    ax.set_ylim(1, 200000)
-    ticks = [100, 500, 100000]
-    ax.set_xticks(ticks)
-    ax.set_yticks(ticks)
-    ax.xaxis.set_major_formatter(plt.ScalarFormatter())
-    ax.yaxis.set_major_formatter(plt.ScalarFormatter())
+    if kwargs["density"]:
+        x_widths = h.axes[0].widths
+        y_widths = h.axes[1].widths
+        areas = np.outer(x_widths, y_widths)
+        h = h / areas
+        colorbar_label = r"Events / $\mu m^2$"
+    else:
+        colorbar_label = "Events"
+
+    norm = "log" if kwargs["heatlog"] else "linear"
+    hep.hist2dplot(h, ax=ax, norm=norm, cmap="Blues", flow="none")
+    fig.axes[1].set_ylabel(colorbar_label, rotation=90, labelpad=20)
 
     apply_common_args_to_ax(ax, **kwargs)
 
-    fig.savefig(output)
+    fig.savefig(output, bbox_inches="tight")
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="Path to .coffea file")
     parser.add_argument("hist", help="Name of the histogram to plot")
-
     parser.add_argument("-c", "--category")
     parser.add_argument("-y", "--years", nargs="+")
     parser.add_argument("-s", "--sample")
-
     parser.add_argument("-o", "--output", default="plot.png", help="Output filename.")
-
     parser.add_argument("--xvar", help="Name of the variable to plot on the xaxis for 2D histograms")
     parser.add_argument("--yvar", help="Name of the varaible to plot on the yaxis for 2D histograms")
 
-    add_common_args(parser)
+    # 1D Arguments
+    parser.add_argument("--split-axis")
+
+    # 2D Arguments
+    parser.add_argument("--heatlog", action="store_true", help="Use logarithmic colorbar scale for 2D histograms")
+    parser.add_argument("--density", action="store_true", help="Scale 2D histogram by bin area (events / area)")
     # parser.add_argument("-n", "--normalize", action="store_true")
     # parser.add_argument("-ps", "--plot-separately", action="store_true")
+    add_common_args(parser)
     args = parser.parse_args()
 
     print(f"Loading {args.input}")
@@ -88,7 +96,7 @@ def main():
         print(f"\nUnknown histogram '{args.hist}' selected."
               f" Choose from:\n  {'\n  '.join(valid_hists)}\n")
         sys.exit(1)
-    
+
     valid_samples = get_samples(f, args.hist)
     if args.sample and args.sample not in valid_samples:
         print(f"\nUnknown sample '{args.sample}' selected."
@@ -146,23 +154,37 @@ def main():
     kwargs = vars(args).copy()
     kwargs.pop("output", None)
 
-    # TODO: integrate axes based on xvar/yvar
-    # Warn if 2D arguments were supplied
-
-    # h = apply_common_args_to_hist(h, **kwargs)
-
-    if len(h.axes) == 1:
-        plot(h, args.output, is_data, **kwargs)
+    dims = len(h.axes)
+    if dims == 1:
+        # Warn if xvar doesn't match only axis
+        # Warn if yvar is passed
+        pass
     else:
-        h = h.project("e1_d0", "mu1_d0")
+        axis_names = get_axis_names(h)
+        if args.xvar is None:
+            print(f"\nX-Variable not provided for {dims}-d histogram."
+                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+            sys.exit(1)
+        elif args.xvar not in axis_names:
+            print(f"\nUnknown x-variable '{args.xvar}' selected."
+                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+            sys.exit(1)
+        elif args.yvar is None:
+            h = h.project(args.xvar)
+        elif args.yvar not in axis_names:
+            # TODO: don't show the selected x axis to use in output
+            print(f"\nUnknown y-variable '{args.yvar}' selected."
+                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+            sys.exit(1)
+        else:
+            h = h.project(args.xvar, args.yvar)
+
+    h = apply_common_args_to_hist(h, **kwargs)
+    if len(h.axes) == 1:
+        plot1d(h, args.output, is_data, **kwargs)
+    else:
         plot2d(h, args.output, is_data, **kwargs)
 
 
 if __name__ == "__main__":
     main()
-
-# TODO: if axis min is 0 and also set to log, error and tell user
-# add 1e6 syntax to axis args
-# lumi label argument - number for now, but also could read from a script with a keyword
-# Extract markersize/color etc. into styles
-# Add argument to start plotting at some point

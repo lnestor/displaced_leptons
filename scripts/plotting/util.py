@@ -2,8 +2,12 @@ import hist
 
 def apply_common_args_to_hist(h, **kwargs):
     xstart = hist.loc(0 if not kwargs["xstart"] else kwargs["xstart"])
-    # ystart = hist.loc(0 if not kwargs["ystart"] else kwargs["ystart"])
-    return h[xstart:hist.loc(kwargs["xend"])]
+    ystart = hist.loc(0 if not kwargs["ystart"] else kwargs["ystart"])
+
+    if len(h.axes) == 1:
+        return h[xstart:hist.loc(kwargs["xend"])]
+    else:
+        return h[xstart:hist.loc(kwargs["xend"]), ystart:hist.loc(kwargs["yend"])]
 
 def apply_common_args_to_ax(ax, **kwargs):
     if kwargs["xmin"] is not None:
@@ -35,6 +39,19 @@ def add_common_args(parser):
     parser.add_argument("--xend", type=float, help="Ending x-axis value for plot range")
     parser.add_argument("--ystart", type=float, help="Starting y-axis value for plot range")
     parser.add_argument("--yend", type=float, help="Ending y-axis value for plot range")
+    parser.add_argument(
+        "--cms-loc",
+        choices=["interior", "exterior"],
+        default="interior",
+        help="Where the CMS text should go"
+    )
+
+
+def cms_loc_val(cms_loc_str):
+    if cms_loc_str == "interior":
+        return 1
+    else:
+        return 0
 
 
 def extract_year(year_key):
@@ -75,3 +92,7 @@ def get_combined_hist(f, variable, samples, datasets, category, is_data):
 
 def get_is_data(f, dataset):
     return f["datasets_metadata"]["by_dataset"][dataset]["isMC"] == "False"
+
+
+def get_axis_names(h):
+    return [ax.name for ax in h.axes]

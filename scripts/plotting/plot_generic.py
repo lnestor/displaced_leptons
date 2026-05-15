@@ -1,5 +1,6 @@
 import argparse
 import coffea.util
+import hist
 from matplotlib.colorbar import Colorbar
 import matplotlib.pyplot as plt
 import mplhep as hep
@@ -23,30 +24,42 @@ from util import (
 hep.style.use("CMS")
 
 
-def plot1d(h, output, is_data, **kwargs):
-    fig, ax = plt.subplots()
+def plot1d(h, ax, is_data, **kwargs):
+    is_multiple = isinstance(h, list)
+
+    if kwargs["normalize"]:
+        if is_multiple:
+            h = [hi / hi.sum().value for hi in h]
+        else:
+            h = h / h.sum().value
+
     hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
     hep.histplot(
         h,
         histtype="errorbar",
         ax=ax,
-        markersize=8,
-        marker="o",
-        color="black",
+        label=kwargs["labels"] if is_multiple else None,
         flow="none" # Prevents placing a "step connection" to the first visible point
     )
 
     apply_common_args_to_ax(ax, **kwargs)
 
-    unit = h.axes[0].label.split("[")[1][0:-1]
-    ax.set_ylabel(f"Entries / {h.axes[0].widths[0]:.1f} {unit}")
+    h_single = h[0] if is_multiple else h
+    width = h_single.axes[0].widths[0]
+    unit = h_single.axes[0].label.split("[")[1][0:-1]
 
-    fig.savefig(output)
+    label = f"Entries / {width:.1f} {unit}"
+    if kwargs["normalize"]:
+        label += " (Unit Area Norm.)"
+    ax.set_ylabel(label)
+
+    if is_multiple:
+        ax.legend()
 
 
-def plot2d(h, output, is_data, **kwargs):
-    fig, ax = plt.subplots()
+def plot2d(h, fig, ax, is_data, **kwargs):
     hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
+
 
     if kwargs["density"]:
         x_widths = h.axes[0].widths
@@ -58,12 +71,10 @@ def plot2d(h, output, is_data, **kwargs):
         colorbar_label = "Events"
 
     norm = "log" if kwargs["heatlog"] else "linear"
-    hep.hist2dplot(h, ax=ax, norm=norm, cmap="Blues", flow="none")
+    hep.hist2dplot(h, ax=ax, norm=norm, flow="none")
     fig.axes[1].set_ylabel(colorbar_label, rotation=90, labelpad=20)
 
     apply_common_args_to_ax(ax, **kwargs)
-
-    fig.savefig(output, bbox_inches="tight")
 
 
 def main():
@@ -79,12 +90,12 @@ def main():
 
     # 1D Arguments
     parser.add_argument("--split-axis")
+    parser.add_argument("--normalize", action="store_true")
 
     # 2D Arguments
     parser.add_argument("--heatlog", action="store_true", help="Use logarithmic colorbar scale for 2D histograms")
     parser.add_argument("--density", action="store_true", help="Scale 2D histogram by bin area (events / area)")
-    # parser.add_argument("-n", "--normalize", action="store_true")
-    # parser.add_argument("-ps", "--plot-separately", action="store_true")
+
     add_common_args(parser)
     args = parser.parse_args()
 
@@ -155,6 +166,9 @@ def main():
     kwargs.pop("output", None)
 
     dims = len(h.axes)
+    if args.split_axis is not None:
+        dims -= 1
+
     if dims == 1:
         # Warn if xvar doesn't match only axis
         # Warn if yvar is passed
@@ -179,11 +193,40 @@ def main():
         else:
             h = h.project(args.xvar, args.yvar)
 
+    # TODO: Applying normalize here would be nice, but I'm not sure that is an option
+    # if we have split hists. Perhaps we can apply normalize here and then move this
+    # inside the if statements
     h = apply_common_args_to_hist(h, **kwargs)
-    if len(h.axes) == 1:
-        plot1d(h, args.output, is_data, **kwargs)
+    fig, ax = plt.subplots()
+
+    if args.split_axis:
+        # Hist should only be 2D at this point.
+        h_list = []
+        labels = []
+
+        split_ax_idx = next(i for i, ax in enumerate(h.axes) if ax.name == args.split_axis)
+        split_ax = h.axes[split_ax_idx]
+        x_ax_name = next(ax.name for ax in h.axes if ax.name != args.split_axis)
+
+        for bin_idx in range(len(split_ax.edges) - 1):
+            edges = split_ax.bin(bin_idx)
+            label = f"${edges[0]} <$ {split_ax.label} $< {edges[1]}$"
+            if split_ax_idx == 0:
+                h_proj = h[bin_idx, :].project(x_ax_name)
+            else:
+                h_proj = h[:, bin_idx].project(x_ax_name)
+
+            h_list.append(h_proj)
+            labels.append(label)
+
+        kwargs["labels"] = labels
+        plot1d(h_list, ax, is_data, **kwargs)
+    elif len(h.axes) == 1:
+        plot1d(h, ax, is_data, **kwargs)
     else:
-        plot2d(h, args.output, is_data, **kwargs)
+        plot2d(h, fig, ax, is_data, **kwargs)
+
+    fig.savefig(args.output, bbox_inches="tight")
 
 
 if __name__ == "__main__":

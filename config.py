@@ -39,7 +39,7 @@ from pocket_coffea.parameters.cuts import passthrough
 
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
-from hists import lepton_hists
+from hists import lepton_hists, backbground_hists
 
 cfg = Configurator(
     parameters = parameters,
@@ -123,6 +123,6 @@ cfg = Configurator(
     variables = {
         **lepton_hists(coll="ElectronGood", label="Electron"),
         **lepton_hists(coll="MuonGood", label="Muon"),
-        **abcd_hists()
+        **background_hists()
     }
 )

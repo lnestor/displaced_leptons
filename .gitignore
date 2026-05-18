@@ -32,3 +32,9 @@ dist/
 output_test/
 output/
 *.swp
+
+# LPC specifics
+.bashrc
+.cmslpc-local-conf
+.local/
+shell

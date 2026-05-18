@@ -14,46 +14,46 @@ def background_hists():
     return {
         "abcd_ee": HistConf(
             [
-                Axis(coll="ElectronGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
-                Axis(coll="ElectronGood", field="absd0_um", pos=1, bins=abcd_d0_bins, label=rf"Subleading Electron $|d_0|$ [$\mu m$]"),
-                Axis(coll="ElectronGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Electron $p_T$"),
+                Axis(name="e1_d0", coll="ElectronGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
+                Axis(name="e2_d0", coll="ElectronGood", field="absd0_um", pos=1, bins=abcd_d0_bins, label=rf"Subleading Electron $|d_0|$ [$\mu m$]"),
+                Axis(name="e1_pt", coll="ElectronGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Electron $p_T$"),
             ],
             only_categories=["ee"]
         ),
         "abcd_emu": HistConf(
             [
-                Axis(coll="ElectronGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Muon $p_T$"),
+                Axis(name="e1_d0", coll="ElectronGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
+                Axis(name="mu1_d0", coll="MuonGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
+                Axis(name="mu1_pt", coll="MuonGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Muon $p_T$"),
             ],
             only_categories=["emu"]
         ),
         "abcd_mumu": HistConf(
             [
-                Axis(coll="MuonGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="absd0_um", pos=1, bins=abcd_d0_bins, label=rf"Subleading Muon $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Muon $p_T$"),
+                Axis(name="mu1_d0", coll="MuonGood", field="absd0_um", pos=0, bins=abcd_d0_bins, label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
+                Axis(name="mu2_d0", coll="MuonGood", field="absd0_um", pos=1, bins=abcd_d0_bins, label=rf"Subleading Muon $|d_0|$ [$\mu m$]"),
+                Axis(name="mu1_pt", coll="MuonGood", field="pt", pos=0, bins=abcd_pt_bins, label=rf"Leading Muon $p_T$"),
             ],
             only_categories=["mumu"]
         ),
         "d0d0_ee": HistConf(
             [
-                Axis(coll="ElectronGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
-                Axis(coll="ElectronGood", field="absd0_um", pos=1, bins=100, start=0, stop=200, label=rf"Subleading Electron $|d_0|$ [$\mu m$]")
+                Axis(name="e1_d0", coll="ElectronGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
+                Axis(name="e2_d0", coll="ElectronGood", field="absd0_um", pos=1, bins=100, start=0, stop=200, label=rf"Subleading Electron $|d_0|$ [$\mu m$]")
             ],
             only_categories=["ee"]
         ),
         "d0d0_emu": HistConf(
             [
-                Axis(coll="ElectronGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="absd0_um", pos=0, bins=100, start=0, stop=200, label=rf"Leading Muon $|d_0|$ [$\mu m$]")
+                Axis(name="e1_d0", coll="ElectronGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Electron $|d_0|$ [$\mu m$]"),
+                Axis(name="mu1_d0", coll="MuonGood", field="absd0_um", pos=0, bins=100, start=0, stop=200, label=rf"Leading Muon $|d_0|$ [$\mu m$]")
             ],
             only_categories=["emu"]
         ),
         "d0d0_mumu": HistConf(
             [
-                Axis(coll="MuonGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
-                Axis(coll="MuonGood", field="absd0_um", pos=1, bins=100, start=0, stop=200, label=rf"Subleading Muon $|d_0|$ [$\mu m$]")
+                Axis(name="mu1_d0", coll="MuonGood", field="absd0_um", pos=0, bins=[0, 100, 1e5], label=rf"Leading Muon $|d_0|$ [$\mu m$]"),
+                Axis(name="mu2_d0", coll="MuonGood", field="absd0_um", pos=1, bins=100, start=0, stop=200, label=rf"Subleading Muon $|d_0|$ [$\mu m$]")
             ],
             only_categories=["mumu"]
         )

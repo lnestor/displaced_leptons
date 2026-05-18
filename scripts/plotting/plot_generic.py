@@ -46,7 +46,7 @@ def plot1d(h, ax, is_data, **kwargs):
 
     h_single = h[0] if is_multiple else h
     width = h_single.axes[0].widths[0]
-    unit = h_single.axes[0].label.split("(")[1][0:-1]
+    unit = h_single.axes[0].label.split("[")[1][0:-1]
 
     label = f"Entries / {width:.1f} {unit}"
     if kwargs["normalize"]:

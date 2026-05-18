@@ -39,7 +39,7 @@ from pocket_coffea.parameters.cuts import passthrough
 
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
-from hists import lepton_hists, backbground_hists
+from hists import lepton_hists, background_hists
 
 cfg = Configurator(
     parameters = parameters,

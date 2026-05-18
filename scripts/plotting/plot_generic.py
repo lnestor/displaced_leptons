@@ -46,7 +46,7 @@ def plot1d(h, ax, is_data, **kwargs):
 
     h_single = h[0] if is_multiple else h
     width = h_single.axes[0].widths[0]
-    unit = h_single.axes[0].label.split("[")[1][0:-1]
+    unit = h_single.axes[0].label.split("(")[1][0:-1]
 
     label = f"Entries / {width:.1f} {unit}"
     if kwargs["normalize"]:
@@ -105,18 +105,18 @@ def main():
     valid_hists = get_variables(f)
     if not args.hist in valid_hists:
         print(f"\nUnknown histogram '{args.hist}' selected."
-              f" Choose from:\n  {'\n  '.join(valid_hists)}\n")
+               " Choose from:\n  {0}\n".format("\n  ".join(valid_hists)))
         sys.exit(1)
 
     valid_samples = get_samples(f, args.hist)
     if args.sample and args.sample not in valid_samples:
         print(f"\nUnknown sample '{args.sample}' selected."
-              f" Choose from:\n  {'\n  '.join(valid_samples)}")
+               " Choose from:\n  {0}".format("\n  ".join(valid_samples)))
         sys.exit(1)
     elif not args.sample:
         samples = valid_samples
         print(f"Sample not provided."
-              f" Will combine all:\n  {'\n  '.join(valid_samples)}")
+               " Will combine all:\n  {0}".format("\n  ".join(valid_samples)))
     else:
         # TODO: support multiple samples pass in
         samples = [args.sample]
@@ -127,12 +127,12 @@ def main():
     if args.years and any(y not in valid_years for y in args.years):
         invalid_years = [y for y in args.years if not y in valid_years]
         print(f"\nUnknown year(s) '{' '.join(invalid_years)}' selected."
-              f"Choose from:\n  {'\n  '.join(sorted(valid_years))}")
+               "Choose from:\n  {0}".format("\n  ".join(sorted(valid_years))))
         sys.exit(1)
     elif not args.years:
         years = valid_years
         print(f"Years not provided."
-              f" Will combine all:\n  {'\n  '.join(valid_years)}")
+               " Will combine all:\n  {0}".format("\n  ".join(valid_years)))
     else:
         years = args.years
         print(f"Using years: {' '.join(sorted(args.years))}")
@@ -142,7 +142,7 @@ def main():
     valid_cats = get_categories(f, args.hist, samples[0], datasets[0])
     if args.category and not args.category in valid_cats:
         print(f"\nUnknown category '{args.category}' selected."
-              f" Choose from:\n  {'\n  '.join(valid_cats)}")
+               " Choose from:\n  {0}".format("\n  ".join(valid_cats)))
         sys.exit(1)
     elif not args.category:
         print("No category chosen. Defauling to baseline category")
@@ -177,18 +177,18 @@ def main():
         axis_names = get_axis_names(h)
         if args.xvar is None:
             print(f"\nX-Variable not provided for {dims}-d histogram."
-                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         elif args.xvar not in axis_names:
             print(f"\nUnknown x-variable '{args.xvar}' selected."
-                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         elif args.yvar is None:
             h = h.project(args.xvar)
         elif args.yvar not in axis_names:
             # TODO: don't show the selected x axis to use in output
             print(f"\nUnknown y-variable '{args.yvar}' selected."
-                  f" Choose from:\n  {'\n  '.join(axis_names)}")
+                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         else:
             h = h.project(args.xvar, args.yvar)

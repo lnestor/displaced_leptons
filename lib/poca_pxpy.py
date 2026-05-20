@@ -6,21 +6,25 @@ MIN_DETERMINANT = 0.1
 MAX_JUMP = 20
 
 def calculate(l1, l2, max_iterations=5):
-    phi1_0 = (l1["track_phi"] + 2*np.pi) % (2*np.pi) - np.pi
-    phi2_0 = (l2["track_phi"] + 2*np.pi) % (2*np.pi) - np.pi
+    pt1 = np.sqrt(l1["px"]**2 + l1["py"]**2)
+    pt2 = np.sqrt(l2["px"]**2 + l2["py"]**2)
+
+    # sin/cos of phi0 computed directly from px/py, avoiding arctan2 → sin/cos roundtrip
+    sin1_0 = -l1["py"] / pt1
+    cos1_0 = -l1["px"] / pt1
+    sin2_0 = -l2["py"] / pt2
+    cos2_0 = -l2["px"] / pt2
+
+    phi1_0 = np.arctan2(sin1_0, cos1_0)
+    phi2_0 = np.arctan2(sin2_0, cos2_0)
     phi1 = phi1_0
     phi2 = phi2_0
 
-    sin1_0 = np.sin(phi1_0)
-    cos1_0 = np.cos(phi1_0)
-    sin2_0 = np.sin(phi2_0)
-    cos2_0 = np.cos(phi2_0)
+    tan1 = -l1["pz"] / pt1
+    tan2 = -l2["pz"] / pt2
 
-    tan1 = -np.tan(l1["track_lambda"])
-    tan2 = -np.tan(l2["track_lambda"])
-
-    r1 = l1["pt"] / (l1["charge"] * l1["bField_z"])
-    r2 = l2["pt"] / (l2["charge"] * l2["bField_z"])
+    r1 = pt1 / (l1["charge"] * l1["bField_z"])
+    r2 = pt2 / (l2["charge"] * l2["bField_z"])
 
     a = l2["track_vx"] - l1["track_vx"] + r1 * sin1_0 - r2 * sin2_0
     b = l2["track_vy"] - l1["track_vy"] - r1 * cos1_0 + r2 * cos2_0
@@ -71,14 +75,14 @@ def calculate(l1, l2, max_iterations=5):
     )
 
     p1 = ak.zip({
-        "x": l1["track_vx"] + r1 * (np.sin(phi1) - np.sin(phi1_0)),
-        "y": l1["track_vy"] + r1 * (-np.cos(phi1) + np.cos(phi1_0)),
+        "x": l1["track_vx"] + r1 * (np.sin(phi1) - sin1_0),
+        "y": l1["track_vy"] + r1 * (-np.cos(phi1) + cos1_0),
         "z": l1["track_vz"] + r1 * tan1 * (phi1 - phi1_0)
     })
 
     p2 = ak.zip({
-        "x": l2["track_vx"] + r2 * (np.sin(phi2) - np.sin(phi2_0)),
-        "y": l2["track_vy"] + r2 * (-np.cos(phi2) + np.cos(phi2_0)),
+        "x": l2["track_vx"] + r2 * (np.sin(phi2) - sin2_0),
+        "y": l2["track_vy"] + r2 * (-np.cos(phi2) + cos2_0),
         "z": l2["track_vz"] + r2 * tan2 * (phi2 - phi2_0)
     })
 

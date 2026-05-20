@@ -7,10 +7,11 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
-from poca import calculate
+from poca_phi  import calculate as calculate_phi
+from poca_pxpy import calculate as calculate_pxpy
 
-# Map TTree branch suffix to the field name poca.calculate expects
-BRANCH_TO_FIELD = {
+# track_phi/lambda from TTree (float32); vx/vy/vz/bField_z float32
+BRANCH_TO_FIELD_PHI = {
     "phi":      "track_phi",
     "lambda":   "track_lambda",
     "pt":       "pt",
@@ -21,15 +22,70 @@ BRANCH_TO_FIELD = {
     "vz":       "track_vz",
 }
 
+# px/py/pz as float32; vx/vy/vz/bField_z float32
+BRANCH_TO_FIELD_PXPY_F32 = {
+    "px_f":     "px",
+    "py_f":     "py",
+    "pz_f":     "pz",
+    "charge":   "charge",
+    "bField_z": "bField_z",
+    "vx":       "track_vx",
+    "vy":       "track_vy",
+    "vz":       "track_vz",
+}
+
+# px/py/pz as float64; vx/vy/vz/bField_z float64
+BRANCH_TO_FIELD_PXPY_F64 = {
+    "px":         "px",
+    "py":         "py",
+    "pz":         "pz",
+    "charge":     "charge",
+    "bField_z_d": "bField_z",
+    "vx_d":       "track_vx",
+    "vy_d":       "track_vy",
+    "vz_d":       "track_vz",
+}
+
 def point_distance(p, q):
     dx = p["x"] - q["x"]
     dy = p["y"] - q["y"]
     dz = p["z"] - q["z"]
     return np.sqrt(dx**2 + dy**2 + dz**2)
 
-def make_collection(raw, prefix):
+def midpoint(p1, p2):
+    return ak.zip({
+        "x": (p1["x"] + p2["x"]) / 2,
+        "y": (p1["y"] + p2["y"]) / 2,
+        "z": (p1["z"] + p2["z"]) / 2,
+    })
+
+def print_stats(label, diff):
+    arr = ak.to_numpy(ak.drop_none(diff))
+    print(f"  {label}: n={len(arr)}  mean={arr.mean():.3e}  max={arr.max():.3e}  >1um={(arr > 1e-4).sum()}")
+
+def make_collection(raw, prefix, field_map):
     return ak.zip({field: raw[f"{prefix}_{branch}"]
-                   for branch, field in BRANCH_TO_FIELD.items()})
+                   for branch, field in field_map.items()})
+
+def run_comparison(label, calculate_fn, l1, l2, cpp_p1, cpp_p2, cpp_mid):
+    py_p1, py_p2 = calculate_fn(l1, l2)
+    py_mid = midpoint(py_p1, py_p2)
+
+    py_valid  = ~ak.is_none(py_p1)
+    cpp_valid = ~ak.is_none(cpp_p1)
+
+    print(f"\n=== {label} ===")
+    print(f"  both valid: {ak.sum(py_valid & cpp_valid)}  "
+          f"py-only: {ak.sum(py_valid & ~cpp_valid)}  "
+          f"cpp-only: {ak.sum(~py_valid & cpp_valid)}  "
+          f"neither: {ak.sum(~py_valid & ~cpp_valid)}")
+    print("  Individual POCA points:")
+    print_stats("trk1 POCA", point_distance(py_p1, cpp_p1))
+    print_stats("trk2 POCA", point_distance(py_p2, cpp_p2))
+    print("  Midpoint:")
+    print_stats("midpoint ", point_distance(py_mid, cpp_mid))
+
+    return py_p1, py_p2, py_mid
 
 def main():
     parser = argparse.ArgumentParser(description="Compare Python vs C++ POCA")
@@ -39,42 +95,39 @@ def main():
     with uproot.open(args.input) as f:
         raw = f["leptonPoca/LeptonPoca"].arrays(library="ak", entry_stop=1000)
 
-    l1 = make_collection(raw, "trk1")
-    l2 = make_collection(raw, "trk2")
-
-    py_p1, py_p2 = calculate(l1, l2)
-
     cpp_valid = raw["poca_status"] == 0
-    cpp_p1 = ak.mask(ak.zip({"x": raw["poca1_x"], "y": raw["poca1_y"], "z": raw["poca1_z"]}), cpp_valid)
-    cpp_p2 = ak.mask(ak.zip({"x": raw["poca2_x"], "y": raw["poca2_y"], "z": raw["poca2_z"]}), cpp_valid)
+    cpp_p1  = ak.mask(ak.zip({"x": raw["poca1_x"], "y": raw["poca1_y"], "z": raw["poca1_z"]}), cpp_valid)
+    cpp_p2  = ak.mask(ak.zip({"x": raw["poca2_x"], "y": raw["poca2_y"], "z": raw["poca2_z"]}), cpp_valid)
+    cpp_mid = midpoint(cpp_p1, cpp_p2)
 
-    py_valid = ~ak.is_none(py_p1)
-    n = len(py_valid)
-    both_valid = py_valid & cpp_valid
-    py_only    = py_valid & ~cpp_valid
-    cpp_only   = ~py_valid & cpp_valid
-    neither    = ~py_valid & ~cpp_valid
+    l1_phi      = make_collection(raw, "trk1", BRANCH_TO_FIELD_PHI)
+    l2_phi      = make_collection(raw, "trk2", BRANCH_TO_FIELD_PHI)
+    l1_pxpy_f32 = make_collection(raw, "trk1", BRANCH_TO_FIELD_PXPY_F32)
+    l2_pxpy_f32 = make_collection(raw, "trk2", BRANCH_TO_FIELD_PXPY_F32)
+    l1_pxpy_f64 = make_collection(raw, "trk1", BRANCH_TO_FIELD_PXPY_F64)
+    l2_pxpy_f64 = make_collection(raw, "trk2", BRANCH_TO_FIELD_PXPY_F64)
 
-    print(f"\nValidity comparison (n={n}):")
-    print(f"  both valid:   {ak.sum(both_valid)}")
-    print(f"  python only:  {ak.sum(py_only)}")
-    print(f"  cpp only:     {ak.sum(cpp_only)}")
-    print(f"  neither:      {ak.sum(neither)}")
+    py_p1_phi, py_p2_phi, py_mid_phi = run_comparison(
+        "phi (f32 track_phi/lambda)", calculate_phi, l1_phi, l2_phi, cpp_p1, cpp_p2, cpp_mid)
+    py_p1_f32, py_p2_f32, py_mid_f32 = run_comparison(
+        "px/py f32", calculate_pxpy, l1_pxpy_f32, l2_pxpy_f32, cpp_p1, cpp_p2, cpp_mid)
+    py_p1_f64, py_p2_f64, py_mid_f64 = run_comparison(
+        "px/py f64", calculate_pxpy, l1_pxpy_f64, l2_pxpy_f64, cpp_p1, cpp_p2, cpp_mid)
 
-    diff1 = ak.to_numpy(ak.drop_none(point_distance(py_p1, cpp_p1)))
-    diff2 = ak.to_numpy(ak.drop_none(point_distance(py_p2, cpp_p2)))
-
-    for label, diff in [("trk1 POCA", diff1), ("trk2 POCA", diff2)]:
-        print(f"\n{label} |py - cpp| [cm]:  n={len(diff)}")
-        print(f"  mean = {diff.mean():.3e}")
-        print(f"  max  = {diff.max():.3e}")
-        print(f"  > 1 um: {(diff > 1e-4).sum()}")
-
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-    for ax, label, diff in [
-        (axes[0], "trk1 POCA", diff1),
-        (axes[1], "trk2 POCA", diff2),
-    ]:
+    # 3x3 histogram: rows = approach, cols = trk1 / trk2 / midpoint
+    fig, axes = plt.subplots(3, 3, figsize=(14, 10))
+    comparisons = [
+        ("phi  trk1",  ak.to_numpy(ak.drop_none(point_distance(py_p1_phi, cpp_p1)))),
+        ("phi  trk2",  ak.to_numpy(ak.drop_none(point_distance(py_p2_phi, cpp_p2)))),
+        ("phi  midpt", ak.to_numpy(ak.drop_none(point_distance(py_mid_phi, cpp_mid)))),
+        ("f32  trk1",  ak.to_numpy(ak.drop_none(point_distance(py_p1_f32, cpp_p1)))),
+        ("f32  trk2",  ak.to_numpy(ak.drop_none(point_distance(py_p2_f32, cpp_p2)))),
+        ("f32  midpt", ak.to_numpy(ak.drop_none(point_distance(py_mid_f32, cpp_mid)))),
+        ("f64  trk1",  ak.to_numpy(ak.drop_none(point_distance(py_p1_f64, cpp_p1)))),
+        ("f64  trk2",  ak.to_numpy(ak.drop_none(point_distance(py_p2_f64, cpp_p2)))),
+        ("f64  midpt", ak.to_numpy(ak.drop_none(point_distance(py_mid_f64, cpp_mid)))),
+    ]
+    for ax, (label, diff) in zip(axes.flat, comparisons):
         ax.hist(diff, bins=100)
         ax.set_xlabel("|py - cpp| [cm]")
         ax.set_title(label)

@@ -71,14 +71,14 @@ def calculate(l1, l2, max_iterations=5):
     )
 
     p1 = ak.zip({
-        "x": l1["track_vx"] + r1 * (np.sin(phi1) - np.sin(phi1_0)),
-        "y": l1["track_vy"] + r1 * (-np.cos(phi1) + np.cos(phi1_0)),
+        "x": l1["track_vx"] + r1 * (np.sin(phi1) - sin1_0),
+        "y": l1["track_vy"] + r1 * (-np.cos(phi1) + cos1_0),
         "z": l1["track_vz"] + r1 * tan1 * (phi1 - phi1_0)
     })
 
     p2 = ak.zip({
-        "x": l2["track_vx"] + r2 * (np.sin(phi2) - np.sin(phi2_0)),
-        "y": l2["track_vy"] + r2 * (-np.cos(phi2) + np.cos(phi2_0)),
+        "x": l2["track_vx"] + r2 * (np.sin(phi2) - sin2_0),
+        "y": l2["track_vy"] + r2 * (-np.cos(phi2) + cos2_0),
         "z": l2["track_vz"] + r2 * tan2 * (phi2 - phi2_0)
     })
 

@@ -177,18 +177,18 @@ def main():
         axis_names = get_axis_names(h)
         if args.xvar is None:
             print(f"\nX-Variable not provided for {dims}-d histogram."
-                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
+                  " Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         elif args.xvar not in axis_names:
             print(f"\nUnknown x-variable '{args.xvar}' selected."
-                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
+                  " Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         elif args.yvar is None:
             h = h.project(args.xvar)
         elif args.yvar not in axis_names:
             # TODO: don't show the selected x axis to use in output
             print(f"\nUnknown y-variable '{args.yvar}' selected."
-                  f" Choose from:\n  {0}".format("\n  ".join(axis_names)))
+                  " Choose from:\n  {0}".format("\n  ".join(axis_names)))
             sys.exit(1)
         else:
             h = h.project(args.xvar, args.yvar)

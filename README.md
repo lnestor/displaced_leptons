@@ -41,14 +41,7 @@ The default command opens a shell based on the `latest` PocketCoffea image:
 ./shell
 ```
 
-It is also possible to specify a different PocketCoffea image. For instance, this command:
-
+The `pocket-coffea` command inside this image points to a version of python that does not have `lpcjobqueue` installed. To get around this, you need to invoke the runner as a module directly with python. Additionally, you must provide a scaleout parameter or else you will get a single condor worker.
 ```bash
-./shell /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-analysis/general/pocketcoffea:lxplus-el9-stable
-```
-will open a shell based on the `stable` image.
-
-Then, you can run your analysis by sending condor jobs using Dask on the LPC with the following command:
-```bash
-pocket-coffea run --cfg config.py -e dask@lpc --process-separately -o output_test_lpc
+python -m pocket_coffea.scripts.runner run --cfg config.py --executor dask@lpc --executor-custom-setup executors_lpc.py --outputdir output/ --scaleout 30
 ```

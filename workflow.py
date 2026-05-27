@@ -9,8 +9,9 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
     def apply_object_preselection(self, variation):
         self.events["ElectronGood"] = displaced_lepton_selection(self.events, "Electron", self._year, self.params)
         self.events["MuonGood"] = displaced_lepton_selection(self.events, "Muon", self._year, self.params)
+
         self.events["ElectronGood"] = ak.with_field(self.events.ElectronGood, abs(self.events.ElectronGood.dxy) * 1e4, "absd0_um")
-        self.events["MuonGood"] = ak.with_field(self.events.MuonGood, abs(self.events.MuonGood.dxy) * 1e4, "absd0_um")
+        self.events["MuonGood"] = ak.with_field(self.events.MuonGood, abs(self.events.MuonGood.dxybs) * 1e4, "absd0_um")
 
     def count_objects(self, variation):
         self.events["nElectronGood"] = ak.num(self.events.ElectronGood)

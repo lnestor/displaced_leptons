@@ -44,11 +44,12 @@ from hists import lepton_hists, background_hists
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f for f in glob.glob(f"{localdir}/datasets/built/*.json")],
+        "jsons": [f for f in glob.glob(f"{localdir}/datasets/local/*.json")],
         "filter": {
             "samples": [
-                "DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8",
-                "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
+                "MuonEG",
+                # "DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8",
+                # "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
                 # "QCD_Pt-1000_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
                 # "QCD_Pt-120To170_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
                 # "QCD_Pt-120to170_EMEnriched_TuneCP5_13TeV-pythia8",
@@ -69,20 +70,20 @@ cfg = Configurator(
                 # "QCD_Pt-800To1000_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
                 # "QCD_Pt-80To120_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
                 # "QCD_Pt-80to120_EMEnriched_TuneCP5_13TeV-pythia8",
-                "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
-                "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
-                "ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
-                "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
-                "ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
-                "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
-                "TTToHadronic_TuneCP5_13TeV-powheg-pythia8",
-                "TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8",
-                "WW_TuneCP5_13TeV-pythia8",
-                "WZ_TuneCP5_13TeV-pythia8",
-                "ZZ_TuneCP5_13TeV-pythia8",
+                # "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
+                # "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
+                # "ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
+                # "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
+                # "ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
+                # "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
+                # "TTToHadronic_TuneCP5_13TeV-powheg-pythia8",
+                # "TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8",
+                # "WW_TuneCP5_13TeV-pythia8",
+                # "WZ_TuneCP5_13TeV-pythia8",
+                # "ZZ_TuneCP5_13TeV-pythia8",
             ],
             "samples_exclude": [],
-            "year": ["2018"]
+            "year": ["2016_PostVFP", "2017", "2018"]
         }
     },
     workflow = DisplacedLeptonProcessor,
@@ -96,9 +97,10 @@ cfg = Configurator(
     preselections = [dilepton_presel],
     categories = {
         "baseline": [passthrough],
-        "ee": [ee_channel(parameters), emu_veto(parameters)],
+        # "ee": [ee_channel(parameters), emu_veto(parameters)],
         "emu": [emu_channel(parameters)],
-        "mumu": [mumu_channel(parameters), emu_veto(parameters)],
+        "emu_cr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)]
+        # "mumu": [mumu_channel(parameters), emu_veto(parameters)],
     },
     weights = {
         "common": {

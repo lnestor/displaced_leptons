@@ -27,14 +27,14 @@ def displaced_lepton_selection(events, lepton_flavor, year, params):
         passes_SC = np.invert((etaSC >= 1.442) & (etaSC <= 1.5660))
 
         if year == "2016":
-            passes_iso = leptons.pfRelIso03_all < cuts["iso"]
+            passes_iso = leptons.customIso < cuts["iso"]
         else:
-            passes_iso = leptons.pfRelIso03_all < cuts["iso_base"] + cuts["iso_pt_dep"] / leptons.pt
+            passes_iso = leptons.customIso < cuts["iso_base"] + cuts["iso_pt_dep"] / leptons.pt
 
     elif lepton_flavor == "Muon":
         passes_id = leptons[cuts.id] == True
         passes_SC = ak.ones_like(leptons.pt, dtype=bool)
-        passes_iso = leptons.pfRelIso04_all < cuts["iso"]
+        passes_iso = leptons.customIso < cuts["iso"]
     else:
         raise ValueError(f"Lepton type {lepton_flavor} not supported for object preselection.")
 

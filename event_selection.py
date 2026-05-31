@@ -20,8 +20,10 @@ def b2b_muons_mask(events, alpha_max=-0.99):
     mask = ~has_back_to_back
     return ak.where(ak.is_none(mask), False, mask)
 
+
 def _b2b_muons_impl(events, params, year, sample, **kwargs):
     return b2b_muons_mask(events, params["alpha_max"])
+
 
 no_b2b_muons = Cut(
     name="no_b2b_muons",
@@ -29,6 +31,23 @@ no_b2b_muons = Cut(
     function=_b2b_muons_impl
 )
 
+
+def muon_timing_mask(events, min_delta_t = -20, min_ndof = 7):
+    muons = events.MuonGood[:, :2]
+    sorted_muons = muons[ak.argsort(muons.phi, axis=1, ascending=False)]
+
+    upper = sorted_muons[:, 0]
+    lower = sorted_muons[:, 0]
+
+    delta_t = upper.timeAtIpInOut - lower.timeAtIpInOut
+    both_ndof_pass = (upper.timeNdof > min_ndof) & (lower.timeNdof > min_ndof)
+
+    return ~((delta_t < min_delta_t) & both_ndof_pass)
+
+
+def in_material_vertex_mask(vertices, l1_idx, l2_idx):
+    match = (vertices.lep1Idx == l1_idx) & (vertices.lep2Idx == l2_idx)
+    return ~ak.any(match, axis=1)
 
 def delta_r_mask(coll1, coll2, min_dr):
     if coll1 is coll2:

@@ -47,4 +47,6 @@ def displaced_lepton_selection(events, lepton_flavor, year, params):
         passes_SC &
         passes_iso
     )
+
+    leptons = ak.with_field(leptons, ak.local_index(leptons, axis=1), "original_idx")
     return leptons[good_leptons]

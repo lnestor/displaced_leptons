@@ -31,13 +31,19 @@ def get_size(files):
         return sum(executor.map(eos_helper.get_file_size, files))
 
 
-def save(key, definition, output, force):
+def check_output(key, output, force):
     if os.path.exists(output):
         with open(output) as f:
             data = json.load(f)
         if key in data and not force:
             print(f"ERROR: key '{key}' already exists in {output}. Use --force to overwrite.")
             sys.exit(1)
+
+
+def save(key, definition, output):
+    if os.path.exists(output):
+        with open(output) as f:
+            data = json.load(f)
     else:
         data = {}
     data[key] = definition
@@ -74,9 +80,12 @@ def main():
     with open(args.template) as f:
         template = json.load(f)
     if args.key not in template:
-        print(f"ERROR: key '{args.key}' not found in {args.template}")
+        keys = "\n  ".join(template.keys())
+        print(f"ERROR: key '{args.key}' not found in {args.template}. Available keys:\n  {keys}")
         sys.exit(1)
     definition = template[args.key]
+
+    check_output(args.key, args.output, args.force)
 
     print("Counting events...")
     print("Getting file sizes...")
@@ -84,7 +93,7 @@ def main():
     definition["metadata"]["size"] = str(get_size(files))
     definition["files"] = files
 
-    save(args.key, definition, args.output, args.force)
+    save(args.key, definition, args.output)
 
 
 if __name__ == "__main__":

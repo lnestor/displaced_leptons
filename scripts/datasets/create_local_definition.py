@@ -66,6 +66,8 @@ def main():
         print("ERROR: must provide --crab-dir or --eos-dir")
         sys.exit(1)
 
+    check_output(args.key, args.output, args.force)
+
     if args.crab_dir:
         lfns = crab_helper.get_crab_output_lfns(args.crab_dir)
         files = [f"{EOS_REDIRECTOR}/{lfn}" for lfn in lfns]
@@ -84,8 +86,6 @@ def main():
         print(f"ERROR: key '{args.key}' not found in {args.template}. Available keys:\n  {keys}")
         sys.exit(1)
     definition = template[args.key]
-
-    check_output(args.key, args.output, args.force)
 
     print("Counting events...")
     print("Getting file sizes...")

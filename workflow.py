@@ -20,11 +20,11 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             else:
                 rho = self.events.Rho.fixedGridRhoFastjetAll
 
-            ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt,
+            ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
             self.events["Electron"] = ak.with_field(self.events.Electron, ele_iso, "customIso")
             self.events["Electron"] = ak.with_field(self.events.Electron, abs(self.events.Electron.dxybs) * 1e4, "absd0_um")
 
-            mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt,
+            mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
             self.events["Muon"] = ak.with_field(self.events.Muon, mu_iso, "customIso")
             self.events["Muon"] = ak.with_field(self.events.Muon, abs(self.events.Muon.dxybs) * 1e4, "absd0_um")
         else:

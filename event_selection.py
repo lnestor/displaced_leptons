@@ -35,6 +35,7 @@ no_b2b_muons = Cut(
 def muon_timing_mask(events, min_delta_t = -20, min_ndof = 7):
     muons = events.MuonGood[:, :2]
     sorted_muons = muons[ak.argsort(muons.phi, axis=1, ascending=False)]
+    sorted_muons = ak.pad_none(sorted_muons, 2, axis=1)
 
     upper = sorted_muons[:, 0]
     lower = sorted_muons[:, 0]
@@ -42,7 +43,8 @@ def muon_timing_mask(events, min_delta_t = -20, min_ndof = 7):
     delta_t = upper.timeAtIpInOut - lower.timeAtIpInOut
     both_ndof_pass = (upper.timeNdof > min_ndof) & (lower.timeNdof > min_ndof)
 
-    return ~((delta_t < min_delta_t) & both_ndof_pass)
+    mask = ~((delta_t < min_delta_t) & both_ndof_pass)
+    return ak.fill_none(mask, True)
 
 
 def in_material_vertex_mask(vertices, l1_idx, l2_idx):

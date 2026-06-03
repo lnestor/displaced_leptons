@@ -28,8 +28,8 @@ cloudpickle.register_pickle_by_value(hists)
 cloudpickle.register_pickle_by_value(channel_selection)
 
 from workflow import DisplacedLeptonProcessor
-from event_selection import get_nLeptonGood, d0_cuts
-from channel_selection import ee_channel, emu_channel, mumu_channel, emu_veto
+from event_selection import get_nLeptonGood, get_d0_lt
+from channel_selection import ee_cuts, mumu_cuts, emu_veto, emu_cuts
 
 from omegaconf import OmegaConf
 from pocket_coffea.utils.configurator import Configurator
@@ -99,10 +99,16 @@ cfg = Configurator(
     ],
     categories = {
         "baseline": [passthrough],
-        # "ee": [ee_channel(parameters), emu_veto(parameters)],
-        "emu": [emu_channel(parameters)],
-        "emu_cr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)]
-        # "mumu": [mumu_channel(parameters), emu_veto(parameters)],
+        # "ee": [*ee_cuts(parameters), emu_veto(parameters)],
+        # "ee_cr": [*ee_cuts(parameters), emu_veto(parameters), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
+        "emu": [*emu_cuts(parameters)],
+        "emu_cr": [
+            *emu_cuts(parameters),
+            get_d0_lt("ElectronGood", 50, 0),
+            get_d0_lt("MuonGood", 50, 0)
+        ],
+        # "mumu": [*mumu_cuts(parameters), emu_veto(parameters)],
+        # "mumu_cr": [*mumu_cuts(parameters), emu_veto(parameters), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
     },
     weights = {
         "common": {

@@ -1,4 +1,5 @@
 import awkward as ak
+from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 from object_selection import displaced_lepton_selection
@@ -9,6 +10,13 @@ CENTRAL_NANOAOD_FLAG = 0
 class DisplacedLeptonProcessor(BaseProcessorABC):
     def __init__(self, cfg):
         super().__init__(cfg)
+        self.output_format["cutflow_cumulative"] = {
+            "initial": {},
+            "skim": {},
+            "preselection": {},
+            **{cat: {} for cat in self._categories}
+        }
+
 
     def apply_object_preselection(self, variation):
         ele = self.events.Electron
@@ -60,3 +68,53 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 self._custom_nano_version = int(f["customNanoVersion"])
             else:
                 self._custom_nano_version = CENTRAL_NANOAOD_FLAG
+
+
+    def process_extra_after_skim(self):
+        self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial
+        names = list(self._skim_masks.names)
+        for i, cut_name in enumerate(names):
+            cumul = ak.sum(self._skim_masks.all(*names[:i+1]))
+            short_name = cut_name.split("__")[0]
+            self.output["cutflow_cumulative"]["skim"].setdefault(short_name, {})[self._dataset] = cumul
+
+
+    def process_extra_after_presel(self, variation):
+        names = list(self._presel_masks.names)
+        for i, cut_name in enumerate(names):
+            cumul = ak.sum(self._presel_masks.all(*names[:i+1]))
+            short_name = cut_name.split("__")[0]
+            self.output["cutflow_cumulative"]["preselection"] \
+                .setdefault(short_name, {}) \
+                .setdefault(self._dataset, {})[variation] = cumul
+
+
+    def get_preselection_mask(self, variation):
+        self._presel_masks = PackedSelection()
+        for cut in self._preselections:
+            mask = cut.get_mask(
+                self.events,
+                processor_params=self.params,
+                year=self._year,
+                sample=self._sample,
+                isMC=self._isMC
+            )
+            self._presel_masks.add(cut.id, mask)
+        return self._presel_masks.all(*self._presel_masks.names)
+
+
+    def count_events(self, variation):
+        super().count_events(variation)
+
+        for category, cuts in self.cfg.categories_cfg.items():
+            cut_ids = [cut.id for cut in cuts]
+            for i, cut in enumerate(cuts):
+                mask = self._categories.storage.all(cut_ids[:i+1])
+                if self._categories.is_multidim and mask.ndim > 1:
+                    mask = ak.any(mask, axis=1)
+
+                self.output["cutflow_cumulative"][category] \
+                    .setdefault(cut.name, {}) \
+                    .setdefault(self._dataset, {}) \
+                    .setdefault(self._sample, {})[variation] = ak.sum(mask)
+

@@ -28,7 +28,7 @@ cloudpickle.register_pickle_by_value(hists)
 cloudpickle.register_pickle_by_value(channel_selection)
 
 from workflow import DisplacedLeptonProcessor
-from event_selection import dilepton_presel, d0_cuts
+from event_selection import get_nLeptonGood, d0_cuts
 from channel_selection import ee_channel, emu_channel, mumu_channel, emu_veto
 
 from omegaconf import OmegaConf
@@ -94,7 +94,9 @@ cfg = Configurator(
         get_nPVgood(1),
         get_HLTsel(primaryDatasets=["EMu"])
     ],
-    preselections = [dilepton_presel],
+    preselections = [
+        get_nLeptonGood(2)
+    ],
     categories = {
         "baseline": [passthrough],
         # "ee": [ee_channel(parameters), emu_veto(parameters)],

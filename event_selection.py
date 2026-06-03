@@ -2,15 +2,11 @@ import awkward as ak
 from pocket_coffea.lib.cut_definition import Cut
 
 
-def dilepton(events, params, year, sample, **kwargs):
-    mask = (events.nLeptonGood >= 2)
-    return ak.where(ak.is_none(mask), False, mask)
-
-dilepton_presel = Cut(
-    name="dilepton",
-    params={},
-    function=dilepton
-)
+def get_nLeptonGood(N):
+    def _impl(events, params, **kwargs):
+        mask = events.nLeptonGood >= params["N"]
+        return ak.where(ak.is_none(mask), False, mask)
+    return Cut(name=f"nLeptonGood_{N}", params={"N": N}, function=_impl)
 
 
 def b2b_muons_mask(events, alpha_max=-0.99):

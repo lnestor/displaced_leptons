@@ -103,6 +103,19 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         return self._presel_masks.all(*self._presel_masks.names)
 
 
+    def postprocess(self, accumulator):
+        accumulator = super().postprocess(accumulator)
+        accumulator["cut_labels"] = {
+            "skim": [getattr(cut, "label", cut.name) for cut in self.cfg.skim],
+            "preselection": [getattr(cut, "label", cut.name) for cut in self.cfg.preselections],
+            **{
+                category: [getattr(cut, "label", cut.name) for cut in cuts]
+                for category, cuts in self.cfg.categories_cfg.items()
+            }
+        }
+        return accumulator
+
+
     def count_events(self, variation):
         super().count_events(variation)
 

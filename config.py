@@ -40,11 +40,12 @@ from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
 from hists import lepton_hists, background_hists
+from named_cut import NamedCut
 
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f for f in glob.glob(f"{localdir}/datasets/local/*.json")],
+        "jsons": [f for f in glob.glob(f"{localdir}/datasets/central/*.json")],
         "filter": {
             "samples": [
                 "MuonEG",
@@ -83,19 +84,20 @@ cfg = Configurator(
                 # "ZZ_TuneCP5_13TeV-pythia8",
             ],
             "samples_exclude": [],
-            "year": ["2016_PostVFP", "2017", "2018"]
+            # "year": ["2016_PostVFP", "2017", "2018"]
+            "year": ["2018"]
         }
     },
     workflow = DisplacedLeptonProcessor,
     calibrators = default_calibrators_sequence,
     skim = [
-        eventFlags,
-        goldenJson,
-        get_nPVgood(1),
-        get_HLTsel(primaryDatasets=["EMu"])
+        NamedCut(cut=eventFlags, label="MET Filters"),
+        NamedCut(cut=goldenJson, label="Golden JSON"),
+        NamedCut(cut=get_nPVgood(1), label="At least 1 good primary vertex"),
+        NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Passes EMu triggers")
     ],
     preselections = [
-        get_nLeptonGood(2)
+        NamedCut(cut=get_nLeptonGood(2), label="At least 2 good leptons")
     ],
     categories = {
         "baseline": [passthrough],

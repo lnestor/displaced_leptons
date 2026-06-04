@@ -96,9 +96,7 @@ cfg = Configurator(
         NamedCut(cut=get_nPVgood(1), label="At least 1 good primary vertex"),
         NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Passes EMu triggers")
     ],
-    preselections = [
-        NamedCut(cut=get_nLeptonGood(2), label="At least 2 good leptons")
-    ],
+    preselections = [],
     categories = {
         "baseline": [passthrough],
         # "ee": [*ee_cuts(parameters), emu_veto(parameters)],

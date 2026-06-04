@@ -22,12 +22,10 @@ def main():
 
     f = CoffeaFile(args.input)
     cutflow = f.get_cutflow(args.category, args.sample, args.years)
+    labels = ["Total", *f.get_cut_labels(args.category)]
 
     if args.efficiency:
         cutflow = [c / cutflow[0] for c in cutflow]
-
-    labels = ["Total", *f.get_cut_labels(args.category)]
-
 
     fig, ax = plt.subplots(figsize=(14,6))
 
@@ -38,7 +36,7 @@ def main():
     ax.set_xticks(range(len(cutflow) + 1))
     ax.set_xticklabels([])
     ax.set_xticks([i + 0.70 for i in range(len(labels))], minor=True)
-    ax.set_xticklabels(labels, rotation=45, ha="right", minor=True)
+    ax.set_xticklabels(labels, rotation=25, ha="right", minor=True)
     ax.tick_params(axis="x", which="minor", length=0)
     ax.set_ylabel("Events")
     ax.set_yscale("log")

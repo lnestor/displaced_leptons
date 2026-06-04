@@ -113,6 +113,16 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 for category, cuts in self.cfg.categories_cfg.items()
             }
         }
+
+        for stage in accumulator["cut_labels"].keys():
+            accumulator["cut_labels"][stage] = [
+                label for label in accumulator["cut_labels"][stage]
+                if label != "passthrough"
+            ]
+
+            if "passthrough" in accumulator["cutflow_cumulative"][stage]:
+                del accumulator["cutflow_cumulative"][stage]["passthrough"]
+
         return accumulator
 
 

@@ -21,17 +21,18 @@ import event_selection
 import object_selection
 import hists
 import channel_selection
+import named_cut
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(event_selection)
 cloudpickle.register_pickle_by_value(object_selection)
 cloudpickle.register_pickle_by_value(hists)
 cloudpickle.register_pickle_by_value(channel_selection)
+cloudpickle.register_pickle_by_value(named_cut)
 
 from workflow import DisplacedLeptonProcessor
 from event_selection import get_nLeptonGood, get_d0_lt
 from channel_selection import ee_cuts, mumu_cuts, emu_veto, emu_cuts
 
-from omegaconf import OmegaConf
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags, get_nObj_min, get_nPVgood
 from pocket_coffea.lib.calibrators.common import default_calibrators_sequence
@@ -45,7 +46,7 @@ from named_cut import NamedCut
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f for f in glob.glob(f"{localdir}/datasets/central/*.json")],
+        "jsons": [f for f in glob.glob(f"{localdir}/datasets/custom/*.json")],
         "filter": {
             "samples": [
                 "MuonEG",
@@ -84,16 +85,15 @@ cfg = Configurator(
                 # "ZZ_TuneCP5_13TeV-pythia8",
             ],
             "samples_exclude": [],
-            # "year": ["2016_PostVFP", "2017", "2018"]
-            "year": ["2018"]
+            "year": ["2016_PostVFP", "2017", "2018"]
         }
     },
     workflow = DisplacedLeptonProcessor,
     calibrators = default_calibrators_sequence,
     skim = [
-        NamedCut(cut=eventFlags, label="MET Filters"),
-        NamedCut(cut=goldenJson, label="Golden JSON"),
-        NamedCut(cut=get_nPVgood(1), label="At least 1 good primary vertex"),
+        # NamedCut(cut=eventFlags, label="MET Filters"),
+        # NamedCut(cut=goldenJson, label="Golden JSON"),
+        # NamedCut(cut=get_nPVgood(1), label="At least 1 good primary vertex"),
         NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Passes EMu triggers")
     ],
     preselections = [],

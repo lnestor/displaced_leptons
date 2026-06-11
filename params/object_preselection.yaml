@@ -2,12 +2,12 @@ object_preselection:
   Electron:
     2016_PostVFP:
       pt: 42
-      eta: 1.44
+      eta: 1.5
       iso_base: 0.0588
       iso_pt_dep: 0
     "2017":
       pt: 45
-      eta: 1.44
+      eta: 1.5
       etaphi_veto:
         eta_min: 1.0
         eta_max: 1.5
@@ -17,7 +17,7 @@ object_preselection:
       iso_pt_dep: 0.506
     "2018":
       pt: 45
-      eta: 1.44
+      eta: 1.5
       etaphi_veto:
         eta_min: 0.3
         eta_max: 1.2

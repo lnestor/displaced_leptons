@@ -1,0 +1,17 @@
+{
+    "MuonEG_2018_EraC_test": {
+        "metadata": {
+            "das_names": "['local']",
+            "sample": "MuonEG",
+            "year": "2018",
+            "isMC": "False",
+            "primaryDataset": "MuonEG",
+            "era": "C",
+            "nevents": "42968",
+            "size": "51388954"
+        },
+        "files": [
+            "/srv/nano.root"
+        ]
+    }
+}

@@ -130,3 +130,10 @@ def get_d0_lt(coll, max_d0, lepton_index=0):
         params={"coll": coll, "max_d0": max_d0, "lepton_index": lepton_index},
         function=_impl
     )
+
+
+def get_nObj_ge(N, coll):
+    def _impl(events, params, **kwargs):
+        return ak.num(getattr(events, params["coll"])) >= params["N"]
+    return Cut(name=f"n_{coll}_ge{N}", params={"N": N, "coll": coll}, function=_impl)
+

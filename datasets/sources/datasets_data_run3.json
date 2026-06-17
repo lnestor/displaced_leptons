@@ -1,0 +1,951 @@
+{
+  "MuonEG": {
+    "sample": "MuonEG",
+    "json_output": "datasets/central/MuonEG.json",
+    "files": [
+      {
+        "das_names": [
+          "/MuonEG/Run2022C-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2022D-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2022E-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2022F-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2022G-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023C-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023C-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023C-22Sep2023_v3-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023C-22Sep2023_v4-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023D-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2023D-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024C-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024D-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024E-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024F-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024G-MINIv6NANOv15-v3/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024H-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024I-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2024I-MINIv6NANOv15_v2-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025C-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025C-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025D-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025E-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025F-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025F-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/MuonEG/Run2025G-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "MuonEG",
+          "era": "G"
+        }
+      }
+    ]
+  },
+  "Muon": {
+    "sample": "Muon",
+    "json_output": "datasets/central/Muon.json",
+    "files": [
+      {
+        "das_names": [
+          "/Muon/Run2022C-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon/Run2022D-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon/Run2022E-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon/Run2022F-22Sep2023-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon/Run2022G-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023C-22Sep2023_v1-v1/NANOAOD",
+          "/Muon1/Run2023C-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023C-22Sep2023_v2-v1/NANOAOD",
+          "/Muon1/Run2023C-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023C-22Sep2023_v3-v1/NANOAOD",
+          "/Muon1/Run2023C-22Sep2023_v3-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023C-22Sep2023_v4-v1/NANOAOD",
+          "/Muon1/Run2023C-22Sep2023_v4-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023D-22Sep2023_v1-v1/NANOAOD",
+          "/Muon1/Run2023D-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2023D-22Sep2023_v2-v1/NANOAOD",
+          "/Muon1/Run2023D-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024C-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024C-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024D-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024D-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024E-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024E-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024F-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024F-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024G-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024G-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024H-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024H-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024I-MINIv6NANOv15-v1/NANOAOD",
+          "/Muon1/Run2024I-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD",
+          "/Muon1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025C-PromptReco-v1/NANOAOD",
+          "/Muon1/Run2025C-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025C-PromptReco-v2/NANOAOD",
+          "/Muon1/Run2025C-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025D-PromptReco-v1/NANOAOD",
+          "/Muon1/Run2025D-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025E-PromptReco-v1/NANOAOD",
+          "/Muon1/Run2025E-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025F-PromptReco-v1/NANOAOD",
+          "/Muon1/Run2025F-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025F-PromptReco-v2/NANOAOD",
+          "/Muon1/Run2025F-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/Muon0/Run2025G-PromptReco-v1/NANOAOD",
+          "/Muon1/Run2025G-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "Muon",
+          "era": "G"
+        }
+      }
+    ]
+  },
+  "DoubleMuon": {
+    "sample": "DoubleMuon",
+    "json_output": "datasets/central/DoubleMuon.json",
+    "files": [
+      {
+        "das_names": [
+          "/DoubleMuon/Run2022C-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "DoubleMuon",
+          "era": "C"
+        }
+      }
+    ]
+  },
+  "EGamma": {
+    "sample": "EGamma",
+    "json_output": "datasets/central/EGamma.json",
+    "files": [
+      {
+        "das_names": [
+          "/EGamma/Run2022C-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma/Run2022D-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_preEE",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma/Run2022E-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma/Run2022F-22Sep2023-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma/Run2022G-22Sep2023-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2022_postEE",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023C-22Sep2023_v1-v1/NANOAOD",
+          "/EGamma1/Run2023C-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023C-22Sep2023_v2-v1/NANOAOD",
+          "/EGamma1/Run2023C-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023C-22Sep2023_v3-v1/NANOAOD",
+          "/EGamma1/Run2023C-22Sep2023_v3-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023C-22Sep2023_v4-v1/NANOAOD",
+          "/EGamma1/Run2023C-22Sep2023_v4-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_preBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023D-22Sep2023_v1-v1/NANOAOD",
+          "/EGamma1/Run2023D-22Sep2023_v1-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2023D-22Sep2023_v2-v1/NANOAOD",
+          "/EGamma1/Run2023D-22Sep2023_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2023_postBPix",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024C-MINIv6NANOv15-v1/NANOAOD",
+          "/EGamma1/Run2024C-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024D-MINIv6NANOv15-v1/NANOAOD",
+          "/EGamma1/Run2024D-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024E-MINIv6NANOv15-v1/NANOAOD",
+          "/EGamma1/Run2024E-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024F-MINIv6NANOv15-v1/NANOAOD",
+          "/EGamma1/Run2024F-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024G-MINIv6NANOv15-v2/NANOAOD",
+          "/EGamma1/Run2024G-MINIv6NANOv15-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "G"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024H-MINIv6NANOv15-v2/NANOAOD",
+          "/EGamma1/Run2024H-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "H"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024I-MINIv6NANOv15-v1/NANOAOD",
+          "/EGamma1/Run2024I-MINIv6NANOv15-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD",
+          "/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2024",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "I"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025C-PromptReco-v1/NANOAOD",
+          "/EGamma1/Run2025C-PromptReco-v1/NANOAOD",
+          "/EGamma2/Run2025C-PromptReco-v1/NANOAOD",
+          "/EGamma3/Run2025C-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025C-PromptReco-v2/NANOAOD",
+          "/EGamma1/Run2025C-PromptReco-v2/NANOAOD",
+          "/EGamma2/Run2025C-PromptReco-v2/NANOAOD",
+          "/EGamma3/Run2025C-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "C"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025D-PromptReco-v1/NANOAOD",
+          "/EGamma1/Run2025D-PromptReco-v1/NANOAOD",
+          "/EGamma2/Run2025D-PromptReco-v1/NANOAOD",
+          "/EGamma3/Run2025D-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "D"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025E-PromptReco-v1/NANOAOD",
+          "/EGamma1/Run2025E-PromptReco-v1/NANOAOD",
+          "/EGamma2/Run2025E-PromptReco-v1/NANOAOD",
+          "/EGamma3/Run2025E-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "E"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025F-PromptReco-v1/NANOAOD",
+          "/EGamma1/Run2025F-PromptReco-v1/NANOAOD",
+          "/EGamma2/Run2025F-PromptReco-v1/NANOAOD",
+          "/EGamma3/Run2025F-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025F-PromptReco-v2/NANOAOD",
+          "/EGamma1/Run2025F-PromptReco-v2/NANOAOD",
+          "/EGamma2/Run2025F-PromptReco-v2/NANOAOD",
+          "/EGamma3/Run2025F-PromptReco-v2/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "F"
+        }
+      },
+      {
+        "das_names": [
+          "/EGamma0/Run2025G-PromptReco-v1/NANOAOD",
+          "/EGamma1/Run2025G-PromptReco-v1/NANOAOD",
+          "/EGamma2/Run2025G-PromptReco-v1/NANOAOD",
+          "/EGamma3/Run2025G-PromptReco-v1/NANOAOD"
+        ],
+        "metadata": {
+          "year": "2025",
+          "isMC": false,
+          "primaryDataset": "EGamma",
+          "era": "G"
+        }
+      }
+    ]
+  }
+}

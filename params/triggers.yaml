@@ -1,27 +1,77 @@
 HLT_triggers:
   2016_PostVFP:
-    MuMu:
+    DoubleMuon:
       - HLT_DoubleMu33NoFiltersNoVtx
       - HLT_DoubleMu23NoFiltersNoVtxDisplaced
-    EE:
+    DoubleEG:
       - HLT_Diphoton30_18_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
       - HLT_DoublePhoton60
-    EMu:
+    MuonEG:
       - HLT_Mu38NoFiltersNoVtx_Photon38_CaloIdL
       - HLT_Mu28NoFiltersNoVtxDisplaced_Photon28_CaloIdL
   "2017":
-    MuMu:
+    DoubleMuon:
       - HLT_DoubleMu43NoFiltersNoVtx
-    EE:
+    DoubleEG:
       - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
       - HLT_DoublePhoton70
-    EMu:
+    MuonEG:
       - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL
   "2018":
-    MuMu:
+    DoubleMuon:
       - HLT_DoubleMu43NoFiltersNoVtx
-    EE:
+    EGamma:
       - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
       - HLT_DoublePhoton70
-    EMu:
+    MuonEG:
       - HLT_Mu43NoFiltersNoVtx_Photon43_CaloIdL
+  "2022_preEE":
+    DoubleMuon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+  "2022_postEE":
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+  "2023_preBPix":
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+  "2023_postBPix":
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+  "2024":
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+  "2025":
+    Muon:
+      - HLT_DoubleMu43NoFiltersNoVtx
+    EGamma:
+      - HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90
+      - HLT_DoublePhoton70
+    MuonEG:
+      - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL

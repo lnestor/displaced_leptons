@@ -35,7 +35,7 @@ from channel_selection import ee_cuts, mumu_cuts, emu_veto, emu_cuts
 
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags, get_nObj_min, get_nPVgood
-from pocket_coffea.lib.calibrators.common import default_calibrators_sequence
+from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from pocket_coffea.parameters.cuts import passthrough
 
 from pocket_coffea.parameters.histograms import HistConf, Axis
@@ -72,7 +72,7 @@ cfg = Configurator(
         }
     },
     workflow = DisplacedLeptonProcessor,
-    calibrators = default_calibrators_sequence,
+    calibrators = [ElectronsScaleCalibrator, MuonsCalibrator],
     skim = [
         NamedCut(cut=eventFlags, label="MET Filters"),
         NamedCut(cut=goldenJson, label="Golden JSON"),

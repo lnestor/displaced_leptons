@@ -46,69 +46,47 @@ from named_cut import NamedCut
 cfg = Configurator(
     parameters = parameters,
     datasets = {
-        "jsons": [f for f in glob.glob(f"{localdir}/datasets/custom/*.json")],
+        "jsons": [f for f in glob.glob(f"{localdir}/datasets/central/*.json")],
         "filter": {
             "samples": [
                 "MuonEG",
-                # "DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8",
-                # "DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8",
-                # "QCD_Pt-1000_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-120To170_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-120to170_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-15To20_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-15to20_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-170To300_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-170to300_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-20To30_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-20to30_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-300To470_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-300toInf_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-30To50_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-30to50_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-470To600_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-50To80_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-50to80_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-600To800_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-800To1000_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-80To120_MuEnrichedPt5_TuneCP5_13TeV-pythia8",
-                # "QCD_Pt-80to120_EMEnriched_TuneCP5_13TeV-pythia8",
-                # "ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8",
-                # "ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
-                # "ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8",
-                # "ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
-                # "ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8",
-                # "TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8",
-                # "TTToHadronic_TuneCP5_13TeV-powheg-pythia8",
-                # "TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8",
-                # "WW_TuneCP5_13TeV-pythia8",
-                # "WZ_TuneCP5_13TeV-pythia8",
-                # "ZZ_TuneCP5_13TeV-pythia8",
+                "Muon",
+                "EGamma",
+                "DoubleMuon",
+                "DY",
+                "TTbar",
+                "SingleTop",
+                "Diboson",
+                "QCD_Ele",
+                "QCD_Mu"
             ],
             "samples_exclude": [],
-            "year": ["2016_PostVFP", "2017", "2018"]
+            "year": [
+                "2022_preEE",
+                "2022_postEE",
+                "2023_preBPix",
+                "2023_postBPix",
+                "2024",
+                "2025"
+            ]
         }
     },
     workflow = DisplacedLeptonProcessor,
     calibrators = default_calibrators_sequence,
     skim = [
-        # NamedCut(cut=eventFlags, label="MET Filters"),
-        # NamedCut(cut=goldenJson, label="Golden JSON"),
-        # NamedCut(cut=get_nPVgood(1), label="At least 1 good primary vertex"),
-        NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Passes EMu triggers")
+        NamedCut(cut=eventFlags, label="MET Filters"),
+        NamedCut(cut=goldenJson, label="Golden JSON"),
+        NamedCut(cut=get_HLTsel(), label="Passes triggers")
     ],
     preselections = [],
     categories = {
         "baseline": [passthrough],
-        # "ee": [*ee_cuts(parameters), emu_veto(parameters)],
-        # "ee_cr": [*ee_cuts(parameters), emu_veto(parameters), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
+        "ee": [*ee_cuts(parameters), emu_veto(parameters)],
+        "ee_pcr": [*ee_cuts(parameters), emu_veto(parameters), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
         "emu": [*emu_cuts(parameters)],
-        "emu_cr": [
-            *emu_cuts(parameters),
-            get_d0_lt("ElectronGood", 50, 0),
-            get_d0_lt("MuonGood", 50, 0)
-        ],
-        # "mumu": [*mumu_cuts(parameters), emu_veto(parameters)],
-        # "mumu_cr": [*mumu_cuts(parameters), emu_veto(parameters), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
+        "emu_pcr": [*emu_cuts(parameters), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("MuonGood", 50, 0)],
+        "mumu": [*mumu_cuts(parameters), emu_veto(parameters)],
+        "mumu_pcr": [*mumu_cuts(parameters), emu_veto(parameters), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
     },
     weights = {
         "common": {

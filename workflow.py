@@ -9,6 +9,8 @@ import numpy as np
 
 CENTRAL_NANOAOD_FLAG = 0
 
+RUN_2_YEARS = ['2016_PreVFP', '2016_PostVFP', '2017', '2018']
+
 class DisplacedLeptonProcessor(BaseProcessorABC):
     def __init__(self, cfg):
         super().__init__(cfg)
@@ -28,27 +30,44 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         ele = self.events.Electron
         mu = self.events.Muon
 
+        if self._isMC:
+            gen = self.events.GenPart
+            self.events["GenPart"] = ak.with_field(self.events.GenPart, self.get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")
+            gen = self.events.GenPart
+
+            gen_mu = gen[(abs(gen.pdgId) == 13) & (gen.status == 1) & (gen.pt > 10)]
+            matched_mu = self.gen_match(mu, gen_mu)
+            self.events["Muon"] = ak.with_field(self.events.Muon, ak.fill_none(matched_mu.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
+            gen_ele = gen[(abs(gen.pdgId) == 11) & (gen.status == 1) & (gen.pt > 10)]
+            matched_ele = self.gen_match(ele, gen_ele)
+            self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
+        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
+
         if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
-            if self._year in ['2016_PreVFP', '2016_PostVFP', '2017', '2018']:
+            if self._year in RUN_2_YEARS:
                 rho = self.events.fixedGridRhoFastjetAll
             else:
                 rho = self.events.Rho.fixedGridRhoFastjetAll
 
             ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
-            self.events["Electron"] = ak.with_field(self.events.Electron, ele_iso, "customIso")
-            self.events["Electron"] = ak.with_field(self.events.Electron, abs(self.events.Electron.dxybs) * 1e4, "absd0_um")
+            self.events["Electron", "customIso"] = ele_iso
+            self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4
 
             mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
-            self.events["Muon"] = ak.with_field(self.events.Muon, mu_iso, "customIso")
-            self.events["Muon"] = ak.with_field(self.events.Muon, abs(self.events.Muon.dxybs) * 1e4, "absd0_um")
+            self.events["Muon", "customIso"] = mu_iso
+            self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
+            self.events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
         else:
-            self.events["Electron"] = ak.with_field(self.events.Electron, ele.pfRelIso03_all, "customIso")
-            self.events["Electron"] = ak.with_field(self.events.Electron, abs(ele.dxy) * 1e4, "absd0_um")
+            self.events["Electron", "customIso"] = ele.pfRelIso03_all
+            self.events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
 
-            self.events["Muon"] = ak.with_field(self.events.Muon, mu.pfRelIso04_all, "customIso")
-            self.events["Muon"] = ak.with_field(self.events.Muon, abs(mu.dxybs) * 1e4, "absd0_um")
-            self.events["Muon"] = ak.with_field(self.events.Muon, ak.zeros_like(mu.pt), "timeAtIpInOut")
-            self.events["Muon"] = ak.with_field(self.events.Muon, ak.zeros_like(mu.pt), "timeNdof")
+            self.events["Muon", "customIso"] = mu.pfRelIso04_all
+            self.events["Muon", "absd0_um"] = abs(mu.dxybs) * 1e4
+            self.events["Muon", "timeAtIpInOut"] = ak.zeros_like(mu.pt)
+            self.events["Muon", "timeNdof"] = ak.zeros_like(mu.pt)
+            self.events["Muon", "standardIsoCorr"] = ak.zeros_like(mu.pt)
 
             n = len(self.events)
             self.events["InMaterialVtx"] = ak.zip({
@@ -106,6 +125,36 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             event_cumul = event_cumul & mu_cutflow.get_event_mask(i)
             count = int(ak.sum(event_cumul))
             obj_sel.setdefault(mu_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+
+
+    def gen_match(self, coll, gen):
+        dR = coll[:, :, np.newaxis].delta_r(gen[:, np.newaxis, :])
+        min_dR = ak.min(dR, axis=2)
+        best_idx = ak.fill_none(ak.argmin(dR, axis=2), 0)
+
+        matched = ak.fill_none(min_dR < 0.1, False)
+        gen_padded = ak.pad_none(gen, 1, axis=1)
+        return ak.mask(gen_padded[best_idx], matched)
+
+
+    def get_unique_parent_pdgid(self, gen):
+        current_idx = gen.genPartIdxMother
+        start_pdgid = abs(gen.pdgId)
+
+        while True:
+            no_mother = current_idx < 0
+            safe_idx = ak.where(no_mother, 0, current_idx)
+            same_pdgid = abs(gen[safe_idx].pdgId) == start_pdgid
+            still_searching = ~no_mother & same_pdgid
+
+            if not ak.any(still_searching):
+                break
+
+            next_idx = gen[safe_idx].genPartIdxMother
+            current_idx = ak.where(still_searching, next_idx, current_idx)
+
+        safe_idx = ak.where(current_idx < 0, 0, current_idx)
+        return ak.where(current_idx < 0, 0, abs(gen[safe_idx].pdgId))
 
 
     def count_objects(self, variation):

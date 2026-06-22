@@ -21,7 +21,7 @@ import event_selection
 import object_selection
 import hists
 import channel_selection
-import named_cut
+import lib.named_cut as named_cut
 cloudpickle.register_pickle_by_value(workflow)
 cloudpickle.register_pickle_by_value(event_selection)
 cloudpickle.register_pickle_by_value(object_selection)

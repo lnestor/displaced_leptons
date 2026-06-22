@@ -1,5 +1,5 @@
 import awkward as ak
-from named_cut import NamedCut
+from lib.named_cut import NamedCut
 from pocket_coffea.lib.cut_definition import Cut
 from omegaconf import OmegaConf
 from event_selection import (get_n_back_to_back_muons, get_min_muon_delta_t, get_dilepton_deltaR,

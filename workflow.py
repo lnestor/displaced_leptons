@@ -2,7 +2,9 @@ import awkward as ak
 from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
-from object_selection import displaced_lepton_selection
+from lib.object_cutflow import ObjectCutflow
+from object_selection import min_pt, max_eta, sc_gap_veto, lepton_id, isolation, eta_phi_veto
+from lib.named_cut import NamedCut
 import numpy as np
 
 CENTRAL_NANOAOD_FLAG = 0
@@ -14,11 +16,15 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             "initial": {},
             "skim": {},
             "preselection": {},
+            "object_selection": {},
             **{cat: {} for cat in self._categories}
         }
 
 
     def apply_object_preselection(self, variation):
+        self.events["Electron", "original_idx"] = ak.local_index(self.events.Electron, axis=1)
+        self.events["Muon", "original_idx"] = ak.local_index(self.events.Muon, axis=1)
+
         ele = self.events.Electron
         mu = self.events.Muon
 
@@ -52,8 +58,54 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 "lep2Flavor": ak.Array([[]]*n)
             })
 
-        self.events["ElectronGood"] = displaced_lepton_selection(self.events, "Electron", self._year, self.params)
-        self.events["MuonGood"] = displaced_lepton_selection(self.events, "Muon", self._year, self.params)
+        ele_cut_vals = self.params.object_preselection["Electron"][self._year]
+        ele_cuts = [
+            NamedCut(min_pt("Electron", ele_cut_vals.pt), label=f"$>=1$ e with $p_T > {ele_cut_vals.pt}$ GeV"),
+            NamedCut(max_eta("Electron", ele_cut_vals.eta), label=f"$>=1$ e with $|\\eta| < {ele_cut_vals.eta}$"),
+            NamedCut(sc_gap_veto("Electron"), label="$>=1$ e not in supercluster gap"),
+            NamedCut(lepton_id("Electron", ele_cut_vals.id, ele_cut_vals.id_req), label="$>=1$ e passing tight ID"),
+            NamedCut(isolation("Electron", ele_cut_vals.iso_base, ele_cut_vals.iso_pt_dep), label="$>=1$ e passing tight custom isolation"),
+        ]
+
+        if "etaphi_veto" in ele_cut_vals.keys():
+            v = ele_cut_vals.etaphi_veto
+            new_cut = NamedCut(eta_phi_veto("Electron", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ e passing $\\eta$-$\\phi$ veto")
+            ele_cuts.insert(2, new_cut)
+
+        ele_cutflow = ObjectCutflow(collection="Electron", cuts=ele_cuts)
+        ele_cutflow.run(self.events, self.params)
+
+        mu_cut_vals = self.params.object_preselection["Muon"][self._year]
+        mu_cuts = [
+            NamedCut(min_pt("Muon", mu_cut_vals.pt), label=f"$>=1$ $\\mu$ with $p_T > {mu_cut_vals.pt}$ GeV"),
+            NamedCut(max_eta("Muon", mu_cut_vals.eta), label=f"$>=1$ $\\mu$ with $|\\eta| < {mu_cut_vals.eta}$"),
+            NamedCut(lepton_id("Muon", mu_cut_vals.id, True), label="$>=1$ $\\mu$ passing tight ID"),
+            NamedCut(isolation("Muon", mu_cut_vals.iso_base, mu_cut_vals.iso_pt_dep), label="$>=1$ $\\mu$ passing tight custom isolation"),
+        ]
+
+        if "etaphi_veto" in mu_cut_vals.keys():
+            v = mu_cut_vals.etaphi_veto
+            new_cut = NamedCut(eta_phi_veto("Muon", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ $\\mu$ passing $\\eta$-$\\phi$ veto")
+            mu_cuts.insert(2, new_cut)
+
+        mu_cutflow = ObjectCutflow(collection="Muon", cuts=mu_cuts)
+        mu_cutflow.run(self.events, self.params)
+
+        self.events["ElectronGood"] = self.events.Electron[ele_cutflow.get_final_object_mask()]
+        self.events["MuonGood"] = self.events.Muon[mu_cutflow.get_final_object_mask()]
+
+        obj_sel = self.output["cutflow_cumulative"]["object_selection"]
+        event_cumul = ak.ones_like(self.events.event, dtype=bool)
+
+        for i in range(len(ele_cutflow)):
+            event_cumul = event_cumul & ele_cutflow.get_event_mask(i)
+            count = int(ak.sum(event_cumul))
+            obj_sel.setdefault(ele_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+
+        for i in range(len(mu_cutflow)):
+            event_cumul = event_cumul & mu_cutflow.get_event_mask(i)
+            count = int(ak.sum(event_cumul))
+            obj_sel.setdefault(mu_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
 
 
     def count_objects(self, variation):
@@ -108,6 +160,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         accumulator["cut_labels"] = {
             "skim": [getattr(cut, "label", cut.name) for cut in self.cfg.skim],
             "preselection": [getattr(cut, "label", cut.name) for cut in self.cfg.preselections],
+            "object_selection": list(accumulator["cutflow_cumulative"]["object_selection"].keys()),
             **{
                 category: [getattr(cut, "label", cut.name) for cut in cuts]
                 for category, cuts in self.cfg.categories_cfg.items()

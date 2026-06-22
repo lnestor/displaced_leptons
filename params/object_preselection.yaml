@@ -77,7 +77,8 @@ object_preselection:
     2016_PostVFP:
       pt: 40
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2017":
       pt: 45
@@ -87,7 +88,8 @@ object_preselection:
         eta_max: 1.5
         phi_min: 2.7
         phi_max: 10000
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2018":
       pt: 45
@@ -97,35 +99,42 @@ object_preselection:
         eta_max: 1.2
         phi_min: 0.4
         phi_max: 0.8
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2022_preEE":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2022_postEE":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2023_preBPix":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2023_postBPix":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2024":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId
     "2025":
       pt: 45
       eta: 1.5
-      iso: 0.1
+      iso_base: 0.1
+      iso_pt_dep: 0
       id: tightId

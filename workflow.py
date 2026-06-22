@@ -16,6 +16,19 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         ele = self.events.Electron
         mu = self.events.Muon
 
+        if self._isMC:
+            gen = self.events.GenPart
+            self.events["GenPart"] = ak.with_field(self.events.GenPart, self.get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")
+            gen = self.events.GenPart
+
+            gen_mu = gen[(abs(gen.pdgId) == 13) & (gen.status == 1) & (gen.pt > 10)]
+            matched_mu = self.gen_match(mu, gen_mu)
+            self.events["Muon"] = ak.with_field(self.events.Muon, ak.fill_none(matched_mu.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
+            gen_ele = gen[(abs(gen.pdgId) == 11) & (gen.status == 1) & (gen.pt > 10)]
+            matched_ele = self.gen_match(ele, gen_ele)
+            self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
         self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
 
         if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
@@ -52,6 +65,36 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         self.events["ElectronGood"] = displaced_lepton_selection(self.events, "Electron", self._year, self.params)
         self.events["MuonGood"] = displaced_lepton_selection(self.events, "Muon", self._year, self.params)
+
+
+    def gen_match(self, coll, gen):
+        dR = coll[:, :, np.newaxis].delta_r(gen[:, np.newaxis, :])
+        min_dR = ak.min(dR, axis=2)
+        best_idx = ak.fill_none(ak.argmin(dR, axis=2), 0)
+
+        matched = ak.fill_none(min_dR < 0.1, False)
+        gen_padded = ak.pad_none(gen, 1, axis=1)
+        return ak.mask(gen_padded[best_idx], matched)
+
+
+    def get_unique_parent_pdgid(self, gen):
+        current_idx = gen.genPartIdxMother
+        start_pdgid = abs(gen.pdgId)
+
+        while True:
+            no_mother = current_idx < 0
+            safe_idx = ak.where(no_mother, 0, current_idx)
+            same_pdgid = abs(gen[safe_idx].pdgId) == start_pdgid
+            still_searching = ~no_mother & same_pdgid
+
+            if not ak.any(still_searching):
+                break
+
+            next_idx = gen[safe_idx].genPartIdxMother
+            current_idx = ak.where(still_searching, next_idx, current_idx)
+
+        safe_idx = ak.where(current_idx < 0, 0, current_idx)
+        return ak.where(current_idx < 0, 0, abs(gen[safe_idx].pdgId))
 
 
     def count_objects(self, variation):

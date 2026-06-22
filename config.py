@@ -80,10 +80,12 @@ cfg = Configurator(
     preselections = [dilepton_presel],
     categories = {
         "baseline": [passthrough],
-        # "ee": [ee_channel(parameters), emu_veto(parameters)],
+        "ee": [ee_channel(parameters), emu_veto(parameters)],
+        "ee_pcr": [ee_channel(parameters), emu_veto(parameters), d0_cuts("ElectronGood", None, 50, "ElectronGood", None, 50)],
         "emu": [emu_channel(parameters)],
-        "emu_cr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)]
-        # "mumu": [mumu_channel(parameters), emu_veto(parameters)],
+        "emu_pcr": [emu_channel(parameters), d0_cuts("ElectronGood", None, 50, "MuonGood", None, 50)],
+        "mumu": [mumu_channel(parameters)],
+        "mumu_pcr": [mumu_channel(parameters), emu_veto(parameters), d0_cuts("MuonGood", None, 50, "MuonGood", None, 50)],
     },
     weights = {
         "common": {

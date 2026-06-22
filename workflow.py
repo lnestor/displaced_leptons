@@ -16,6 +16,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         ele = self.events.Electron
         mu = self.events.Muon
 
+        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
+
         if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
             if self._year in RUN_2_YEARS:
                 rho = self.events.fixedGridRhoFastjetAll
@@ -29,6 +31,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
             self.events["Muon", "customIso"] = mu_iso
             self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
+            self.events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
         else:
             self.events["Electron", "customIso"] = ele.pfRelIso03_all
             self.events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
@@ -37,6 +40,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             self.events["Muon", "absd0_um"] = abs(mu.dxybs) * 1e4
             self.events["Muon", "timeAtIpInOut"] = ak.zeros_like(mu.pt)
             self.events["Muon", "timeNdof"] = ak.zeros_like(mu.pt)
+            self.events["Muon", "standardIsoCorr"] = ak.zeros_like(mu.pt)
 
             n = len(self.events)
             self.events["InMaterialVtx"] = ak.zip({

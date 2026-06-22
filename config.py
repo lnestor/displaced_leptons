@@ -75,7 +75,7 @@ cfg = Configurator(
         eventFlags,
         goldenJson,
         get_nPVgood(1),
-        get_HLTsel(primaryDatasets=["EMu"])
+        get_HLTsel()
     ],
     preselections = [dilepton_presel],
     categories = {

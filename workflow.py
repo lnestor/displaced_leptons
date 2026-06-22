@@ -43,14 +43,13 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             matched_ele = self.gen_match(ele, gen_ele)
             self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
 
+        if self._year in RUN_2_YEARS:
+            rho = self.events.fixedGridRhoFastjetAll
+        else:
+            rho = self.events.Rho.fixedGridRhoFastjetAll
         self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
 
         if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
-            if self._year in RUN_2_YEARS:
-                rho = self.events.fixedGridRhoFastjetAll
-            else:
-                rho = self.events.Rho.fixedGridRhoFastjetAll
-
             ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
             self.events["Electron", "customIso"] = ele_iso
             self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4

@@ -45,6 +45,7 @@ def add_common_args(parser):
         default="interior",
         help="Where the CMS text should go"
     )
+    parser.add_argument("--lumi", type=int, help="Integrated luminosity to display in fb^-1")
 
 
 def cms_loc_val(cms_loc_str):

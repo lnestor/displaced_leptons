@@ -102,7 +102,7 @@ def plot_compare(stack_root, compare_root, output, variable, year, category, sta
         label="Data"
     )
 
-    hep.cms.label("Preliminary", ax=ax_stack, data=True, loc=1) # loc=1 is top left interior
+    hep.cms.label("Preliminary", ax=ax_stack, data=True, loc=1, lumi=kwargs["lumi"]) # loc=1 is top left interior
     plot_util.apply_common_args(ax_stack, **kwargs)
 
     # We want the Data label to be on the top of the legend
@@ -124,7 +124,7 @@ def plot_stack(root, output, variable, year, category, stack, **kwargs):
         hists[group_name] = _combine_hists(root, variable, samples, year, category, False)
 
     fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=True, loc=1) # loc=1 is top left interior
+    hep.cms.label("Preliminary", ax=ax, data=True, loc=1, lumi=kwargs["lumi"]) # loc=1 is top left interior
     hep.histplot(
         list(hists.values()),
         histtype="fill",
@@ -172,7 +172,8 @@ def main():
             ylim=(args.ymin, args.ymax),
             xlog=args.xlog,
             ylog=args.ylog,
-            xstart=args.xstart
+            xstart=args.xstart,
+            lumi=args.lumi
         )
     else:
         plot_stack(
@@ -185,7 +186,8 @@ def main():
             xlim=(args.xmin, args.xmax),
             ylim=(args.ymin, args.ymax),
             xlog=args.xlog,
-            ylog=args.ylog
+            ylog=args.ylog,
+            lumi=args.lumi
         )
 
 

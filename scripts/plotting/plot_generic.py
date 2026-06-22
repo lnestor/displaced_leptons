@@ -33,7 +33,7 @@ def plot1d(h, ax, is_data, **kwargs):
         else:
             h = h / h.sum().value
 
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"])
     hep.histplot(
         h,
         histtype="errorbar",
@@ -58,7 +58,7 @@ def plot1d(h, ax, is_data, **kwargs):
 
 
 def plot2d(h, fig, ax, is_data, **kwargs):
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]))
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"])
 
 
     if kwargs["density"]:

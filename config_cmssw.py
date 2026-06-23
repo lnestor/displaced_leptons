@@ -34,7 +34,7 @@ from event_selection import (
     MUON_FLAVOR,
     ELECTRON_FLAVOR,
 )
-from named_cut import NamedCut
+from lib.named_cut import NamedCut
 
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_functions import get_HLTsel

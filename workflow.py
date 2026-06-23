@@ -1,5 +1,6 @@
 import awkward as ak
 from coffea.analysis_tools import PackedSelection
+from coffea.processor import column_accumulator
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 from lib.object_cutflow import ObjectCutflow
@@ -21,6 +22,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             "object_selection": {},
             **{cat: {} for cat in self._categories}
         }
+        self.output_format["stage_events"] = {}
 
 
     def apply_object_preselection(self, variation):
@@ -122,11 +124,32 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             event_cumul = event_cumul & ele_cutflow.get_event_mask(i)
             count = int(ak.sum(event_cumul))
             obj_sel.setdefault(ele_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+            ele_filtered = self.events.Electron[ele_cutflow.get_object_mask(i)]
+            self._save_stage_events(self.events[event_cumul], ele_cutflow.cuts[i].label, ele_coll=ele_filtered[event_cumul])
 
         for i in range(len(mu_cutflow)):
             event_cumul = event_cumul & mu_cutflow.get_event_mask(i)
             count = int(ak.sum(event_cumul))
             obj_sel.setdefault(mu_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+            mu_filtered = self.events.Muon[mu_cutflow.get_object_mask(i)]
+            self._save_stage_events(self.events[event_cumul], mu_cutflow.cuts[i].label, mu_coll=mu_filtered[event_cumul])
+
+
+    def _save_stage_events(self, events, label, ele_coll=None, mu_coll=None):
+        acc = {
+            "run":   column_accumulator(ak.to_numpy(events.run).astype(np.uint32)),
+            "lumi":  column_accumulator(ak.to_numpy(events.luminosityBlock).astype(np.uint32)),
+            "event": column_accumulator(ak.to_numpy(events.event).astype(np.uint64)),
+        }
+        if ele_coll is not None:
+            leading = ak.pad_none(ele_coll, 1)[:, 0]
+            acc["ele_pt"]  = column_accumulator(ak.to_numpy(ak.fill_none(leading.pt,  -1.0)).astype(np.float32))
+            acc["ele_eta"] = column_accumulator(ak.to_numpy(ak.fill_none(leading.eta, -99.0)).astype(np.float32))
+        if mu_coll is not None:
+            leading = ak.pad_none(mu_coll, 1)[:, 0]
+            acc["mu_pt"]  = column_accumulator(ak.to_numpy(ak.fill_none(leading.pt,  -1.0)).astype(np.float32))
+            acc["mu_eta"] = column_accumulator(ak.to_numpy(ak.fill_none(leading.eta, -99.0)).astype(np.float32))
+        self.output["stage_events"][label] = acc
 
 
     def gen_match(self, coll, gen):
@@ -182,14 +205,19 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             self.output["cutflow_cumulative"]["skim"].setdefault(short_name, {})[self._dataset] = cumul
 
 
+    def process_extra_before_presel(self, variation):
+        self._events_before_presel = self.events
+
     def process_extra_after_presel(self, variation):
         names = list(self._presel_masks.names)
-        for i, cut_name in enumerate(names):
-            cumul = ak.sum(self._presel_masks.all(*names[:i+1]))
-            short_name = cut_name.split("__")[0]
+        for i, cut in enumerate(self._preselections):
+            cumul_mask = self._presel_masks.all(*names[:i+1])
+            short_name = names[i].split("__")[0]
             self.output["cutflow_cumulative"]["preselection"] \
                 .setdefault(short_name, {}) \
-                .setdefault(self._dataset, {})[variation] = cumul
+                .setdefault(self._dataset, {})[variation] = ak.sum(cumul_mask)
+            evts = self._events_before_presel[cumul_mask]
+            self._save_stage_events(evts, getattr(cut, "label", cut.name), ele_coll=evts.ElectronGood, mu_coll=evts.MuonGood)
 
 
     def get_preselection_mask(self, variation):

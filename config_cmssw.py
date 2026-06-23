@@ -16,18 +16,31 @@ parameters = defaults.merge_parameters_from_files(
     update=True
 )
 
+<<<<<<< HEAD
 import workflow_cmssw
 import event_selection
 import object_selection
 import named_cut
 cloudpickle.register_pickle_by_value(workflow_cmssw)
+=======
+import workflow
+import event_selection
+import object_selection
+import lib.named_cut as named_cut
+cloudpickle.register_pickle_by_value(workflow)
+>>>>>>> f9b10a2 (Saving)
 cloudpickle.register_pickle_by_value(event_selection)
 cloudpickle.register_pickle_by_value(object_selection)
 cloudpickle.register_pickle_by_value(named_cut)
 
+<<<<<<< HEAD
 from workflow_cmssw import DisplacedLeptonProcessor
 from event_selection import (
     get_nObj_ge,
+=======
+from workflow import DisplacedLeptonProcessor
+from event_selection import (
+>>>>>>> f9b10a2 (Saving)
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
     get_dilepton_deltaR,
@@ -35,10 +48,18 @@ from event_selection import (
     MUON_FLAVOR,
     ELECTRON_FLAVOR,
 )
+<<<<<<< HEAD
 from named_cut import NamedCut
 
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_functions import get_HLTsel
+=======
+from lib.named_cut import NamedCut
+
+from pocket_coffea.utils.configurator import Configurator
+from pocket_coffea.lib.cut_functions import get_HLTsel
+from pocket_coffea.lib.calibrators.common import default_calibrators_sequence
+>>>>>>> f9b10a2 (Saving)
 from pocket_coffea.parameters.cuts import passthrough
 
 cfg = Configurator(
@@ -57,26 +78,10 @@ cfg = Configurator(
         NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Stage00_Trigger"),
     ],
     preselections = [
-        # --- Electron stages ---
-        NamedCut(cut=get_nObj_ge(1, "ElectronEta"),    label="Stage02_EleEta"),
-        NamedCut(cut=get_nObj_ge(1, "ElectronSC"),     label="Stage03_EleSC"),
-        NamedCut(cut=get_nObj_ge(1, "ElectronEtaPhi"), label="Stage04_EleEtaPhi"),
-        NamedCut(cut=get_nObj_ge(1, "ElectronPt"),     label="Stage05_ElePt"),
-        NamedCut(cut=get_nObj_ge(1, "ElectronID"),     label="Stage06_EleID"),
-        NamedCut(cut=get_nObj_ge(1, "ElectronGood"),   label="Stage07_EleIso"),
-        # --- Muon stages ---
-        NamedCut(cut=get_nObj_ge(1, "MuonEta"),    label="Stage08_MuEta"),
-        NamedCut(cut=get_nObj_ge(1, "MuonEtaPhi"), label="Stage09_MuEtaPhi"),
-        NamedCut(cut=get_nObj_ge(1, "MuonPt"),     label="Stage10_MuPt"),
-        NamedCut(cut=get_nObj_ge(1, "MuonGlobal"), label="Stage11_MuGlobal"),
-        NamedCut(cut=get_nObj_ge(1, "MuonID"),     label="Stage12_MuID"),
-        NamedCut(cut=get_nObj_ge(1, "MuonGood"),   label="Stage13_MuIso"),
-        # --- Event-level stages ---
-        NamedCut(cut=get_n_back_to_back_muons(0),               label="Stage14_CosAlpha"),
-        NamedCut(cut=get_min_muon_delta_t(-20),                  label="Stage15_DeltaT"),
-        NamedCut(cut=get_dilepton_deltaR("emu", 0.2),            label="Stage16_DeltaR"),
-        NamedCut(cut=get_no_in_material_vtx(MUON_FLAVOR, ELECTRON_FLAVOR),
-                                                                  label="Stage17_NoDispVtx"),
+        NamedCut(cut=get_n_back_to_back_muons(0),                          label="Stage14_CosAlpha"),
+        NamedCut(cut=get_min_muon_delta_t(-20),                             label="Stage15_DeltaT"),
+        NamedCut(cut=get_dilepton_deltaR("emu", 0.2),                       label="Stage16_DeltaR"),
+        NamedCut(cut=get_no_in_material_vtx(MUON_FLAVOR, ELECTRON_FLAVOR),  label="Stage17_NoDispVtx"),
     ],
     categories = {
         "baseline": [passthrough],

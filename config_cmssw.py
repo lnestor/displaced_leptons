@@ -16,31 +16,17 @@ parameters = defaults.merge_parameters_from_files(
     update=True
 )
 
-<<<<<<< HEAD
-import workflow_cmssw
-import event_selection
-import object_selection
-import named_cut
-cloudpickle.register_pickle_by_value(workflow_cmssw)
-=======
 import workflow
 import event_selection
 import object_selection
 import lib.named_cut as named_cut
 cloudpickle.register_pickle_by_value(workflow)
->>>>>>> f9b10a2 (Saving)
 cloudpickle.register_pickle_by_value(event_selection)
 cloudpickle.register_pickle_by_value(object_selection)
 cloudpickle.register_pickle_by_value(named_cut)
 
-<<<<<<< HEAD
-from workflow_cmssw import DisplacedLeptonProcessor
-from event_selection import (
-    get_nObj_ge,
-=======
 from workflow import DisplacedLeptonProcessor
 from event_selection import (
->>>>>>> f9b10a2 (Saving)
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
     get_dilepton_deltaR,
@@ -48,18 +34,10 @@ from event_selection import (
     MUON_FLAVOR,
     ELECTRON_FLAVOR,
 )
-<<<<<<< HEAD
 from named_cut import NamedCut
 
 from pocket_coffea.utils.configurator import Configurator
 from pocket_coffea.lib.cut_functions import get_HLTsel
-=======
-from lib.named_cut import NamedCut
-
-from pocket_coffea.utils.configurator import Configurator
-from pocket_coffea.lib.cut_functions import get_HLTsel
-from pocket_coffea.lib.calibrators.common import default_calibrators_sequence
->>>>>>> f9b10a2 (Saving)
 from pocket_coffea.parameters.cuts import passthrough
 
 cfg = Configurator(

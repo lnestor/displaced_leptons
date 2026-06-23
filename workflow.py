@@ -3,7 +3,7 @@ from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 from lib.object_cutflow import ObjectCutflow
-from object_selection import min_pt, max_eta, sc_gap_veto, lepton_id, isolation, eta_phi_veto
+from object_selection import min_pt, max_eta, sc_gap_veto, lepton_id, isolation, eta_phi_veto, electron_tight_id
 from lib.named_cut import NamedCut
 import numpy as np
 
@@ -53,6 +53,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
             self.events["Electron", "customIso"] = ele_iso
             self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4
+            eta_sc = abs(ele.deltaEtaSC + ele.eta)
+            self.events["Electron", "is_gap"] = (eta_sc >= 1.442) & (eta_sc <= 1.566)
 
             mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
             self.events["Muon", "customIso"] = mu_iso
@@ -61,6 +63,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         else:
             self.events["Electron", "customIso"] = ele.pfRelIso03_all
             self.events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
+            self.events["Electron", "is_gap"] = ele.isEBEEGap
 
             self.events["Muon", "customIso"] = mu.pfRelIso04_all
             self.events["Muon", "absd0_um"] = abs(mu.dxybs) * 1e4

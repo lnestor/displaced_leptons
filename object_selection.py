@@ -68,7 +68,6 @@ def electron_tight_id():
 def sc_gap_veto(collection):
     def _impl(events, params, **kwargs):
         obj = events[params["collection"]]
-        eta_sc = abs(obj.deltaEtaSC + obj.eta)
-        return ~((eta_sc >= 1.442) & (eta_sc <= 1.566))
+        return ~obj.is_gap
     return Cut(name=f"{collection}_sc_gap_veto", params={"collection": collection}, function=_impl)
 

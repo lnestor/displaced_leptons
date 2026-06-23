@@ -1,25 +1,13 @@
 import argparse
-import coffea.util
-import hist
 from matplotlib.colorbar import Colorbar
 import matplotlib.pyplot as plt
 import mplhep as hep
 import numpy as np
 import sys
-from util import (
-    add_common_args,
-    apply_common_args_to_ax,
-    apply_common_args_to_hist,
-    get_variables,
-    get_samples,
-    get_years,
-    get_datasets,
-    get_categories,
-    get_combined_hist,
-    get_is_data,
-    get_axis_names,
-    cms_loc_val
-)
+
+sys.path.append("scripts")
+from coffea_file import CoffeaFile
+from util import add_common_args, apply_common_args_to_ax, apply_common_args_to_hist, cms_loc_val
 
 hep.style.use("CMS")
 
@@ -33,7 +21,7 @@ def plot1d(h, ax, is_data, **kwargs):
         else:
             h = h / h.sum().value
 
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"])
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"], com=kwargs["com"])
     hep.histplot(
         h,
         histtype="errorbar",
@@ -46,7 +34,8 @@ def plot1d(h, ax, is_data, **kwargs):
 
     h_single = h[0] if is_multiple else h
     width = h_single.axes[0].widths[0]
-    unit = h_single.axes[0].label.split("[")[1][0:-1]
+    label = h_single.axes[0].label
+    unit = label.split("[")[1][0:-1] if "[" in label else ""
 
     label = f"Entries / {width:.1f} {unit}"
     if kwargs["normalize"]:
@@ -58,8 +47,7 @@ def plot1d(h, ax, is_data, **kwargs):
 
 
 def plot2d(h, fig, ax, is_data, **kwargs):
-    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"])
-
+    hep.cms.label("Preliminary", ax=ax, data=is_data, loc=cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"], com=kwargs["com"])
 
     if kwargs["density"]:
         x_widths = h.axes[0].widths
@@ -100,15 +88,15 @@ def main():
     args = parser.parse_args()
 
     print(f"Loading {args.input}")
-    f = coffea.util.load(args.input)
+    f = CoffeaFile(args.input)
 
-    valid_hists = get_variables(f)
+    valid_hists = f.hist_names()
     if not args.hist in valid_hists:
         print(f"\nUnknown histogram '{args.hist}' selected."
                " Choose from:\n  {0}\n".format("\n  ".join(valid_hists)))
         sys.exit(1)
 
-    valid_samples = get_samples(f, args.hist)
+    valid_samples = f.get_samples(args.hist)
     if args.sample and args.sample not in valid_samples:
         print(f"\nUnknown sample '{args.sample}' selected."
                " Choose from:\n  {0}".format("\n  ".join(valid_samples)))
@@ -118,12 +106,10 @@ def main():
         print(f"Sample not provided."
                " Will combine all:\n  {0}".format("\n  ".join(valid_samples)))
     else:
-        # TODO: support multiple samples pass in
         samples = [args.sample]
         print(f"Using sample: {args.sample}")
 
-    # Assume all samples have same year for now
-    valid_years = get_years(f, args.hist, samples[0])
+    valid_years = f.get_years(args.hist, samples[0])
     if args.years and any(y not in valid_years for y in args.years):
         invalid_years = [y for y in args.years if not y in valid_years]
         print(f"\nUnknown year(s) '{' '.join(invalid_years)}' selected."
@@ -136,31 +122,29 @@ def main():
     else:
         years = args.years
         print(f"Using years: {' '.join(sorted(args.years))}")
-    datasets = get_datasets(f, args.hist, samples[0], years)
 
-    # Assume all datasets have the same categories
-    valid_cats = get_categories(f, args.hist, samples[0], datasets[0])
+    valid_cats = f.get_categories(args.hist)
     if args.category and not args.category in valid_cats:
         print(f"\nUnknown category '{args.category}' selected."
                " Choose from:\n  {0}".format("\n  ".join(valid_cats)))
         sys.exit(1)
     elif not args.category:
-        print("No category chosen. Defauling to baseline category")
+        print("No category chosen. Defaulting to baseline category")
         category = "baseline"
     else:
         print(f"Using category: {args.category}")
         category = args.category
 
-    is_data_list = [get_is_data(f, d) for d in datasets]
+    is_data_list = [f.is_data(s, args.hist) for s in samples]
     if all(is_data_list):
         is_data = True
     elif any(is_data_list):
-        print("mixed MC and data datasets chosen")
+        print("mixed MC and data samples chosen")
         sys.exit(1)
     else:
         is_data = False
 
-    h = get_combined_hist(f, args.hist, samples, datasets, category, is_data)
+    h = f.get_total_hist(args.hist, samples, years, category)
 
     kwargs = vars(args).copy()
     kwargs.pop("output", None)
@@ -174,7 +158,7 @@ def main():
         # Warn if yvar is passed
         pass
     else:
-        axis_names = get_axis_names(h)
+        axis_names = [ax.name for ax in h.axes]
         if args.xvar is None:
             print(f"\nX-Variable not provided for {dims}-d histogram."
                   " Choose from:\n  {0}".format("\n  ".join(axis_names)))

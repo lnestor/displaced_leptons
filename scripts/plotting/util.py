@@ -45,7 +45,8 @@ def add_common_args(parser):
         default="interior",
         help="Where the CMS text should go"
     )
-    parser.add_argument("--lumi", type=int, help="Integrated luminosity to display in fb^-1")
+    parser.add_argument("--lumi", type=float, help="Integrated luminosity to display in fb^-1")
+    parser.add_argument("--com", type=float, default=13.6, help="Center-of-mass energy in TeV")
 
 
 def cms_loc_val(cms_loc_str):
@@ -55,45 +56,3 @@ def cms_loc_val(cms_loc_str):
         return 0
 
 
-def extract_year(year_key):
-    return year_key.split("_")[1]
-
-
-def get_variables(f):
-    return list(f["variables"].keys())
-
-
-def get_samples(f, variable):
-    return list(f["variables"][variable].keys())
-
-
-def get_years(f, variable, sample):
-    return list(set(extract_year(y) for y in f["variables"][variable][sample]))
-
-
-def get_categories(f, variable, sample, year_key):
-    ax = f["variables"][variable][sample][year_key].axes[0]
-    return [ax.value(i) for i in range(ax.extent - 1)]
-
-
-def get_datasets(f, variable, sample, years):
-    return [key for year in years
-                for key in f["variables"][variable][sample].keys()
-            if year in key]
-
-
-def get_combined_hist(f, variable, samples, datasets, category, is_data):
-    if is_data:
-        all_hists = [f["variables"][variable][s][d][category, ...] for s in samples for d in datasets]
-    else:
-        all_hists = [f["variables"][variable][s][d][category, "nominal", ...] for s in samples for d in datasets]
-
-    return sum(all_hists)
-
-
-def get_is_data(f, dataset):
-    return f["datasets_metadata"]["by_dataset"][dataset]["isMC"] == "False"
-
-
-def get_axis_names(h):
-    return [ax.name for ax in h.axes]

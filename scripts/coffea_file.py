@@ -1,4 +1,5 @@
 import coffea.util
+import hist
 
 class CoffeaFile:
     def __init__(self, filename):
@@ -13,7 +14,7 @@ class CoffeaFile:
 
         year_keys = self._get_year_keys(hist_name, samples)
         if years is not None:
-            year_keys = [yk for year in years for yk in year_keys if year in yk]
+            year_keys = [yk for yk in year_keys if self._dataset_year(yk) in years]
 
         category = category if category is not None else "baseline"
 
@@ -26,7 +27,10 @@ class CoffeaFile:
 
     def get_hist(self, hist_name, sample, year_key, category):
         h = self._f["variables"][hist_name][sample][year_key]
-        return h[category, ...]
+        h = h[category, ...]
+        if h.ndim > 1 and isinstance(h.axes[0], hist.axis.StrCategory):
+            h = h["nominal", ...]
+        return h
 
 
     def hist_names(self):
@@ -38,18 +42,31 @@ class CoffeaFile:
 
 
     def get_years(self, hist_name, sample):
-        return [self._extract_year(yk) for yk in self._get_year_keys(hist_name, sample)]
+        return list(set(self._dataset_year(yk) for yk in self._get_year_keys(hist_name, sample)))
+
+
+    def get_categories(self, hist_name):
+        sample = self.get_samples(hist_name)[0]
+        dataset = self._get_year_keys(hist_name, [sample])[0]
+        ax = self._f["variables"][hist_name][sample][dataset].axes[0]
+        return [ax.value(i) for i in range(ax.extent - 1)]
+
+
+    def is_data(self, sample, hist_name):
+        year_keys = self._get_year_keys(hist_name, [sample])
+        return self._f["datasets_metadata"]["by_dataset"][year_keys[0]]["isMC"] == "False"
 
 
     def get_cut_labels(self, category):
         labels = self._f["cut_labels"]
-        return [*labels["skim"], *labels["preselection"], *labels[category]]
+        obj_labels = list(labels.get("object_selection", []))
+        return [*labels["skim"], *labels["preselection"], *obj_labels, *labels[category]]
 
 
     def get_cutflow(self, category, sample, years=None):
         all_datasets = list(self._f["cutflow_cumulative"]["initial"].keys())
         if years is not None:
-            dataset_keys = [dk for year in years for dk in all_datasets if year in dk]
+            dataset_keys = [dk for dk in all_datasets if self._dataset_year(dk) in years]
         else:
             dataset_keys = all_datasets
 
@@ -66,9 +83,17 @@ class CoffeaFile:
         for cut_name in presel:
             values.append(sum(presel[cut_name][dk]["nominal"] for dk in dataset_keys))
 
+        if "object_selection" in self._f["cutflow_cumulative"]:
+            obj_sel = self._f["cutflow_cumulative"]["object_selection"]
+            for cut_name in obj_sel:
+                values.append(sum(obj_sel[cut_name][dk]["nominal"] for dk in dataset_keys))
+
         cat = self._f["cutflow_cumulative"][category]
         for cut_name in cat:
-            values.append(sum(cat[cut_name][dk][sample]["nominal"] for dk in dataset_keys))
+            if sample is None:
+                values.append(sum(cat[cut_name][dk][s]["nominal"] for dk in dataset_keys for s in cat[cut_name][dk]))
+            else:
+                values.append(sum(cat[cut_name][dk][sample]["nominal"] for dk in dataset_keys))
 
         return values
 
@@ -84,8 +109,8 @@ class CoffeaFile:
         return list(keys)
 
 
-    def _extract_year(self, year_key):
-        return year_key.split("_")[1]
+    def _dataset_year(self, dataset):
+        return self._f["datasets_metadata"]["by_dataset"][dataset]["year"]
 
 
     def _expand_hist_names(self, hist_name_arg):

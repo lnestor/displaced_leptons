@@ -1,98 +1,59 @@
 import argparse
-import coffea.util
-import hist
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 import mplhep as hep
-import pathlib
+import sys
 
-import util as plot_util
+sys.path.append("scripts")
+from coffea_file import CoffeaFile
+import util
 
 hep.style.use("CMS")
 
-_ALIASES = {
-    "DY": ["DYJetsToLL_M-10to50", "DYJetsToLL_M-50"],
-    "ttbar": ["TTToSemiLeptonic", "TTTo2L2Nu", "TTToHadronic"],
-    "singletop": ["ST_tW_top", "ST_t-channel_top", "ST_tW_antitop", "ST_t-channel_antitop", "ST_s-channel"],
-    "diboson": ["WZ", "ZZ", "WW"]
-}
 
-
-def _get_hist(root, variable, sample, year_key, category, is_data):
-    if is_data:
-        return root["variables"][variable][sample][year_key][category, :]
-    else:
-        return root["variables"][variable][sample][year_key][category, "nominal", :]
-
-
-def _combine_hists(root, variable, samples, year, category, is_data):
-    combined = None
-    for sample in samples:
-        for year_key in root["variables"][variable][sample]:
-            if year in year_key:
-                h = _get_hist(root, variable, sample, year_key, category, is_data)
-
-                if combined is None:
-                    combined = h
-                else:
-                    combined += h
-    return combined
-
-
-def _extract_full_sample_name(short_name, root, variable):
-    for full_name in root["variables"][variable].keys():
-        if short_name in full_name:
-            return full_name
-
-
-
-def plot_compare(stack_root, compare_root, output, variable, year, category, stack, compare_sample, **kwargs):
-    compare_hist = _combine_hists(compare_root, variable, [compare_sample], year, category, True)
+def plot_stack_with_data(sample_to_file, variable, stack_samples, data_sample, years, category, output, **kwargs):
+    h_data = sample_to_file[data_sample].get_total_hist(variable, [data_sample], years, category)
 
     stack_hists = []
-    for group_name in stack[::-1]:
-        samples = [_extract_full_sample_name(name, stack_root, variable) for name in _ALIASES[group_name]]
-        stack_hists.append(_combine_hists(stack_root, variable, samples, year, category, False))
+    for sample in stack_samples[::-1]:
+        h = sample_to_file[sample].get_total_hist(variable, [sample], years, category)
+        stack_hists.append(h)
 
-    total_stack = sum(stack_hists)
-    stack_integral = total_stack.sum().value
-    compare_integral = compare_hist.sum().value
-    sf = compare_integral / stack_integral
+    sf = h_data.sum().value / sum(stack_hists).sum().value
     stack_hists = [h * sf for h in stack_hists]
 
-    unit = compare_hist.axes[0].label.split("(")[1][0:-1]
+    label = h_data.axes[0].label
+    unit = label.split("[")[1][0:-1] if "[" in label else ""
     fig, ax_stack, ax_ratio = hep.comp.data_model(
-        data_hist=compare_hist,
+        data_hist=h_data,
         stacked_components=stack_hists,
-        stacked_labels=stack[::-1],
-        xlabel=compare_hist.axes[0].label,
-        ylabel=f"Entries / {compare_hist.axes[0].widths[0]:.1f} {unit}",
+        stacked_labels=stack_samples[::-1],
+        xlabel=h_data.axes[0].label,
+        ylabel=f"Entries / {h_data.axes[0].widths[0]:.1f} {unit}",
         comparison="relative_difference",
         stacked_colors=[
             "#F19EF9",
             "#FFFF7F",
             "#9268C6",
-            "#80CA72"
+            "#80CA72",
+            "#fc999a"
         ],
         h1_label="exp",
         h2_label="obs",
-        marker="+", # Marker for ratio plot
-        flow="none" # Prevents placing a "step connection" on x axis
+        marker="+",
+        flow="none"
     )
 
-    # Make the lines between stacked histograms thicker
     for patch in ax_stack.patches:
         patch.set_linewidth(1.5)
 
-    # hep.comp.data_model doesn't allow for styling the data histogram
-    # To get around that, we remove it and redraw it with our custom styling
     for line in ax_stack.lines:
-        line.remove() # Removes data points
-
+        line.remove()
     for coll in ax_stack.collections:
-        coll.remove() # Removes data error bars
+        coll.remove()
 
     hep.histplot(
-        compare_hist,
+        h_data,
         ax=ax_stack,
         histtype="errorbar",
         color="black",
@@ -102,93 +63,62 @@ def plot_compare(stack_root, compare_root, output, variable, year, category, sta
         label="Data"
     )
 
-    hep.cms.label("Preliminary", ax=ax_stack, data=True, loc=1, lumi=kwargs["lumi"]) # loc=1 is top left interior
-    plot_util.apply_common_args(ax_stack, **kwargs)
+    hep.cms.label("Preliminary", ax=ax_stack, data=True, loc=util.cms_loc_val(kwargs["cms_loc"]), lumi=kwargs["lumi"], com=kwargs["com"])
+    util.apply_common_args_to_ax(ax_stack, **kwargs)
+    ax_ratio.set_xlim(ax_stack.get_xlim())
+    ax_ratio.xaxis.set_major_locator(matplotlib.ticker.AutoLocator())
 
-    # We want the Data label to be on the top of the legend
     handles, labels = ax_stack.get_legend_handles_labels()
-    # Remove the data_model data legend entry since it has wrong marker style
     handles = [*handles[0:-2], handles[-1]]
     labels = [*labels[0:-2], labels[-1]]
-    # Rearrange so data/MC unc. is first
     handles = [handles[-1], handles[-2], *handles[0:-2]]
     labels = [labels[-1], labels[-2], *labels[0:-2]]
-    ax_stack.legend(handles, labels, loc="lower left")
+    ax_stack.legend(handles, labels, loc="upper right")
 
-    fig.savefig(output)
-
-def plot_stack(root, output, variable, year, category, stack, **kwargs):
-    hists = {}
-    for group_name in stack[::-1]:
-        samples = [_extract_full_sample_name(name, root, variable) for name in _ALIASES[group_name]]
-        hists[group_name] = _combine_hists(root, variable, samples, year, category, False)
-
-    fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=True, loc=1, lumi=kwargs["lumi"]) # loc=1 is top left interior
-    hep.histplot(
-        list(hists.values()),
-        histtype="fill",
-        stack=True,
-        label=stack[::-1],
-        ax=ax
-    )
-
-    plot_util.apply_common_args(ax, **kwargs)
-
-    ax.legend(loc="upper right")
-    fig.savefig(output)
+    fig.savefig(output, bbox_inches="tight")
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", help="Path to .coffea file")
-    parser.add_argument("-o", "--output", help="Output filename. Defaults to <DEFUALT")
-    parser.add_argument("-v", "--variable", required=True)
-    parser.add_argument("-c", "--category")
-    parser.add_argument("-y", "--year")
-    parser.add_argument("-s", "--stack", nargs="+")
-    parser.add_argument("--compare-file", type=pathlib.Path)
-    parser.add_argument("--compare-sample")
-    plot_util.add_common_args(parser)
+    parser.add_argument("--inputs", required=True, nargs="+")
+    parser.add_argument("--output")
+    parser.add_argument("--hist", required=True)
+    parser.add_argument("--category")
+    parser.add_argument("--years", nargs="+")
+    parser.add_argument("--stack-sample-order", nargs="+")
+    parser.add_argument("--data-sample")
+    util.add_common_args(parser)
     args = parser.parse_args()
 
-    print(f"Loading {args.input}")
-    f = coffea.util.load(args.input)
+    fs = [CoffeaFile(f) for f in args.inputs]
 
-    if args.compare_file:
-        print(f"Loading {args.compare_file}")
-        compare_f = coffea.util.load(args.compare_file)
+    sample_to_file = {}
+    for f in fs:
+        for sample in f.get_samples(args.hist):
+            sample_to_file[sample] = f
 
-        plot_compare(
-            f,
-            compare_f,
-            args.output,
-            args.variable,
-            args.year,
-            args.category,
-            args.stack,
-            args.compare_sample,
-            xlim=(args.xmin, args.xmax),
-            ylim=(args.ymin, args.ymax),
-            xlog=args.xlog,
-            ylog=args.ylog,
-            xstart=args.xstart,
-            lumi=args.lumi
-        )
-    else:
-        plot_stack(
-            f,
-            args.output,
-            args.variable,
-            args.year,
-            args.category,
-            args.stack,
-            xlim=(args.xmin, args.xmax),
-            ylim=(args.ymin, args.ymax),
-            xlog=args.xlog,
-            ylog=args.ylog,
-            lumi=args.lumi
-        )
+    plot_stack_with_data(
+        sample_to_file,
+        args.hist,
+        args.stack_sample_order,
+        args.data_sample,
+        args.years,
+        args.category,
+        args.output,
+        xmin=args.xmin,
+        xmax=args.xmax,
+        ymin=args.ymin,
+        ymax=args.ymax,
+        xlog=args.xlog,
+        ylog=args.ylog,
+        xstart=args.xstart,
+        xend=args.xend,
+        ystart=args.ystart,
+        yend=args.yend,
+        cms_loc=args.cms_loc,
+        lumi=args.lumi,
+        com=args.com
+    )
 
 
 if __name__ == "__main__":

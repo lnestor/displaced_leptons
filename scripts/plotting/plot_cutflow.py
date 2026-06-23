@@ -5,6 +5,7 @@ import mplhep as hep
 import sys
 sys.path.append("scripts")
 from coffea_file import CoffeaFile
+from util import add_common_args, cms_loc_val
 
 hep.style.use("CMS")
 
@@ -17,6 +18,7 @@ def main():
     parser.add_argument("-s", "--sample")
     parser.add_argument("-o", "--output", default="cutflow.png")
     parser.add_argument("--efficiency", action="store_true")
+    add_common_args(parser)
 
     args = parser.parse_args()
 
@@ -29,8 +31,8 @@ def main():
 
     fig, ax = plt.subplots(figsize=(14,6))
 
-    hep.cms.label("Preliminary", ax=ax, data=True, loc=0)
-    hep.histplot(cutflow, ax=ax)
+    hep.cms.label("Preliminary", ax=ax, data=False, loc=cms_loc_val(args.cms_loc), lumi=args.lumi, com=args.com)
+    hep.histplot(cutflow, ax=ax, linewidth=3)
 
     ax.set_xlim(0, len(cutflow))
     ax.set_xticks(range(len(cutflow) + 1))

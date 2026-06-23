@@ -26,6 +26,13 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
     def apply_object_preselection(self, variation):
         self.events["Electron", "original_idx"] = ak.local_index(self.events.Electron, axis=1)
         self.events["Muon", "original_idx"] = ak.local_index(self.events.Muon, axis=1)
+        self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
+
+        if self._year in RUN_2_YEARS:
+            rho = self.events.fixedGridRhoFastjetAll
+        else:
+            rho = self.events.Rho.fixedGridRhoFastjetAll
+        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
 
         ele = self.events.Electron
         mu = self.events.Muon
@@ -43,22 +50,16 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             matched_ele = self.gen_match(ele, gen_ele)
             self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
 
-        if self._year in RUN_2_YEARS:
-            rho = self.events.fixedGridRhoFastjetAll
-        else:
-            rho = self.events.Rho.fixedGridRhoFastjetAll
-        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
-
         if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
             ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
             self.events["Electron", "customIso"] = ele_iso
             self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4
+
             eta_sc = abs(ele.deltaEtaSC + ele.eta)
             self.events["Electron", "is_gap"] = (eta_sc >= 1.442) & (eta_sc <= 1.566)
 
             mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
             self.events["Muon", "customIso"] = mu_iso
-            self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
             self.events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
         else:
             self.events["Electron", "customIso"] = ele.pfRelIso03_all
@@ -66,7 +67,6 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             self.events["Electron", "is_gap"] = ele.isEBEEGap
 
             self.events["Muon", "customIso"] = mu.pfRelIso04_all
-            self.events["Muon", "absd0_um"] = abs(mu.dxybs) * 1e4
             self.events["Muon", "timeAtIpInOut"] = ak.zeros_like(mu.pt)
             self.events["Muon", "timeNdof"] = ak.zeros_like(mu.pt)
             self.events["Muon", "standardIsoCorr"] = ak.zeros_like(mu.pt)

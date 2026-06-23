@@ -81,7 +81,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             NamedCut(min_pt("Electron", ele_cut_vals.pt), label=f"$>=1$ e with $p_T > {ele_cut_vals.pt}$ GeV"),
             NamedCut(max_eta("Electron", ele_cut_vals.eta), label=f"$>=1$ e with $|\\eta| < {ele_cut_vals.eta}$"),
             NamedCut(sc_gap_veto("Electron"), label="$>=1$ e not in supercluster gap"),
-            NamedCut(lepton_id("Electron", ele_cut_vals.id, ele_cut_vals.id_req), label="$>=1$ e passing tight ID"),
+            NamedCut(electron_tight_id(), label="$>=1$ e passing tight ID"),
             NamedCut(isolation("Electron", ele_cut_vals.iso_base, ele_cut_vals.iso_pt_dep), label="$>=1$ e passing tight custom isolation"),
         ]
 

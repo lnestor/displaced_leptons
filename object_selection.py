@@ -53,6 +53,18 @@ def lepton_id(collection, id_field, id_req):
     )
 
 
+def electron_tight_id():
+    def _impl(events, params, **kwargs):
+        ALL_CUTS_TIGHT = 0b100100100100100100100100100100
+        NO_ISO_MASK    = 0b111111000111111111111111111111
+        return (events.Electron.vidNestedWPBitmap & NO_ISO_MASK) == (ALL_CUTS_TIGHT & NO_ISO_MASK)
+    return Cut(
+        name=f"Electron_id",
+        params={},
+        function=_impl
+    )
+
+
 def sc_gap_veto(collection):
     def _impl(events, params, **kwargs):
         obj = events[params["collection"]]

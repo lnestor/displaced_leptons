@@ -5,8 +5,6 @@ object_preselection:
       eta: 1.44
       iso_base: 0.0588
       iso_pt_dep: 0
-      id: cutBased
-      id_req: 4
     "2017":
       pt: 45
       eta: 1.44
@@ -17,8 +15,6 @@ object_preselection:
         phi_max: 10000
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2018":
       pt: 45
       eta: 1.44
@@ -29,50 +25,36 @@ object_preselection:
         phi_max: 0.8
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2022_preEE":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2022_postEE":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2023_preBPix":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2023_postBPix":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2024":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
     "2025":
       pt: 45
       eta: 1.44
       iso_base: 0.0287
       iso_pt_dep: 0.506
-      id: cutBased
-      id_req: 4
   Muon:
     2016_PostVFP:
       pt: 40

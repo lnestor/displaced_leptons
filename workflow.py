@@ -83,9 +83,9 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         ele_cut_vals = self.params.object_preselection["Electron"][self._year]
         ele_cuts = [
-            NamedCut(min_pt("Electron", ele_cut_vals.pt), label=f"$>=1$ e with $p_T > {ele_cut_vals.pt}$ GeV"),
             NamedCut(max_eta("Electron", ele_cut_vals.eta), label=f"$>=1$ e with $|\\eta| < {ele_cut_vals.eta}$"),
             NamedCut(sc_gap_veto("Electron"), label="$>=1$ e not in supercluster gap"),
+            NamedCut(min_pt("Electron", ele_cut_vals.pt), label=f"$>=1$ e with $p_T > {ele_cut_vals.pt}$ GeV"),
             NamedCut(electron_tight_id(), label="$>=1$ e passing tight ID"),
             NamedCut(isolation("Electron", ele_cut_vals.iso_base, ele_cut_vals.iso_pt_dep), label="$>=1$ e passing tight custom isolation"),
         ]
@@ -100,8 +100,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         mu_cut_vals = self.params.object_preselection["Muon"][self._year]
         mu_cuts = [
-            NamedCut(min_pt("Muon", mu_cut_vals.pt), label=f"$>=1$ $\\mu$ with $p_T > {mu_cut_vals.pt}$ GeV"),
             NamedCut(max_eta("Muon", mu_cut_vals.eta), label=f"$>=1$ $\\mu$ with $|\\eta| < {mu_cut_vals.eta}$"),
+            NamedCut(min_pt("Muon", mu_cut_vals.pt), label=f"$>=1$ $\\mu$ with $p_T > {mu_cut_vals.pt}$ GeV"),
             NamedCut(lepton_id("Muon", mu_cut_vals.id, True), label="$>=1$ $\\mu$ passing tight ID"),
             NamedCut(isolation("Muon", mu_cut_vals.iso_base, mu_cut_vals.iso_pt_dep), label="$>=1$ $\\mu$ passing tight custom isolation"),
         ]
@@ -109,7 +109,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         if "etaphi_veto" in mu_cut_vals.keys():
             v = mu_cut_vals.etaphi_veto
             new_cut = NamedCut(eta_phi_veto("Muon", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ $\\mu$ passing $\\eta$-$\\phi$ veto")
-            mu_cuts.insert(2, new_cut)
+            mu_cuts.insert(1, new_cut)
 
         mu_cutflow = ObjectCutflow(collection="Muon", cuts=mu_cuts)
         mu_cutflow.run(self.events, self.params)
@@ -133,6 +133,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             obj_sel.setdefault(mu_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
             mu_filtered = self.events.Muon[mu_cutflow.get_object_mask(i)]
             self._save_stage_events(self.events[event_cumul], mu_cutflow.cuts[i].label, mu_coll=mu_filtered[event_cumul])
+
+        self._obj_sel_event_mask = event_cumul
 
 
     def _save_stage_events(self, events, label, ele_coll=None, mu_coll=None):
@@ -211,7 +213,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
     def process_extra_after_presel(self, variation):
         names = list(self._presel_masks.names)
         for i, cut in enumerate(self._preselections):
-            cumul_mask = self._presel_masks.all(*names[:i+1])
+            cumul_mask = self._presel_masks.all(*names[:i+1]) & self._obj_sel_event_mask
             short_name = names[i].split("__")[0]
             self.output["cutflow_cumulative"]["preselection"] \
                 .setdefault(short_name, {}) \

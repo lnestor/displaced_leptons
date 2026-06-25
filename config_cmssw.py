@@ -53,7 +53,7 @@ cfg = Configurator(
     workflow = DisplacedLeptonProcessor,
     calibrators = [],
     skim = [
-        NamedCut(cut=get_HLTsel(primaryDatasets=["EMu"]), label="Stage00_Trigger"),
+        NamedCut(cut=get_HLTsel(), label="Stage00_Trigger"),
     ],
     preselections = [
         NamedCut(cut=get_n_back_to_back_muons(0),                          label="Stage14_CosAlpha"),

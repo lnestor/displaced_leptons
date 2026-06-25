@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "displaced-leptons"
+version = "0.1.0"
+
+[tool.setuptools]
+py-modules = ["workflow", "event_selection", "object_selection", "channel_selection", "hists"]
+packages = ["lib", "configs", "scripts"]

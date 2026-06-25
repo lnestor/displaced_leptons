@@ -95,7 +95,7 @@ def register_modules():
     import hists
     import channel_selection
     import lib.named_cut as named_cut
-    import configs.common as configs_common
+    import common as configs_common
     cloudpickle.register_pickle_by_value(workflow)
     cloudpickle.register_pickle_by_value(event_selection)
     cloudpickle.register_pickle_by_value(object_selection)

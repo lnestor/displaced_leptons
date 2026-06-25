@@ -1,4 +1,4 @@
-from configs.common import (
+from common import (
     DATA_SAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,

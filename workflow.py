@@ -89,6 +89,9 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             NamedCut(isolation("Electron", ele_cut_vals.iso_base, ele_cut_vals.iso_pt_dep), label="$>=1$ e passing tight custom isolation"),
         ]
 
+        if self.cfg.workflow_options["skip_pt_cut"]:
+            del ele_cuts[0]
+
         if "etaphi_veto" in ele_cut_vals.keys():
             v = ele_cut_vals.etaphi_veto
             new_cut = NamedCut(eta_phi_veto("Electron", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ e passing $\\eta$-$\\phi$ veto")
@@ -104,6 +107,9 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             NamedCut(lepton_id("Muon", mu_cut_vals.id, True), label="$>=1$ $\\mu$ passing tight ID"),
             NamedCut(isolation("Muon", mu_cut_vals.iso_base, mu_cut_vals.iso_pt_dep), label="$>=1$ $\\mu$ passing tight custom isolation"),
         ]
+
+        if self.cfg.workflow_options["skip_pt_cut"]:
+            del mu_cuts[0]
 
         if "etaphi_veto" in mu_cut_vals.keys():
             v = mu_cut_vals.etaphi_veto

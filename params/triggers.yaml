@@ -67,6 +67,11 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned
   "2025":
     Muon:
       - HLT_DoubleMu43NoFiltersNoVtx

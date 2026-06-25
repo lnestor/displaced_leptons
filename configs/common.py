@@ -4,7 +4,7 @@ from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, Muons
 from pocket_coffea.parameters import defaults
 
 from lib.named_cut import NamedCut
-from event_selection import get_nLeptonGood, get_d0_lt
+from event_selection import get_d0_lt
 from channel_selection import ee_cuts, mumu_cuts, emu_veto, emu_cuts
 
 import glob
@@ -71,18 +71,18 @@ DEFAULT_SKIM_CUTS = [
     NamedCut(cut=get_HLTsel(), label="Passes triggers")
 ]
 
-def get_channel_categories(params, include_pcr=False)
+def get_channel_categories(params, include_pcr=False):
     cats = {
         "baseline": [passthrough],
-        "ee": [*ee_cuts(params), emu_veto(params)]
+        "ee": [*ee_cuts(params), emu_veto(params)],
         "emu": [*emu_cuts(params)],
         "mumu": [*mumu_cuts(params), emu_veto(params)],
     }
 
     if include_pcr:
         cats["ee_pcr"] = [*ee_cuts(params), emu_veto(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
-        cats["emu_pcr"]: [*emu_cuts(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("MuonGood", 50, 0)],
-        cats["mumu_pcr"]: [*mumu_cuts(params), emu_veto(params), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
+        cats["emu_pcr"] = [*emu_cuts(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("MuonGood", 50, 0)],
+        cats["mumu_pcr"] = [*mumu_cuts(params), emu_veto(params), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
 
     return cats
 

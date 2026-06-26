@@ -15,9 +15,10 @@ class CoffeaFile:
         elif samples is None:
             samples = self.get_samples(hist_name)
 
-        year_keys = self._get_year_keys(hist_name, samples)
         if years is not None:
             year_keys = [yk for yk in year_keys if self._dataset_year(yk) in years]
+        else:
+            year_keys = self._get_year_keys(hist_name, samples)
 
         category = category if category is not None else "baseline"
 

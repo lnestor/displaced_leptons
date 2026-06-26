@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker
 import mplhep as hep
 import sys
-
-sys.path.append("scripts")
-from coffea_file import CoffeaFile
+from scripts.coffea_file import CoffeaFile
 import util
 
 hep.style.use("CMS")

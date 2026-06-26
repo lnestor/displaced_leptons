@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 import mplhep as hep
 import numpy as np
 import sys
-
-sys.path.append("scripts")
-from coffea_file import CoffeaFile
+from scripts.coffea_file import CoffeaFile
 from util import add_common_args, apply_common_args_to_ax, apply_common_args_to_hist, cms_loc_val
 
 hep.style.use("CMS")

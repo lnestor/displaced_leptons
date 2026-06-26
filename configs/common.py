@@ -71,12 +71,12 @@ DEFAULT_SKIM_CUTS = [
     NamedCut(cut=get_HLTsel(), label="Passes triggers")
 ]
 
-def get_channel_categories(params, include_pcr=False):
+def get_channel_categories(params, include_pcr=False, skip_pt=False):
     cats = {
         "baseline": [passthrough],
-        "ee": [*ee_cuts(params), emu_veto(params)],
-        "emu": [*emu_cuts(params)],
-        "mumu": [*mumu_cuts(params), emu_veto(params)],
+        "ee": [*ee_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)],
+        "emu": [*emu_cuts(params, skip_pt=skip_pt)],
+        "mumu": [*mumu_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)],
     }
 
     if include_pcr:

@@ -10,7 +10,10 @@ class CoffeaFile:
     def get_total_hist(self, hist_name, samples=None, years=None, category=None):
         hists = []
 
-        samples = samples if samples is not None else self.get_samples(hist_name)
+        if isinstance(samples, str):
+            samples = [samples]
+        elif samples is None:
+            samples = self.get_samples(hist_name)
 
         year_keys = self._get_year_keys(hist_name, samples)
         if years is not None:

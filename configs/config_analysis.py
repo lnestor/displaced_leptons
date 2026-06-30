@@ -33,8 +33,10 @@ cfg = Configurator(
     skim = DEFAULT_SKIM_CUTS,
     categories = get_channel_categories(params, include_pcr=True),
     variables = {
-        **lepton_hists(coll="ElectronGood", label="Electron"),
-        **lepton_hists(coll="MuonGood", label="Muon"),
+        **lepton_hists(coll="ElectronGood_ee", label="Electron", key="Electron_ee", only_categories=["ee", "ee_pcr"]),
+        **lepton_hists(coll="ElectronGood_emu", label="Electron", key="Electron_emu", only_categories=["emu", "emu_pcr"]),
+        **lepton_hists(coll="MuonGood_emu", label="Muon", key="Muon_emu", only_categories=["emu", "emu_pcr"]),
+        **lepton_hists(coll="MuonGood_mumu", label="Muon", key="Muon_mumu", only_categories=["mumu", "mumu_pcr"]),
         **background_hists()
     },
     preselections = [],

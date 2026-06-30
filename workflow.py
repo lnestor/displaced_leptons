@@ -24,54 +24,11 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def apply_object_preselection(self, variation):
-        self.events["Electron", "original_idx"] = ak.local_index(self.events.Electron, axis=1)
-        self.events["Muon", "original_idx"] = ak.local_index(self.events.Muon, axis=1)
-        self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
-
-        if self._year in RUN_2_YEARS:
-            rho = self.events.fixedGridRhoFastjetAll
-        else:
-            rho = self.events.Rho.fixedGridRhoFastjetAll
-        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
-
-        ele = self.events.Electron
-        mu = self.events.Muon
-
         if self._isMC:
             gen = self.events.GenPart
             self.events["GenPart"] = ak.with_field(self.events.GenPart, self.get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")
-            gen = self.events.GenPart
 
-            gen_mu = gen[(abs(gen.pdgId) == 13) & (gen.status == 1) & (gen.pt > 10)]
-            matched_mu = self.gen_match(mu, gen_mu)
-            self.events["Muon"] = ak.with_field(self.events.Muon, ak.fill_none(matched_mu.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
-
-            gen_ele = gen[(abs(gen.pdgId) == 11) & (gen.status == 1) & (gen.pt > 10)]
-            matched_ele = self.gen_match(ele, gen_ele)
-            self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
-
-        if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
-            ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
-            self.events["Electron", "customIso"] = ele_iso
-            self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4
-            self.events["Electron", "is_gap"] = ele.isEBEEGap
-
-
-            mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
-            self.events["Muon", "customIso"] = mu_iso
-            self.events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
-        else:
-            self.events["Electron", "customIso"] = ele.pfRelIso03_all
-            self.events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
-
-            eta_sc = abs(ele.deltaEtaSC + ele.eta)
-            self.events["Electron", "is_gap"] = (eta_sc >= 1.442) & (eta_sc <= 1.566)
-
-            self.events["Muon", "customIso"] = mu.pfRelIso04_all
-            self.events["Muon", "timeAtIpInOut"] = ak.zeros_like(mu.pt)
-            self.events["Muon", "timeNdof"] = ak.zeros_like(mu.pt)
-            self.events["Muon", "standardIsoCorr"] = ak.zeros_like(mu.pt)
-
+        if self._custom_nano_version == CENTRAL_NANOAOD_FLAG:
             n = len(self.events)
             self.events["InMaterialVtx"] = ak.zip({
                 "lep1Idx": ak.Array([[]]*n),
@@ -81,59 +38,53 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             })
 
         ele_cut_vals = self.params.object_preselection["Electron"][self._year]
-        ele_cuts = [
-            NamedCut(min_pt("Electron", ele_cut_vals.pt), label=f"$>=1$ e with $p_T > {ele_cut_vals.pt}$ GeV"),
-            NamedCut(max_eta("Electron", ele_cut_vals.eta), label=f"$>=1$ e with $|\\eta| < {ele_cut_vals.eta}$"),
-            NamedCut(sc_gap_veto("Electron"), label="$>=1$ e not in supercluster gap"),
-            NamedCut(electron_tight_id(), label="$>=1$ e passing tight ID"),
-            NamedCut(isolation("Electron", ele_cut_vals.iso_base, ele_cut_vals.iso_pt_dep), label="$>=1$ e passing tight custom isolation"),
-        ]
-
-        if self.cfg.workflow_options["skip_pt_cut"]:
-            del ele_cuts[0]
-
-        if "etaphi_veto" in ele_cut_vals.keys():
-            v = ele_cut_vals.etaphi_veto
-            new_cut = NamedCut(eta_phi_veto("Electron", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ e passing $\\eta$-$\\phi$ veto")
-            ele_cuts.insert(2, new_cut)
-
-        ele_cutflow = ObjectCutflow(collection="Electron", cuts=ele_cuts)
-        ele_cutflow.run(self.events, self.params)
-
         mu_cut_vals = self.params.object_preselection["Muon"][self._year]
-        mu_cuts = [
-            NamedCut(min_pt("Muon", mu_cut_vals.pt), label=f"$>=1$ $\\mu$ with $p_T > {mu_cut_vals.pt}$ GeV"),
-            NamedCut(max_eta("Muon", mu_cut_vals.eta), label=f"$>=1$ $\\mu$ with $|\\eta| < {mu_cut_vals.eta}$"),
-            NamedCut(lepton_id("Muon", mu_cut_vals.id, True), label="$>=1$ $\\mu$ passing tight ID"),
-            NamedCut(isolation("Muon", mu_cut_vals.iso_base, mu_cut_vals.iso_pt_dep), label="$>=1$ $\\mu$ passing tight custom isolation"),
-        ]
 
-        if self.cfg.workflow_options["skip_pt_cut"]:
-            del mu_cuts[0]
+        if self._needs_electrons():
+            self.events["Electron"] = self._build_electrons()
 
-        if "etaphi_veto" in mu_cut_vals.keys():
-            v = mu_cut_vals.etaphi_veto
-            new_cut = NamedCut(eta_phi_veto("Muon", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label="$>=1$ $\\mu$ passing $\\eta$-$\\phi$ veto")
-            mu_cuts.insert(2, new_cut)
+        if self._needs_muons():
+            self.events["Muon"] = self._build_muons()
 
-        mu_cutflow = ObjectCutflow(collection="Muon", cuts=mu_cuts)
-        mu_cutflow.run(self.events, self.params)
 
-        self.events["ElectronGood"] = self.events.Electron[ele_cutflow.get_final_object_mask()]
-        self.events["MuonGood"] = self.events.Muon[mu_cutflow.get_final_object_mask()]
+        if self._needs_ee():
+            ee_cuts = self._get_ele_cuts(ele_cut_vals, count=2)
 
-        obj_sel = self.output["cutflow_cumulative"]["object_selection"]
-        event_cumul = ak.ones_like(self.events.event, dtype=bool)
+            ee_cutflow = ObjectCutflow(collection="Electron", cuts=ee_cuts)
+            ee_cutflow.run(self.events, self.params)
 
-        for i in range(len(ele_cutflow)):
-            event_cumul = event_cumul & ele_cutflow.get_event_mask(i)
-            count = int(ak.sum(event_cumul))
-            obj_sel.setdefault(ele_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+            self.events["ElectronGood_ee"] = self.events.Electron[ee_cutflow.get_final_object_mask()]
 
-        for i in range(len(mu_cutflow)):
-            event_cumul = event_cumul & mu_cutflow.get_event_mask(i)
-            count = int(ak.sum(event_cumul))
-            obj_sel.setdefault(mu_cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+            event_cumul = ak.ones_like(self.events.event, dtype=bool)
+            self._fill_object_cutflow(ee_cutflow, event_cumul, variation, min_count=2)
+
+        if self._needs_emu():
+            emu_ele_cuts = self._get_ele_cuts(ele_cut_vals, count=1)
+            emu_mu_cuts = self._get_mu_cuts(mu_cut_vals, count=1)
+
+            emu_ele_cutflow = ObjectCutflow(collection="Electron", cuts=emu_ele_cuts)
+            emu_ele_cutflow.run(self.events, self.params)
+
+            emu_mu_cutflow = ObjectCutflow(collection="Muon", cuts=emu_mu_cuts)
+            emu_mu_cutflow.run(self.events, self.params)
+
+            self.events["ElectronGood_emu"] = self.events.Electron[emu_ele_cutflow.get_final_object_mask()]
+            self.events["MuonGood_emu"] = self.events.Muon[emu_mu_cutflow.get_final_object_mask()]
+
+            event_cumul = ak.ones_like(self.events.event, dtype=bool)
+            event_cumul = self._fill_object_cutflow(emu_ele_cutflow, event_cumul, variation, min_count=1)
+            self._fill_object_cutflow(emu_mu_cutflow, event_cumul, variation, min_count=1)
+
+        if self._needs_mumu():
+            mumu_cuts = self._get_mu_cuts(mu_cut_vals, count=2)
+
+            mumu_cutflow = ObjectCutflow(collection="Muon", cuts=mumu_cuts)
+            mumu_cutflow.run(self.events, self.params)
+
+            self.events["MuonGood_mumu"] = self.events.Muon[mumu_cutflow.get_final_object_mask()]
+
+            event_cumul = ak.ones_like(self.events.event, dtype=bool)
+            self._fill_object_cutflow(mumu_cutflow, event_cumul, variation, min_count=2)
 
 
     def gen_match(self, coll, gen):
@@ -167,9 +118,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def count_objects(self, variation):
-        self.events["nElectronGood"] = ak.num(self.events.ElectronGood)
-        self.events["nMuonGood"] = ak.num(self.events.MuonGood)
-        self.events["nLeptonGood"] = (self.events["nElectronGood"] + self.events["nMuonGood"])
+        pass
 
 
     def load_metadata_extra(self):
@@ -252,3 +201,129 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                     .setdefault(self._dataset, {}) \
                     .setdefault(self._sample, {})[variation] = ak.sum(mask)
 
+    def _build_electrons(self):
+        self.events["Electron", "original_idx"] = ak.local_index(self.events.Electron, axis=1)
+
+        if self._year in RUN_2_YEARS:
+            rho = self.events.fixedGridRhoFastjetAll
+        else:
+            rho = self.events.Rho.fixedGridRhoFastjetAll
+
+        ele = self.events.Electron
+        gen = self.events.GenPart
+
+        if self._isMC:
+            gen_ele = gen[(abs(gen.pdgId) == 11) & (gen.status == 1) & (gen.pt > 10)]
+            matched_ele = self.gen_match(ele, gen_ele)
+            self.events["Electron"] = ak.with_field(self.events.Electron, ak.fill_none(matched_ele.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
+        if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
+            ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
+            self.events["Electron", "customIso"] = ele_iso
+            self.events["Electron", "absd0_um"] = abs(self.events.Electron.dxybs) * 1e4
+            self.events["Electron", "is_gap"] = ele.isEBEEGap
+        else:
+            self.events["Electron", "customIso"] = ele.pfRelIso03_all
+            self.events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
+
+            eta_sc = abs(ele.deltaEtaSC + ele.eta)
+            self.events["Electron", "is_gap"] = (eta_sc >= 1.442) & (eta_sc <= 1.566)
+
+        return self.events.Electron
+
+    def _build_muons(self):
+        self.events["Muon", "original_idx"] = ak.local_index(self.events.Muon, axis=1)
+        self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4
+
+        if self._year in RUN_2_YEARS:
+            rho = self.events.fixedGridRhoFastjetAll
+        else:
+            rho = self.events.Rho.fixedGridRhoFastjetAll
+        self.events["Muon", "customIsoCorr"] = rho * np.pi * 0.4**2
+
+        mu = self.events.Muon
+        gen = self.events.GenPart
+
+        if self._isMC:
+            gen_mu = gen[(abs(gen.pdgId) == 13) & (gen.status == 1) & (gen.pt > 10)]
+            matched_mu = self.gen_match(mu, gen_mu)
+            self.events["Muon"] = ak.with_field(self.events.Muon, ak.fill_none(matched_mu.uniqueGenPartMotherIdx, 0), "uniqueGenPartMotherIdx")
+
+        if self._custom_nano_version != CENTRAL_NANOAOD_FLAG:
+            mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
+            self.events["Muon", "customIso"] = mu_iso
+            self.events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
+        else:
+            self.events["Muon", "customIso"] = mu.pfRelIso04_all
+            self.events["Muon", "timeAtIpInOut"] = ak.zeros_like(mu.pt)
+            self.events["Muon", "timeNdof"] = ak.zeros_like(mu.pt)
+            self.events["Muon", "standardIsoCorr"] = ak.zeros_like(mu.pt)
+
+        return self.events.Muon
+
+    def _get_ele_cuts(self, cut_vals, count=1):
+        cuts = [
+            NamedCut(min_pt("Electron", cut_vals.pt), label=f"$>={count}$ e with $p_T > {cut_vals.pt}$ GeV"),
+            NamedCut(max_eta("Electron", cut_vals.eta), label=f"$>={count}$ e with $|\\eta| < {cut_vals.eta}$"),
+            NamedCut(sc_gap_veto("Electron"), label=f"$>={count}$ e not in supercluster gap"),
+            NamedCut(electron_tight_id(), label=f"$>={count}$ e passing tight ID"),
+            NamedCut(isolation("Electron", cut_vals.iso_base, cut_vals.iso_pt_dep), label=f"$>={count}$ e passing tight custom isolation"),
+        ]
+
+        if self.cfg.workflow_options["skip_pt_cut"]:
+            del cuts[0]
+
+        if "etaphi_veto" in cut_vals.keys():
+            v = cut_vals.etaphi_veto
+            new_cut = NamedCut(eta_phi_veto("Electron", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label=f"$>={count}$ e passing $\\eta$-$\\phi$ veto")
+            cuts.insert(2, new_cut)
+
+        return cuts
+
+    def _get_mu_cuts(self, cut_vals, count=1):
+        cuts = [
+            NamedCut(min_pt("Muon", cut_vals.pt), label=f"$>={count}$ $\\mu$ with $p_T > {cut_vals.pt}$ GeV"),
+            NamedCut(max_eta("Muon", cut_vals.eta), label=f"$>={count}$ $\\mu$ with $|\\eta| < {cut_vals.eta}$"),
+            NamedCut(lepton_id("Muon", cut_vals.id, True), label=f"$>={count}$ $\\mu$ passing tight ID"),
+            NamedCut(isolation("Muon", cut_vals.iso_base, cut_vals.iso_pt_dep), label=f"$>={count}$ $\\mu$ passing tight custom isolation"),
+        ]
+
+        if self.cfg.workflow_options["skip_pt_cut"]:
+            del cuts[0]
+
+        if "etaphi_veto" in cut_vals.keys():
+            v = cut_vals.etaphi_veto
+            new_cut = NamedCut(eta_phi_veto("Muon", v.eta_min, v.eta_max, v.phi_min, v.phi_max), label=f"$>={count}$ $\\mu$ passing $\\eta$-$\\phi$ veto")
+            cuts.insert(2, new_cut)
+
+        return cuts
+
+    def _fill_object_cutflow(self, cutflow, event_cumul, variation, min_count=1):
+        obj_sel = self.output["cutflow_cumulative"]["object_selection"]
+
+        for i in range(len(cutflow)):
+            event_cumul = event_cumul & cutflow.get_event_mask(i, min_count=min_count)
+            count = int(ak.sum(event_cumul))
+            obj_sel.setdefault(cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
+
+        return event_cumul
+
+
+    def _needs_electrons(self):
+        return self._needs_ee() or self._needs_emu()
+
+
+    def _needs_muons(self):
+        return self._needs_emu() or self._needs_mumu()
+
+
+    def _needs_ee(self):
+        return self._sample == "EGamma" or self._isMC or self._sample == "MET"
+
+
+    def _needs_emu(self):
+        return self._sample == "MuonEG" or self._isMC or self._sample == "MET"
+
+
+    def _needs_mumu(self):
+        return self._sample == "Muon" or self._isMC or self._sample == "MET"

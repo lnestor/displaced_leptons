@@ -71,23 +71,23 @@ DEFAULT_SKIM_CUTS = [
     NamedCut(cut=get_HLTsel(), label="Passes triggers")
 ]
 
-def get_channel_categories(params, include_pcr=False, skip_pt=False, add_veto=True):
+def get_channel_categories(params, include_pcr=False, add_veto=True):
     cats = { "baseline": [passthrough] }
 
     if add_veto:
-        cats["ee"] = [*ee_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)]
-        cats["emu"] = [*emu_cuts(params, skip_pt=skip_pt)]
-        cats["mumu"] = [*mumu_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)]
+        cats["ee"] = [*ee_cuts(params), emu_veto(params)]
+        cats["emu"] = [*emu_cuts(params)]
+        cats["mumu"] = [*mumu_cuts(params), emu_veto(params)]
     else:
-        cats["ee"] = [*ee_cuts(params, skip_pt=skip_pt)]
-        cats["emu"] = [*emu_cuts(params, skip_pt=skip_pt)]
-        cats["mumu"] = [*mumu_cuts(params, skip_pt=skip_pt)]
+        cats["ee"] = [*ee_cuts(params)]
+        cats["emu"] = [*emu_cuts(params)]
+        cats["mumu"] = [*mumu_cuts(params)]
 
     if include_pcr:
         # Deliberately always adding the veto to the PCR, can modify if needed
-        cats["ee_pcr"] = [*ee_cuts(params), emu_veto(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
-        cats["emu_pcr"] = [*emu_cuts(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("MuonGood", 50, 0)],
-        cats["mumu_pcr"] = [*mumu_cuts(params), emu_veto(params), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
+        cats["ee_pcr"] = [*ee_cuts(params), emu_veto(params), get_d0_lt("ElectronGood_ee", 50, 0), get_d0_lt("ElectronGood_ee", 50, 1)],
+        cats["emu_pcr"] = [*emu_cuts(params), get_d0_lt("ElectronGood_emu", 50, 0), get_d0_lt("MuonGood_emu", 50, 0)],
+        cats["mumu_pcr"] = [*mumu_cuts(params), emu_veto(params), get_d0_lt("MuonGood_mumu", 50, 0), get_d0_lt("MuonGood_mumu", 50, 1)],
 
     return cats
 

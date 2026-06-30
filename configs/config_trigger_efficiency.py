@@ -18,7 +18,7 @@ from pocket_coffea.lib.cut_functions import get_HLTsel_custom
 from hists import lepton_hists
 
 params = get_params()
-base_cats = get_channel_categories(params, skip_pt=True, add_veto=False)
+base_cats = get_channel_categories(params, add_veto=False)
 
 EE_TRIGGERS = [
     "HLT_DoublePhoton70",

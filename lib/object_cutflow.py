@@ -21,8 +21,8 @@ class ObjectCutflow:
         return self._object_masks[i]
 
 
-    def get_event_mask(self, i):
-        return ak.any(self._object_masks[i], axis=1)
+    def get_event_mask(self, i, min_count=1):
+        return ak.sum(self._object_masks[i], axis=1) >= min_count
 
 
     def get_event_count(self, i):

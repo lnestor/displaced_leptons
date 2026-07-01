@@ -14,7 +14,7 @@ from common import (
 register_modules()
 
 from workflow import DisplacedLeptonProcessor
-from pocket_coffea.utils.configurator import Configurator
+from lib.configuator import Configurator
 from hists import lepton_hists, background_hists
 
 params = get_params()
@@ -30,20 +30,20 @@ cfg = Configurator(
         }
     },
     workflow = DisplacedLeptonProcessor,
-    workflow_options = {
-        "object_preselection": {
-            "Electron": [
-                NamedCut(get_pt_gt("Electron",), label=""),
-                NamedCut(get_eta_lt("Electron",), label=""),
-                NamedCut(sc_gap_Veto("Electron",), label=""),
-                NamedCut(electron_tight_id("Electron",), label=""),
-                NamedCut(isolation("Electron",), label=""),
-                NamedCut(eta_phi_veto(), label=""),
+    skim = DEFAULT_SKIM_CUTS,
+    object_selections = {
+        "Electron": {
+            "min": 2,
+            "cuts": [
+            ]
+        },
+        "Muon": {
+            "cuts": [
             ]
         }
+
     },
-    skim = DEFAULT_SKIM_CUTS,
-    preselections = [
+    event_preselections = [
         NamedCut(cut=get_nElectrons(2), label="")
         NamedCut(cut=get_n_back_to_back_muons(0), label="Veto back to back muons"),
         NamedCut(cut=get_min_muon_delta_t(-20), label="Veto muon paris with timing consistent with cosmics"),
@@ -52,9 +52,7 @@ cfg = Configurator(
     ],
     categories = get_default_categories(coll1="ElectronGood", coll2="MuonGood", pt_coll="MuonGood", pt_threshold=50)
     variables = {
-        # TODO: Unsure how to do binning for d0 because it would depend on which category
         **lepton_hists(coll="ElectronGood", label="Electron"),
-        **lepton_hists(coll="MuonGood", label="Muon"),
     },
     calibrators = DEFAULT_CALIBRATORS,
     weights = DEFAULT_WEIGHTS,

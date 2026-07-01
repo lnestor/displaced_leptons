@@ -24,6 +24,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def apply_object_preselection(self, variation):
+        import pdb; pdb.set_trace()
         self.events["Electron", "original_idx"] = ak.local_index(self.events.Electron, axis=1)
         self.events["Muon", "original_idx"] = ak.local_index(self.events.Muon, axis=1)
         self.events["Muon", "absd0_um"] = abs(self.events.Muon.dxybs) * 1e4

@@ -37,6 +37,12 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         ele = self.events.Electron
         mu = self.events.Muon
 
+        for ele_cuts in self.cfg.workflow_options["object_preselection"]:
+            pass
+
+        for mu_cuts in self.cfg.workflow_options["object_preselection"]:
+            pass
+
         if self._isMC:
             gen = self.events.GenPart
             self.events["GenPart"] = ak.with_field(self.events.GenPart, self.get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")

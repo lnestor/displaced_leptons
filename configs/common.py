@@ -71,6 +71,27 @@ DEFAULT_SKIM_CUTS = [
     NamedCut(cut=get_HLTsel(), label="Passes triggers")
 ]
 
+
+def get_default_categories(coll1, coll2, pt_coll, pt_threshold):
+    return {
+        "baseline": [passthrough]
+        "pcr": [get_d0_lt(coll1, 50, 0), get_d0_lt(coll2, 50, 0)],
+        "a": [get_d0_lt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
+        "b": [get_d0_gt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
+        "b_lowd0_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
+        "b_lowd0_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "b_highd0": [get_d0_gt(coll1, 500, 0), get_d0_lt(coll2, 100, 0)],
+        "c": [get_d0_lt(coll1, 100, 0), get_d0_gt(coll2, 100, 0)],
+        "c_lowd0_lowpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
+        "c_lowd0_highpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "c_highd0": [get_d0_lt(coll1, 500, 0), get_d0_gt(coll2, 100, 0)],
+        "sr1_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
+        "sr1_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "sr2": [get_d0_gt(coll1, 500, 0), get_d0_between(coll2, 100, 500, 0)],
+        "sr3": [get_d0_between(coll1, 100, 500, 0), get_d0_gt(coll2, 500, 0)],
+        "sr4": [get_d0_gt(coll1, 500, 0), get_d0_g5(coll2, 500, 0)],
+    }
+
 def get_channel_categories(params, include_pcr=False, skip_pt=False, add_veto=True):
     cats = { "baseline": [passthrough] }
 

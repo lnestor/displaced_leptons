@@ -1,0 +1,59 @@
+region_cuts:
+  ee:
+    2016_postVFP:
+      sr1_pt_threshold: 300
+    "2017":
+      sr1_pt_threshold: 400
+    "2018":
+      sr1_pt_threshold: 400
+    "2022_preEE":
+      sr1_pt_threshold: 400
+    "2022_postEE":
+      sr1_pt_threshold: 400
+    "2023_preBPix":
+      sr1_pt_threshold: 400
+    "2023_postBPix":
+      sr1_pt_threshold: 400
+    "2024":
+      sr1_pt_threshold: 400
+    "2025":
+      sr1_pt_threshold: 400
+  emu:
+    2016_postVFP:
+      sr1_pt_threshold: 90
+    "2017":
+      sr1_pt_threshold: 140
+    "2018":
+      sr1_pt_threshold: 140
+    "2022_preEE":
+      sr1_pt_threshold: 140
+    "2022_postEE":
+      sr1_pt_threshold: 140
+    "2023_preBPix":
+      sr1_pt_threshold: 140
+    "2023_postBPix":
+      sr1_pt_threshold: 140
+    "2024":
+      sr1_pt_threshold: 140
+    "2025":
+      sr1_pt_threshold: 140
+  mumu:
+    2016_postVFP:
+      sr1_pt_threshold: 100
+    "2017":
+      sr1_pt_threshold: 100
+    "2018":
+      sr1_pt_threshold: 100
+    "2022_preEE":
+      sr1_pt_threshold: 100
+    "2022_postEE":
+      sr1_pt_threshold: 100
+    "2023_preBPix":
+      sr1_pt_threshold: 100
+    "2023_postBPix":
+      sr1_pt_threshold: 100
+    "2024":
+      sr1_pt_threshold: 100
+    "2025":
+      sr1_pt_threshold: 100
+

@@ -45,7 +45,15 @@ def get_min_muon_delta_t(min_delta_t):
     return Cut(name=f"min_muon_delta_t_{min_delta_t}", params={}, function=_impl)
 
 
-def get_no_in_material_vtx(flavor1, flavor2):
+def get_no_in_material_vtx(channel):
+    if channel == "ee":
+        flavor1 = flavor2 = ELECTRON_FLAVOR
+    elif channel == "mumu":
+        flavor1 = flavor2 = MUON_FLAVOR
+    else:
+        flavor1 = ELECTRON_FLAVOR
+        flavor2 = MUON_FLAVOR
+
     coll1 = _FLAVOR_COLL[flavor1]
     coll2 = _FLAVOR_COLL[flavor2]
 
@@ -71,16 +79,7 @@ def get_no_in_material_vtx(flavor1, flavor2):
     )
 
 
-def get_dilepton_deltaR(pair_str, dr_min):
-    if pair_str == "ee":
-        coll1, coll2 = "ElectronGood", "ElectronGood"
-    elif pair_str == "mumu":
-        coll1, coll2 = "MuonGood", "MuonGood"
-    elif pair_str in ("emu", "mue"):
-        coll1, coll2 = "ElectronGood", "MuonGood"
-    else:
-        raise ValueError(f"Lepton pair key {pair_str} is not valid in cut get_dilepton_deltaR")
-
+def get_min_deltaR(coll1, coll2, dr_min):
     def _impl(events, params, year, sample, **kwargs):
         c1 = getattr(events, params["coll1"])
         c2 = getattr(events, params["coll2"])
@@ -95,29 +94,71 @@ def get_dilepton_deltaR(pair_str, dr_min):
         return ak.where(ak.is_none(mask), False, mask)
 
     return Cut(
-        name=f"{pair_str}_deltaR_gt_{dr_min}",
+        name=f"{coll1}_{coll2}_deltaR_gt_{dr_min}",
         params={"coll1": coll1, "coll2": coll2, "dr_min": dr_min},
         function=_impl,
     )
 
 
-def _get_nObj_impl(events, params, year, sample, **kwargs):
-    coll = getattr(events, params["coll"])
-    return ak.sum(coll.pt >= params["min_pts"][year], axis=1) >= params["N"]
+def get_leading_minpt(coll, channel=None, min_pt=None):
+    if channel is not None and min_pt is not None:
+        raise ValueError("get_leading_minpt: specify only one of 'channel' or 'min_pt', not both")
 
-def get_nElectrons(N, min_pts):
-    return Cut(
-        name=f"nElectrons_min{N}",
-        params={"N": N, "coll": "ElectronGood", "min_pts": min_pts},
-        function=_get_nObj_impl
-    )
+    if channel is not None:
+        def _impl(events, params, processor_params, year, **kwargs):
+            pt = processor_params.region_cuts[params["channel"]][year].sr1_pt_threshold
+            leading = ak.pad_none(events[params["coll"]], 1, axis=1)[:, 0]
+            mask = leading.pt >= pt
+            return ak.fill_none(mask, False)
+        return Cut(
+            name=f"leading_{coll}_minpt_{channel}",
+            params={"coll": coll, "channel": channel},
+            function=_impl
+        )
 
-def get_nMuons(N, min_pts):
-    return Cut(
-        name=f"nMuons_min{N}",
-        params={"N": N, "coll": "MuonGood", "min_pts": min_pts},
-        function=_get_nObj_impl
-    )
+    elif min_pt is not None:
+        def _impl(events, params, **kwargs):
+            leading = ak.pad_none(events[params["coll"]], 1, axis=1)[:, 0]
+            mask = leading.pt >= params["pt"]
+            return ak.fill_none(mask, False)
+        return Cut(
+            name=f"leading_{coll}_minpt_{min_pt}",
+            params={"coll": coll, "pt": min_pt},
+            function=_impl
+        )
+
+    else:
+        raise ValueError("get_leading_minpt: must specify either 'channel' or 'min_pt'")
+
+def get_leading_maxpt(coll, channel=None, max_pt=None):
+    if channel is not None and max_pt is not None:
+        raise ValueError("get_leading_maxpt: specify only one of 'channel' or 'max_pt', not both")
+
+    if channel is not None:
+        def _impl(events, params, processor_params, year, **kwargs):
+            pt = processor_params.region_cuts[params["channel"]][year].sr1_pt_threshold
+            leading = ak.pad_none(events[params["coll"]], 1, axis=1)[:, 0]
+            mask = leading.pt <= pt
+            return ak.fill_none(mask, False)
+        return Cut(
+            name=f"leading_{coll}_maxpt_{channel}",
+            params={"coll": coll, "channel": channel},
+            function=_impl
+        )
+
+    elif max_pt is not None:
+        def _impl(events, params, **kwargs):
+            leading = ak.pad_none(events[params["coll"]], 1, axis=1)[:, 0]
+            mask = leading.pt <= params["pt"]
+            return ak.fill_none(mask, False)
+        return Cut(
+            name=f"leading_{coll}_maxpt_{max_pt}",
+            params={"coll": coll, "pt": max_pt},
+            function=_impl
+        )
+
+    else:
+        raise ValueError("get_leading_maxpt: must specify either 'channel' or 'max_pt'")
 
 def get_d0_lt(coll, max_d0, lepton_index=0):
     def _impl(events, params, **kwargs):
@@ -128,5 +169,29 @@ def get_d0_lt(coll, max_d0, lepton_index=0):
     return Cut(
         name=f"{coll}_d0_lt_{max_d0}_lep{lepton_index}",
         params={"coll": coll, "max_d0": max_d0, "lepton_index": lepton_index},
+        function=_impl
+    )
+
+def get_d0_gt(coll, min_d0, lepton_index=0):
+    def _impl(events, params, **kwargs):
+        padded = ak.pad_none(getattr(events, params["coll"]), params["lepton_index"] + 1)
+        lepton = padded[:, params["lepton_index"]]
+        d0 = ak.fill_none(lepton.absd0_um, -1.0)
+        return d0 > params["min_d0"]
+    return Cut(
+        name=f"{coll}_d0_gt_{min_d0}_lep{lepton_index}",
+        params={"coll": coll, "min_d0": min_d0, "lepton_index": lepton_index},
+        function=_impl
+    )
+
+def get_d0_between(coll, min_d0, max_d0, lepton_index=0):
+    def _impl(events, params, **kwargs):
+        padded = ak.pad_none(getattr(events, params["coll"]), params["lepton_index"] + 1)
+        lepton = padded[:, params["lepton_index"]]
+        d0 = ak.fill_none(lepton.absd0_um, -1.0)
+        return (d0 < params["max_d0"]) & (d0 > params["min_d0"])
+    return Cut(
+        name=f"{coll}_d0_between_{min_d0}_{max_d0}_lep{lepton_index}",
+        params={"coll": coll, "min_d0": min_d0, "max_d0": max_d0, "lepton_index": lepton_index},
         function=_impl
     )

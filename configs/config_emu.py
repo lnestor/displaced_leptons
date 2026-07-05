@@ -2,19 +2,31 @@ from common import (
     DATA_SAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,
-    DEFAULT_WEIGHTS,
-    DEFAULT_VARIATIONS,
-    DEFAULT_CALIBRATORS,
     DEFAULT_SKIM_CUTS,
-    get_channel_categories,
+    get_default_categories,
     get_params,
     get_datasets,
     register_modules,
+    get_ele_cuts,
+    get_mu_cuts
 )
 register_modules()
 
+from lib.custom_fields import (
+    define_custom_nano_fields,
+    define_gen_parent
+)
+
+from event_selection import (
+    get_n_back_to_back_muons,
+    get_min_muon_delta_t,
+    get_min_deltaR,
+    get_no_in_material_vtx
+)
+
+from lib.named_cut import NamedCut
 from workflow import DisplacedLeptonProcessor
-from pocket_coffea.utils.configurator import Configurator
+from lib.configurator import Configurator
 from hists import lepton_hists, background_hists
 
 params = get_params()
@@ -22,50 +34,32 @@ params = get_params()
 cfg = Configurator(
     parameters = params,
     datasets = {
-        "jsons": get_datasets("central"),
+        "jsons": get_datasets("cmssw"),
         "filter": {
             "samples": ["MuonEG", *MC_SAMPLES],
             "samples_exclude": [],
-            "year": RUN_3_YEARS
+            "year": ["2018"]
         }
     },
     workflow = DisplacedLeptonProcessor,
-    workflow_options = {
-        "object_preselection": {
-            "Electron": [
-                NamedCut(get_pt_gt("Electron",), label=""),
-                NamedCut(get_eta_lt("Electron",), label=""),
-                NamedCut(sc_gap_Veto("Electron",), label=""),
-                NamedCut(electron_tight_id("Electron",), label=""),
-                NamedCut(isolation("Electron",), label=""),
-                NamedCut(eta_phi_veto(), label=""),
-            ],
-            "Muon": [
-                NamedCut(get_pt_gt("Muon",), label=""),
-                NamedCut(get_eta_lt("Muon",), label=""),
-                NamedCut(sc_gap_Veto("Muon",), label=""),
-                NamedCut(electron_tight_id("Muon",), label=""),
-                NamedCut(isolation("Muon",), label=""),
-                NamedCut(eta_phi_veto(), label="")
-            ]
-        }
-    },
     skim = DEFAULT_SKIM_CUTS,
-    preselections = [
-        NamedCut(cut=get_nElectrons(1)),
-        NamedCut(cut=get_nMuons(1)),
+    custom_fields = [
+        define_custom_nano_fields,
+        define_gen_parent
+    ],
+    object_selections = {
+        "Electron": {"min": 1, "cuts": get_ele_cuts("emu")},
+        "Muon": {"min": 1, "cuts": get_mu_cuts("emu")}
+    },
+    event_preselections = [
         NamedCut(cut=get_n_back_to_back_muons(0), label="Veto back to back muons"),
         NamedCut(cut=get_min_muon_delta_t(-20), label="Veto muon paris with timing consistent with cosmics"),
-        NamedCut(cut=get_dilepton_deltaR("emu", 0.2), label=""),
-        NamedCut(cut=get_no_in_material_vtx(MUON_FLAVOR, ELECTRON_FLAVOR), label="")
+        NamedCut(cut=get_min_deltaR("ElectronGood", "MuonGood", 0.2), label="Dilepton dleta R"),
+        NamedCut(cut=get_no_in_material_vtx(channel="emu"), label="Material vtx")
     ],
-    categories = get_default_categories(coll1="ElectronGood", coll2="MuonGood", pt_coll="MuonGood", pt_threshold=50)
-    variables = {
-        # TODO: Unsure how to do binning for d0 because it would depend on which category
-        **lepton_hists(coll="ElectronGood", label="Electron"),
-        **lepton_hists(coll="MuonGood", label="Muon"),
-    },
-    calibrators = DEFAULT_CALIBRATORS,
-    weights = DEFAULT_WEIGHTS,
-    variations = DEFAULT_VARIATIONS,
+    categories = get_default_categories(channel="emu"),
+    hists = {
+        **lepton_hists(coll="ElectronGood", pos=0, label="LeadingElectron"),
+        **lepton_hists(coll="MuonGood", pos=0, label="LeadingMuon"),
+    }
 )

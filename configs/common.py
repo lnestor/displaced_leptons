@@ -1,11 +1,24 @@
 from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags
 from pocket_coffea.parameters.cuts import passthrough
-from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from pocket_coffea.parameters import defaults
 
 from lib.named_cut import NamedCut
-from event_selection import get_d0_lt
-from channel_selection import ee_cuts, mumu_cuts, emu_veto, emu_cuts
+from event_selection import (
+    get_d0_lt,
+    get_d0_gt,
+    get_d0_between,
+    get_leading_minpt,
+    get_leading_maxpt
+)
+from object_selection import (
+    get_min_pt,
+    get_max_eta,
+    get_sc_gap_veto,
+    get_ele_tight_id,
+    get_max_iso,
+    get_etaphi_veto,
+    get_muon_tight_id,
+)
 
 import glob
 from pathlib import Path
@@ -41,30 +54,6 @@ MC_SAMPLES = [
     "QCD_Mu"
 ]
 
-DEFAULT_WEIGHTS = {
-    "common": {
-        "inclusive": [
-            "genWeight",
-            "lumi",
-            "XS"
-        ],
-        "bycategory": {}
-    },
-    "bysample": {}
-}
-
-DEFAULT_VARIATIONS = {
-    "weights": {
-        "common": {
-            "inclusive": [],
-            "bycategory": {}
-        },
-        "bysamples": {}
-    }
-}
-
-DEFAULT_CALIBRATORS = [ElectronsScaleCalibrator, MuonsCalibrator]
-
 DEFAULT_SKIM_CUTS = [
     NamedCut(cut=eventFlags, label="MET Filters"),
     NamedCut(cut=goldenJson, label="Golden JSON"),
@@ -72,45 +61,54 @@ DEFAULT_SKIM_CUTS = [
 ]
 
 
-def get_default_categories(coll1, coll2, pt_coll, pt_threshold):
+def get_ele_cuts(channel):
+    return [
+        NamedCut(get_max_eta("Electron", channel=channel), r"$>={count}$ e with $|\eta|<{val}$"),
+        NamedCut(get_sc_gap_veto("Electron"), r"$>={count} e not in supercluster gap"),
+        NamedCut(get_etaphi_veto("Electron", channel=channel), r"$>={count}$ e passing $\eta-\phi$ veto"),
+        NamedCut(get_min_pt("Electron", channel=channel), r"$>={count}$ e with $p_T>{val}$ GeV"),
+        NamedCut(get_ele_tight_id("Electron"), r"$>={count}$ e passing tight ID (minus isolation requirement)"),
+        NamedCut(get_max_iso("Electron", channel=channel), r"$>={count}$ e passing tight custom isolation"),
+    ]
+
+
+def get_mu_cuts(channel):
+    return [
+        NamedCut(get_max_eta("Muon", channel=channel), r"$>={count}$ $\mu$ with $|\eta|<{val}$"),
+        NamedCut(get_etaphi_veto("Muon", channel=channel), r"$>={count}$ $\mu$ passing $\eta-\phi$ veto"),
+        NamedCut(get_min_pt("Muon", channel=channel), r"$>={count}$ $\mu$ with $p_T>{val}$ GeV"),
+        NamedCut(get_muon_tight_id("Muon"), r"$>={count}$ $\mu$ passing tight ID"),
+        NamedCut(get_max_iso("Muon", channel=channel), r"$>={count}$ $\mu$ passing tight custom isolation"),
+    ]
+
+
+def get_default_categories(channel):
+    if channel == "ee":
+        coll1 = coll2 = pt_coll = "ElectronGood"
+    elif channel == "mumu":
+        coll1 = coll2 = pt_coll = "MuonGood"
+    else:
+        coll1 = "ElectronGood"
+        coll2 = pt_coll = "MuonGood"
+
     return {
-        "baseline": [passthrough]
+        "baseline": [passthrough],
         "pcr": [get_d0_lt(coll1, 50, 0), get_d0_lt(coll2, 50, 0)],
         "a": [get_d0_lt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
         "b": [get_d0_gt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
-        "b_lowd0_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
-        "b_lowd0_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "b_lowd0_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_leading_maxpt(pt_coll, channel=channel)],
+        "b_lowd0_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_leading_minpt(pt_coll, channel=channel)],
         "b_highd0": [get_d0_gt(coll1, 500, 0), get_d0_lt(coll2, 100, 0)],
         "c": [get_d0_lt(coll1, 100, 0), get_d0_gt(coll2, 100, 0)],
-        "c_lowd0_lowpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
-        "c_lowd0_highpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "c_lowd0_lowpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_leading_maxpt(pt_coll, channel=channel)],
+        "c_lowd0_highpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_leading_minpt(pt_coll, channel=channel)],
         "c_highd0": [get_d0_lt(coll1, 500, 0), get_d0_gt(coll2, 100, 0)],
-        "sr1_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_pt_lt(pt_coll, pt_threshold, 0)],
-        "sr1_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_pt_gt(pt_coll, pt_threshold, 0)],
+        "sr1_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_leading_maxpt(pt_coll, channel=channel)],
+        "sr1_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_leading_minpt(pt_coll, channel=channel)],
         "sr2": [get_d0_gt(coll1, 500, 0), get_d0_between(coll2, 100, 500, 0)],
         "sr3": [get_d0_between(coll1, 100, 500, 0), get_d0_gt(coll2, 500, 0)],
-        "sr4": [get_d0_gt(coll1, 500, 0), get_d0_g5(coll2, 500, 0)],
+        "sr4": [get_d0_gt(coll1, 500, 0), get_d0_gt(coll2, 500, 0)],
     }
-
-def get_channel_categories(params, include_pcr=False, skip_pt=False, add_veto=True):
-    cats = { "baseline": [passthrough] }
-
-    if add_veto:
-        cats["ee"] = [*ee_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)]
-        cats["emu"] = [*emu_cuts(params, skip_pt=skip_pt)]
-        cats["mumu"] = [*mumu_cuts(params, skip_pt=skip_pt), emu_veto(params, skip_pt=skip_pt)]
-    else:
-        cats["ee"] = [*ee_cuts(params, skip_pt=skip_pt)]
-        cats["emu"] = [*emu_cuts(params, skip_pt=skip_pt)]
-        cats["mumu"] = [*mumu_cuts(params, skip_pt=skip_pt)]
-
-    if include_pcr:
-        # Deliberately always adding the veto to the PCR, can modify if needed
-        cats["ee_pcr"] = [*ee_cuts(params), emu_veto(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("ElectronGood", 50, 1)],
-        cats["emu_pcr"] = [*emu_cuts(params), get_d0_lt("ElectronGood", 50, 0), get_d0_lt("MuonGood", 50, 0)],
-        cats["mumu_pcr"] = [*mumu_cuts(params), emu_veto(params), get_d0_lt("MuonGood", 50, 0), get_d0_lt("MuonGood", 50, 1)],
-
-    return cats
 
 
 def register_modules():
@@ -144,10 +142,9 @@ def get_params():
 
     parameters = defaults.merge_parameters_from_files(
         default_parameters,
-        f"{path}/object_preselection.yaml",
+        f"{path}/object_selection.yaml",
+        f"{path}/regions.yaml",
         f"{path}/triggers.yaml",
-        f"{path}/plotting.yaml",
-        f"{path}/categories.yaml",
         update=True
     )
 

@@ -2,20 +2,21 @@ from common import (
     DATA_SAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,
-    DEFAULT_WEIGHTS,
-    DEFAULT_VARIATIONS,
-    DEFAULT_CALIBRATORS,
     DEFAULT_SKIM_CUTS,
-    get_channel_categories,
     get_params,
     get_datasets,
     register_modules,
+    get_ele_cuts,
+    get_mu_cuts,
+    get_default_categories,
 )
 register_modules()
 
 from workflow import DisplacedLeptonProcessor
-from lib.configuator import Configurator
-from hists import lepton_hists, background_hists
+from lib.configurator import Configurator
+from lib.custom_fields import define_custom_nano_fields, define_gen_parent
+from hists import lepton_hists
+from event_selection import get_min_deltaR, get_no_in_material_vtx
 
 params = get_params()
 
@@ -24,37 +25,31 @@ cfg = Configurator(
     datasets = {
         "jsons": get_datasets("central"),
         "filter": {
-            "samples": ["MuonEG", *MC_SAMPLES],
+            # "samples": ["MuonEG", *MC_SAMPLES],
+            "samples": ["EGamma"],
             "samples_exclude": [],
-            "year": RUN_3_YEARS
+            # "year": RUN_3_YEARS
+            "year": ["2022_preEE"]
         }
     },
     workflow = DisplacedLeptonProcessor,
     skim = DEFAULT_SKIM_CUTS,
+    custom_fields = [
+        define_custom_nano_fields,
+        define_gen_parent
+    ],
     object_selections = {
-        "Electron": {
-            "min": 2,
-            "cuts": [
-            ]
-        },
-        "Muon": {
-            "cuts": [
-            ]
-        }
-
+        "Electron": {"min": 2, "cuts": get_ele_cuts("ee")},
+        "Muon": {"cuts": get_mu_cuts("emu")}
     },
     event_preselections = [
-        NamedCut(cut=get_nElectrons(2), label="")
-        NamedCut(cut=get_n_back_to_back_muons(0), label="Veto back to back muons"),
-        NamedCut(cut=get_min_muon_delta_t(-20), label="Veto muon paris with timing consistent with cosmics"),
-        NamedCut(cut=get_dilepton_deltaR("emu", 0.2), label=""),
-        NamedCut(cut=get_no_in_material_vtx(MUON_FLAVOR, ELECTRON_FLAVOR), label="")
+        get_min_deltaR("ElectronGood", "ElectronGood", 0.2),
+        get_no_in_material_vtx(channel="ee")
     ],
-    categories = get_default_categories(coll1="ElectronGood", coll2="MuonGood", pt_coll="MuonGood", pt_threshold=50)
-    variables = {
+    categories = get_default_categories(channel="ee"),
+    hists = {
         **lepton_hists(coll="ElectronGood", label="Electron"),
-    },
-    calibrators = DEFAULT_CALIBRATORS,
-    weights = DEFAULT_WEIGHTS,
-    variations = DEFAULT_VARIATIONS,
+        **lepton_hists(coll="ElectronGood", pos=0, label="LeadingElectron"),
+        **lepton_hists(coll="ElectronGood", pos=1, label="SubleadingElectron"),
+    }
 )

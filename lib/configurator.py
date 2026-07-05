@@ -1,4 +1,30 @@
 import pocket_coffea.utils.configurator as config
+from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
+
+DEFAULT_WEIGHTS = {
+    "common": {
+        "inclusive": [
+            "genWeight",
+            "lumi",
+            "XS"
+        ],
+        "bycategory": {}
+    },
+    "bysample": {}
+}
+
+DEFAULT_VARIATIONS = {
+    "weights": {
+        "common": {
+            "inclusive": [],
+            "bycategory": {}
+        },
+        "bysamples": {}
+    }
+}
+
+DEFAULT_CALIBRATORS = [ElectronsScaleCalibrator, MuonsCalibrator]
+
 
 class Configurator(config.Configurator):
     def __init__(
@@ -7,14 +33,15 @@ class Configurator(config.Configurator):
         parameters,
         datasets,
         skim,
-        object_selections
+        object_selections,
         event_preselections,
         categories,
-        weights,
-        variations,
-        variables,
+        hists,
+        custom_fields=[],
+        weights=DEFAULT_WEIGHTS,
+        variations=DEFAULT_VARIATIONS,
         weights_classes=None,
-        calibrators=None,
+        calibrators=DEFAULT_CALIBRATORS,
         workflow_options=None,
         save_skimmed_files=None,
         do_postprocessing=True
@@ -28,7 +55,7 @@ class Configurator(config.Configurator):
             categories=categories,
             weights=weights,
             variations=variations,
-            variables=variables,
+            variables=hists,
             weights_classes=weights_classes,
             calibrators=calibrators,
             workflow_options=workflow_options,
@@ -37,4 +64,5 @@ class Configurator(config.Configurator):
         )
 
         self.object_selections = object_selections
+        self.custom_fields = custom_fields
 

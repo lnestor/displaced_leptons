@@ -1,0 +1,348 @@
+object_selection:
+  ee:
+    Electron:
+      2016_PostVFP:
+        pt: 65
+        eta: 1.44
+        iso_base: 0.0588
+        iso_pt_dep: 0
+      "2017":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 1.0
+          eta_max: 1.5
+          phi_min: 2.7
+          phi_max: 10000
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2018":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2022_preEE":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2022_postEE":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2023_preBPix":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2023_postBPix":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2024":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2025":
+        pt: 75
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+  emu:
+    Electron:
+      2016_PostVFP:
+        pt: 42
+        eta: 1.44
+        iso_base: 0.0588
+        iso_pt_dep: 0
+      "2017":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 1.0
+          eta_max: 1.5
+          phi_min: 2.7
+          phi_max: 10000
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2018":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2022_preEE":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2022_postEE":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2023_preBPix":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2023_postBPix":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2024":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+      "2025":
+        pt: 45
+        eta: 1.44
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.0287
+        iso_pt_dep: 0.506
+    Muon:
+      2016_PostVFP:
+        pt: 40
+        eta: 1.5
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2017":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 1.0
+          eta_max: 1.5
+          phi_min: 2.7
+          phi_max: 10000
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2018":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2022_preEE":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2022_postEE":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2023_preBPix":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2023_postBPix":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2024":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2025":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+  mumu:
+    Muon:
+      2016_PostVFP:
+        pt: 35
+        eta: 1.5
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2017":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 1.0
+          eta_max: 1.5
+          phi_min: 2.7
+          phi_max: 10000
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2018":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2022_preEE":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2022_postEE":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2023_preBPix":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2023_postBPix":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2024":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0
+      "2025":
+        pt: 45
+        eta: 1.5
+        etaphi_veto:
+          eta_min: 0.3
+          eta_max: 1.2
+          phi_min: 0.4
+          phi_max: 0.8
+        iso_base: 0.1
+        iso_pt_dep: 0

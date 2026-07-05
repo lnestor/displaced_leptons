@@ -105,7 +105,7 @@ object_selection:
         iso_pt_dep: 0.506
       "2018":
         pt: 45
-        eta: 1.44
+        eta: 1.5
         etaphi_veto:
           eta_min: 0.3
           eta_max: 1.2

@@ -57,8 +57,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
     def load_metadata_extra(self):
         with uproot.open(self.events.metadata["filename"]) as f:
-            if "customNanoVersion" in f:
-                self._custom_nano_version = int(f["customNanoVersion"])
+            if "osuVersion" in f:
+                self._custom_nano_version = int(f["osuVersion"])
             else:
                 self._custom_nano_version = CENTRAL_NANOAOD_FLAG
 

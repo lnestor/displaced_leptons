@@ -21,12 +21,12 @@ def define_custom_nano_fields(events, year, is_mc, osu_nano_version):
     mu = events.Muon
 
     if osu_nano_version != CENTRAL_NANOAOD_FLAG:
-        ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutral - rho * np.pi * 0.3**2, 0) / ele.pt
+        ele_iso = np.maximum(ele.pfIso03_sumChargedHardonPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutralEt - rho * np.pi * 0.3**2, 0) / ele.pt
         events["Electron", "customIso"] = ele_iso
         events["Electron", "absd0_um"] = abs(events.Electron.dxybs) * 1e4
         events["Electron", "is_gap"] = ele.isEBEEGap
 
-        mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutral - rho * np.pi * 0.4**2, 0) / mu.pt
+        mu_iso = np.maximum(mu.pfIso04_sumChargedHardonPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutralEt - rho * np.pi * 0.4**2, 0) / mu.pt
         events["Muon", "customIso"] = mu_iso
         events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
     else:

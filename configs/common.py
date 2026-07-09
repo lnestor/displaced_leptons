@@ -54,22 +54,32 @@ MC_SAMPLES = [
     "QCD_Mu"
 ]
 
-DEFAULT_SKIM_CUTS = [
-    NamedCut(cut=eventFlags, label="MET Filters"),
-    NamedCut(cut=goldenJson, label="Golden JSON"),
-    NamedCut(cut=get_HLTsel(), label="Passes triggers")
-]
+
+def get_default_skim_cuts(sample=None):
+    cuts = [
+        NamedCut(cut=eventFlags, label="MET Filters"),
+        NamedCut(cut=goldenJson, label="Golden JSON"),
+    ]
+
+    if sample is None:
+        cuts.append(NamedCut(cut=get_HLTsel(), label="Passes triggers"))
+    else:
+        cuts.append(NamedCut(cut=get_HLTsel(primaryDatasets=[sample]), label="Passes triggers"))
+
+    return cuts
 
 
-def get_ele_cuts(channel):
-    return [
+def get_ele_cuts(channel, skip_pt=False):
+    cuts = [
         NamedCut(get_max_eta("Electron", channel=channel), r"$>={count}$ e with $|\eta|<{val}$"),
         NamedCut(get_sc_gap_veto("Electron"), r"$>={count} e not in supercluster gap"),
         NamedCut(get_etaphi_veto("Electron", channel=channel), r"$>={count}$ e passing $\eta-\phi$ veto"),
-        NamedCut(get_min_pt("Electron", channel=channel), r"$>={count}$ e with $p_T>{val}$ GeV"),
+        NamedCut(get_min_pt("Electron", channel=channel), r"$>={count}$ e with $p_T>{val}$ GeV") if not skip_pt else None,
         NamedCut(get_ele_tight_id("Electron"), r"$>={count}$ e passing tight ID (minus isolation requirement)"),
         NamedCut(get_max_iso("Electron", channel=channel), r"$>={count}$ e passing tight custom isolation"),
     ]
+
+    return [cut for cut in cuts if cut is not None]
 
 
 def get_mu_cuts(channel):

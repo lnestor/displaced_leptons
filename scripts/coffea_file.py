@@ -49,11 +49,20 @@ class CoffeaFile:
         return list(set(self._dataset_year(yk) for yk in self._get_year_keys(hist_name, sample)))
 
 
-    def get_categories(self, hist_name):
-        sample = self.get_samples(hist_name)[0]
-        dataset = self._get_year_keys(hist_name, [sample])[0]
-        ax = self._f["variables"][hist_name][sample][dataset].axes[0]
-        return [ax.value(i) for i in range(ax.extent - 1)]
+    def get_categories(self, hist_name=None):
+        if isinstance(hist_name, str):
+            hist_names = [hist_name]
+        elif hist_name is None:
+            hist_names = self.hist_names()
+
+        cats = set()
+        for h in hist_names:
+            sample = self.get_samples(h)[0]
+            dataset = self._get_year_keys(h, [sample])[0]
+            ax = self._f["variables"][h][sample][dataset].axes[0]
+            cats.update([ax.value(i) for i in range(ax.extent - 1)])
+
+        return list(cats)
 
 
     def is_data(self, sample, hist_name):
@@ -64,7 +73,7 @@ class CoffeaFile:
     def get_cut_labels(self, category):
         labels = self._f["cut_labels"]
         obj_labels = list(labels.get("object_selection", []))
-        return [*labels["skim"], *labels["preselection"], *obj_labels, *labels[category]]
+        return [*labels["skim"], *obj_labels, *labels["preselection"], *labels[category]]
 
 
     def get_cutflow(self, category, sample, years=None):
@@ -83,14 +92,14 @@ class CoffeaFile:
         for cut_name in skim:
             values.append(sum(skim[cut_name][dk] for dk in dataset_keys))
 
-        presel = self._f["cutflow_cumulative"]["preselection"]
-        for cut_name in presel:
-            values.append(sum(presel[cut_name][dk]["nominal"] for dk in dataset_keys))
-
         if "object_selection" in self._f["cutflow_cumulative"]:
             obj_sel = self._f["cutflow_cumulative"]["object_selection"]
             for cut_name in obj_sel:
                 values.append(sum(obj_sel[cut_name][dk]["nominal"] for dk in dataset_keys))
+
+        presel = self._f["cutflow_cumulative"]["preselection"]
+        for cut_name in presel:
+            values.append(sum(presel[cut_name][dk]["nominal"] for dk in dataset_keys))
 
         cat = self._f["cutflow_cumulative"][category]
         for cut_name in cat:

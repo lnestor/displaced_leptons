@@ -21,6 +21,7 @@ def get_min_pt(coll, channel=None, min_pt=None):
     else:
         raise ValueError("get_min_pt: must specify either 'channel' or 'min_pt'")
 
+
 def get_max_eta(coll, channel=None, max_eta=None):
     if channel is not None and max_eta is not None:
         raise ValueError("get_max_eta: specify only one of 'channel' or 'max_eta', not both")
@@ -54,6 +55,15 @@ def get_ele_tight_id(coll):
         obj = events[params["coll"]]
         return (obj.vidNestedWPBitmap & NO_ISO_MASK) == (ALL_CUTS_TIGHT & NO_ISO_MASK)
     return Cut(name=f"{coll}_id_tight", params={"coll": coll}, function=_impl)
+
+
+def get_ele_tight_id_single_bit(coll, bit_index):
+    def _impl(events, params, **kwargs):
+        ALL_CUTS_TIGHT = 0b100100100100100100100100100100
+        bitmask = 0b111 << (3 * bit_index)
+        obj = events[params["coll"]]
+        return (obj.vidNestedWPBitmap & bitmask) == (ALL_CUTS_TIGHT & bitmask)
+    return Cut(name=f"{coll}_id_tight_bit{bit_index}", params={"coll": coll}, function=_impl)
 
 
 def get_max_iso(coll, channel=None, iso_base=None, iso_pt_dep=None):

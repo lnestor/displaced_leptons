@@ -15,6 +15,7 @@ from object_selection import (
     get_max_eta,
     get_sc_gap_veto,
     get_ele_tight_id,
+    get_ele_tight_id_single_bit,
     get_max_iso,
     get_etaphi_veto,
     get_muon_tight_id,
@@ -69,16 +70,28 @@ def get_default_skim_cuts(sample=None):
     return cuts
 
 
-def get_ele_cuts(channel, skip_pt=False):
+def get_ele_cuts(channel, skip_pt=False, split_id=False):
     cuts = [
         NamedCut(get_max_eta("Electron", channel=channel), r"$>={count}$ e with $|\eta|<{val}$"),
         NamedCut(get_sc_gap_veto("Electron"), r"$>={count} e not in supercluster gap"),
         NamedCut(get_etaphi_veto("Electron", channel=channel), r"$>={count}$ e passing $\eta-\phi$ veto"),
         NamedCut(get_min_pt("Electron", channel=channel), r"$>={count}$ e with $p_T>{val}$ GeV") if not skip_pt else None,
-        NamedCut(get_ele_tight_id("Electron"), r"$>={count}$ e passing tight ID (minus isolation requirement)"),
-        NamedCut(get_max_iso("Electron", channel=channel), r"$>={count}$ e passing tight custom isolation"),
     ]
 
+    if split_id:
+        cuts.extend([
+            NamedCut(get_ele_tight_id_single_bit("Electron", 4), r"$>={count}$ e passing full5x5 $\sigma_{i\eta i\eta}$ cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 2), r"$>={count}$ e passing $|\delta\eta_{seed}|$ cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 3), r"$>={count}$ e passing $|\delta\phi_{in}|$ cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 5), r"$>={count}$ e passing H/E cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 6), r"$>={count}$ e passing $|1/E - 1/p|$ cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 9), r"$>={count}$ e passing missing inner hits cut")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 8), r"$>={count}$ e passing conversion veto")),
+        ])
+    else:
+        cuts.append(NamedCut(get_ele_tight_id("Electron"), r"$>={count}$ e passing tight ID (minus isolation requirement)"))
+
+    cuts.append(NamedCut(get_max_iso("Electron", channel=channel), r"$>={count}$ e passing tight custom isolation"))
     return [cut for cut in cuts if cut is not None]
 
 

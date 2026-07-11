@@ -54,7 +54,7 @@ cfg = Configurator(
         define_custom_nano_fields
     ],
     object_selections = {
-        "Electron": {"min": 2, "cuts": get_ele_cuts("ee", skip_pt=True)}
+        "Electron": {"min": 2, "cuts": get_ele_cuts("ee", skip_pt=True, split_id=True)}
     },
     event_preselections = [
         NamedCut(get_min_deltaR("ElectronGood", "ElectronGood", 0.2), "min deltaR"),

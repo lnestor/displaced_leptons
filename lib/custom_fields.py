@@ -6,7 +6,7 @@ CENTRAL_NANOAOD_FLAG = 0
 RUN_2_YEARS = ['2016_PreVFP', '2016_PostVFP', '2017', '2018']
 
 
-def define_custom_nano_fields(events, year, is_mc, osu_nano_version):
+def define_custom_nano_fields(events, year, is_mc, supplement_version):
     events["Electron", "original_idx"] = ak.local_index(events.Electron, axis=1)
     events["Muon", "original_idx"] = ak.local_index(events.Muon, axis=1)
     events["Muon", "absd0_um"] = abs(events.Muon.dxybs) * 1e4
@@ -20,7 +20,7 @@ def define_custom_nano_fields(events, year, is_mc, osu_nano_version):
     ele = events.Electron
     mu = events.Muon
 
-    if osu_nano_version != CENTRAL_NANOAOD_FLAG:
+    if supplement_version != CENTRAL_NANOAOD_FLAG:
         ele_iso = np.maximum(ele.pfIso03_sumChargedHardonPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutralEt - rho * np.pi * 0.3**2, 0) / ele.pt
         events["Electron", "customIso"] = ele_iso
         events["Electron", "absd0_um"] = abs(events.Electron.dxybs) * 1e4
@@ -50,7 +50,7 @@ def define_custom_nano_fields(events, year, is_mc, osu_nano_version):
         })
 
 
-def define_gen_parent(events, year, is_mc, osu_nano_version):
+def define_gen_parent(events, year, is_mc, supplement_version):
     if is_mc:
         gen = events.GenPart
         events["GenPart"] = ak.with_field(events.GenPart, _get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")

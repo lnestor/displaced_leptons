@@ -29,7 +29,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
     def _define_custom_fields(self):
         for fn in self.cfg.custom_fields:
-            fn(self.events, self._year, self._isMC, self._custom_nano_version)
+            # fn(self.events, self._year, self._isMC, self._supplement_version)
+            fn(self.events, self._year, self._isMC, 1)
 
 
     def _apply_object_cuts(self, variation):
@@ -56,11 +57,55 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def load_metadata_extra(self):
-        with uproot.open(self.events.metadata["filename"]) as f:
-            if "osuVersion" in f:
-                self._custom_nano_version = int(f["osuVersion"])
+        # Look up supplement file based on run/luminosityBlock
+        supplement_file = uproot.open("test_data/supplement.root")
+        supplement = supplement_file["Events"].arrays()
+
+        central_key = np.rec.fromarrays(
+            [self.events.run, self.events.luminosityBlock, self.events.event],
+            names="run,luminosityBlock,event"
+        )
+
+        supp_key = np.rec.fromarrays(
+            [supplement.run, supplement.luminosityBlock, supplement.event],
+            names="run,luminosityBlock,event"
+        )
+
+        # np.searchsorted requires supp_key to be sorted; event order in the
+        # supplement file is not guaranteed to already be sorted by this key.
+        sort_order = np.argsort(supp_key, order=["run", "luminosityBlock", "event"])
+        supp_key = supp_key[sort_order]
+        supplement = supplement[sort_order]
+
+        supp_idx, matched = self._match_supplement(central_key, supp_key)
+
+        self.events = self.events[matched]
+        supp_matched = supplement[supp_idx]
+
+        key_fields = {"run", "luminosityBlock", "event"}
+
+        new_collections = {}
+        for field in supp_matched.fields:
+            if field in key_fields:
+                continue
+
+            coll, _, subfield = field.partition("_")
+
+            # Counter branches (e.g. "nMuon") have no "_" separator -- skip them,
+            # the jaggedness they encode is already carried by the sub-field arrays.
+            if not subfield:
+                continue
+
+            if coll in self.events.fields:
+                self.events[coll] = ak.with_field(self.events[coll], supp_matched[field], subfield)
             else:
-                self._custom_nano_version = CENTRAL_NANOAOD_FLAG
+                new_collections.setdefault(coll, {})[subfield] = supp_matched[field]
+
+        for coll, subfields in new_collections.items():
+            self.events[coll] = ak.zip(subfields)
+
+        # TODO: Implement no supplement file
+        # self._supplement_version = int(supplement["version"])
 
 
     def process_extra_after_skim(self):
@@ -134,4 +179,14 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                     .setdefault(cut.name, {}) \
                     .setdefault(self._dataset, {}) \
                     .setdefault(self._sample, {})[variation] = ak.sum(mask)
+
+
+    def _match_supplement(self, central_key, supp_key):
+        supp_idx_candidate = np.searchsorted(supp_key, central_key)
+        supp_idx_candidate = np.clip(supp_idx_candidate, 0, len(supp_key) - 1)
+        matched = supp_key[supp_idx_candidate] == central_key
+
+        supp_idx = supp_idx_candidate[matched]
+
+        return supp_idx, matched
 

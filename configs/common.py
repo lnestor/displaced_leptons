@@ -80,13 +80,13 @@ def get_ele_cuts(channel, skip_pt=False, split_id=False):
 
     if split_id:
         cuts.extend([
-            NamedCut(get_ele_tight_id_single_bit("Electron", 4), r"$>={count}$ e passing full5x5 $\sigma_{i\eta i\eta}$ cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 2), r"$>={count}$ e passing $|\delta\eta_{seed}|$ cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 3), r"$>={count}$ e passing $|\delta\phi_{in}|$ cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 5), r"$>={count}$ e passing H/E cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 6), r"$>={count}$ e passing $|1/E - 1/p|$ cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 9), r"$>={count}$ e passing missing inner hits cut")),
-            NamedCut(get_ele_tight_id_single_bit("Electron", 8), r"$>={count}$ e passing conversion veto")),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 4), r"$>={count}$ e passing full5x5 $\sigma_{i\eta i\eta}$ cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 2), r"$>={count}$ e passing $|\delta\eta_{seed}|$ cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 3), r"$>={count}$ e passing $|\delta\phi_{in}|$ cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 5), r"$>={count}$ e passing H/E cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 6), r"$>={count}$ e passing $|1/E - 1/p|$ cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 9), r"$>={count}$ e passing missing inner hits cut"),
+            NamedCut(get_ele_tight_id_single_bit("Electron", 8), r"$>={count}$ e passing conversion veto"),
         ])
     else:
         cuts.append(NamedCut(get_ele_tight_id("Electron"), r"$>={count}$ e passing tight ID (minus isolation requirement)"))

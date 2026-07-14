@@ -2,9 +2,10 @@ import awkward as ak
 from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
+import json
 from lib.object_cutflow import ObjectCutflow
 from lib.named_cut import NamedCut
-import numpy as np
+import lib.awkward_helper as ak_help
 
 CENTRAL_NANOAOD_FLAG = 0
 
@@ -20,6 +21,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             "object_selection": {},
             **{cat: {} for cat in self._categories}
         }
+        self.output_format["missing_events"] = {}
 
 
     def apply_object_preselection(self, variation):
@@ -29,8 +31,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
     def _define_custom_fields(self):
         for fn in self.cfg.custom_fields:
-            # fn(self.events, self._year, self._isMC, self._supplement_version)
-            fn(self.events, self._year, self._isMC, 1)
+            fn(self.events, self._year, self._isMC, self._supplement_version)
 
 
     def _apply_object_cuts(self, variation):
@@ -57,59 +58,54 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def load_metadata_extra(self):
-        # Look up supplement file based on run/luminosityBlock
-        supplement_file = uproot.open("test_data/supplement.root")
-        supplement = supplement_file["Events"].arrays()
+        self._supplement_files = {}
+        self._supplement_version = 0
 
-        central_key = np.rec.fromarrays(
-            [self.events.run, self.events.luminosityBlock, self.events.event],
-            names="run,luminosityBlock,event"
-        )
+        matched_json = None
+        for supplement_json in self.cfg.supplements:
+            supp_dict = json.load(open(supplement_json))
 
-        supp_key = np.rec.fromarrays(
-            [supplement.run, supplement.luminosityBlock, supplement.event],
-            names="run,luminosityBlock,event"
-        )
+            for supp in supp_dict.values():
+                metadata = supp["metadata"]
+                if metadata["sample"] != self._sample or metadata["year"] != self._year or metadata["era"] != self._era:
+                    continue
 
-        # np.searchsorted requires supp_key to be sorted; event order in the
-        # supplement file is not guaranteed to already be sorted by this key.
-        sort_order = np.argsort(supp_key, order=["run", "luminosityBlock", "event"])
-        supp_key = supp_key[sort_order]
-        supplement = supplement[sort_order]
+                if matched_json is not None:
+                    raise ValueError(
+                        f"Multiple supplement entries match sample '{self._sample}', "
+                        f"year '{self._year}': found in both {matched_json} and {supplement_json}"
+                    )
+                matched_json = supplement_json
 
-        supp_idx, matched = self._match_supplement(central_key, supp_key)
-
-        self.events = self.events[matched]
-        supp_matched = supplement[supp_idx]
-
-        key_fields = {"run", "luminosityBlock", "event"}
-
-        new_collections = {}
-        for field in supp_matched.fields:
-            if field in key_fields:
-                continue
-
-            coll, _, subfield = field.partition("_")
-
-            # Counter branches (e.g. "nMuon") have no "_" separator -- skip them,
-            # the jaggedness they encode is already carried by the sub-field arrays.
-            if not subfield:
-                continue
-
-            if coll in self.events.fields:
-                self.events[coll] = ak.with_field(self.events[coll], supp_matched[field], subfield)
-            else:
-                new_collections.setdefault(coll, {})[subfield] = supp_matched[field]
-
-        for coll, subfields in new_collections.items():
-            self.events[coll] = ak.zip(subfields)
-
-        # TODO: Implement no supplement file
-        # self._supplement_version = int(supplement["version"])
+                self._supplement_files = supp["files"]
+                self._supplement_version = metadata["version"]
 
 
     def process_extra_after_skim(self):
-        self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial
+        central_lfn = "/store/" + self.events.metadata["filename"].split("/store/", 1)[1]
+        supplement_files = self._supplement_files.get(central_lfn, [])
+
+        if not supplement_files:
+            if self._supplement_version != 0:
+                raise ValueError(
+                    f"Dataset '{self._dataset}' expects supplement coverage (version "
+                    f"{self._supplement_version}) but no supplement file was found for "
+                    f"'{central_lfn}'"
+                )
+            return
+
+        supplement = ak.concatenate([
+            uproot.open(f)["supplementTree/Events"].arrays() for f in supplement_files
+        ])
+
+        n_before_join = len(self.events)
+        self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])
+        n_after_join = len(self.events)
+        n_missing = n_before_join - n_after_join
+
+        self.output["missing_events"][self._dataset] = n_missing
+        self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial - n_missing
+
         names = list(self._skim_masks.names)
         for i, cut_name in enumerate(names):
             cumul = ak.sum(self._skim_masks.all(*names[:i+1]))
@@ -179,14 +175,4 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                     .setdefault(cut.name, {}) \
                     .setdefault(self._dataset, {}) \
                     .setdefault(self._sample, {})[variation] = ak.sum(mask)
-
-
-    def _match_supplement(self, central_key, supp_key):
-        supp_idx_candidate = np.searchsorted(supp_key, central_key)
-        supp_idx_candidate = np.clip(supp_idx_candidate, 0, len(supp_key) - 1)
-        matched = supp_key[supp_idx_candidate] == central_key
-
-        supp_idx = supp_idx_candidate[matched]
-
-        return supp_idx, matched
 

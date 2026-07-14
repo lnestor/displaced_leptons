@@ -37,6 +37,7 @@ class Configurator(config.Configurator):
         event_preselections,
         categories,
         hists,
+        supplements=[],
         custom_fields=[],
         weights=DEFAULT_WEIGHTS,
         variations=DEFAULT_VARIATIONS,
@@ -65,4 +66,5 @@ class Configurator(config.Configurator):
 
         self.object_selections = object_selections
         self.custom_fields = custom_fields
+        self.supplements = supplements
 

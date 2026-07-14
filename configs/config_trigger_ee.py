@@ -34,20 +34,18 @@ TRIGGERS = [
     "HLT_DiphotonMVA14p25_Tight_Mass90"
 ]
 
-
 params = get_params()
 
 cfg = Configurator(
     parameters = params,
     datasets = {
-        # "jsons": get_datasets("testing"),
         "jsons": get_datasets("central"),
         "filter": {
-            "samples": ["MET"],
-            "samples_exclude": [],
+            "samples": ["EGamma"],
             "year": ["2024"]
         }
     },
+    supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
     custom_fields = [
@@ -62,11 +60,15 @@ cfg = Configurator(
     ],
     categories = {
         "baseline": [passthrough],
-        **{f"passes_{trigger}": [get_HLTsel_custom([trigger])] for trigger in TRIGGERS}
+        **{f"passes_{trigger}": [get_HLTsel_custom([trigger])] for trigger in TRIGGERS},
+        "passes_OR": [get_HLTsel_custom(["HLT_DoublePhoton70", "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90"])]
     },
     hists = {
         "AllElectron_pt": HistConf([Axis(coll="ElectronGood", field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")]),
         "LeadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=0, field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")]),
         "SubleadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=1, field="pt", bins=100, start=0, stop=500, label=rf"Subleading electron $p_T$ [GeV]")]),
+        "AllElectron_d0": HistConf([Axis(coll="ElectronGood", field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")]),
+        "LeadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=0, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")]),
+        "SubleadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=1, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Subleading electron $d_0$ [$\mu m$]")]),
     },
 )

@@ -89,16 +89,54 @@ def get_supplement_version(files):
     return versions.pop()
 
 
-def save(key, definition, output, overwrite):
+def merge_definitions(existing, new):
+    existing_meta = existing["metadata"]
+    new_meta = new["metadata"]
+
+    for field in ("sample", "year", "era", "version"):
+        if existing_meta[field] != new_meta[field]:
+            print(
+                f"ERROR: cannot append -- existing '{field}' ({existing_meta[field]!r}) "
+                f"does not match new '{field}' ({new_meta[field]!r})"
+            )
+            sys.exit(1)
+
+    existing_datasets = existing_meta["dataset"]
+    if not isinstance(existing_datasets, list):
+        existing_datasets = [existing_datasets]
+    if new_meta["dataset"] not in existing_datasets:
+        existing_datasets = existing_datasets + [new_meta["dataset"]]
+
+    for central_file, supp_files in new["files"].items():
+        if central_file in existing["files"] and existing["files"][central_file] != supp_files:
+            print(
+                f"ERROR: cannot append -- central file '{central_file}' already has a "
+                f"different supplement mapping in the existing definition"
+            )
+            sys.exit(1)
+
+    merged_files = dict(existing["files"])
+    merged_files.update(new["files"])
+
+    return {
+        "metadata": {**existing_meta, "dataset": existing_datasets},
+        "files": merged_files,
+    }
+
+
+def save(key, definition, output, overwrite, append):
     if os.path.exists(output):
         with open(output) as f:
             data = json.load(f)
     else:
         data = {}
 
-    if key in data and not overwrite:
-        print(f"ERROR: key '{key}' already exists in {output}. Use --overwrite to replace it.")
+    if key in data and not overwrite and not append:
+        print(f"ERROR: key '{key}' already exists in {output}. Use --overwrite to replace it or --append to merge into it.")
         sys.exit(1)
+
+    if key in data and append:
+        definition = merge_definitions(data[key], definition)
 
     data[key] = definition
     with open(output, "w") as f:
@@ -116,7 +154,10 @@ def main():
     parser.add_argument("--key", required=True)
     parser.add_argument("--sample", required=True)
     parser.add_argument("--year", required=True)
-    parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--era", required=True)
+    write_group = parser.add_mutually_exclusive_group()
+    write_group.add_argument("--overwrite", action="store_true", help="Replace an existing key")
+    write_group.add_argument("--append", action="store_true", help="Merge into an existing key (e.g. combining EGamma0/EGamma1 into one dataset)")
     args = parser.parse_args()
 
     if args.crab_dir:
@@ -157,12 +198,13 @@ def main():
             "dataset": args.dataset,
             "sample": args.sample,
             "year": args.year,
+            "era": args.era,
             "version": version
         },
         "files": file_mapping
     }
 
-    save(args.key, definition, args.output, args.overwrite)
+    save(args.key, definition, args.output, args.overwrite, args.append)
 
 
 if __name__ == "__main__":

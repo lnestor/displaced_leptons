@@ -17,21 +17,12 @@ def get_root_files(eos_dir, recursive=False):
 
     if recursive:
         result = subprocess.run(
-            ["eos", server, "find", "--name", ".*.root", path], capture_output=True, text=True
+            ["xrdfs", server, "ls", "-R", path], capture_output=True, text=True
         )
         if result.returncode != 0:
-            print(f"ERROR: eos find failed:\n{result.stderr.strip()}")
+            print(f"ERROR: xrdfs ls -R failed:\n{result.stderr.strip()}")
             sys.exit(1)
-        # eos find returns the physical path under whatever local mount EOS
-        # uses (e.g. /eos/uscms), not the logical path used in xrootd URLs --
-        # recover the logical path by finding where it reappears in the line.
-        files = []
-        for line in result.stdout.splitlines():
-            line = line.strip()
-            if not line:
-                continue
-            files.append(f"{server}/{line[line.index(path):]}")
-        return files
+        return [f"{server}/{line.strip()}" for line in result.stdout.splitlines() if line.strip().endswith(".root")]
 
     result = subprocess.run(["xrdfs", server, "ls", path], capture_output=True, text=True)
     if result.returncode != 0:

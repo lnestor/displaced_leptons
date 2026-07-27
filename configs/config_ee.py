@@ -18,6 +18,7 @@ from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields, define_gen_parent
 from lib.named_cut import NamedCut
 from hists import lepton_hists
+from pocket_coffea.parameters.histograms import HistConf, Axis
 from event_selection import get_min_deltaR, get_no_in_material_vtx
 
 params = get_params()
@@ -51,5 +52,12 @@ cfg = Configurator(
         **lepton_hists(coll="ElectronGood", label="Electron"),
         **lepton_hists(coll="ElectronGood", pos=0, label="LeadingElectron"),
         **lepton_hists(coll="ElectronGood", pos=1, label="SubleadingElectron"),
+        "d0_vs_phi": HistConf(
+            [
+                Axis(coll="ElectronGood", field="phi", bins=100, start=-3.14, stop=3.14, label=rf"Electron $phi$"),
+                Axis(coll="ElectronGood", field="d0_um", bins=100, start=-20, stop=20, label=rf"Electron $d_0$ [$\mu m$]"),
+            ],
+            only_categories=["pcr"]
+        )
     }
 )

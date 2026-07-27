@@ -283,6 +283,14 @@ class DaskExecutorFactory(ExecutorFactoryABC):
         if scheduler_options:
             cluster_kwargs["scheduler_options"] = scheduler_options
 
+        # Ship supplement metadata JSONs into each worker's sandbox -- workers
+        # run from an isolated scratch dir with no access to this repo, and
+        # workflow.py reads these files from disk (not from the pickled
+        # config, to avoid bloating every task's payload / worker memory).
+        supplement_files = glob.glob("supplements/*.json")
+        if supplement_files:
+            cluster_kwargs["transfer_input_files"] = supplement_files
+
         self.dask_cluster = None
         last_exception = None
         for backend_name, cluster_cls in backends:

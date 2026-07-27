@@ -1,8 +1,10 @@
 import awkward as ak
+import numpy as np
 from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 import json
+import os
 from lib.object_cutflow import ObjectCutflow
 from lib.named_cut import NamedCut
 import lib.awkward_helper as ak_help
@@ -63,7 +65,9 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         matched_json = None
         for supplement_json in self.cfg.supplements:
-            supp_dict = json.load(open(supplement_json))
+            # When running on condor, supplement_json lands in the root directory, not under a subdirectory
+            path = supplement_json if os.path.exists(supplement_json) else os.path.basename(supplement_json)
+            supp_dict = json.load(open(path))
 
             for supp in supp_dict.values():
                 metadata = supp["metadata"]
@@ -94,9 +98,39 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 )
             return
 
-        supplement = ak.concatenate([
-            uproot.open(f)["supplementTree/Events"].arrays() for f in supplement_files
-        ])
+        chunk_lumis = set(zip(
+            self.events["run"].tolist(), self.events["luminosityBlock"].tolist()
+        ))
+
+        supplement_parts = []
+        for f in supplement_files:
+            tree = uproot.open(f)["supplementTree/Events"]
+            index = tree.arrays(["run", "luminosityBlock"])
+            mask = np.fromiter(
+                ((r, l) in chunk_lumis for r, l in zip(
+                    index["run"].tolist(), index["luminosityBlock"].tolist()
+                )),
+                dtype=bool, count=len(index)
+            )
+            if not mask.any():
+                continue
+            supplement_parts.append(tree.arrays()[mask])
+
+        if not supplement_parts:
+            n_before_join = len(self.events)
+            self.events = self.events[np.zeros(n_before_join, dtype=bool)]
+            n_missing = n_before_join
+            self.output["missing_events"][self._dataset] = n_missing
+            self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial - n_missing
+
+            names = list(self._skim_masks.names)
+            for i, cut_name in enumerate(names):
+                cumul = ak.sum(self._skim_masks.all(*names[:i+1]))
+                short_name = cut_name.split("__")[0]
+                self.output["cutflow_cumulative"]["skim"].setdefault(short_name, {})[self._dataset] = cumul
+            return
+
+        supplement = ak.concatenate(supplement_parts)
 
         n_before_join = len(self.events)
         self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])

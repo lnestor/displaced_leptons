@@ -45,7 +45,7 @@ cfg = Configurator(
     },
     event_preselections = [
         NamedCut(get_min_deltaR("ElectronGood", "ElectronGood", 0.2), "min deltaR"),
-        # get_no_in_material_vtx(channel="ee")
+        NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices")
     ],
     categories = get_default_categories(channel="ee"),
     hists = {

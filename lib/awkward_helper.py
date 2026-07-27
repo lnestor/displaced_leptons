@@ -27,6 +27,9 @@ def join(left, right, key_fields):
     right_key = right_key[right_mask]
     right = right[right_mask]
 
+    if len(right_key) == 0:
+        return left[np.zeros(len(left), dtype=bool)]
+
     sort_order = np.argsort(right_key, order=key_fields)
     right_key = right_key[sort_order]
     right = right[sort_order]

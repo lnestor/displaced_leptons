@@ -105,16 +105,19 @@ def get_mu_cuts(channel):
     ]
 
 
-def get_default_categories(channel):
+def get_default_categories(channel, only=[]):
     if channel == "ee":
         coll1 = coll2 = pt_coll = "ElectronGood"
     elif channel == "mumu":
         coll1 = coll2 = pt_coll = "MuonGood"
-    else:
+    elif channel == "emu":
         coll1 = "ElectronGood"
         coll2 = pt_coll = "MuonGood"
+    else:
+        raise ValueError(f"Channel {channel} is not valid.")
+        exit(1)
 
-    return {
+    cats = {
         "baseline": [passthrough],
         "pcr": [get_d0_lt(coll1, 50, 0), get_d0_lt(coll2, 50, 0)],
         "a": [get_d0_lt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
@@ -132,6 +135,11 @@ def get_default_categories(channel):
         "sr3": [get_d0_between(coll1, 100, 500, 0), get_d0_gt(coll2, 500, 0)],
         "sr4": [get_d0_gt(coll1, 500, 0), get_d0_gt(coll2, 500, 0)],
     }
+
+    if len(only) > 0:
+        return {k: v for k, v in cats.items() if k in only}
+    else:
+        return cats
 
 
 def register_modules():

@@ -10,6 +10,7 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
     events["Electron", "original_idx"] = ak.local_index(events.Electron, axis=1)
     events["Muon", "original_idx"] = ak.local_index(events.Muon, axis=1)
     events["Muon", "absd0_um"] = abs(events.Muon.dxybs) * 1e4
+    events["Muon", "d0_um"] = events.Muon.dxybs * 1e4
 
     if year in RUN_2_YEARS:
         rho = events.fixedGridRhoFastjetAll
@@ -24,6 +25,7 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
         ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutralEt - rho * np.pi * 0.3**2, 0) / ele.pt
         events["Electron", "customIso"] = ele_iso
         events["Electron", "absd0_um"] = abs(events.Electron.dxybs) * 1e4
+        events["Electron", "d0_um"] = events.Electron.dxybs * 1e4
         events["Electron", "is_gap"] = ele.isEBEEGap
 
         mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutralEt - rho * np.pi * 0.4**2, 0) / mu.pt
@@ -32,6 +34,7 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
     else:
         events["Electron", "customIso"] = ele.pfRelIso03_all
         events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
+        events["Electron", "d0_um"] = ele.dxy * 1e4
 
         eta_sc = abs(ele.deltaEtaSC + ele.eta)
         events["Electron", "is_gap"] = (eta_sc >= 1.442) & (eta_sc <= 1.566)

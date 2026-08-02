@@ -1,14 +1,10 @@
 from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags
-from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters import defaults
 
 from lib.named_cut import NamedCut
 from event_selection import (
     get_d0_lt,
     get_d0_gt,
-    get_d0_between,
-    get_leading_minpt,
-    get_leading_maxpt
 )
 from object_selection import (
     get_min_pt,
@@ -105,43 +101,6 @@ def get_mu_cuts(channel):
     ]
 
 
-def get_default_categories(channel, only=[]):
-    if channel == "ee":
-        coll1 = coll2 = pt_coll = "ElectronGood"
-    elif channel == "mumu":
-        coll1 = coll2 = pt_coll = "MuonGood"
-    elif channel == "emu":
-        coll1 = "ElectronGood"
-        coll2 = pt_coll = "MuonGood"
-    else:
-        raise ValueError(f"Channel {channel} is not valid.")
-        exit(1)
-
-    cats = {
-        "baseline": [passthrough],
-        "pcr": [get_d0_lt(coll1, 50, 0), get_d0_lt(coll2, 50, 0)],
-        "a": [get_d0_lt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
-        "b": [get_d0_gt(coll1, 100, 0), get_d0_lt(coll2, 100, 0)],
-        "b_lowd0_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_leading_maxpt(pt_coll, channel=channel)],
-        "b_lowd0_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_lt(coll2, 100, 0), get_leading_minpt(pt_coll, channel=channel)],
-        "b_highd0": [get_d0_gt(coll1, 500, 0), get_d0_lt(coll2, 100, 0)],
-        "c": [get_d0_lt(coll1, 100, 0), get_d0_gt(coll2, 100, 0)],
-        "c_lowd0_lowpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_leading_maxpt(pt_coll, channel=channel)],
-        "c_lowd0_highpt": [get_d0_lt(coll1, 100, 0), get_d0_between(coll2, 100, 500, 0), get_leading_minpt(pt_coll, channel=channel)],
-        "c_highd0": [get_d0_lt(coll1, 500, 0), get_d0_gt(coll2, 100, 0)],
-        "sr1_lowpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_leading_maxpt(pt_coll, channel=channel)],
-        "sr1_highpt": [get_d0_between(coll1, 100, 500, 0), get_d0_between(coll2, 100, 500, 0), get_leading_minpt(pt_coll, channel=channel)],
-        "sr2": [get_d0_gt(coll1, 500, 0), get_d0_between(coll2, 100, 500, 0)],
-        "sr3": [get_d0_between(coll1, 100, 500, 0), get_d0_gt(coll2, 500, 0)],
-        "sr4": [get_d0_gt(coll1, 500, 0), get_d0_gt(coll2, 500, 0)],
-    }
-
-    if len(only) > 0:
-        return {k: v for k, v in cats.items() if k in only}
-    else:
-        return cats
-
-
 def register_modules():
     import cloudpickle
     import workflow
@@ -152,6 +111,7 @@ def register_modules():
     import lib
     import lib.named_cut as named_cut
     import lib.object_cutflow as object_cutflow
+    import lib.categories as categories
     import common as configs_common
     cloudpickle.register_pickle_by_value(workflow)
     cloudpickle.register_pickle_by_value(event_selection)
@@ -161,6 +121,7 @@ def register_modules():
     cloudpickle.register_pickle_by_value(lib)
     cloudpickle.register_pickle_by_value(named_cut)
     cloudpickle.register_pickle_by_value(object_cutflow)
+    cloudpickle.register_pickle_by_value(categories)
     cloudpickle.register_pickle_by_value(configs_common)
 
 

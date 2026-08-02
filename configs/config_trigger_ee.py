@@ -1,6 +1,5 @@
 from common import (
     get_default_skim_cuts,
-    get_default_categories,
     get_params,
     register_modules,
     get_datasets,
@@ -10,6 +9,7 @@ from common import (
 register_modules()
 
 from lib.named_cut import NamedCut
+from lib.categories import get_default_categories
 from pocket_coffea.parameters.cuts import passthrough
 from lib.custom_fields import define_custom_nano_fields
 from event_selection import get_min_deltaR, get_no_in_material_vtx

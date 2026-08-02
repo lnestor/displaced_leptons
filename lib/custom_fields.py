@@ -58,6 +58,8 @@ def define_gen_parent(events, year, is_mc, supplement_version):
         gen = events.GenPart
         events["GenPart"] = ak.with_field(events.GenPart, _get_unique_parent_pdgid(gen), "uniqueGenPartMotherIdx")
         gen = events.GenPart
+        ele = events.Electron
+        mu = events.Muon
 
         gen_mu = gen[(abs(gen.pdgId) == 13) & (gen.status == 1) & (gen.pt > 10)]
         matched_mu = _gen_match(mu, gen_mu)

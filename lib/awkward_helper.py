@@ -27,16 +27,22 @@ def join(left, right, key_fields):
     right_key = right_key[right_mask]
     right = right[right_mask]
 
+    # Even with no overlap, right_matched must retain right's field schema so the
+    # fields get added (as empty arrays) below -- otherwise callers expecting
+    # e.g. left.Electron.some_joined_field see no such field at all, instead of
+    # an empty one, whenever a chunk happens to have zero matching rows.
     if len(right_key) == 0:
-        return left[np.zeros(len(left), dtype=bool)]
+        matched_mask = np.zeros(len(left), dtype=bool)
+        right_matched = right
+    else:
+        sort_order = np.argsort(right_key, order=key_fields)
+        right_key = right_key[sort_order]
+        right = right[sort_order]
 
-    sort_order = np.argsort(right_key, order=key_fields)
-    right_key = right_key[sort_order]
-    right = right[sort_order]
+        matched_right_idx, matched_mask = _match_keys(left_key, right_key)
+        right_matched = right[matched_right_idx]
 
-    matched_right_idx, matched_mask = _match_keys(left_key, right_key)
     left = left[matched_mask]
-    right_matched = right[matched_right_idx]
 
     new_collections = {}
     for field in right_matched.fields:

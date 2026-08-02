@@ -114,23 +114,21 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             )
             if not mask.any():
                 continue
-            supplement_parts.append(tree.arrays()[mask])
+            # packed() is required here: boolean-masking an awkward array
+            # returns a view that still references the full unmasked buffers,
+            # so without it the discarded ~99% of each supplement file's
+            # branches stays resident in memory for the life of the worker.
+            supplement_parts.append(ak.packed(tree.arrays()[mask]))
 
-        if not supplement_parts:
-            n_before_join = len(self.events)
-            self.events = self.events[np.zeros(n_before_join, dtype=bool)]
-            n_missing = n_before_join
-            self.output["missing_events"][self._dataset] = n_missing
-            self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial - n_missing
-
-            names = list(self._skim_masks.names)
-            for i, cut_name in enumerate(names):
-                cumul = ak.sum(self._skim_masks.all(*names[:i+1]))
-                short_name = cut_name.split("__")[0]
-                self.output["cutflow_cumulative"]["skim"].setdefault(short_name, {})[self._dataset] = cumul
-            return
-
-        supplement = ak.concatenate(supplement_parts)
+        if supplement_parts:
+            supplement = ak.concatenate(supplement_parts)
+        else:
+            # No supplement rows matched this chunk (e.g. every event in the
+            # chunk was already cut by skim). Still need the field schema so
+            # the join below adds the expected fields as empty rather than
+            # leaving them missing entirely.
+            schema_tree = uproot.open(supplement_files[0])["supplementTree/Events"]
+            supplement = schema_tree.arrays(entry_stop=0)
 
         n_before_join = len(self.events)
         self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])
@@ -191,6 +189,13 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
             if "passthrough" in accumulator["cutflow_cumulative"][stage]:
                 del accumulator["cutflow_cumulative"][stage]["passthrough"]
+
+        total_missing = sum(accumulator["missing_events"].values())
+        if total_missing:
+            print(f"\n[missing_events] {total_missing} total unmatched events across supplement join:")
+            for dataset, n in accumulator["missing_events"].items():
+                if n:
+                    print(f"  {dataset}: {n}")
 
         return accumulator
 

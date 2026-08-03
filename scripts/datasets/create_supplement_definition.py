@@ -7,8 +7,35 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 import uproot
 from scripts import crab_helper, eos_helper
+from scripts.datasets.catalog import DatasetCatalog
 
 EOS_REDIRECTOR = "root://cmseos.fnal.gov"
+
+DATA_SAMPLES = ["EGamma", "Muon", "MuonEG", "MET"]
+MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
+YEAR_GROUPS = {
+    "2022": ["2022_preEE", "2022_postEE"],
+    "2023": ["2023_preBPix", "2023_postBPix"],
+}
+
+
+def expand_samples(samples):
+    expanded = []
+    for sample in samples:
+        if sample == "Data":
+            expanded.extend(DATA_SAMPLES)
+        elif sample == "MC":
+            expanded.extend(MC_SAMPLES)
+        else:
+            expanded.append(sample)
+    return list(set(expanded))
+
+
+def expand_years(years):
+    expanded = []
+    for year in years:
+        expanded.extend(YEAR_GROUPS.get(year, [year]))
+    return list(set(expanded))
 
 
 def get_lumi_file_map(files):
@@ -58,7 +85,7 @@ def get_central_runs_lumis(dataset, runs):
         return files
 
     index = {}
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    with ThreadPoolExecutor(max_workers=4) as executor:
         results = executor.map(lambda run: _get_central_run_one(dataset, run), sorted(runs))
     for files in results:
         for file, run_lumis in files.items():
@@ -144,27 +171,8 @@ def save(key, definition, output, overwrite, append):
     print(f"Written '{key}' to {output}")
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--crab-dir")
-    group.add_argument("--eos-dir")
-    parser.add_argument("--dataset", required=True)
-    parser.add_argument("--output", required=True)
-    parser.add_argument("--key", required=True)
-    parser.add_argument("--sample", required=True)
-    parser.add_argument("--year", required=True)
-    parser.add_argument("--era", required=True)
-    write_group = parser.add_mutually_exclusive_group()
-    write_group.add_argument("--overwrite", action="store_true", help="Replace an existing key")
-    write_group.add_argument("--append", action="store_true", help="Merge into an existing key (e.g. combining EGamma0/EGamma1 into one dataset)")
-    args = parser.parse_args()
-
-    if args.crab_dir:
-        lfns = crab_helper.get_crab_output_lfns(args.crab_dir)
-        files = [f"{EOS_REDIRECTOR}/{lfn}" for lfn in lfns]
-    else:
-        files = eos_helper.get_root_files(args.eos_dir, recursive=True)
+def get_supp_def(dataset, year, sample, era, supplements_path):
+    files = eos_helper.get_root_files(supplements_path, recursive=True)
 
     if not files:
         print("ERROR: not files found")
@@ -177,7 +185,7 @@ def main():
 
     print("Reading run/lumis of central files via dasgoclient...")
     runs = {run for run, _ in supp_lumis_to_file}
-    central_file_to_lumis = get_central_runs_lumis(args.dataset, runs)
+    central_file_to_lumis = get_central_runs_lumis(dataset, runs)
 
     print("Reading supplement version...")
     version = get_supplement_version(files)
@@ -195,16 +203,163 @@ def main():
 
     definition = {
         "metadata": {
-            "dataset": args.dataset,
-            "sample": args.sample,
-            "year": args.year,
-            "era": args.era,
+            "dataset": dataset,
+            "sample": sample,
+            "year": year,
             "version": version
         },
         "files": file_mapping
     }
 
-    save(args.key, definition, args.output, args.overwrite, args.append)
+    if era is not None:
+        definition["metadata"]["era"] = era
+
+    return definition
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Create supplement definition JSON files")
+
+    auto_group = parser.add_argument_group("Automatic Mode")
+    auto_group.add_argument(
+        "--samples", nargs="+",
+        choices=["EGamma", "Muon", "MuonEG", "MET", "Data", "MC", "DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
+    )
+    auto_group.add_argument(
+        "--years", nargs="+",
+        choices=["2022_preEE", "2022_postEE", "2022", "2023_preBPix", "2023_postBPix", "2023", "2024", "2025"]
+    )
+    auto_group.add_argument(
+        "--eras", nargs="+",
+        help="Optional: restrict to specific era(s) within the selected years (e.g. --eras C D). Data samples only."
+    )
+    auto_group.add_argument("--definition-path", default="datasets/sources/datasets.yaml")
+    auto_group.add_argument("--output-dir", default="datasets/supplements", help="Directory to write one JSON file per sample into")
+
+    manual_group = parser.add_argument_group("Manual Mode")
+    manual_group.add_argument("--eos-dir", help="Path to an EOS directory that contains the supplement files")
+    manual_group.add_argument("--dataset", help="The NanoAOD dataset the supplement files are for")
+    manual_group.add_argument("--json-key", help="The target dataset key in the output JSON")
+    manual_group.add_argument("--sample", help="The sample name for the supplement definition")
+    manual_group.add_argument("--year", help="The year for the supplement definition")
+    manual_group.add_argument("--era", help="The era for the supplement definition")
+    manual_group.add_argument("--output", default="supplement.json", help="The target output file")
+
+    write_mode_group = parser.add_mutually_exclusive_group()
+    write_mode_group.add_argument("--overwrite", action="store_true", help="Replace an existing key in the output file")
+    write_mode_group.add_argument("--append", action="store_true", help="Merge into an existing key (e.g. add EGamma1 files to EGamma0)")
+    args = parser.parse_args()
+
+    auto_args_given = bool(args.samples or args.years)
+    manual_args_given = bool(
+        args.eos_dir or args.dataset or args.json_key or args.sample or args.year or args.era
+    )
+
+    if auto_args_given and manual_args_given:
+        parser.error(
+            "Cannot mix Automatic Mode args (--samples/--years) with "
+            "Manual Mode args (--eos-dir/--dataset/--json-key/--sample/--year/--era)"
+        )
+    elif auto_args_given:
+        if not (args.samples and args.years):
+            parser.error("Automatic Mode requires both --samples and --years")
+        auto = True
+    elif manual_args_given:
+        missing = [
+            name for name, value in [
+                ("--eos-dir", args.eos_dir),
+                ("--dataset", args.dataset),
+                ("--json-key", args.json_key),
+                ("--sample", args.sample),
+                ("--year", args.year),
+            ] if not value
+        ]
+        if missing:
+            parser.error(f"Manual Mode requires {', '.join(missing)}")
+        auto = False
+    else:
+        parser.error(
+            "Must provide either Automatic Mode args (--samples/--years) or "
+            "Manual Mode args (--eos-dir/--dataset/--json-key/--sample/--year)"
+        )
+
+    if auto:
+        catalog = DatasetCatalog(args.definition_path)
+        dataset_defs = catalog.get(
+            sample=expand_samples(args.samples),
+            year=expand_years(args.years),
+            era=args.eras,
+        )
+
+        os.makedirs(args.output_dir, exist_ok=True)
+
+        existing_keys_cache = {}
+
+        def existing_keys(output):
+            if output not in existing_keys_cache:
+                if os.path.exists(output):
+                    with open(output) as f:
+                        existing_keys_cache[output] = set(json.load(f).keys())
+                else:
+                    existing_keys_cache[output] = set()
+            return existing_keys_cache[output]
+
+        seen_keys = set()
+        skipped = []
+        failures = []
+        for d in dataset_defs:
+            output = os.path.join(args.output_dir, f"{d.sample}.json")
+
+            already_exists = (
+                d.key not in seen_keys
+                and not args.overwrite
+                and not args.append
+                and d.key in existing_keys(output)
+            )
+            if already_exists:
+                print(f"SKIPPING '{d.key}': already exists in {output} (use --overwrite or --append)")
+                skipped.append(d.key)
+                continue
+
+            try:
+                supp_def = get_supp_def(
+                    dataset=d.nanoaod,
+                    year=d.year,
+                    era=d.era,
+                    sample=d.sample,
+                    supplements_path=f"{EOS_REDIRECTOR}/{d.supplements_path}"
+                )
+
+                overwrite = args.overwrite and d.key not in seen_keys
+                append = args.append or d.key in seen_keys
+                save(d.key, supp_def, output, overwrite, append)
+                seen_keys.add(d.key)
+            except SystemExit:
+                # get_supp_def/save exit(1) on failure (missing EOS dir,
+                # dasgoclient errors, inconsistent versions, etc) -- skip this
+                # dataset instead of aborting the whole batch.
+                print(f"SKIPPING '{d.key}': see error above")
+                failures.append(d.key)
+
+        if skipped:
+            print(f"\n{len(skipped)} dataset(s) already existed and were skipped:")
+            for key in skipped:
+                print(f"  {key}")
+
+        if failures:
+            print(f"\n{len(failures)} dataset(s) failed and were skipped:")
+            for key in failures:
+                print(f"  {key}")
+    else:
+        supp_def = get_supp_def(
+            dataset=args.dataset,
+            year=args.year,
+            era=args.era,
+            sample=args.sample,
+            supplements_path=args.eos_dir
+        )
+
+        save(args.json_key, supp_def, args.output, args.overwrite, args.append)
 
 
 if __name__ == "__main__":

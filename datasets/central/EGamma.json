@@ -469,7 +469,7 @@
         "metadata": {
             "das_names": "['/EGamma/Run2022C-22Sep2023-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2022",
+            "year": "2022preEE",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "C",
@@ -796,7 +796,7 @@
         "metadata": {
             "das_names": "['/EGamma/Run2022D-22Sep2023-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2022",
+            "year": "2022preEE",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "D",
@@ -919,7 +919,7 @@
         "metadata": {
             "das_names": "['/EGamma/Run2022E-22Sep2023-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2022",
+            "year": "2022postEE",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "E",
@@ -1121,7 +1121,7 @@
         "metadata": {
             "das_names": "['/EGamma/Run2022F-22Sep2023-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2022",
+            "year": "2022postEE",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "F",
@@ -1625,7 +1625,7 @@
         "metadata": {
             "das_names": "['/EGamma/Run2022G-22Sep2023-v2/NANOAOD']",
             "sample": "EGamma",
-            "year": "2022",
+            "year": "2022postEE",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "G",
@@ -1726,7 +1726,7 @@
         "metadata": {
             "das_names": "['/EGamma0/Run2023C-22Sep2023_v4-v1/NANOAOD', '/EGamma1/Run2023C-22Sep2023_v4-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2023",
+            "year": "2023preBPix",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "C",
@@ -2085,7 +2085,7 @@
         "metadata": {
             "das_names": "['/EGamma0/Run2023D-22Sep2023_v2-v1/NANOAOD', '/EGamma1/Run2023D-22Sep2023_v2-v1/NANOAOD']",
             "sample": "EGamma",
-            "year": "2023",
+            "year": "2023postBPix",
             "isMC": "False",
             "primaryDataset": "EGamma",
             "era": "D",

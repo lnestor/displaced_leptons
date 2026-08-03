@@ -76,6 +76,69 @@ class CoffeaFile:
         return [*labels["skim"], *obj_labels, *labels["preselection"], *labels[category]]
 
 
+    def get_count(self, category, sample, years=None):
+        all_cats = sorted(self._f["cutflow"].keys())
+        if category not in all_cats:
+            raise ValueError(
+                f"category '{category}' not present in coffea file's cutflow. "
+                f"Available categories: {', '.join(all_cats)}"
+            )
+
+        year_keys = list(self._f["cutflow"][category].keys())
+        if years is not None:
+            available_years = sorted(set(self._dataset_year(yk) for yk in year_keys))
+            year_keys = [yk for yk in year_keys if self._dataset_year(yk) in years]
+            if not year_keys:
+                raise ValueError(
+                    f"no year keys found for category '{category}' matching years {years}. "
+                    f"Available years: {', '.join(available_years)}"
+                )
+
+        total = 0
+        found = False
+        for yk in year_keys:
+            is_mc = self._f["datasets_metadata"]["by_dataset"][yk]["isMC"] == "True"
+            key = "sumw" if is_mc else "cutflow"
+            yk_samples = self._f[key][category][yk]
+            if sample not in yk_samples:
+                continue
+
+            found = True
+            total += yk_samples[sample]["nominal"]
+
+        if not found:
+            available_years = sorted(set(self._dataset_year(yk) for yk in year_keys))
+            raise ValueError(
+                f"sample '{sample}' not present in category '{category}' for years {available_years}"
+            )
+
+        return total
+
+
+    def get_variance(self, category, sample, years=None):
+        year_keys = list(self._f["sumw2"][category].keys())
+        if years is not None:
+            year_keys = [yk for yk in year_keys if self._dataset_year(yk) in years]
+
+        total = 0
+        found = False
+        for yk in year_keys:
+            yk_samples = self._f["sumw2"][category][yk]
+            if sample not in yk_samples:
+                continue
+
+            found = True
+            total += yk_samples[sample]["nominal"]
+
+        if not found:
+            available_years = sorted(set(self._dataset_year(yk) for yk in year_keys))
+            raise ValueError(
+                f"sample '{sample}' not present in sumw2 for category '{category}' for years {available_years}"
+            )
+
+        return total
+
+
     def get_cutflow(self, category, sample, years=None):
         all_datasets = list(self._f["cutflow_cumulative"]["initial"].keys())
         if years is not None:

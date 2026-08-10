@@ -1623,9 +1623,21 @@
   supplements_path: /store/user/lnestor/supplements/DYto2E-4Jets_Bin-MLL-50_2024
   is_mc: true
 - sample: DY
+  miniaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
+  nanoaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/DYto2E-4Jets_Bin-MLL-50_2024
+  is_mc: true
+- sample: DY
   miniaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/DYto2E-4Jets_Bin-MLL-10to50_2024
+  is_mc: true
+- sample: DY
+  miniaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/DYto2E-4Jets_Bin-MLL-10to50_2024
   is_mc: true
 - sample: DY
@@ -1635,9 +1647,21 @@
   supplements_path: /store/user/lnestor/supplements/DYto2Mu-4Jets_Bin-MLL-50_2024
   is_mc: true
 - sample: DY
+  miniaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
+  nanoaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/DYto2Mu-4Jets_Bin-MLL-50_2024
+  is_mc: true
+- sample: DY
   miniaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/DYto2Mu-4Jets_Bin-MLL-10to50_2024
+  is_mc: true
+- sample: DY
+  miniaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/DYto2Mu-4Jets_Bin-MLL-10to50_2024
   is_mc: true
 - sample: DY
@@ -1647,9 +1671,21 @@
   supplements_path: /store/user/lnestor/supplements/DYto2Tau-4Jets_Bin-MLL-50_2024
   is_mc: true
 - sample: DY
+  miniaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v5/MINIAODSIM
+  nanoaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v5/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/DYto2Tau-4Jets_Bin-MLL-50_2024
+  is_mc: true
+- sample: DY
   miniaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/DYto2Tau-4Jets_Bin-MLL-10to50_2024
+  is_mc: true
+- sample: DY
+  miniaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/DYto2Tau-4Jets_Bin-MLL-10to50_2024
   is_mc: true
 - sample: Diboson
@@ -1659,15 +1695,33 @@
   supplements_path: /store/user/lnestor/supplements/WW_2024
   is_mc: true
 - sample: Diboson
+  miniaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/WW_2024
+  is_mc: true
+- sample: Diboson
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
   supplements_path: /store/user/lnestor/supplements/WZ_2024
   is_mc: true
 - sample: Diboson
+  miniaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/WZ_2024
+  is_mc: true
+- sample: Diboson
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/ZZ_2024
+  is_mc: true
+- sample: Diboson
+  miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/ZZ_2024
   is_mc: true
 - sample: TTbar
@@ -1677,15 +1731,33 @@
   supplements_path: /store/user/lnestor/supplements/TTto2L2Nu_2024
   is_mc: true
 - sample: TTbar
+  miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
+  nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TTto2L2Nu_2024
+  is_mc: true
+- sample: TTbar
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
   supplements_path: /store/user/lnestor/supplements/TTtoLNu2Q_2024
   is_mc: true
 - sample: TTbar
+  miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TTtoLNu2Q_2024
+  is_mc: true
+- sample: TTbar
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/TTto4Q_2024
+  is_mc: true
+- sample: TTbar
+  miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/TTto4Q_2024
   is_mc: true
 - sample: SingleTop
@@ -1695,9 +1767,21 @@
   supplements_path: /store/user/lnestor/supplements/TbarBtoLminusNuB-s-channel-4FS_2024
   is_mc: true
 - sample: SingleTop
+  miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TbarBtoLminusNuB-s-channel-4FS_2024
+  is_mc: true
+- sample: SingleTop
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/TBbartoLplusNuBbar-s-channel-4FS_2024
+  is_mc: true
+- sample: SingleTop
+  miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/TBbartoLplusNuBbar-s-channel-4FS_2024
   is_mc: true
 - sample: SingleTop
@@ -1707,9 +1791,21 @@
   supplements_path: /store/user/lnestor/supplements/TBbarQtoLNu-t-channel-4FS_2024
   is_mc: true
 - sample: SingleTop
+  miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TBbarQtoLNu-t-channel-4FS_2024
+  is_mc: true
+- sample: SingleTop
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/TbarBQtoLNu-t-channel-4FS_2024
+  is_mc: true
+- sample: SingleTop
+  miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/TbarBQtoLNu-t-channel-4FS_2024
   is_mc: true
 - sample: SingleTop
@@ -1719,9 +1815,21 @@
   supplements_path: /store/user/lnestor/supplements/TbarWplusto2L2Nu_2024
   is_mc: true
 - sample: SingleTop
+  miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TbarWplusto2L2Nu_2024
+  is_mc: true
+- sample: SingleTop
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/TbarWplustoLNu2Q_2024
+  is_mc: true
+- sample: SingleTop
+  miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/TbarWplustoLNu2Q_2024
   is_mc: true
 - sample: SingleTop
@@ -1731,9 +1839,21 @@
   supplements_path: /store/user/lnestor/supplements/TWminusto2L2Nu_2024
   is_mc: true
 - sample: SingleTop
+  miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/TWminusto2L2Nu_2024
+  is_mc: true
+- sample: SingleTop
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/TWminustoLNu2Q_2024
+  is_mc: true
+- sample: SingleTop
+  miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/TWminustoLNu2Q_2024
   is_mc: true
 - sample: QCDEle
@@ -1743,9 +1863,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-15to20_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-15to20_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-20to30_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-20to30_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
@@ -1755,9 +1887,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-30to50_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-30to50_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-50to80_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-50to80_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
@@ -1767,9 +1911,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-80to120_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-80to120_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-120to170_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-120to170_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
@@ -1779,9 +1935,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-170to300_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-170to300_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-300to470_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-300to470_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
@@ -1791,9 +1959,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-470to600_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-470to600_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-600to800_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-600to800_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
@@ -1803,9 +1983,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-800to1000_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDEle
+  miniaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-800to1000_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
   miniaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-1000_Fil-EMEnriched_2024
+  is_mc: true
+- sample: QCDEle
+  miniaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-1000_Fil-EMEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1815,9 +2007,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-15to20_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-15to20_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-20to30_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-20to30_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1827,9 +2031,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-30to50_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-30to50_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-50to80_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-50to80_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1839,9 +2055,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-80to120_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-80to120_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-120to170_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-120to170_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1851,9 +2079,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-170to300_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-170to300_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-300to470_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-300to470_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1863,9 +2103,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-470to600_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-470to600_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-600to800_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-600to800_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
@@ -1875,9 +2127,21 @@
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-800to1000_Fil-MuEnriched_2024
   is_mc: true
 - sample: QCDMu
+  miniaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-800to1000_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
   miniaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
+  supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-1000_Fil-MuEnriched_2024
+  is_mc: true
+- sample: QCDMu
+  miniaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
+  nanoaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
+  year: '2025'
   supplements_path: /store/user/lnestor/supplements/QCD_Bin-PT-1000_Fil-MuEnriched_2024
   is_mc: true
 - sample: Muon

@@ -5,7 +5,7 @@
             "sample": "TTbar",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "98.88",
             "nevents": "23778148",
             "size": "54276862897"
         },
@@ -85,7 +85,7 @@
             "sample": "TTbar",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "98.88",
             "nevents": "84809345",
             "size": "190490970918"
         },
@@ -235,7 +235,7 @@
             "sample": "TTbar",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "98.88",
             "nevents": "48203000",
             "size": "111491192662"
         },
@@ -446,7 +446,7 @@
             "sample": "TTbar",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "98.88",
             "nevents": "24649000",
             "size": "57152664582"
         },
@@ -609,7 +609,7 @@
             "sample": "TTbar",
             "year": "2024",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "98.88",
             "nevents": "470123263",
             "size": "1491578907810"
         },
@@ -1402,7 +1402,7 @@
             "sample": "TTbar",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "407.43",
             "nevents": "49771670",
             "size": "115313559679"
         },
@@ -1540,7 +1540,7 @@
             "sample": "TTbar",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "407.43",
             "nevents": "267007920",
             "size": "610102744490"
         },
@@ -2076,7 +2076,7 @@
             "sample": "TTbar",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "407.43",
             "nevents": "152797000",
             "size": "358683990262"
         },
@@ -2887,7 +2887,7 @@
             "sample": "TTbar",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "407.43",
             "nevents": "82058000",
             "size": "192786715746"
         },
@@ -3392,7 +3392,7 @@
             "sample": "TTbar",
             "year": "2024",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "407.43",
             "nevents": "484475057",
             "size": "1551097626505"
         },
@@ -4195,7 +4195,7 @@
             "sample": "TTbar",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "419.69",
             "nevents": "53605620",
             "size": "123563198087"
         },
@@ -4322,7 +4322,7 @@
             "sample": "TTbar",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "419.69",
             "nevents": "179069201",
             "size": "407769614706"
         },
@@ -4629,7 +4629,7 @@
             "sample": "TTbar",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "419.69",
             "nevents": "104393000",
             "size": "244208823487"
         },
@@ -5109,7 +5109,7 @@
             "sample": "TTbar",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "419.69",
             "nevents": "53044000",
             "size": "124673554487"
         },
@@ -5551,7 +5551,7 @@
             "sample": "TTbar",
             "year": "2024",
             "isMC": "True",
-            "xsec": "762.1",
+            "xsec": "419.69",
             "nevents": "472535695",
             "size": "1489775270959"
         },

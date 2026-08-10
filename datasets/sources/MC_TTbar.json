@@ -10,7 +10,7 @@
         "metadata": {
           "year": "2022_preEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 98.88
         }
       },
       {
@@ -20,7 +20,7 @@
         "metadata": {
           "year": "2022_postEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 98.88
         }
       },
       {
@@ -30,7 +30,7 @@
         "metadata": {
           "year": "2023_preBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 98.88
         }
       },
       {
@@ -40,7 +40,7 @@
         "metadata": {
           "year": "2023_postBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 98.88
         }
       },
       {
@@ -50,7 +50,7 @@
         "metadata": {
           "year": "2024",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 98.88
         }
       }
     ]
@@ -66,7 +66,7 @@
         "metadata": {
           "year": "2022_preEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 407.43
         }
       },
       {
@@ -76,7 +76,7 @@
         "metadata": {
           "year": "2022_postEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 407.43
         }
       },
       {
@@ -86,7 +86,7 @@
         "metadata": {
           "year": "2023_preBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 407.43
         }
       },
       {
@@ -96,7 +96,7 @@
         "metadata": {
           "year": "2023_postBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 407.43
         }
       },
       {
@@ -106,7 +106,7 @@
         "metadata": {
           "year": "2024",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 407.43
         }
       }
     ]
@@ -122,7 +122,7 @@
         "metadata": {
           "year": "2022_preEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 419.69
         }
       },
       {
@@ -132,7 +132,7 @@
         "metadata": {
           "year": "2022_postEE",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 419.69
         }
       },
       {
@@ -142,7 +142,7 @@
         "metadata": {
           "year": "2023_preBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 419.69
         }
       },
       {
@@ -152,7 +152,7 @@
         "metadata": {
           "year": "2023_postBPix",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 419.69
         }
       },
       {
@@ -162,7 +162,7 @@
         "metadata": {
           "year": "2024",
           "isMC": true,
-          "xsec": 762.1
+          "xsec": 419.69
         }
       }
     ]

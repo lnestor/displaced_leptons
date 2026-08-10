@@ -4,7 +4,8 @@ def lepton_hists(coll=None, label=None, pos=None, only_categories=None):
     return {
         f"{label}_pt": HistConf([Axis(coll=coll, pos=pos, field="pt", bins=200, start=0, stop=2000, label=rf"{label} $p_T$ [GeV]")], only_categories=only_categories),
         f"{label}_eta": HistConf([Axis(coll=coll, pos=pos, field="eta", bins=30, start=-1.5, stop=1.5, label=rf"{label} $\eta$")], only_categories=only_categories),
-        f"{label}_d0": HistConf([Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label} $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        f"{label}_absd0": HistConf([Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label} $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        f"{label}_d0": HistConf([Axis(coll=coll, pos=pos, field="d0_um", bins=100, start=-50, stop=50, label=rf"{label} $d_0$ [$\mu m$]")], only_categories=only_categories),
         f"{label}_d0vsphi": HistConf([
             Axis(coll=coll, pos=pos, field="phi", bins=100, start=-3.14, stop=3.14, label=rf"{label} $\phi$"),
             Axis(coll=coll, pos=pos, field="d0_um", bins=100, start=-20, stop=20, label=rf"{label} $d_0$ [$\mu m$]")

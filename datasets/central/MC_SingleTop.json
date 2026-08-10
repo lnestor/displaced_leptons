@@ -537,7 +537,7 @@
             "sample": "SingleTop",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "14.38",
             "nevents": "2327688",
             "size": "4783229834"
         },
@@ -574,7 +574,7 @@
             "sample": "SingleTop",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "14.38",
             "nevents": "8183339",
             "size": "16470254756"
         },
@@ -634,7 +634,7 @@
             "sample": "SingleTop",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "14.38",
             "nevents": "4931000",
             "size": "10231193152"
         },
@@ -689,7 +689,7 @@
             "sample": "SingleTop",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "14.38",
             "nevents": "2488000",
             "size": "5243347344"
         },
@@ -752,7 +752,7 @@
             "sample": "SingleTop",
             "year": "2024",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "14.38",
             "nevents": "15000000",
             "size": "42553910980"
         },
@@ -855,7 +855,7 @@
             "sample": "SingleTop",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "29.63",
             "nevents": "4366467",
             "size": "9103299944"
         },
@@ -917,7 +917,7 @@
             "sample": "SingleTop",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "29.63",
             "nevents": "16485994",
             "size": "33536776488"
         },
@@ -995,7 +995,7 @@
             "sample": "SingleTop",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "29.63",
             "nevents": "9550671",
             "size": "19915883610"
         },
@@ -1064,7 +1064,7 @@
             "sample": "SingleTop",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "29.63",
             "nevents": "5177861",
             "size": "10829018885"
         },
@@ -1118,7 +1118,7 @@
             "sample": "SingleTop",
             "year": "2024",
             "isMC": "True",
-            "xsec": "36.05",
+            "xsec": "29.63",
             "nevents": "29395659",
             "size": "84498394001"
         },
@@ -1383,7 +1383,7 @@
             "sample": "SingleTop",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "14.38",
             "nevents": "2369680",
             "size": "4861849178"
         },
@@ -1417,7 +1417,7 @@
             "sample": "SingleTop",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "14.38",
             "nevents": "8129084",
             "size": "16376507642"
         },
@@ -1481,7 +1481,7 @@
             "sample": "SingleTop",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "14.38",
             "nevents": "4985000",
             "size": "10311756873"
         },
@@ -1528,7 +1528,7 @@
             "sample": "SingleTop",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "14.38",
             "nevents": "2479000",
             "size": "5166984139"
         },
@@ -1571,7 +1571,7 @@
             "sample": "SingleTop",
             "year": "2024",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "14.38",
             "nevents": "14998000",
             "size": "42807272009"
         },
@@ -1760,7 +1760,7 @@
             "sample": "SingleTop",
             "year": "2022_preEE",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "29.63",
             "nevents": "4643600",
             "size": "9716427379"
         },
@@ -1837,7 +1837,7 @@
             "sample": "SingleTop",
             "year": "2022_postEE",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "29.63",
             "nevents": "16666206",
             "size": "33895358612"
         },
@@ -1913,7 +1913,7 @@
             "sample": "SingleTop",
             "year": "2023_preBPix",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "29.63",
             "nevents": "9650268",
             "size": "20261651893"
         },
@@ -2025,7 +2025,7 @@
             "sample": "SingleTop",
             "year": "2023_postBPix",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "29.63",
             "nevents": "4952467",
             "size": "10364320320"
         },
@@ -2080,7 +2080,7 @@
             "sample": "SingleTop",
             "year": "2024",
             "isMC": "True",
-            "xsec": "35.99",
+            "xsec": "29.63",
             "nevents": "28763293",
             "size": "82684242410"
         },

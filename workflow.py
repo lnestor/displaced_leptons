@@ -66,6 +66,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         self._supplement_files = {}
         self._supplement_version = 0
 
+        das_names = self.events.metadata["das_names"]
+
         matched_json = None
         for supplement_json in self.cfg.supplements:
             # When running on condor, supplement_json lands in the root directory, not under a subdirectory
@@ -74,12 +76,16 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
             for supp in supp_dict.values():
                 metadata = supp["metadata"]
-                if metadata["sample"] != self._sample or metadata["year"] != self._year or metadata["era"] != self._era:
+                supp_datasets = metadata["dataset"]
+                if not isinstance(supp_datasets, list):
+                    supp_datasets = [supp_datasets]
+
+                if not any(d in das_names for d in supp_datasets):
                     continue
 
                 if matched_json is not None:
                     raise ValueError(
-                        f"Multiple supplement entries match sample '{self._sample}', "
+                        f"Multiple supplement entries match dataset for sample '{self._sample}', "
                         f"year '{self._year}': found in both {matched_json} and {supplement_json}"
                     )
                 matched_json = supplement_json

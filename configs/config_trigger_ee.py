@@ -3,6 +3,7 @@ from common import (
     get_params,
     register_modules,
     get_datasets,
+    get_supplements,
     get_ele_cuts
 )
 
@@ -12,14 +13,14 @@ from lib.named_cut import NamedCut
 from lib.categories import get_default_categories
 from pocket_coffea.parameters.cuts import passthrough
 from lib.custom_fields import define_custom_nano_fields
-from event_selection import get_min_deltaR, get_no_in_material_vtx
+from event_selection import get_min_deltaR, get_no_in_material_vtx, get_min_n_pt
 from workflow import DisplacedLeptonProcessor
 from lib.configurator import Configurator
 from pocket_coffea.parameters.histograms import HistConf, Axis
 from pocket_coffea.lib.cut_functions import get_HLTsel_custom
 from hists import lepton_hists
 
-TRIGGERS = [
+ALL_TRIGGERS = [
     "HLT_DoublePhoton70",
     "HLT_DoublePhoton85",
     "HLT_DiEle27_WPTightCaloOnly_L1DoubleEG",
@@ -32,6 +33,11 @@ TRIGGERS = [
     "HLT_Diphoton22_14_eta1p5_R9IdL_AND_HET_AND_IsoTCaloIdT",
     "HLT_DiphotonMVA14p25_Mass90",
     "HLT_DiphotonMVA14p25_Tight_Mass90"
+]
+
+TARGET_TRIGGERS = [
+    "HLT_DoublePhoton70",
+    "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90",
 ]
 
 params = get_params()
@@ -48,9 +54,9 @@ cfg = Configurator(
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
-    custom_fields = [
-        define_custom_nano_fields
-    ],
+    custom_fields = {
+        "common": [define_custom_nano_fields]
+    },
     object_selections = {
         "Electron": {"min": 2, "cuts": get_ele_cuts("ee", skip_pt=True, split_id=True)}
     },
@@ -60,15 +66,19 @@ cfg = Configurator(
     ],
     categories = {
         "baseline": [passthrough],
-        **{f"passes_{trigger}": [get_HLTsel_custom([trigger])] for trigger in TRIGGERS},
-        "passes_OR": [get_HLTsel_custom(["HLT_DoublePhoton70", "HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90"])]
+        **{f"passes_{trigger}": [get_HLTsel_custom([trigger])] for trigger in ALL_TRIGGERS},
+        "passes_OR": [get_HLTsel_custom(TARGET_TRIGGERS)],
+        "passes_OR_plateau": [
+            get_HLTsel_custom(TARGET_TRIGGERS),
+            NamedCut(get_min_n_pt("ee"), r">=2 e with $p_T$ above plateau threshold")
+        ]
     },
     hists = {
-        "AllElectron_pt": HistConf([Axis(coll="ElectronGood", field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")]),
-        "LeadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=0, field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")]),
-        "SubleadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=1, field="pt", bins=100, start=0, stop=500, label=rf"Subleading electron $p_T$ [GeV]")]),
-        "AllElectron_d0": HistConf([Axis(coll="ElectronGood", field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")]),
-        "LeadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=0, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")]),
-        "SubleadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=1, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Subleading electron $d_0$ [$\mu m$]")]),
+        "AllElectron_pt": HistConf([Axis(coll="ElectronGood", field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
+        "LeadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=0, field="pt", bins=100, start=0, stop=500, label=rf"Leading electron $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
+        "SubleadingElectron_pt": HistConf([Axis(coll="ElectronGood", pos=1, field="pt", bins=100, start=0, stop=500, label=rf"Subleading electron $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
+        "AllElectron_d0": HistConf([Axis(coll="ElectronGood", field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
+        "LeadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=0, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading electron $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
+        "SubleadingElectron_d0": HistConf([Axis(coll="ElectronGood", pos=1, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Subleading electron $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
     },
 )

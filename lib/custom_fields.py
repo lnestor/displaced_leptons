@@ -43,17 +43,7 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
     ele = events.Electron
     mu = events.Muon
 
-    if supplement_version != CENTRAL_NANOAOD_FLAG:
-        ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutralEt - rho * np.pi * 0.3**2, 0) / ele.pt
-        events["Electron", "customIso"] = ele_iso
-        events["Electron", "absd0_um"] = abs(events.Electron.dxybs) * 1e4
-        events["Electron", "d0_um"] = events.Electron.dxybs * 1e4
-        events["Electron", "is_gap"] = ele.isEBEEGap
-
-        mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutralEt - rho * np.pi * 0.4**2, 0) / mu.pt
-        events["Muon", "customIso"] = mu_iso
-        events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
-    else:
+    if supplement_version == CENTRAL_NANOAOD_FLAG:
         events["Electron", "customIso"] = ele.pfRelIso03_all
         events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
         events["Electron", "d0_um"] = ele.dxy * 1e4
@@ -73,6 +63,32 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
             "lep1Flavor": ak.Array([[]]*n),
             "lep2Flavor": ak.Array([[]]*n)
         })
+
+    if supplement_version >= 1:
+        ele_iso = np.maximum(ele.pfIso03_sumChargedHadronPt + ele.pfIso03_sumPUPt + ele.pfIso03_sumNeutralEt - rho * np.pi * 0.3**2, 0) / ele.pt
+        events["Electron", "customIso"] = ele_iso
+        events["Electron", "absd0_um"] = abs(events.Electron.dxybs) * 1e4
+        events["Electron", "d0_um"] = events.Electron.dxybs * 1e4
+        events["Electron", "is_gap"] = ele.isEBEEGap
+
+        mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutralEt - rho * np.pi * 0.4**2, 0) / mu.pt
+        events["Muon", "customIso"] = mu_iso
+        events["Muon", "standardIsoCorr"] = mu.pfIso04_sumPUPt / 2
+
+    if supplement_version >= 2:
+        if is_mc:
+            events["Muon", "gen_absd0_um"] = np.sqrt(
+                (mu.genVtx_x - events.BeamSpot.x) ** 2 + (mu.genVtx_y - events.BeamSpot.y) ** 2
+            ) * 1e4
+            events["Electron", "gen_absd0_um"] = np.sqrt(
+                (ele.genVtx_x - events.BeamSpot.x) ** 2 + (ele.genVtx_y - events.BeamSpot.y) ** 2
+            ) * 1e4
+        else:
+            events["Muon", "gen_absd0_um"] = ak.full_like(mu.pt, np.nan)
+            events["Electron", "gen_absd0_um"] = ak.full_like(ele.pt, np.nan)
+    else:
+        events["Muon", "gen_absd0_um"] = ak.full_like(mu.pt, np.nan)
+        events["Electron", "gen_absd0_um"] = ak.full_like(ele.pt, np.nan)
 
 
 def define_gen_parent(events, year, is_mc, supplement_version):

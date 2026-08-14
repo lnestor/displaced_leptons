@@ -19,7 +19,7 @@ DEFAULT_VARIATIONS = {
             "inclusive": [],
             "bycategory": {}
         },
-        "bysamples": {}
+        "bysample": {}
     }
 }
 
@@ -38,7 +38,7 @@ class Configurator(config.Configurator):
         categories,
         hists,
         supplements=[],
-        custom_fields=[],
+        custom_fields={},
         weights=DEFAULT_WEIGHTS,
         variations=DEFAULT_VARIATIONS,
         weights_classes=None,

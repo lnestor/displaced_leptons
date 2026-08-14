@@ -32,7 +32,10 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def _define_custom_fields(self):
-        for fn in self.cfg.custom_fields:
+        for fn in self.cfg.custom_fields.get("common", []):
+            fn(self.events, self._year, self._isMC, self._supplement_version)
+
+        for fn in self.cfg.custom_fields.get("bysample", {}).get(self._sample, []):
             fn(self.events, self._year, self._isMC, self._supplement_version)
 
 

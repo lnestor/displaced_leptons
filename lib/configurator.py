@@ -68,3 +68,17 @@ class Configurator(config.Configurator):
         self.custom_fields = custom_fields
         self.supplements = supplements
 
+        # TODO: Validate dictionaries
+
+    def load_datasets(self):
+        super().load_datasets()
+
+        priority = self.datasets_cfg.get("priority")
+        if priority:
+            rank = {sample: i for i, sample in enumerate(priority)}
+            unranked = len(priority)
+            self.filesets = dict(sorted(
+                self.filesets.items(),
+                key=lambda item: rank.get(item[1]["metadata"]["sample"], unranked)
+            ))
+

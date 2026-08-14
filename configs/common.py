@@ -100,14 +100,15 @@ def get_ele_cuts(channel, skip_pt=False, split_id=False):
     return [cut for cut in cuts if cut is not None]
 
 
-def get_mu_cuts(channel):
-    return [
+def get_mu_cuts(channel, skip_pt=False):
+    cuts = [
         NamedCut(get_max_eta("Muon", channel=channel), r"$>={count}$ $\mu$ with $|\eta|<{val}$"),
         NamedCut(get_etaphi_veto("Muon", channel=channel), r"$>={count}$ $\mu$ passing $\eta-\phi$ veto"),
-        NamedCut(get_min_pt("Muon", channel=channel), r"$>={count}$ $\mu$ with $p_T>{val}$ GeV"),
+        NamedCut(get_min_pt("Muon", channel=channel), r"$>={count}$ $\mu$ with $p_T>{val}$ GeV") if not skip_pt else None,
         NamedCut(get_muon_tight_id("Muon"), r"$>={count}$ $\mu$ passing tight ID"),
         NamedCut(get_max_iso("Muon", channel=channel), r"$>={count}$ $\mu$ passing tight custom isolation"),
     ]
+    return [cut for cut in cuts if cut is not None]
 
 
 def register_modules():

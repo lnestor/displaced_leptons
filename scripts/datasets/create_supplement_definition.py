@@ -1,15 +1,27 @@
 import argparse
+import faulthandler
 import json
 import os
+import re
+import signal
 import subprocess
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
-import uproot
+from tqdm import tqdm
 from scripts import crab_helper, eos_helper
 from scripts.datasets.catalog import DatasetCatalog
 
 EOS_REDIRECTOR = "root://cmseos.fnal.gov"
+# xrootd reads are network-latency bound, not CPU bound, so this can be much
+# higher than a typical thread pool size without straining the LPC node.
+XROOTD_WORKERS = 20
+
+# Some supplement productions name files generically (supplement_1.root, ...)
+# and need run/lumi matching to pair them with central files. Others name
+# each supplement file after the central file it corresponds to, in which
+# case pairing is a direct filename match -- no need to open any files.
+NUMBERED_SUPPLEMENT_RE = re.compile(r"^supplement_\d+\.root$")
 
 DATA_SAMPLES = ["EGamma", "Muon", "MuonEG", "MET"]
 MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
@@ -38,17 +50,69 @@ def expand_years(years):
     return list(set(expanded))
 
 
+# xrootd reads for these run in their own subprocess (not just a thread): a
+# stalled/unresponsive server (e.g. one that sends kXR_wait keep-alives and
+# never actually times out the client) leaves a thread permanently blocked
+# in the XRootD C client with no way to interrupt it. A subprocess can
+# instead be killed outright by subprocess.run's timeout, so a hung read
+# doesn't cost us a worker permanently and can be retried cleanly.
+_LUMI_READER = """
+import sys, json
+import uproot
+path = sys.argv[1]
+try:
+    with uproot.open(f"{path}:supplementTree/Events") as tree:
+        arrays = tree.arrays(["run", "luminosityBlock"])
+    print(json.dumps(list(zip(arrays["run"].tolist(), arrays["luminosityBlock"].tolist()))))
+except Exception as e:
+    print(str(e), file=sys.stderr)
+    sys.exit(1)
+"""
+
+_VERSION_READER = """
+import sys, json
+import uproot
+path = sys.argv[1]
+try:
+    with uproot.open(f"{path}:supplementTree/Runs") as tree:
+        arrays = tree.arrays(["version"])
+    print(json.dumps(list(set(arrays["version"].tolist()))))
+except Exception as e:
+    print(str(e), file=sys.stderr)
+    sys.exit(1)
+"""
+
+
+def _read_via_subprocess(reader_script, xrootd_path, timeout=60, retries=3):
+    for attempt in range(1, retries + 1):
+        try:
+            result = subprocess.run(
+                [sys.executable, "-c", reader_script, xrootd_path],
+                capture_output=True, text=True, timeout=timeout,
+            )
+        except subprocess.TimeoutExpired:
+            print(f"WARNING: timed out reading {xrootd_path} (attempt {attempt}/{retries}), killed subprocess")
+            continue
+        if result.returncode != 0:
+            print(f"ERROR reading {xrootd_path}: {result.stderr.strip()}")
+            return None
+        return json.loads(result.stdout)
+    print(f"ERROR: giving up on {xrootd_path} after {retries} attempts")
+    return None
+
+
 def get_lumi_file_map(files):
     def _get_lumi_file_map_one(xrootd_path):
-        try:
-            arrays = uproot.open(f"{xrootd_path}:supplementTree/Events").arrays(["run", "luminosityBlock"])
-            return xrootd_path, set(zip(arrays["run"].tolist(), arrays["luminosityBlock"].tolist()))
-        except Exception as e:
-            print(f"ERROR reading {xrootd_path}: {e}")
+        run_lumis = _read_via_subprocess(_LUMI_READER, xrootd_path)
+        if run_lumis is None:
             return xrootd_path, set()
+        return xrootd_path, set(tuple(run_lumi) for run_lumi in run_lumis)
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        results = executor.map(_get_lumi_file_map_one, files)
+    with ThreadPoolExecutor(max_workers=XROOTD_WORKERS) as executor:
+        results = list(tqdm(
+            executor.map(_get_lumi_file_map_one, files),
+            total=len(files), desc="Reading supplement lumis",
+        ))
 
     index = {}
     for file, run_lumis in results:
@@ -85,35 +149,49 @@ def get_central_runs_lumis(dataset, runs):
         return files
 
     index = {}
+    sorted_runs = sorted(runs)
     with ThreadPoolExecutor(max_workers=4) as executor:
-        results = executor.map(lambda run: _get_central_run_one(dataset, run), sorted(runs))
+        results = list(tqdm(
+            executor.map(lambda run: _get_central_run_one(dataset, run), sorted_runs),
+            total=len(sorted_runs), desc="Reading central lumis",
+        ))
     for files in results:
         for file, run_lumis in files.items():
             index.setdefault(file, []).extend(run_lumis)
     return index
 
 
-def get_supplement_version(files):
-    def _get_version_one(xrootd_path):
-        try:
-            arrays = uproot.open(f"{xrootd_path}:supplementTree/Runs").arrays(["version"])
-            return xrootd_path, set(arrays["version"].tolist())
-        except Exception as e:
-            print(f"ERROR reading {xrootd_path}: {e}")
-            return xrootd_path, set()
-
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        results = executor.map(_get_version_one, files)
-
-    versions = set()
-    for _, file_versions in results:
-        versions |= file_versions
-
-    if len(versions) != 1:
-        print(f"ERROR: supplement files have inconsistent versions: {sorted(versions)}")
+def get_central_files(dataset, retries=3, delay=5):
+    for attempt in range(1, retries + 1):
+        result = subprocess.run(
+            ["dasgoclient", "-query", f"file dataset={dataset}"],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            break
+        print(f"WARNING: dasgoclient query failed for dataset {dataset} (attempt {attempt}/{retries}): {result.stderr.strip()}")
+        if attempt < retries:
+            time.sleep(delay)
+    else:
+        print(f"ERROR: dasgoclient query failed for dataset {dataset} after {retries} attempts")
         sys.exit(1)
 
-    return versions.pop()
+    return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+
+def get_supplement_version(files):
+    # Assumes all files in a supplement production share one version -- only
+    # the first file is read rather than checking every file for consistency.
+    versions = _read_via_subprocess(_VERSION_READER, files[0])
+    if not versions:
+        print(f"ERROR: could not read version from {files[0]}")
+        sys.exit(1)
+
+    if len(versions) != 1:
+        print(f"ERROR: {files[0]} has inconsistent versions within itself: {sorted(versions)}")
+        sys.exit(1)
+
+    return versions[0]
 
 
 def merge_definitions(existing, new):
@@ -179,27 +257,41 @@ def get_supp_def(dataset, year, sample, era, supplements_path):
         exit(1)
     print(f"Found {len(files)} files")
 
-    print("Reading runs/lumis from supplement files...")
-    supp_lumis_to_file = get_lumi_file_map(files)
-    print(f"Found {len(supp_lumis_to_file)} unique run/lumi pairs")
+    if all(NUMBERED_SUPPLEMENT_RE.match(os.path.basename(f)) for f in files):
+        print("Reading runs/lumis from supplement files...")
+        supp_lumis_to_file = get_lumi_file_map(files)
+        print(f"Found {len(supp_lumis_to_file)} unique run/lumi pairs")
 
-    print("Reading run/lumis of central files via dasgoclient...")
-    runs = {run for run, _ in supp_lumis_to_file}
-    central_file_to_lumis = get_central_runs_lumis(dataset, runs)
+        print("Reading run/lumis of central files via dasgoclient...")
+        runs = {run for run, _ in supp_lumis_to_file}
+        central_file_to_lumis = get_central_runs_lumis(dataset, runs)
+
+        print("Matching central files to supplement files...")
+        file_mapping = {}
+        for central_file, central_lumis in central_file_to_lumis.items():
+            # A lumi with no entry has no supplement event, e.g. it failed the
+            # trigger filter -- not an error, just skip it.
+            supp_files = sorted(set(
+                supp_lumis_to_file[l] for l in central_lumis if l in supp_lumis_to_file
+            ))
+            file_mapping[central_file] = supp_files
+    else:
+        print("Supplement files are named after central files -- matching by filename...")
+        central_files = get_central_files(dataset)
+        supp_by_basename = {os.path.basename(f): f for f in files}
+
+        file_mapping = {}
+        for central_file in central_files:
+            supp_file = supp_by_basename.get(os.path.basename(central_file))
+            if supp_file is None:
+                print(f"WARNING: no supplement file found for central file {central_file}")
+                file_mapping[central_file] = []
+            else:
+                file_mapping[central_file] = [supp_file]
 
     print("Reading supplement version...")
     version = get_supplement_version(files)
     print(f"Supplement version: {version}")
-
-    print("Matching central files to supplement files...")
-    file_mapping = {}
-    for central_file, central_lumis in central_file_to_lumis.items():
-        # A lumi with no entry has no supplement event, e.g. it failed the
-        # trigger filter -- not an error, just skip it.
-        supp_files = sorted(set(
-            supp_lumis_to_file[l] for l in central_lumis if l in supp_lumis_to_file
-        ))
-        file_mapping[central_file] = supp_files
 
     definition = {
         "metadata": {
@@ -218,6 +310,10 @@ def get_supp_def(dataset, year, sample, era, supplements_path):
 
 
 def main():
+    # If the script appears to hang, run `kill -SIGUSR1 <pid>` to dump every
+    # thread's current stack to stderr without killing the process.
+    faulthandler.register(signal.SIGUSR1, all_threads=True)
+
     parser = argparse.ArgumentParser(description="Create supplement definition JSON files")
 
     auto_group = parser.add_argument_group("Automatic Mode")
@@ -321,25 +417,34 @@ def main():
                 skipped.append(d.key)
                 continue
 
-            try:
-                supp_def = get_supp_def(
-                    dataset=d.nanoaod,
-                    year=d.year,
-                    era=d.era,
-                    sample=d.sample,
-                    supplements_path=f"{EOS_REDIRECTOR}/{d.supplements_path}"
-                )
+            overwrite = args.overwrite and d.key not in seen_keys
+            append = args.append or d.key in seen_keys
 
-                overwrite = args.overwrite and d.key not in seen_keys
-                append = args.append or d.key in seen_keys
-                save(d.key, supp_def, output, overwrite, append)
-                seen_keys.add(d.key)
-            except SystemExit:
-                # get_supp_def/save exit(1) on failure (missing EOS dir,
-                # dasgoclient errors, inconsistent versions, etc) -- skip this
-                # dataset instead of aborting the whole batch.
-                print(f"SKIPPING '{d.key}': see error above")
+            cmd = [
+                sys.executable, __file__,
+                "--eos-dir", f"{EOS_REDIRECTOR}/{d.supplements_path}",
+                "--dataset", d.nanoaod,
+                "--json-key", d.key,
+                "--sample", d.sample,
+                "--year", d.year,
+                "--output", output,
+            ]
+            if d.era is not None:
+                cmd += ["--era", d.era]
+            if overwrite:
+                cmd.append("--overwrite")
+            if append:
+                cmd.append("--append")
+
+            proc = subprocess.Popen(cmd)
+            print(f"Running '{d.key}' in subprocess (pid {proc.pid})")
+            returncode = proc.wait()
+
+            if returncode != 0:
+                print(f"SKIPPING '{d.key}': subprocess exited with code {returncode}, see error above")
                 failures.append(d.key)
+            else:
+                seen_keys.add(d.key)
 
         if skipped:
             print(f"\n{len(skipped)} dataset(s) already existed and were skipped:")

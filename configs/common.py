@@ -5,6 +5,7 @@ from lib.named_cut import NamedCut
 from event_selection import (
     get_d0_lt,
     get_d0_gt,
+    get_DY_flavor
 )
 from object_selection import (
     get_min_pt,
@@ -50,6 +51,14 @@ MC_SAMPLES = [
     "QCD_Ele",
     "QCD_Mu"
 ]
+
+DY_SUBSAMPLES = {
+    "DY": {
+        "ee": [get_DY_flavor(11)],
+        "mumu": [get_DY_flavor(13)],
+        "tautau": [get_DY_flavor(15)],
+    }
+}
 
 
 def get_default_skim_cuts(sample=None):

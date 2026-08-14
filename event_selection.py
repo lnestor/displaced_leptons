@@ -9,6 +9,20 @@ _FLAVOR_COLL = {MUON_FLAVOR: "MuonGood", ELECTRON_FLAVOR: "ElectronGood"}
 _FLAVOR_NAME = {MUON_FLAVOR: "mu", ELECTRON_FLAVOR: "e"}
 
 
+
+def _DY_flavor_impl(events, params, **kwargs):
+    mask = events.DYFlavor == params["pdgid"]
+    return ak.fill_none(mask, False)
+
+
+def get_DY_flavor(pdgid):
+    return Cut(
+        name=f"DY_flavor_{pdgid}",
+        params={"pdgid": pdgid},
+        function=_DY_flavor_impl
+    )
+
+
 def get_nLeptonGood(N):
     def _impl(events, params, **kwargs):
         mask = events.nLeptonGood >= params["N"]

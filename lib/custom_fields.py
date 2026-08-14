@@ -6,6 +6,28 @@ CENTRAL_NANOAOD_FLAG = 0
 RUN_2_YEARS = ['2016_PreVFP', '2016_PostVFP', '2017', '2018']
 
 
+def define_DY_flavor(events, year, is_mc, supplement_version):
+    if not is_mc:
+        return
+
+    pdgid = np.abs(events.GenPart.pdgId)
+    leptons = events.GenPart[
+        ((pdgid == 11) | (pdgid == 13) | (pdgid == 15))
+        & events.GenPart.hasFlags(["fromHardProcess", "isLastCopy"])
+    ]
+
+    n = ak.num(leptons)
+    if ak.any(n != 2):
+        raise ValueError(f"{ak.sum(n != 2)} events do not have exactly 2 hard-process leptons")
+
+    different = np.abs(leptons[:, 0].pdgId) != np.abs(leptons[:, 1].pdgId)
+    if ak.any(different):
+        raise ValueError(f"{ak.sum(different)} events have different-flavor hard-process leptons")
+
+    events["DYFlavor"] = np.abs(leptons[:, 0].pdgId)
+
+
+
 def define_custom_nano_fields(events, year, is_mc, supplement_version):
     events["Electron", "original_idx"] = ak.local_index(events.Electron, axis=1)
     events["Muon", "original_idx"] = ak.local_index(events.Muon, axis=1)

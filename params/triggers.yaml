@@ -35,6 +35,11 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned
   "2022_postEE":
     Muon:
       - HLT_DoubleMu43NoFiltersNoVtx
@@ -43,6 +48,11 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned
   "2023_preBPix":
     Muon:
       - HLT_DoubleMu43NoFiltersNoVtx
@@ -51,6 +61,11 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned
   "2023_postBPix":
     Muon:
       - HLT_DoubleMu43NoFiltersNoVtx
@@ -59,6 +74,11 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned
   "2024":
     Muon:
       - HLT_DoubleMu43NoFiltersNoVtx
@@ -80,3 +100,8 @@ HLT_triggers:
       - HLT_DoublePhoton70
     MuonEG:
       - HLT_Mu48NoFiltersNoVtx_Photon48_CaloIdL
+    MET:
+      - HLT_PFMET120_PFMHT120_IDTight
+      - HLT_PFMET250_NotCleaned
+      - HLT_PFMETNoMu120_PFMHTNoMu120_IDTight
+      - HLT_CaloMET350_NotCleaned

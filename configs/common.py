@@ -150,4 +150,4 @@ def get_datasets(subdir):
 
 def get_supplements():
     localdir = str(Path(__file__).parent.parent)
-    return [f for f in glob.glob(f"{localdir}/supplements/*.json")]
+    return [f for f in glob.glob(f"{localdir}/datasets/supplements/*.json")]

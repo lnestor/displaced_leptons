@@ -23,7 +23,7 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             "object_selection": {},
             **{cat: {} for cat in self._categories}
         }
-        self.output_format["missing_events"] = {}
+        self.output_format["supplement_diagnostics"] = {}
 
 
     def apply_object_preselection(self, variation):
@@ -94,48 +94,56 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 self._supplement_version = metadata["version"]
 
 
+    def _supplement_diag(self):
+        return self.output["supplement_diagnostics"].setdefault(self._dataset, {
+            "chunks_total": 0,
+            "chunks_after_skim": 0,
+            "chunks_no_supplement_file": 0,
+            "chunks_matched": 0,
+            "events_at_join": 0,
+            "events_missing_at_join": 0,
+        })
+
+
+    def process_extra_before_skim(self):
+        self._supplement_diag()["chunks_total"] += 1
+
+
     def process_extra_after_skim(self):
+        diag = self._supplement_diag()
+        diag["chunks_after_skim"] += 1
+
         central_lfn = "/store/" + self.events.metadata["filename"].split("/store/", 1)[1]
         supplement_files = self._supplement_files.get(central_lfn, [])
 
         if not supplement_files:
+            diag["chunks_no_supplement_file"] += 1
             if self._supplement_version != 0:
-                raise ValueError(
-                    f"Dataset '{self._dataset}' expects supplement coverage (version "
-                    f"{self._supplement_version}) but no supplement file was found for "
-                    f"'{central_lfn}'"
+                self.events = self.events[:0]
+                schema_file = next(
+                    (f for files in self._supplement_files.values() for f in files),
+                    None
                 )
+                if schema_file is not None:
+                    schema_tree = uproot.open(schema_file)["supplementTree/Events"]
+                    supplement = schema_tree.arrays(entry_stop=0)
+                    self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])
             return
 
-        chunk_lumis = set(zip(
-            self.events["run"].tolist(), self.events["luminosityBlock"].tolist()
-        ))
+        chunk_key = ak_help.create_key(self.events, ["run", "luminosityBlock"])
 
         supplement_parts = []
         for f in supplement_files:
-            tree = uproot.open(f)["supplementTree/Events"]
-            index = tree.arrays(["run", "luminosityBlock"])
-            mask = np.fromiter(
-                ((r, l) in chunk_lumis for r, l in zip(
-                    index["run"].tolist(), index["luminosityBlock"].tolist()
-                )),
-                dtype=bool, count=len(index)
-            )
+            index = uproot.open(f)["supplementTree/Events"].arrays(["run", "luminosityBlock"])
+            mask = np.isin(ak_help.create_key(index, ["run", "luminosityBlock"]), chunk_key)
             if not mask.any():
                 continue
-            # packed() is required here: boolean-masking an awkward array
-            # returns a view that still references the full unmasked buffers,
-            # so without it the discarded ~99% of each supplement file's
-            # branches stays resident in memory for the life of the worker.
+            tree = uproot.open(f)["supplementTree/Events"]
             supplement_parts.append(ak.packed(tree.arrays()[mask]))
 
         if supplement_parts:
             supplement = ak.concatenate(supplement_parts)
         else:
-            # No supplement rows matched this chunk (e.g. every event in the
-            # chunk was already cut by skim). Still need the field schema so
-            # the join below adds the expected fields as empty rather than
-            # leaving them missing entirely.
             schema_tree = uproot.open(supplement_files[0])["supplementTree/Events"]
             supplement = schema_tree.arrays(entry_stop=0)
 
@@ -144,7 +152,10 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         n_after_join = len(self.events)
         n_missing = n_before_join - n_after_join
 
-        self.output["missing_events"][self._dataset] = n_missing
+        diag["chunks_matched"] += 1
+        diag["events_at_join"] += n_before_join
+        diag["events_missing_at_join"] += n_missing
+
         self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial - n_missing
 
         names = list(self._skim_masks.names)
@@ -199,12 +210,28 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             if "passthrough" in accumulator["cutflow_cumulative"][stage]:
                 del accumulator["cutflow_cumulative"][stage]["passthrough"]
 
-        total_missing = sum(accumulator["missing_events"].values())
-        if total_missing:
-            print(f"\n[missing_events] {total_missing} total unmatched events across supplement join:")
-            for dataset, n in accumulator["missing_events"].items():
-                if n:
-                    print(f"  {dataset}: {n}")
+        print("\n[Supplement matching diagnostics]")
+        for dataset, diag in accumulator["supplement_diagnostics"].items():
+            chunks_total = diag["chunks_total"]
+            chunks_after_skim = diag["chunks_after_skim"]
+            chunks_zero_after_skim = chunks_total - chunks_after_skim
+            chunks_no_supplement_file = diag["chunks_no_supplement_file"]
+            chunks_matched = diag["chunks_matched"]
+            events_at_join = diag["events_at_join"]
+            events_missing_at_join = diag["events_missing_at_join"]
+
+            print(f"  {dataset}:")
+            print(f"    {chunks_zero_after_skim}/{chunks_total} chunks had zero surviving events after skim")
+            print(f"    {chunks_no_supplement_file}/{chunks_after_skim} chunks reached the matching stage "
+                  f"but found no supplement coverage for their file")
+            if chunks_matched:
+                events_matched = events_at_join - events_missing_at_join
+                pct = 100 * events_matched / events_at_join if events_at_join else 0.0
+                print(f"    {chunks_matched}/{chunks_after_skim} chunks ran the join: "
+                      f"{events_matched}/{events_at_join} events matched ({pct:.1f}%), "
+                      f"{events_missing_at_join} missing")
+            else:
+                print(f"    0/{chunks_after_skim} chunks ran the join -- supplement matching never executed")
 
         return accumulator
 

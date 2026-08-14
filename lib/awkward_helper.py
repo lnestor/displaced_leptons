@@ -2,7 +2,28 @@ import awkward as ak
 import numpy as np
 
 
-def _create_key(array, key_fields):
+# _KEY_FIELD_BITS = {
+#     "event": 31,
+#     "luminosityBlock": 14,
+#     "run": 19,
+# }
+#
+#
+# def create_key(array, key_fields):
+#     packed = np.zeros(len(array), dtype=np.uint64)
+#     for field in key_fields:
+#         bits = _KEY_FIELD_BITS[field]
+#         values = ak.to_numpy(array[field]).astype(np.uint64)
+#         if values.size and int(values.max()) >= (1 << bits):
+#             raise ValueError(
+#                 f"create_key: '{field}' value {int(values.max())} exceeds the "
+#                 f"{bits}-bit budget reserved for it in _KEY_FIELD_BITS"
+#             )
+#         packed = (packed << np.uint64(bits)) | values
+#     return packed
+
+
+def create_key(array, key_fields):
     return np.rec.fromarrays(
         [array[f] for f in key_fields],
         names=",".join(key_fields)
@@ -20,8 +41,8 @@ def _match_keys(left_key, right_key):
 
 
 def join(left, right, key_fields):
-    left_key = _create_key(left, key_fields)
-    right_key = _create_key(right, key_fields)
+    left_key = create_key(left, key_fields)
+    right_key = create_key(right, key_fields)
 
     right_mask = np.isin(right_key, left_key)
     right_key = right_key[right_mask]

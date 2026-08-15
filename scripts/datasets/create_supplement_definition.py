@@ -1,197 +1,102 @@
 import argparse
-import faulthandler
+from catalog import DatasetCatalog
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
+import multiprocessing as mp
 import os
-import re
-import signal
+from queue import Empty
+import scripts.eos_helper as eos_helper
 import subprocess
-import sys
-import time
-from concurrent.futures import ThreadPoolExecutor
-from tqdm import tqdm
-from scripts import crab_helper, eos_helper
-from scripts.datasets.catalog import DatasetCatalog
-
-EOS_REDIRECTOR = "root://cmseos.fnal.gov"
-# xrootd reads are network-latency bound, not CPU bound, so this can be much
-# higher than a typical thread pool size without straining the LPC node.
-XROOTD_WORKERS = 20
-
-# Some supplement productions name files generically (supplement_1.root, ...)
-# and need run/lumi matching to pair them with central files. Others name
-# each supplement file after the central file it corresponds to, in which
-# case pairing is a direct filename match -- no need to open any files.
-NUMBERED_SUPPLEMENT_RE = re.compile(r"^supplement_\d+\.root$")
+from rich.progress import Progress, ProgressColumn, TextColumn, BarColumn, TaskProgressColumn, MofNCompleteColumn
+from rich.spinner import Spinner
+from rich.table import Table
+from rich.text import Text
+import uproot
 
 DATA_SAMPLES = ["EGamma", "Muon", "MuonEG", "MET"]
 MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
-YEAR_GROUPS = {
-    "2022": ["2022_preEE", "2022_postEE"],
-    "2023": ["2023_preBPix", "2023_postBPix"],
-}
+SAMPLES = DATA_SAMPLES + MC_SAMPLES
+
+YEARS = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
+ERAS = ["C", "D", "E", "F", "G", "H", "I"]
+
+EOS_REDIRECTOR = "root://cmseos.fnal.gov/"
 
 
-def expand_samples(samples):
-    expanded = []
-    for sample in samples:
-        if sample == "Data":
-            expanded.extend(DATA_SAMPLES)
-        elif sample == "MC":
-            expanded.extend(MC_SAMPLES)
-        else:
-            expanded.append(sample)
-    return list(set(expanded))
+class StatusColumn(ProgressColumn):
+    def __init__(self):
+        super().__init__()
+        self.spinner = Spinner("dots", style="cyan")
+
+    def render(self, task):
+        if not task.fields.get("started"):
+            return self.spinner.render(task.get_time())
+        dots = Text()
+        for status in task.fields.get("step_statuses", []):
+            dots.append("* ", style=self._get_style(status))
+        return dots
+
+    def _get_style(self, status):
+        if status == "pending": return "grey50"
+        elif status == "active": return "yellow"
+        elif status == "done": return "green"
+        else: return "red"
 
 
-def expand_years(years):
-    expanded = []
-    for year in years:
-        expanded.extend(YEAR_GROUPS.get(year, [year]))
-    return list(set(expanded))
+class BarOrDoneColumn(ProgressColumn):
+    def __init__(self):
+        super().__init__()
+        self._bar = BarColumn()
+        self._pct = TaskProgressColumn()
+        self._mofn = MofNCompleteColumn()
+
+    def render(self, task):
+        if task.fields.get("done"):
+            return Text("Done", style="bold green")
+        if task.fields.get("failed"):
+            return Text("Failed", style="bold red")
+        if not task.fields.get("started"):
+            return Text("")
+        if not task.fields.get("show_bar", True):
+            return Text("")
+
+        grid = Table.grid(padding=(0, 1))
+        grid.add_row(self._bar.render(task), self._pct.render(task), self._mofn.render(task))
+        return grid
 
 
-# xrootd reads for these run in their own subprocess (not just a thread): a
-# stalled/unresponsive server (e.g. one that sends kXR_wait keep-alives and
-# never actually times out the client) leaves a thread permanently blocked
-# in the XRootD C client with no way to interrupt it. A subprocess can
-# instead be killed outright by subprocess.run's timeout, so a hung read
-# doesn't cost us a worker permanently and can be retried cleanly.
-_LUMI_READER = """
-import sys, json
-import uproot
-path = sys.argv[1]
-try:
-    with uproot.open(f"{path}:supplementTree/Events") as tree:
+def get_lumis_from_file(file, lumis_tree_path):
+    with uproot.open(f"{file}:{lumis_tree_path}") as tree:
         arrays = tree.arrays(["run", "luminosityBlock"])
-    print(json.dumps(list(zip(arrays["run"].tolist(), arrays["luminosityBlock"].tolist()))))
-except Exception as e:
-    print(str(e), file=sys.stderr)
-    sys.exit(1)
-"""
 
-_VERSION_READER = """
-import sys, json
-import uproot
-path = sys.argv[1]
-try:
-    with uproot.open(f"{path}:supplementTree/Runs") as tree:
+    return list(zip(arrays["run"].tolist(), arrays["luminosityBlock"].tolist()))
+
+
+def get_lumis_from_dataset(dataset, run):
+    result = subprocess.run(
+        # TODO: Can we make this query based on file, not run? MC only has 1 run,
+        #       so it takes awhile
+        ["dasgoclient", "-query", f"file,lumi dataset={dataset} run={run}", "-json"],
+        capture_output=True, text=True
+    )
+
+    if result.returncode != 0:
+        print("ERROR: dasgoclient error")
+        exit(1)
+
+    file_to_lumi_map = {}
+    for record in json.loads(result.stdout):
+        file = record["file"][0]["name"]
+        lumis = [(run, lumi) for lumi in record["lumi"][0]["number"]]
+        file_to_lumi_map[file] = lumis
+
+    return file_to_lumi_map
+
+
+def read_supplement_version(file):
+    with uproot.open(f"{file}:supplementTree/Runs") as tree:
         arrays = tree.arrays(["version"])
-    print(json.dumps(list(set(arrays["version"].tolist()))))
-except Exception as e:
-    print(str(e), file=sys.stderr)
-    sys.exit(1)
-"""
-
-
-def _read_via_subprocess(reader_script, xrootd_path, timeout=60, retries=3):
-    for attempt in range(1, retries + 1):
-        try:
-            result = subprocess.run(
-                [sys.executable, "-c", reader_script, xrootd_path],
-                capture_output=True, text=True, timeout=timeout,
-            )
-        except subprocess.TimeoutExpired:
-            print(f"WARNING: timed out reading {xrootd_path} (attempt {attempt}/{retries}), killed subprocess")
-            continue
-        if result.returncode != 0:
-            print(f"ERROR reading {xrootd_path}: {result.stderr.strip()}")
-            return None
-        return json.loads(result.stdout)
-    print(f"ERROR: giving up on {xrootd_path} after {retries} attempts")
-    return None
-
-
-def get_lumi_file_map(files):
-    def _get_lumi_file_map_one(xrootd_path):
-        run_lumis = _read_via_subprocess(_LUMI_READER, xrootd_path)
-        if run_lumis is None:
-            return xrootd_path, set()
-        return xrootd_path, set(tuple(run_lumi) for run_lumi in run_lumis)
-
-    with ThreadPoolExecutor(max_workers=XROOTD_WORKERS) as executor:
-        results = list(tqdm(
-            executor.map(_get_lumi_file_map_one, files),
-            total=len(files), desc="Reading supplement lumis",
-        ))
-
-    index = {}
-    for file, run_lumis in results:
-        for run_lumi in run_lumis:
-            if run_lumi in index and index[run_lumi] != file:
-                run, lumi = run_lumi
-                print(f"ERROR: run {run}, lumi {lumi} found in both {index[run_lumi]} and {file}")
-                exit(1)
-            index[run_lumi] = file
-    return index
-
-
-def get_central_runs_lumis(dataset, runs):
-    def _get_central_run_one(dataset, run, retries=3, delay=5):
-        for attempt in range(1, retries + 1):
-            result = subprocess.run(
-                ["dasgoclient", "-query", f"file,lumi dataset={dataset} run={run}", "-json"],
-                capture_output=True, text=True,
-            )
-            if result.returncode == 0:
-                break
-            print(f"WARNING: dasgoclient query failed for run {run} (attempt {attempt}/{retries}): {result.stderr.strip()}")
-            if attempt < retries:
-                time.sleep(delay)
-        else:
-            print(f"ERROR: dasgoclient query failed for run {run} after {retries} attempts")
-            sys.exit(1)
-
-        files = {}
-        for record in json.loads(result.stdout):
-            file = record["file"][0]["name"]
-            run_lumis = [(run, lumi) for lumi in record["lumi"][0]["number"]]
-            files.setdefault(file, []).extend(run_lumis)
-        return files
-
-    index = {}
-    sorted_runs = sorted(runs)
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        results = list(tqdm(
-            executor.map(lambda run: _get_central_run_one(dataset, run), sorted_runs),
-            total=len(sorted_runs), desc="Reading central lumis",
-        ))
-    for files in results:
-        for file, run_lumis in files.items():
-            index.setdefault(file, []).extend(run_lumis)
-    return index
-
-
-def get_central_files(dataset, retries=3, delay=5):
-    for attempt in range(1, retries + 1):
-        result = subprocess.run(
-            ["dasgoclient", "-query", f"file dataset={dataset}"],
-            capture_output=True, text=True,
-        )
-        if result.returncode == 0:
-            break
-        print(f"WARNING: dasgoclient query failed for dataset {dataset} (attempt {attempt}/{retries}): {result.stderr.strip()}")
-        if attempt < retries:
-            time.sleep(delay)
-    else:
-        print(f"ERROR: dasgoclient query failed for dataset {dataset} after {retries} attempts")
-        sys.exit(1)
-
-    return [line.strip() for line in result.stdout.splitlines() if line.strip()]
-
-
-def get_supplement_version(files):
-    # Assumes all files in a supplement production share one version -- only
-    # the first file is read rather than checking every file for consistency.
-    versions = _read_via_subprocess(_VERSION_READER, files[0])
-    if not versions:
-        print(f"ERROR: could not read version from {files[0]}")
-        sys.exit(1)
-
-    if len(versions) != 1:
-        print(f"ERROR: {files[0]} has inconsistent versions within itself: {sorted(versions)}")
-        sys.exit(1)
-
-    return versions[0]
+    return arrays[0].version
 
 
 def merge_definitions(existing, new):
@@ -199,12 +104,12 @@ def merge_definitions(existing, new):
     new_meta = new["metadata"]
 
     for field in ("sample", "year", "era", "version"):
-        if existing_meta[field] != new_meta[field]:
+        if existing_meta.get(field) != new_meta.get(field):
             print(
-                f"ERROR: cannot append -- existing '{field}' ({existing_meta[field]!r}) "
-                f"does not match new '{field}' ({new_meta[field]!r})"
+                f"ERROR: cannot append -- existing '{field}' ({existing_meta.get(field)!r}) "
+                f"does not match new '{field}' ({new_meta.get(field)!r})"
             )
-            sys.exit(1)
+            exit(1)
 
     existing_datasets = existing_meta["dataset"]
     if not isinstance(existing_datasets, list):
@@ -218,7 +123,7 @@ def merge_definitions(existing, new):
                 f"ERROR: cannot append -- central file '{central_file}' already has a "
                 f"different supplement mapping in the existing definition"
             )
-            sys.exit(1)
+            exit(1)
 
     merged_files = dict(existing["files"])
     merged_files.update(new["files"])
@@ -229,7 +134,7 @@ def merge_definitions(existing, new):
     }
 
 
-def save(key, definition, output, overwrite, append):
+def save(key, supp_def, output, overwrite, append):
     if os.path.exists(output):
         with open(output) as f:
             data = json.load(f)
@@ -238,233 +143,214 @@ def save(key, definition, output, overwrite, append):
 
     if key in data and not overwrite and not append:
         print(f"ERROR: key '{key}' already exists in {output}. Use --overwrite to replace it or --append to merge into it.")
-        sys.exit(1)
+        exit(1)
 
     if key in data and append:
-        definition = merge_definitions(data[key], definition)
+        supp_def = merge_definitions(data[key], supp_def)
 
-    data[key] = definition
+    data[key] = supp_def
     with open(output, "w") as f:
         json.dump(data, f, indent=4)
-    print(f"Written '{key}' to {output}")
 
 
-def get_supp_def(dataset, year, sample, era, supplements_path):
-    files = eos_helper.get_root_files(supplements_path, recursive=True)
+def read_supplement_lumis(supp_files, report_fn):
+    supp_lumis_to_file = {}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(get_lumis_from_file, supp_file, "supplementTree/Events"): supp_file
+            for supp_file in supp_files
+        }
 
-    if not files:
-        print("ERROR: not files found")
-        exit(1)
-    print(f"Found {len(files)} files")
+        for future in as_completed(futures):
+            supp_file = futures[future]
+            for run, lumi in future.result():
+                supp_lumis_to_file[(run, lumi)] = supp_file
 
-    if all(NUMBERED_SUPPLEMENT_RE.match(os.path.basename(f)) for f in files):
-        print("Reading runs/lumis from supplement files...")
-        supp_lumis_to_file = get_lumi_file_map(files)
-        print(f"Found {len(supp_lumis_to_file)} unique run/lumi pairs")
+            report_fn(advance=1)
 
-        print("Reading run/lumis of central files via dasgoclient...")
-        runs = {run for run, _ in supp_lumis_to_file}
-        central_file_to_lumis = get_central_runs_lumis(dataset, runs)
+    return supp_lumis_to_file
 
-        print("Matching central files to supplement files...")
-        file_mapping = {}
-        for central_file, central_lumis in central_file_to_lumis.items():
-            # A lumi with no entry has no supplement event, e.g. it failed the
-            # trigger filter -- not an error, just skip it.
-            supp_files = sorted(set(
-                supp_lumis_to_file[l] for l in central_lumis if l in supp_lumis_to_file
-            ))
-            file_mapping[central_file] = supp_files
-    else:
-        print("Supplement files are named after central files -- matching by filename...")
-        central_files = get_central_files(dataset)
-        supp_by_basename = {os.path.basename(f): f for f in files}
 
-        file_mapping = {}
-        for central_file in central_files:
-            supp_file = supp_by_basename.get(os.path.basename(central_file))
-            if supp_file is None:
-                print(f"WARNING: no supplement file found for central file {central_file}")
-                file_mapping[central_file] = []
-            else:
-                file_mapping[central_file] = [supp_file]
+def read_central_lumis(dataset, runs, report_fn):
+    central_file_to_lumis = {}
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = {
+            executor.submit(get_lumis_from_dataset, dataset, run): run
+            for run in runs
+        }
 
-    print("Reading supplement version...")
-    version = get_supplement_version(files)
-    print(f"Supplement version: {version}")
+        for future in as_completed(futures):
+            run = futures[future]
+            for file, lumis in future.result().items():
+                central_file_to_lumis.setdefault(file, []).extend(lumis)
 
-    definition = {
+            report_fn(advance=1)
+
+    return central_file_to_lumis
+
+
+def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version):
+    central_to_supp_mapping = {}
+    for central_file, central_lumis in central_file_to_lumis.items():
+        supp_files = list(set(supp_lumis_to_file[l] for l in central_lumis if l in supp_lumis_to_file))
+        central_to_supp_mapping[central_file] = supp_files
+
+    supp_def = {
         "metadata": {
-            "dataset": dataset,
-            "sample": sample,
-            "year": year,
+            "dataset": dataset_def.nanoaod,
+            "sample": dataset_def.sample,
+            "year": dataset_def.year,
             "version": version
         },
-        "files": file_mapping
+        "files": central_to_supp_mapping
     }
 
-    if era is not None:
-        definition["metadata"]["era"] = era
+    if dataset_def.era is not None:
+        supp_def["metadata"]["era"] = dataset_def.era
 
-    return definition
+    return supp_def
+
+
+def process_dataset(dataset_def, message_queue):
+    step_statuses = ["pending", "pending", "pending", "pending"]
+
+    def report(advance=0, reset=False, total=None, description=None, **fields):
+        message_queue.put((dataset_def.key, reset, total, description, advance, fields))
+
+    def set_step(index, status, **fields):
+        step_statuses[index] = status
+        report(step_statuses=list(step_statuses), **fields)
+
+    report(started=True)
+
+    supp_files = eos_helper.get_root_files(f"{EOS_REDIRECTOR}/{dataset_def.supplements_path}") # TODO: make eos helper throw exception if this fails
+
+    set_step(0, "active", show_bar=True)
+    report(reset=True, total=len(supp_files), description="Reading supplement files")
+    supp_lumis_to_file = read_supplement_lumis(supp_files, report)
+    set_step(0, "done")
+
+    set_step(1, "active", show_bar=True)
+    runs = {run for run, _ in supp_lumis_to_file}
+    report(reset=True, total=len(runs), description="Reading central files")
+    central_file_to_lumis = read_central_lumis(dataset_def.nanoaod, runs, report)
+    set_step(1, "done")
+
+    set_step(2, "active", show_bar=False)
+    version = read_supplement_version(supp_files[0])
+    supp_def = get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version)
+    set_step(2, "done")
+
+    return dataset_def.key, supp_def
+
+
+def cleanup_finished_tasks(pending, output_dir, overwrite, append, progress, tasks, step_statuses_by_key):
+    for key in [k for k, result in pending.items() if result.ready()]:
+        result = pending.pop(key)
+        try:
+            _, supp_def = result.get()
+            sample = supp_def["metadata"]["sample"]
+            output = f"{output_dir}/{sample}.json"
+
+            step_statuses = step_statuses_by_key[key]
+            step_statuses[3] = "active"
+            progress.update(tasks[key], step_statuses=list(step_statuses), show_bar=False)
+
+            save(key, supp_def, output, overwrite, append)
+
+            step_statuses[3] = "done"
+            progress.update(tasks[key], step_statuses=list(step_statuses), done=True)
+        except Exception as e:
+            print(f"ERROR: '{key}' failed: {e}")
+            progress.update(tasks[key], failed=True)
+
+
+def has_supplement_definition(dataset_def, output_dir):
+    output = f"{output_dir}/{dataset_def.sample}.json"
+    if not os.path.exists(output):
+        return False
+
+    with open(output) as f:
+        data = json.load(f)
+
+    return dataset_def.key in data
 
 
 def main():
-    # If the script appears to hang, run `kill -SIGUSR1 <pid>` to dump every
-    # thread's current stack to stderr without killing the process.
-    faulthandler.register(signal.SIGUSR1, all_threads=True)
-
-    parser = argparse.ArgumentParser(description="Create supplement definition JSON files")
-
-    auto_group = parser.add_argument_group("Automatic Mode")
-    auto_group.add_argument(
-        "--samples", nargs="+",
-        choices=["EGamma", "Muon", "MuonEG", "MET", "Data", "MC", "DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
-    )
-    auto_group.add_argument(
-        "--years", nargs="+",
-        choices=["2022_preEE", "2022_postEE", "2022", "2023_preBPix", "2023_postBPix", "2023", "2024", "2025"]
-    )
-    auto_group.add_argument(
-        "--eras", nargs="+",
-        help="Optional: restrict to specific era(s) within the selected years (e.g. --eras C D). Data samples only."
-    )
-    auto_group.add_argument("--definition-path", default="datasets/sources/datasets.yaml")
-    auto_group.add_argument("--output-dir", default="datasets/supplements", help="Directory to write one JSON file per sample into")
-
-    manual_group = parser.add_argument_group("Manual Mode")
-    manual_group.add_argument("--eos-dir", help="Path to an EOS directory that contains the supplement files")
-    manual_group.add_argument("--dataset", help="The NanoAOD dataset the supplement files are for")
-    manual_group.add_argument("--json-key", help="The target dataset key in the output JSON")
-    manual_group.add_argument("--sample", help="The sample name for the supplement definition")
-    manual_group.add_argument("--year", help="The year for the supplement definition")
-    manual_group.add_argument("--era", help="The era for the supplement definition")
-    manual_group.add_argument("--output", default="supplement.json", help="The target output file")
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--samples", nargs="+", choices=SAMPLES)
+    parser.add_argument("--years", nargs="+", choices=YEARS)
+    parser.add_argument("--eras", nargs="+", choices=ERAS)
+    parser.add_argument("--definition-path", default="datasets/sources/datasets.yaml")
+    parser.add_argument("--output-dir", default="datasets/supplements")
     write_mode_group = parser.add_mutually_exclusive_group()
     write_mode_group.add_argument("--overwrite", action="store_true", help="Replace an existing key in the output file")
     write_mode_group.add_argument("--append", action="store_true", help="Merge into an existing key (e.g. add EGamma1 files to EGamma0)")
     args = parser.parse_args()
 
-    auto_args_given = bool(args.samples or args.years)
-    manual_args_given = bool(
-        args.eos_dir or args.dataset or args.json_key or args.sample or args.year or args.era
-    )
+    catalog = DatasetCatalog(args.definition_path)
 
-    if auto_args_given and manual_args_given:
-        parser.error(
-            "Cannot mix Automatic Mode args (--samples/--years) with "
-            "Manual Mode args (--eos-dir/--dataset/--json-key/--sample/--year/--era)"
-        )
-    elif auto_args_given:
-        if not (args.samples and args.years):
-            parser.error("Automatic Mode requires both --samples and --years")
-        auto = True
-    elif manual_args_given:
-        missing = [
-            name for name, value in [
-                ("--eos-dir", args.eos_dir),
-                ("--dataset", args.dataset),
-                ("--json-key", args.json_key),
-                ("--sample", args.sample),
-                ("--year", args.year),
-            ] if not value
-        ]
-        if missing:
-            parser.error(f"Manual Mode requires {', '.join(missing)}")
-        auto = False
-    else:
-        parser.error(
-            "Must provide either Automatic Mode args (--samples/--years) or "
-            "Manual Mode args (--eos-dir/--dataset/--json-key/--sample/--year)"
-        )
+    dataset_defs = catalog.get(sample=args.samples, year=args.years, era=args.eras)
 
-    if auto:
-        catalog = DatasetCatalog(args.definition_path)
-        dataset_defs = catalog.get(
-            sample=expand_samples(args.samples),
-            year=expand_years(args.years),
-            era=args.eras,
-        )
-
+    can_process = [
+        d.key for d in dataset_defs
+        if not has_supplement_definition(d, args.output_dir) or args.overwrite or args.append
+    ]
+    if len(can_process) > 0:
         os.makedirs(args.output_dir, exist_ok=True)
 
-        existing_keys_cache = {}
-
-        def existing_keys(output):
-            if output not in existing_keys_cache:
-                if os.path.exists(output):
-                    with open(output) as f:
-                        existing_keys_cache[output] = set(json.load(f).keys())
-                else:
-                    existing_keys_cache[output] = set()
-            return existing_keys_cache[output]
-
-        seen_keys = set()
-        skipped = []
-        failures = []
-        for d in dataset_defs:
-            output = os.path.join(args.output_dir, f"{d.sample}.json")
-
-            already_exists = (
-                d.key not in seen_keys
-                and not args.overwrite
-                and not args.append
-                and d.key in existing_keys(output)
+    with Progress(
+        TextColumn("[bold]{task.fields[dataset]:<30}"),
+        StatusColumn(),
+        BarOrDoneColumn()
+    ) as progress, mp.Manager() as manager:
+        message_queue = manager.Queue()
+        tasks = {
+            d.key: progress.add_task(
+                "", total=100, dataset=d.key,
+                started=False, done=False, failed=False, show_bar=True,
+                step_statuses=["pending", "pending", "pending", "pending"],
             )
-            if already_exists:
-                print(f"SKIPPING '{d.key}': already exists in {output} (use --overwrite or --append)")
-                skipped.append(d.key)
-                continue
+            for d in dataset_defs
+        }
+        step_statuses_by_key = {d.key: ["pending", "pending", "pending", "pending"] for d in dataset_defs}
 
-            overwrite = args.overwrite and d.key not in seen_keys
-            append = args.append or d.key in seen_keys
+        def apply_message(key, reset, total, desc, advance, fields):
+            task_id = tasks[key]
+            if reset:
+                progress.reset(task_id, total=total, description=desc)
+            if advance:
+                progress.update(task_id, advance=advance)
+            if fields:
+                progress.update(task_id, **fields)
+                if "step_statuses" in fields:
+                    step_statuses_by_key[key] = fields["step_statuses"]
 
-            cmd = [
-                sys.executable, __file__,
-                "--eos-dir", f"{EOS_REDIRECTOR}/{d.supplements_path}",
-                "--dataset", d.nanoaod,
-                "--json-key", d.key,
-                "--sample", d.sample,
-                "--year", d.year,
-                "--output", output,
-            ]
-            if d.era is not None:
-                cmd += ["--era", d.era]
-            if overwrite:
-                cmd.append("--overwrite")
-            if append:
-                cmd.append("--append")
+        with mp.Pool(processes=3, maxtasksperchild=1) as pool:
+            pending = {
+                d.key: pool.apply_async(process_dataset, args=(d, message_queue))
+                for d in dataset_defs if d.key in can_process
+            }
 
-            proc = subprocess.Popen(cmd)
-            print(f"Running '{d.key}' in subprocess (pid {proc.pid})")
-            returncode = proc.wait()
+            try:
+                while pending:
+                    cleanup_finished_tasks(
+                        pending, args.output_dir, args.overwrite, args.append,
+                        progress, tasks, step_statuses_by_key,
+                    )
 
-            if returncode != 0:
-                print(f"SKIPPING '{d.key}': subprocess exited with code {returncode}, see error above")
-                failures.append(d.key)
-            else:
-                seen_keys.add(d.key)
+                    try:
+                        apply_message(*message_queue.get(timeout=0.1))
+                    except Empty:
+                        continue
 
-        if skipped:
-            print(f"\n{len(skipped)} dataset(s) already existed and were skipped:")
-            for key in skipped:
-                print(f"  {key}")
+                while not message_queue.empty():
+                    apply_message(*message_queue.get_nowait())
 
-        if failures:
-            print(f"\n{len(failures)} dataset(s) failed and were skipped:")
-            for key in failures:
-                print(f"  {key}")
-    else:
-        supp_def = get_supp_def(
-            dataset=args.dataset,
-            year=args.year,
-            era=args.era,
-            sample=args.sample,
-            supplements_path=args.eos_dir
-        )
-
-        save(args.json_key, supp_def, args.output, args.overwrite, args.append)
+            except KeyboardInterrupt:
+                pool.terminate()
+                pool.join()
+                raise
 
 
 if __name__ == "__main__":

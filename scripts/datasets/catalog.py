@@ -21,7 +21,7 @@ def _process_name(das_name):
 
 
 class DatasetDefinition:
-    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, era=None):
+    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, cross_section=None, era=None):
         self.sample = sample
         self.miniaod = miniaod
         self.nanoaod = nanoaod
@@ -29,6 +29,7 @@ class DatasetDefinition:
         self.supplements_path = supplements_path
         self.is_mc = is_mc
         self.era = era
+        self.xsec = cross_section
 
         if is_mc:
             self.key = f"{_process_name(nanoaod)}_{year}"

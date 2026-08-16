@@ -3,6 +3,7 @@ from pocket_coffea.parameters.cuts import passthrough
 from event_selection import (
     get_d0_lt,
     get_d0_gt,
+    get_val_between,
     get_d0_between,
     get_leading_minpt,
     get_leading_maxpt,
@@ -22,35 +23,35 @@ def _get_coll_from_channel(channel):
         raise ValueError(f"Channel {channel} is not valid.")
 
 
-def _sweep_cats(prefix, coll1, idx1, coll2, idx2):
+def _sweep_cats(prefix, coll1, idx1, coll2, idx2, field):
     cats = {
-        f"{prefix}_a": [get_d0_between(coll1, 20, 30, idx1), get_d0_between(coll2, 20, 100, idx2)],
-        f"{prefix}_b": [get_d0_between(coll1, 20, 30, idx1), get_d0_between(coll2, 100, 500, idx2)],
+        f"{prefix}_a": [get_val_between(coll1, field, 20, 30, pos=idx1), get_val_between(coll2, field, 20, 100, pos=idx2)],
+        f"{prefix}_b": [get_val_between(coll1, field, 20, 30, pos=idx1), get_val_between(coll2, field, 100, 500, pos=idx2)],
     }
 
     for i in range(len(CLOSURE_D0_SWEEP_VALS) - 1):
         low = CLOSURE_D0_SWEEP_VALS[i]
         high = CLOSURE_D0_SWEEP_VALS[i + 1]
-        cats[f"{prefix}_c{i + 1}"] = [get_d0_between(coll1, low, high, idx1), get_d0_between(coll2, 20, 100, idx2)]
-        cats[f"{prefix}_d{i + 1}"] = [get_d0_between(coll1, low, high, idx1), get_d0_between(coll2, 100, 500, idx2)]
+        cats[f"{prefix}_c{i + 1}"] = [get_val_between(coll1, field, low, high, pos=idx1), get_val_between(coll2, field, 20, 100, pos=idx2)]
+        cats[f"{prefix}_d{i + 1}"] = [get_val_between(coll1, field, low, high, pos=idx1), get_val_between(coll2, field, 100, 500, pos=idx2)]
 
     return cats
 
 
-def get_closure_test_cats(channel):
+def get_closure_test_cats(channel, field):
     coll1, coll2, idx1, idx2 = _get_coll_from_channel(channel)
 
     cats = {
-        **_sweep_cats("closure_low_leptona_prompt", coll1, idx1, coll2, idx2),
-        **_sweep_cats("closure_low_leptonb_prompt", coll2, idx2, coll1, idx1),
-        "closure_high_leptona_prompt_a": [get_d0_between(coll1, 20, 30, idx1), get_d0_between(coll2, 20, 100, idx2)],
-        "closure_high_leptona_prompt_b": [get_d0_between(coll1, 20, 30, idx1), get_d0_between(coll2, 500, 100000, idx2)],
-        "closure_high_leptona_prompt_c": [get_d0_between(coll1, 30, 100, idx1), get_d0_between(coll2, 20, 100, idx2)],
-        "closure_high_leptona_prompt_d": [get_d0_between(coll1, 30, 100, idx1), get_d0_between(coll2, 500, 100000, idx2)],
-        "closure_high_leptonb_prompt_a": [get_d0_between(coll2, 20, 30, idx2), get_d0_between(coll1, 20, 100, idx1)],
-        "closure_high_leptonb_prompt_b": [get_d0_between(coll2, 20, 30, idx2), get_d0_between(coll1, 500, 100000, idx1)],
-        "closure_high_leptonb_prompt_c": [get_d0_between(coll2, 30, 100, idx2), get_d0_between(coll1, 20, 100, idx1)],
-        "closure_high_leptonb_prompt_d": [get_d0_between(coll2, 30, 100, idx2), get_d0_between(coll1, 500, 100000, idx1)],
+        **_sweep_cats("closure_low_leptona_prompt", coll1, idx1, coll2, idx2, field),
+        **_sweep_cats("closure_low_leptonb_prompt", coll2, idx2, coll1, idx1, field),
+        "closure_high_leptona_prompt_a": [get_val_between(coll1, field, 20, 30, pos=idx1), get_val_between(coll2, field, 20, 100, pos=idx2)],
+        "closure_high_leptona_prompt_b": [get_val_between(coll1, field, 20, 30, pos=idx1), get_val_between(coll2, field, 500, 100000, pos=idx2)],
+        "closure_high_leptona_prompt_c": [get_val_between(coll1, field, 30, 100, pos=idx1), get_val_between(coll2, field, 20, 100, pos=idx2)],
+        "closure_high_leptona_prompt_d": [get_val_between(coll1, field, 30, 100, pos=idx1), get_val_between(coll2, field, 500, 100000, pos=idx2)],
+        "closure_high_leptonb_prompt_a": [get_val_between(coll2, field, 20, 30, pos=idx2), get_val_between(coll1, field, 20, 100, pos=idx1)],
+        "closure_high_leptonb_prompt_b": [get_val_between(coll2, field, 20, 30, pos=idx2), get_val_between(coll1, field, 500, 100000, pos=idx1)],
+        "closure_high_leptonb_prompt_c": [get_val_between(coll2, field, 30, 100, pos=idx2), get_val_between(coll1, field, 20, 100, pos=idx1)],
+        "closure_high_leptonb_prompt_d": [get_val_between(coll2, field, 30, 100, pos=idx2), get_val_between(coll1, field, 500, 100000, pos=idx1)],
     }
 
     return cats

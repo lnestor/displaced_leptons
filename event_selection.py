@@ -253,3 +253,31 @@ def get_d0_between(coll, min_d0, max_d0, lepton_index=0):
         params={"coll": coll, "min_d0": min_d0, "max_d0": max_d0, "lepton_index": lepton_index},
         function=_d0_between_impl
     )
+
+
+def _specific_obj_val_between_impl(events, params, **kwargs):
+    padded = ak.pad_none(getattr(events, params["coll"]), params["pos"] + 1)
+    obj = padded[:, params["pos"]]
+    field = ak.fill_none(getattr(obj, params["field"]), -1.0) # TODO: this -1 isn't very good
+    return (field < params["max"]) & (field > params["min"])
+
+
+def _any_obj_val_between_impl(events, params, **kwargs):
+    pass
+
+
+def get_val_between(coll, field, min_val, max_val, pos=None):
+    name=f"{coll}_{field}_between_{min_val}_{max_val}"
+    if pos None:
+        return Cut(
+            name=name,
+            params=["coll": coll, "field": field, "min": min_val, "max": max_val},
+            function=_any_val_between_impl
+        )
+    else:
+        name += "_pos{pos}"
+        return Cut(
+            name=name,
+            params=["coll": coll, "field": field, "min": min_val, "max": max_val, "pos": pos},
+            function=_specific_val_between_impl
+        )

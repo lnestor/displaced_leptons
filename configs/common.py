@@ -2,11 +2,8 @@ from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags
 from pocket_coffea.parameters import defaults
 
 from lib.named_cut import NamedCut
-from event_selection import (
-    get_d0_lt,
-    get_d0_gt,
-    get_DY_flavor
-)
+from event_selection import get_DY_flavor
+from lib.cuts.generic import get_d0_lt, get_d0_gt
 from object_selection import (
     get_min_pt,
     get_max_eta,

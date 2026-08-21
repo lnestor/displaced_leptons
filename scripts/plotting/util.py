@@ -1,5 +1,24 @@
 import hist
 
+SAMPLE_COLORS = {
+    "TTbar": "#9268C6",
+    "Diboson": "#FFFF7F",
+    "SingleTop": "#F19EF9",
+    "DY": "#80CA72",
+    "QCDEle": "#FC999A",
+    "QCDMu": "#FFCC99"
+}
+
+SAMPLE_LABELS = {
+    "TTbar": r"t\overline{t}",
+    "Diboson": "Diboson",
+    "SingleTop": "Single top",
+    "DY": "DY",
+    "QCDEle": "EM-enriched QCD",
+    "QCDMu": r"\mu-enriched QCD"
+}
+
+
 def apply_common_args_to_hist(h, **kwargs):
     xstart = hist.loc(0 if not kwargs["xstart"] else kwargs["xstart"])
     ystart = hist.loc(0 if not kwargs["ystart"] else kwargs["ystart"])

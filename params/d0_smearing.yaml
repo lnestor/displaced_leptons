@@ -1,33 +1,33 @@
 d0_smearing:
   "2022_preEE":
     Electron:
-      sigma: 0.0001
-      error: 0.0006
+      sigma: 0.00038
+      error: 0.0003
   "2022_postEE":
     Electron:
-      sigma: 0.00106
-      error: 0.00009
+      sigma: 0.00101
+      error: 0.00006
     Muon:
       sigma: 0.00029
       error: 0.00006
   "2023_preBPix":
     Electron:
-      sigma: 0.00072
-      error: 0.00012
+      sigma: 0.00047
+      error: 0.00016
     Muon:
       sigma: 0.000598
       error: 0.000024
   "2023_postBPix":
     Electron:
-      sigma: 0.00085
-      error: 0.00017
+      sigma: 0.00067
+      error: 0.00013
     Muon:
       sigma: 0.000666
       error: 0.000033
   "2024":
     Electron:
-      sigma: 0.00087
-      error: 0.00006
+      sigma: 0.00079
+      error: 0.00004
     Muon:
       sigma: 0.000426
       error: 0.000015

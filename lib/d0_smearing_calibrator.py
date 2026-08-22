@@ -10,6 +10,10 @@ def _smear_jagged(values, width, rng):
     return ak.unflatten(flat_smear, ak.num(values))
 
 
+# TODO: I think this fails when we don't have supplements because the supplement schema is never applied
+# in that case. Unsure if this is worth handling or not.
+
+
 class D0SmearingCalibrator(Calibrator):
     name = "d0_smearing_calibrator"
     has_variations = True

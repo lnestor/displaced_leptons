@@ -248,9 +248,9 @@ class DaskExecutorFactory(ExecutorFactoryABC):
         death_timeout = self._normalize_int(self.run_options.get("death-timeout", 3600), 3600)
 
         job_extra_directives = {
-            "log": f"{log_directory}/dask_job_output.log",
-            "output": f"{log_directory}/dask_job_output.out",
-            "error": f"{log_directory}/dask_job_output.err",
+            "log": f"{log_directory}/dask_job_output.$(ClusterId).$(ProcId).log",
+            "output": f"{log_directory}/dask_job_output.$(ClusterId).$(ProcId).out",
+            "error": f"{log_directory}/dask_job_output.$(ClusterId).$(ProcId).err",
             "should_transfer_files": "Yes",
             "when_to_transfer_output": "ON_EXIT",
             "+JobFlavour": f'"{self.run_options.get("queue", "workday")}"',
@@ -316,9 +316,12 @@ class DaskExecutorFactory(ExecutorFactoryABC):
                                 else scaleout,
                       maximum=scaleout)
         
+        # No timeout by default (wait_for_workers(timeout=None) blocks forever) --
+        # only overridden if dask-worker-start-timeout is actually set and parses
+        # as an int; otherwise _normalize_int falls back to None too.
         worker_start_timeout = self._normalize_int(
-            self.run_options.get("dask-worker-start-timeout", 600),
-            600,
+            self.run_options.get("dask-worker-start-timeout", None),
+            None,
         )
         self.dask_client = Client(self.dask_cluster)
         print(">> Waiting for the first job to start...")

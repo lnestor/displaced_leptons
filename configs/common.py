@@ -119,7 +119,7 @@ def register_modules():
     import lib.named_cut as named_cut
     import lib.object_cutflow as object_cutflow
     import lib.categories as categories
-    import common as configs_common
+    import configs.common as configs_common
     cloudpickle.register_pickle_by_value(workflow)
     cloudpickle.register_pickle_by_value(event_selection)
     cloudpickle.register_pickle_by_value(object_selection)
@@ -144,6 +144,7 @@ def get_params():
         f"{path}/object_selection.yaml",
         f"{path}/regions.yaml",
         f"{path}/triggers.yaml",
+        f"{path}/d0_smearing.yaml",
         update=True
     )
 

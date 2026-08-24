@@ -33,6 +33,12 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
     events["Electron", "ip3d_um"] = events.Electron.ip3d * 1e4
     events["Muon", "original_idx"] = ak.local_index(events.Muon, axis=1)
     events["Muon", "absd0_um"] = abs(events.Muon.dxybs) * 1e4
+
+    if is_mc and "dxybs_original" in events.Muon.fields:
+        events["Muon", "absd0_um_original"] = abs(events.Muon.dxybs_original) * 1e4
+    else:
+        events["Muon", "absd0_um_original"] = abs(events.Muon.dxybs) * 1e4
+
     events["Muon", "d0_um"] = events.Muon.dxybs * 1e4
     events["Muon", "ip3d_um"] = events.Muon.ip3d * 1e4
 
@@ -48,6 +54,7 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
     if supplement_version == CENTRAL_NANOAOD_FLAG:
         events["Electron", "customIso"] = ele.pfRelIso03_all
         events["Electron", "absd0_um"] = abs(ele.dxy) * 1e4
+        events["Electron", "absd0_um_original"] = abs(events.Electron.dxy) * 1e4
         events["Electron", "sabsd0"] = abs(ele.dxy / ele.dxyErr)
         events["Electron", "d0_um"] = ele.dxy * 1e4
 
@@ -74,6 +81,11 @@ def define_custom_nano_fields(events, year, is_mc, supplement_version):
         events["Electron", "sabsd0"] = abs(events.Electron.dxybs / events.Electron.dxybsErr)
         events["Electron", "d0_um"] = events.Electron.dxybs * 1e4
         events["Electron", "is_gap"] = ele.isEBEEGap
+
+        if is_mc and "dxybs_original" in events.Electron.fields:
+            events["Electron", "absd0_um_original"] = abs(events.Electron.dxybs_original) * 1e4
+        else:
+            events["Electron", "absd0_um_original"] = abs(events.Electron.dxybs) * 1e4
 
         mu_iso = np.maximum(mu.pfIso04_sumChargedHadronPt + mu.pfIso04_sumPUPt + mu.pfIso04_sumNeutralEt - rho * np.pi * 0.4**2, 0) / mu.pt
         events["Muon", "customIso"] = mu_iso

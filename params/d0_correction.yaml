@@ -1,0 +1,46 @@
+d0_correction:
+  "2022_preEE":
+    Electron:
+      mc:   {mean: -0.004, q: 0.618, sigma1: 16.08, sigma2: 28.2}
+      data: {mean: -0.53, q: 0.554, sigma1: 14.35, sigma2: 27.6}
+      fit_range: [-60, 60]
+    Muon:
+      mc:   {mean: -0.108, q: 0.863, sigma1: 13.345, sigma2: 22.39}
+      data: {mean: -0.199, q: 0.834, sigma1: 12.013, sigma2: 21.25}
+      fit_range: [-60, 60]
+  "2022_postEE":
+    Electron:
+      mc:   {mean: -0.081, q: 0.676, sigma1: 16.38, sigma2: 30.50}
+      data: {mean: 0.363, q: 0.504, sigma1: 15.79, sigma2: 29.8}
+      fit_range: [-60, 60]
+    Muon:
+      mc:   {mean: -0.1274, q: 0.8654, sigma1: 13.384, sigma2: 22.40}
+      data: {mean: 0.388, q: 0.7494, sigma1: 13.399, sigma2: 22.10}
+      fit_range: [-60, 60]
+  "2023_preBPix":
+    Electron:
+      mc:   {mean: -0.549, q: 0.679, sigma1: 15.78, sigma2: 30.3}
+      data: {mean: 1.844, q: 0.565, sigma1: 15.71, sigma2: 30.7}
+      fit_range: [-60, 60]
+    Muon:
+      mc:   {mean: -0.231, q: 0.8144, sigma1: 12.235, sigma2: 19.62}
+      data: {mean: 1.597, q: 0.742, sigma1: 13.299, sigma2: 21.94}
+      fit_range: [-60, 60]
+  "2023_postBPix":
+    Electron:
+      mc:   {mean: -0.627, q: 0.666, sigma1: 15.64, sigma2: 30.1}
+      data: {mean: 0.96, q: 0.622, sigma1: 16.75, sigma2: 32.0}
+      fit_range: [-60, 60]
+    Muon:
+      mc:   {mean: -0.212, q: 0.798, sigma1: 12.192, sigma2: 19.28}
+      data: {mean: 1.032, q: 0.735, sigma1: 13.240, sigma2: 21.64}
+      fit_range: [-60, 60]
+  "2024":
+    Electron:
+      mc:   {mean: -0.614, q: 0.647, sigma1: 16.187, sigma2: 29.96}
+      data: {mean: -0.211, q: 0.482, sigma1: 16.39, sigma2: 31.11}
+      fit_range: [-60, 60]
+    Muon:
+      mc:   {mean: -0.2155, q: 0.8264, sigma1: 13.229, sigma2: 20.395}
+      data: {mean: -0.1700, q: 0.7128, sigma1: 13.398, sigma2: 21.833}
+      fit_range: [-60, 60]

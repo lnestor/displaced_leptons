@@ -1,6 +1,6 @@
 import pocket_coffea.utils.configurator as config
 from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
-from lib.d0_smearing_calibrator import D0SmearingCalibrator
+from lib.d0_correction_calibrator import D0CorrectionCalibrator
 
 DEFAULT_WEIGHTS = {
     "common": {
@@ -24,7 +24,7 @@ DEFAULT_VARIATIONS = {
     }
 }
 
-DEFAULT_CALIBRATORS = [ElectronsScaleCalibrator, MuonsCalibrator, D0SmearingCalibrator]
+DEFAULT_CALIBRATORS = [ElectronsScaleCalibrator, MuonsCalibrator, D0CorrectionCalibrator]
 
 
 class Configurator(config.Configurator):

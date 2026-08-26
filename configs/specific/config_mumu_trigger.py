@@ -1,18 +1,17 @@
+from pocket_coffea.lib.cut_functions import get_HLTsel_custom
+from pocket_coffea.parameters.cuts import passthrough
+from pocket_coffea.parameters.histograms import HistConf, Axis
+
 from common import (
+    MC_SAMPLES,
+    RUN_3_YEARS,
     get_default_skim_cuts,
     get_params,
     register_modules,
     get_datasets,
     get_supplements,
-    get_mu_cuts,
-    MC_SAMPLES
+    get_mu_cuts
 )
-
-register_modules()
-
-from lib.named_cut import NamedCut
-from pocket_coffea.parameters.cuts import passthrough
-from lib.custom_fields import define_custom_nano_fields
 from event_selection import (
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
@@ -20,10 +19,10 @@ from event_selection import (
     get_no_in_material_vtx,
     get_min_n_pt
 )
-from workflow import DisplacedLeptonProcessor
 from lib.configurator import Configurator
-from pocket_coffea.parameters.histograms import HistConf, Axis
-from pocket_coffea.lib.cut_functions import get_HLTsel_custom
+from lib.custom_fields import define_custom_nano_fields
+from lib.named_cut import NamedCut
+from workflow import DisplacedLeptonProcessor
 
 ALL_TRIGGERS = [
     "HLT_DoubleMu43NoFiltersNoVtx",
@@ -38,6 +37,8 @@ TARGET_TRIGGERS = [
     "HLT_DoubleMu43NoFiltersNoVtx",
 ]
 
+
+register_modules()
 params = get_params()
 
 cfg = Configurator(
@@ -46,8 +47,9 @@ cfg = Configurator(
         "jsons": get_datasets("central"),
         "filter": {
             "samples": ["Muon", *MC_SAMPLES],
-            "year": ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024"]
-        }
+            "year": RUN_3_YEARS
+        },
+        "priority": ["Muon", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"]
     },
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
@@ -67,17 +69,15 @@ cfg = Configurator(
     categories = {
         "baseline": [passthrough],
         **{f"passes_{trigger}": [get_HLTsel_custom([trigger])] for trigger in ALL_TRIGGERS},
-        "passes_OR": [get_HLTsel_custom(TARGET_TRIGGERS)],
+        "passes_target_OR": [get_HLTsel_custom(TARGET_TRIGGERS)],
         "passes_OR_plateau": [
             get_HLTsel_custom(TARGET_TRIGGERS),
             NamedCut(get_min_n_pt("mumu"), r">=2 $\mu$ with $p_T$ above plateau threshold")
         ]
     },
     hists = {
-        "AllMuon_pt": HistConf([Axis(coll="MuonGood", field="pt", bins=100, start=0, stop=500, label=rf"Muon $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
         "LeadingMuon_pt": HistConf([Axis(coll="MuonGood", pos=0, field="pt", bins=100, start=0, stop=500, label=rf"Leading muon $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
         "SubleadingMuon_pt": HistConf([Axis(coll="MuonGood", pos=1, field="pt", bins=100, start=0, stop=500, label=rf"Subleading muon $p_T$ [GeV]")], exclude_categories=["passes_OR_plateau"]),
-        "AllMuon_d0": HistConf([Axis(coll="MuonGood", field="absd0_um", bins=100, start=0, stop=1000, label=rf"Muon $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
         "LeadingMuon_d0": HistConf([Axis(coll="MuonGood", pos=0, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Leading muon $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
         "SubleadingMuon_d0": HistConf([Axis(coll="MuonGood", pos=1, field="absd0_um", bins=100, start=0, stop=1000, label=rf"Subleading muon $d_0$ [$\mu m$]")], exclude_categories=["passes_OR_plateau"]),
     },

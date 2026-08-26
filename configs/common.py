@@ -45,8 +45,8 @@ MC_SAMPLES = [
     "TTbar",
     "SingleTop",
     "Diboson",
-    "QCD_Ele",
-    "QCD_Mu"
+    "QCDEle",
+    "QCDMu"
 ]
 
 DY_SUBSAMPLES = {

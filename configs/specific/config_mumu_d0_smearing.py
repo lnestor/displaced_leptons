@@ -1,4 +1,5 @@
 from configs.common import (
+    RUN_3_YEARS,
     get_default_skim_cuts,
     get_params,
     get_datasets,
@@ -33,7 +34,7 @@ cfg = Configurator(
         "jsons": get_datasets("central"),
         "filter": {
             "samples": ["Muon", "DY"],
-            "year": ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
+            "year": RUN_3_YEARS
         }
     },
     supplements = get_supplements(),

@@ -1,4 +1,6 @@
 from configs.common import (
+    MC_SAMPLES,
+    RUN_3_YEARS,
     get_default_skim_cuts,
     get_params,
     get_datasets,
@@ -32,8 +34,8 @@ cfg = Configurator(
     datasets = {
         "jsons": get_datasets("central"),
         "filter": {
-            "samples": ["Muon", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"],
-            "year": ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
+            "samples": ["Muon", *MC_SAMPLES],
+            "year": RUN_3_YEARS
         },
         "priority": ["Muon", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"],
     },

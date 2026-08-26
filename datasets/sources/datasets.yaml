@@ -607,6 +607,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: Muon
   miniaod: /Muon0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -614,6 +616,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: Muon
   miniaod: /Muon0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -621,6 +625,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023C_v3
   is_mc: false
+  index: 0
+  version: 3
 - sample: Muon
   miniaod: /Muon0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -628,6 +634,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023C_v4
   is_mc: false
+  index: 0
+  version: 4
 - sample: Muon
   miniaod: /Muon1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -635,6 +643,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: Muon
   miniaod: /Muon1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -642,6 +652,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023C_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: Muon
   miniaod: /Muon1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -649,6 +661,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023C_v3
   is_mc: false
+  index: 1
+  version: 3
 - sample: Muon
   miniaod: /Muon1/Run2023C-22Sep2023_v4-v2/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v4-v2/NANOAOD
@@ -656,6 +670,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023C_v4
   is_mc: false
+  index: 1
+  version: 4
 - sample: EGamma
   miniaod: /EGamma0/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -663,6 +679,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -670,6 +688,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: EGamma
   miniaod: /EGamma0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -677,6 +697,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023C_v3
   is_mc: false
+  index: 0
+  version: 3
 - sample: EGamma
   miniaod: /EGamma0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -684,6 +706,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023C_v4
   is_mc: false
+  index: 0
+  version: 4
 - sample: EGamma
   miniaod: /EGamma1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -691,6 +715,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -698,6 +724,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023C_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: EGamma
   miniaod: /EGamma1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -705,6 +733,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023C_v3
   is_mc: false
+  index: 1
+  version: 3
 - sample: EGamma
   miniaod: /EGamma1/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -712,6 +742,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023C_v4
   is_mc: false
+  index: 1
+  version: 4
 - sample: MuonEG
   miniaod: /MuonEG/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -719,6 +751,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023C_v1
   is_mc: false
+  version: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -726,6 +759,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023C_v2
   is_mc: false
+  version: 2
 - sample: MuonEG
   miniaod: /MuonEG/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -733,6 +767,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023C_v3
   is_mc: false
+  version: 3
 - sample: MuonEG
   miniaod: /MuonEG/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -740,6 +775,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023C_v4
   is_mc: false
+  version: 4
 - sample: MET
   miniaod: /JetMET0/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -747,6 +783,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: MET
   miniaod: /JetMET0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -754,6 +792,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: MET
   miniaod: /JetMET0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -761,6 +801,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023C_v3
   is_mc: false
+  index: 0
+  version: 3
 - sample: MET
   miniaod: /JetMET0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -768,6 +810,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023C_v4
   is_mc: false
+  index: 0
+  version: 4
 - sample: MET
   miniaod: /JetMET1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v1-v1/NANOAOD
@@ -775,6 +819,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: MET
   miniaod: /JetMET1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v2-v1/NANOAOD
@@ -782,6 +828,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023C_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: MET
   miniaod: /JetMET1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v3-v1/NANOAOD
@@ -789,6 +837,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023C_v3
   is_mc: false
+  index: 1
+  version: 3
 - sample: MET
   miniaod: /JetMET1/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v4-v1/NANOAOD
@@ -796,6 +846,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023C_v4
   is_mc: false
+  index: 1
+  version: 4
 - sample: DY
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v3/NANOAODSIM
@@ -1034,6 +1086,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023D_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: Muon
   miniaod: /Muon0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1041,6 +1095,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2023D_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: Muon
   miniaod: /Muon1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon1/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1048,6 +1104,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023D_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: Muon
   miniaod: /Muon1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1055,6 +1113,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2023D_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: EGamma
   miniaod: /EGamma0/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma0/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1062,6 +1122,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023D_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1069,6 +1131,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2023D_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: EGamma
   miniaod: /EGamma1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma1/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1076,6 +1140,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023D_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1083,6 +1149,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2023D_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: MuonEG
   miniaod: /MuonEG/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /MuonEG/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1090,6 +1158,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023D_v1
   is_mc: false
+  version: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /MuonEG/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1097,6 +1166,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2023D_v2
   is_mc: false
+  version: 2
 - sample: MET
   miniaod: /JetMET0/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET0/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1104,6 +1174,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023D_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: MET
   miniaod: /JetMET0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1111,6 +1183,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2023D_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: MET
   miniaod: /JetMET1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET1/Run2023D-22Sep2023_v1-v1/NANOAOD
@@ -1118,6 +1192,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023D_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: MET
   miniaod: /JetMET1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET1/Run2023D-22Sep2023_v2-v1/NANOAOD
@@ -1125,6 +1201,8 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2023D_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: DY
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v2/NANOAODSIM
@@ -1363,6 +1441,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024C
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1370,6 +1449,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024D
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1377,6 +1457,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024E
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024F-MINIv6NANOv15-v1/NANOAOD
@@ -1384,6 +1465,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024F
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024G-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024G-MINIv6NANOv15-v1/NANOAOD
@@ -1391,6 +1473,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024G
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024H-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024H-MINIv6NANOv15-v1/NANOAOD
@@ -1398,6 +1481,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024H
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024I-MINIv6NANOv15-v1/NANOAOD
@@ -1405,6 +1489,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024I
   is_mc: false
+  index: 0
+  version: 1
 - sample: Muon
   miniaod: /Muon0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
@@ -1412,6 +1498,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2024I_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: Muon
   miniaod: /Muon1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1419,6 +1507,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024C
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1426,6 +1515,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024D
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1433,6 +1523,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024E
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024F-MINIv6NANOv15-v1/NANOAOD
@@ -1440,6 +1531,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024F
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /Muon1/Run2024G-MINIv6NANOv15-v2/NANOAOD
@@ -1447,6 +1539,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024G
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /Muon1/Run2024H-MINIv6NANOv15-v2/NANOAOD
@@ -1454,6 +1547,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024H
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024I-MINIv6NANOv15-v1/NANOAOD
@@ -1461,6 +1555,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024I
   is_mc: false
+  index: 1
+  version: 1
 - sample: Muon
   miniaod: /Muon1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
@@ -1468,6 +1564,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2024I_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: EGamma
   miniaod: /EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1475,6 +1573,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024C
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1482,6 +1581,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024D
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1489,6 +1589,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024E
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024F-MINIv6NANOv15-v1/NANOAOD
@@ -1496,6 +1597,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024F
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma0/Run2024G-MINIv6NANOv15-v2/NANOAOD
@@ -1503,6 +1605,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024G
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma0/Run2024H-MINIv6NANOv15-v2/NANOAOD
@@ -1510,6 +1613,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024H
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024I-MINIv6NANOv15-v1/NANOAOD
@@ -1517,6 +1621,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024I
   is_mc: false
+  index: 0
+  version: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
@@ -1524,6 +1630,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2024I_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: EGamma
   miniaod: /EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1531,6 +1639,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024C
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1538,6 +1647,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024D
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1545,6 +1655,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024E
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024F-MINIv6NANOv15-v1/NANOAOD
@@ -1552,6 +1663,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024F
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma1/Run2024G-MINIv6NANOv15-v2/NANOAOD
@@ -1559,6 +1671,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024G
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024H-MINIv6NANOv15-v1/NANOAOD
@@ -1566,6 +1679,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024H
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024I-MINIv6NANOv15-v1/NANOAOD
@@ -1573,6 +1687,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024I
   is_mc: false
+  index: 1
+  version: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
@@ -1580,6 +1696,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2024I_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: MuonEG
   miniaod: /MuonEG/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /MuonEG/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1629,6 +1747,7 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024I
   is_mc: false
+  version: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2024I-MINIv6NANOv15_v2-v2/MINIAOD
   nanoaod: /MuonEG/Run2024I-MINIv6NANOv15_v2-v2/NANOAOD
@@ -1636,6 +1755,7 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024I_v2
   is_mc: false
+  version: 2
 - sample: MET
   miniaod: /JetMET0/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1643,6 +1763,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024C
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1650,6 +1771,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024D
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1657,6 +1779,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024E
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024F-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024F-MINIv6NANOv15-v2/NANOAOD
@@ -1664,6 +1787,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024F
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024G-MINIv6NANOv15-v2/NANOAOD
@@ -1671,6 +1795,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024G
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024H-MINIv6NANOv15-v2/NANOAOD
@@ -1678,6 +1803,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024H
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2024I-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024I-MINIv6NANOv15-v2/NANOAOD
@@ -1685,6 +1811,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024I
   is_mc: false
+  index: 0
+  version: 1
 - sample: MET
   miniaod: /JetMET0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
@@ -1692,6 +1820,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2024I_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: MET
   miniaod: /JetMET1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024C-MINIv6NANOv15-v1/NANOAOD
@@ -1699,6 +1829,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024C
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024D-MINIv6NANOv15-v1/NANOAOD
@@ -1706,6 +1837,7 @@
   era: D
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024D
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024E-MINIv6NANOv15-v1/NANOAOD
@@ -1713,6 +1845,7 @@
   era: E
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024E
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024F-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024F-MINIv6NANOv15-v2/NANOAOD
@@ -1720,6 +1853,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024F
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024G-MINIv6NANOv15-v2/NANOAOD
@@ -1727,6 +1861,7 @@
   era: G
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024G
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024H-MINIv6NANOv15-v2/NANOAOD
@@ -1734,6 +1869,7 @@
   era: H
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024H
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024I-MINIv6NANOv15-v1/NANOAOD
@@ -1741,6 +1877,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024I
   is_mc: false
+  index: 1
+  version: 1
 - sample: MET
   miniaod: /JetMET1/Run2024I-MINIv6NANOv15_v2-v2/MINIAOD
   nanoaod: /JetMET1/Run2024I-MINIv6NANOv15_v2-v2/NANOAOD
@@ -1748,6 +1886,8 @@
   era: I
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2024I_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: DY
   miniaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
@@ -2371,6 +2511,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2025C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: Muon
   miniaod: /Muon0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /Muon0/Run2025C-PromptReco-v2/NANOAOD
@@ -2378,20 +2520,24 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2025C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: Muon
   miniaod: /Muon0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025D
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025E
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025F-PromptReco-v1/NANOAOD
@@ -2399,6 +2545,8 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2025F_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: Muon
   miniaod: /Muon0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /Muon0/Run2025F-PromptReco-v2/NANOAOD
@@ -2406,13 +2554,16 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon0_Run2025F_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: Muon
   miniaod: /Muon0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/Muon0_Run2025G
   is_mc: false
+  index: 0
 - sample: Muon
   miniaod: /Muon1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025C-PromptReco-v1/NANOAOD
@@ -2420,6 +2571,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2025C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: Muon
   miniaod: /Muon1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /Muon1/Run2025C-PromptReco-v2/NANOAOD
@@ -2427,20 +2580,24 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2025C_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: Muon
   miniaod: /Muon1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025D
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025E
   is_mc: false
+  index: 1
 - sample: Muon
   miniaod: /Muon1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025F-PromptReco-v1/NANOAOD
@@ -2448,6 +2605,8 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2025F_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: Muon
   miniaod: /Muon1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /Muon1/Run2025F-PromptReco-v2/NANOAOD
@@ -2455,13 +2614,16 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/Muon1_Run2025F_v2
   is_mc: false
+  index: 1
+  version: 2
 - sample: Muon
   miniaod: /Muon1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/Muon1_Run2025G
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025C-PromptReco-v1/NANOAOD
@@ -2469,6 +2631,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma0/Run2025C-PromptReco-v2/NANOAOD
@@ -2476,20 +2640,24 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: EGamma
   miniaod: /EGamma0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025D
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025E
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025F-PromptReco-v1/NANOAOD
@@ -2497,6 +2665,8 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025F_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: EGamma
   miniaod: /EGamma0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma0/Run2025F-PromptReco-v2/NANOAOD
@@ -2504,13 +2674,16 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025F_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: EGamma
   miniaod: /EGamma0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma0_Run2025G
   is_mc: false
+  index: 0
 - sample: EGamma
   miniaod: /EGamma1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025C-PromptReco-v1/NANOAOD
@@ -2518,27 +2691,33 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma1/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
   era: C
-  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025C_v2
+  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025C
   is_mc: false
+  index: 1
+  version: 2
 - sample: EGamma
   miniaod: /EGamma1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025D
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025E
   is_mc: false
+  index: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025F-PromptReco-v1/NANOAOD
@@ -2546,20 +2725,25 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025F_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: EGamma
   miniaod: /EGamma1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma1/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
   era: F
-  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025F_v2
+  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025F
   is_mc: false
+  index: 1
+  version: 2
 - sample: EGamma
   miniaod: /EGamma1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/EGamma1_Run2025G
   is_mc: false
+  index: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025C-PromptReco-v1/NANOAOD
@@ -2567,6 +2751,7 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025C_v1
   is_mc: false
+  version: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /MuonEG/Run2025C-PromptReco-v2/NANOAOD
@@ -2574,19 +2759,20 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025C_v2
   is_mc: false
+  version: 2
 - sample: MuonEG
   miniaod: /MuonEG/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025D
   is_mc: false
 - sample: MuonEG
   miniaod: /MuonEG/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025E
   is_mc: false
 - sample: MuonEG
   miniaod: /MuonEG/Run2025F-PromptReco-v1/MINIAOD
@@ -2595,6 +2781,7 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025F_v1
   is_mc: false
+  version: 1
 - sample: MuonEG
   miniaod: /MuonEG/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /MuonEG/Run2025F-PromptReco-v2/NANOAOD
@@ -2602,12 +2789,13 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025F_v2
   is_mc: false
+  version: 2
 - sample: MuonEG
   miniaod: /MuonEG/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025G
   is_mc: false
 - sample: MET
   miniaod: /JetMET0/Run2025C-PromptReco-v1/MINIAOD
@@ -2616,6 +2804,8 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025C_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: MET
   miniaod: /JetMET0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /JetMET0/Run2025C-PromptReco-v2/NANOAOD
@@ -2623,20 +2813,24 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025C_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: MET
   miniaod: /JetMET0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025D
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025E
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025F-PromptReco-v1/NANOAOD
@@ -2644,6 +2838,8 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025F_v1
   is_mc: false
+  index: 0
+  version: 1
 - sample: MET
   miniaod: /JetMET0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /JetMET0/Run2025F-PromptReco-v2/NANOAOD
@@ -2651,13 +2847,16 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025F_v2
   is_mc: false
+  index: 0
+  version: 2
 - sample: MET
   miniaod: /JetMET0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET0_Run2025G
   is_mc: false
+  index: 0
 - sample: MET
   miniaod: /JetMET1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025C-PromptReco-v1/NANOAOD
@@ -2665,27 +2864,33 @@
   era: C
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025C_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: MET
   miniaod: /JetMET1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /JetMET1/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
   era: C
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025C_v2
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025C
   is_mc: false
+  index: 1
+  version: 2
 - sample: MET
   miniaod: /JetMET1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
   era: D
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025D_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025D
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
   era: E
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025E_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025E
   is_mc: false
+  index: 1
 - sample: MET
   miniaod: /JetMET1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025F-PromptReco-v1/NANOAOD
@@ -2693,20 +2898,25 @@
   era: F
   supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025F_v1
   is_mc: false
+  index: 1
+  version: 1
 - sample: MET
   miniaod: /JetMET1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /JetMET1/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
   era: F
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025F_v2
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025F
   is_mc: false
+  index: 1
+  version: 2
 - sample: MET
   miniaod: /JetMET1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
   era: G
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025G_v1
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025G
   is_mc: false
+  index: 1
 - sample: SingleTop
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
@@ -2763,3 +2973,123 @@
   supplements_path: /store/user/lnestor/supplements/TbarBQtoLNu-t-channel-4FS_2023postBPix
   is_mc: true
   cross_section: 23.34
+- sample: EGamma
+  miniaod: /EGamma2/Run2025C-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma2/Run2025C-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: C
+  index: 2
+  version: 1
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025C_v1
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025C-PromptReco-v2/MINIAOD
+  nanoaod: /EGamma2/Run2025C-PromptReco-v2/NANOAOD
+  year: '2025'
+  era: C
+  index: 2
+  version: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025C
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025C-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma3/Run2025C-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: C
+  index: 3
+  version: 1
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025C_v1
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025C-PromptReco-v2/MINIAOD
+  nanoaod: /EGamma3/Run2025C-PromptReco-v2/NANOAOD
+  year: '2025'
+  era: C
+  index: 3
+  version: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025C_v2
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025D-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma2/Run2025D-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: D
+  index: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025D
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025D-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma3/Run2025D-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: D
+  index: 3
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025D
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025E-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma2/Run2025E-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: E
+  index: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025E
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025E-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma3/Run2025E-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: E
+  index: 3
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025E
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025F-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma2/Run2025F-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: F
+  index: 2
+  version: 1
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025F_v1
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025F-PromptReco-v2/MINIAOD
+  nanoaod: /EGamma2/Run2025F-PromptReco-v2/NANOAOD
+  year: '2025'
+  era: F
+  index: 2
+  version: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025F_v2
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025F-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma3/Run2025F-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: F
+  index: 3
+  version: 1
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025F_v1
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025F-PromptReco-v2/MINIAOD
+  nanoaod: /EGamma3/Run2025F-PromptReco-v2/NANOAOD
+  year: '2025'
+  era: F
+  index: 3
+  version: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025F_v2
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma2/Run2025G-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma2/Run2025G-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: G
+  index: 2
+  supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025G
+  is_mc: false
+- sample: EGamma
+  miniaod: /EGamma3/Run2025G-PromptReco-v1/MINIAOD
+  nanoaod: /EGamma3/Run2025G-PromptReco-v1/NANOAOD
+  year: '2025'
+  era: G
+  index: 3
+  supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025G
+  is_mc: false

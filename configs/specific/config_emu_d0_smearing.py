@@ -37,7 +37,7 @@ cfg = Configurator(
     },
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
-    skim = get_default_skim_cuts(),
+    skim = get_default_skim_cuts(sample="MuonEG"),
     custom_fields = {"common": [define_custom_nano_fields]},
     object_selections = {
         "Electron": {"min": 1, "cuts": get_ele_cuts("emu")},

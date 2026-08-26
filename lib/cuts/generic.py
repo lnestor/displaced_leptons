@@ -12,6 +12,18 @@ def _get_field_val(events, coll, field, pos):
     return ak.fill_none(getattr(obj, field), np.nan)
 
 
+def _invert_impl(events, params, **kwargs):
+    return ~params["cut"].get_mask(events, **kwargs)
+
+
+def invert_cut(cut):
+    return Cut(
+        name=f"not_{cut.name}",
+        params={"cut": cut},
+        function=_invert_impl,
+    )
+
+
 def _val_between_impl(events, params, **kwargs):
     val = _get_field_val(events, params["coll"], params["field"], params["pos"])
     mask = (val > params["min"]) & (val < params["max"])

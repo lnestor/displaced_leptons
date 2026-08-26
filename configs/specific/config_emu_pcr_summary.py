@@ -23,6 +23,8 @@ from workflow import DisplacedLeptonProcessor
 register_modules()
 params = get_params()
 
+PCR_THRESHOLD = 100
+
 cfg = Configurator(
     parameters = params,
     datasets = {
@@ -35,7 +37,7 @@ cfg = Configurator(
     },
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
-    skim = get_default_skim_cuts(),
+    skim = get_default_skim_cuts(sample="MuonEG"),
     custom_fields = { "common": [define_custom_nano_fields] },
     object_selections = {
         "Electron": {"min": 1, "cuts": get_ele_cuts("emu")},
@@ -47,11 +49,11 @@ cfg = Configurator(
         NamedCut(cut=get_min_deltaR("ElectronGood", "MuonGood", 0.2), label="Dilepton dleta R"),
         NamedCut(cut=get_no_in_material_vtx(channel="emu"), label="Material vtx")
     ],
-    categories = get_pcr_cat(channel="emu", field="absd0_um", threshold=50),
+    categories = get_pcr_cat(channel="emu", field="absd0_um", threshold=PCR_THRESHOLD),
     hists = {
-        **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron"),
-        **pcr_hists(coll="ElectronGood", label="AllElectron"),
-        **pcr_hists(coll="MuonGood", pos=0, label="LeadingMuon"),
-        **pcr_hists(coll="MuonGood", label="AllMuon"),
+        **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron", threshold=PCR_THRESHOLD),
+        **pcr_hists(coll="ElectronGood", label="AllElectron", threshold=PCR_THRESHOLD),
+        **pcr_hists(coll="MuonGood", pos=0, label="LeadingMuon", threshold=PCR_THRESHOLD),
+        **pcr_hists(coll="MuonGood", label="AllMuon", threshold=PCR_THRESHOLD),
     }
 )

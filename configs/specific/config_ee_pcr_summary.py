@@ -14,10 +14,13 @@ from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut
 from lib.categories import get_pcr_cat
+from lib.cuts.generic import get_d0_gt, invert_cut
 from hists import pcr_hists
 from event_selection import get_min_deltaR, get_no_in_material_vtx
 
 params = get_params()
+
+PCR_THRESHOLD = 100
 
 cfg = Configurator(
     parameters = params,
@@ -39,12 +42,13 @@ cfg = Configurator(
     },
     event_preselections = [
         NamedCut(get_min_deltaR("ElectronGood", "ElectronGood", 0.2), "min deltaR"),
-        NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices")
+        NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices"),
+        NamedCut(invert_cut(get_d0_gt("MuonGood", 100)), "emu veto")
     ],
-    categories = get_pcr_cat(channel="ee", field="absd0_um", threshold=50),
+    categories = get_pcr_cat(channel="ee", field="absd0_um", threshold=PCR_THRESHOLD),
     hists = {
-        **pcr_hists(coll="ElectronGood", label="AllElectron"),
-        **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron"),
-        **pcr_hists(coll="ElectronGood", pos=1, label="SubleadingElectron"),
+        **pcr_hists(coll="ElectronGood", label="AllElectron", threshold=PCR_THRESHOLD),
+        **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron", threshold=PCR_THRESHOLD),
+        **pcr_hists(coll="ElectronGood", pos=1, label="SubleadingElectron", threshold=PCR_THRESHOLD),
     }
 )

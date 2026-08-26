@@ -71,13 +71,13 @@ def get_pt_lt(coll, val, pos=None):
     return get_val_lt(coll, "pt", val, pos=pos)
 
 
-def get_d0_lt(coll, max_d0, lepton_index=0):
-    return get_val_lt(coll, "absd0_um", max_d0, pos=lepton_index)
+def get_d0_lt(coll, max_d0, pos=None):
+    return get_val_lt(coll, "absd0_um", max_d0, pos=pos)
 
 
-def get_d0_gt(coll, min_d0, lepton_index=0):
-    return get_val_gt(coll, "absd0_um", min_d0, pos=lepton_index)
+def get_d0_gt(coll, min_d0, pos=None):
+    return get_val_gt(coll, "absd0_um", min_d0, pos=pos)
 
 
-def get_d0_between(coll, min_d0, max_d0, lepton_index=0):
-    return get_val_between(coll, "absd0_um", min_d0, max_d0, pos=lepton_index)
+def get_d0_between(coll, min_d0, max_d0, pos=None):
+    return get_val_between(coll, "absd0_um", min_d0, max_d0, pos=pos)

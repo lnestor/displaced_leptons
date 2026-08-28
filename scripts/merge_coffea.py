@@ -1,5 +1,7 @@
 import argparse
 import glob
+import os
+
 from coffea.util import load, save
 from coffea.processor import accumulate
 
@@ -13,14 +15,19 @@ def main():
     parser.add_argument("-o", "--output", required=True, help="Output .coffea file")
     args = parser.parse_args()
 
-    # Expand any glob patterns
+    output_path = os.path.realpath(args.output)
+
     inputfiles = []
     for pattern in args.input:
-        expanded = glob.glob(pattern)
+        expanded = [os.path.realpath(f) for f in glob.glob(pattern)]
         if not expanded:
             print(f"Warning: no files matched '{pattern}'")
         inputfiles.extend(expanded)
     inputfiles = sorted(set(inputfiles))
+
+    if output_path in inputfiles:
+        print("Note: target output file is included in input files. It will not be included in the merge.")
+        inputfiles.remove(output_path)
 
     if not inputfiles:
         print("Error: no input files found")

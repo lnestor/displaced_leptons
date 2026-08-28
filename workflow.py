@@ -40,6 +40,20 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def _apply_object_cuts(self, variation):
+        """Builds good object collections and tracks per-cut cutflow.
+
+        For any object cuts specified in the configuration, this function builds
+        the {coll}Good collections. If the "min" keyword is provided, it also
+        treats the object cuts as event level cuts, requiring at least "min"
+        number of objects to pass. The event level cuts are saved as a mask
+        and applied downstream in get_preselection_mask.
+
+        Collections are processed in the order they are provided in the
+        configuration.
+        """
+        self._object_selection_event_masks = {}
+        running_mask = None
+
         for coll, selection in self.cfg.object_selections.items():
             cutflow = ObjectCutflow(collection=coll, cuts=selection["cuts"])
             cutflow.run(self.events, self.params, year=self._year, sample=self._sample, isMC=self._isMC)
@@ -48,14 +62,15 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
             if "min" in selection:
                 obj_sel = self.output["cutflow_cumulative"]["object_selection"]
-                event_cumul = ak.ones_like(self.events.event, dtype=bool)
+                event_cumul = running_mask if running_mask is not None else ak.ones_like(self.events.event, dtype=bool)
 
                 for i in range(len(cutflow)):
                     event_cumul = event_cumul & cutflow.get_event_mask(i, selection["min"])
                     count = int(ak.sum(event_cumul))
                     obj_sel.setdefault(cutflow.cuts[i].label, {}).setdefault(self._dataset, {})[variation] = count
 
-                self.events = self.events[event_cumul]
+                self._object_selection_event_masks[coll] = event_cumul
+                running_mask = event_cumul
 
 
     def count_objects(self, variation):
@@ -176,6 +191,13 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def get_preselection_mask(self, variation):
+        """Return the complete event mask for object selections and event preselections.
+
+        When "min" is passed as a keyword to object cuts, those cuts are also treated
+        as event selections. The masks for the cuts are computed in _apply_object_cuts.
+        They are not applied until here to keep compatibility with exporting NanoAOD files.
+        That codepath assumes that self.events does not change size during object cuts.
+        """
         self._presel_masks = PackedSelection()
         for cut in self._preselections:
             mask = cut.get_mask(
@@ -186,7 +208,11 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
                 isMC=self._isMC
             )
             self._presel_masks.add(cut.id, mask)
-        return self._presel_masks.all(*self._presel_masks.names)
+
+        combined = self._presel_masks.all(*self._presel_masks.names)
+        for _coll, mask in self._object_selection_event_masks.items():
+            combined = combined & mask
+        return combined
 
 
     def postprocess(self, accumulator):

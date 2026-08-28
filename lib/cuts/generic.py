@@ -12,20 +12,20 @@ def _get_field_val(events, coll, field, pos):
     return ak.fill_none(getattr(obj, field), np.nan)
 
 
-def _invert_impl(events, params, **kwargs):
-    return ~params["cut"].get_mask(events, **kwargs)
-
-
 def invert_cut(cut):
     """Negate another cut's mask.
 
     Wraps `cut` and returns a Cut whose mask is the logical NOT of it.
     Preserves whatever level (event or object) the wrapped cut operates at.
     """
+    def _invert_impl(events, params, **kwargs):
+        return ~cut.function(events, params=params, **kwargs)
+
     return Cut(
         name=f"not_{cut.name}",
-        params={"cut": cut},
+        params=cut.params,
         function=_invert_impl,
+        collection=cut.collection,
     )
 
 

@@ -171,7 +171,13 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
             supplement = schema_tree.arrays(entry_stop=0)
 
         n_before_join = len(self.events)
-        self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])
+        try:
+            self.events = ak_help.join(self.events, supplement, ["run", "luminosityBlock", "event"])
+        except ak_help.JoinMismatchError as e:
+            raise ValueError(
+                f"Supplement join failed: {e.key_values} has {e.left_count} '{e.coll}' objects "
+                f"in the central file but {e.right_count} in the supplement file"
+            ) from e
         n_after_join = len(self.events)
         n_missing = n_before_join - n_after_join
 

@@ -8,6 +8,7 @@ from coffea.util import _exception_chain
 
 def _build_automatic_retries():
     def automatic_retries(retries: int, skipbadfiles: bool, func, *args, **kwargs):
+        import traceback
         import warnings
 
         def _skip_result(exc):
@@ -19,7 +20,7 @@ def _build_automatic_retries():
                 item = item[0]
             return {
                 "skipped_files": set_accumulator(
-                    [(item.dataset, item.filename, str(exc))]
+                    [(item.dataset, item.filename, traceback.format_exc())]
                 )
             }
 
@@ -29,8 +30,12 @@ def _build_automatic_retries():
                 return func(*args, **kwargs)
             except Exception as e:
                 chain = _exception_chain(e)
-                if skipbadfiles and any(
-                    isinstance(c, (OSError, UprootMissTreeError)) for c in chain
+                if (
+                    skipbadfiles
+                    and (retries == retry_count)
+                    and any(
+                        isinstance(c, (OSError, UprootMissTreeError)) for c in chain
+                    )
                 ):
                     warnings.warn(str(e))
                     return _skip_result(e)
@@ -85,6 +90,10 @@ class Runner(CoffeaRunner):
     def __post_init__(self):
         super().__post_init__()
         self.failed_files: List[Tuple[str, str, str]] = []
+
+    @property
+    def retries(self):
+        return getattr(self.executor, "retries", 0)
 
     def run(self, fileset, processor_instance, treename=None):
         result = super().run(fileset, processor_instance, treename)

@@ -1,32 +1,22 @@
-import os, getpass
+import click
+import subprocess
 import sys
+import shlex
+import os
 import argparse
 import cloudpickle
 import csv
-import hashlib
+import shutil
 import socket
 import logging
 import traceback
 import yaml
 from yaml import Loader, Dumper
-import click
 import time
 from rich import print as rprint
 from rich.table import Table
 from rich.console import Console
 
-from coffea.util import save
-from coffea import processor
-
-from pocket_coffea.utils.configurator import Configurator
-from pocket_coffea.utils.utils import load_config, path_import, adapt_chunksize, save_failed_jobs, load_failed_jobs, FAILED_JOBS_FILENAME
-from pocket_coffea.utils.logging import setup_logging
-from pocket_coffea.utils.time import wait_until
-from pocket_coffea.parameters import defaults as parameters_utils
-from pocket_coffea.executors import executors_base, executors_manual_jobs
-from pocket_coffea.utils.benchmarking import print_processing_stats
-
-from lib.workflow.runner import Runner as DisplacedLeptonsRunner
 
 FAILED_FILES_CSV = "failed_files.csv"
 
@@ -34,11 +24,15 @@ FAILED_FILES_CSV = "failed_files.csv"
 def save_failed_files(dataset, failed_files, outputdir):
     """Replace failed_files.csv's rows for `dataset` with whatever failed in
     this run (may be empty, correctly clearing entries that succeeded this
-    time). Also writes/overwrites file_errors/<hash>.txt for each currently
-    failing file. Called once per dataset, immediately after that dataset's
-    run completes -- unlike failed_jobs.json, this can't wait until the
-    whole script finishes, both so it survives an early interruption and so
-    a later --resubmit-failed sees an accurate picture.
+    time). Also writes/overwrites file_errors/<dataset>/<file>.err for each
+    currently failing file. The error directory is only created when there's
+    a failing file to put in it, and removed again once it's empty. The CSV
+    is deleted entirely once there's nothing left to report, instead of
+    being left behind holding just a header. Called once per dataset,
+    immediately after that dataset's run completes -- unlike
+    failed_jobs.json, this can't wait until the whole script finishes, both
+    so it survives an early interruption and so a later --resubmit-failed
+    sees an accurate picture.
 
     Only files actually attempted this run can be spoken to -- a
     files-only resubmission (see --resubmit-failed) only reprocesses the
@@ -47,8 +41,7 @@ def save_failed_files(dataset, failed_files, outputdir):
     just succeeded.
     """
     csv_path = os.path.join(outputdir, FAILED_FILES_CSV)
-    errors_dir = os.path.join(outputdir, "file_errors")
-    os.makedirs(errors_dir, exist_ok=True)
+    errors_dir = os.path.join(outputdir, "file_errors", dataset)
 
     existing_rows = set()
     if os.path.exists(csv_path):
@@ -59,33 +52,67 @@ def save_failed_files(dataset, failed_files, outputdir):
     existing_rows -= previous_rows_for_dataset
 
     new_rows_for_dataset = set()
+    if failed_files:
+        os.makedirs(errors_dir, exist_ok=True)
     for _, filename, error in failed_files:
         new_rows_for_dataset.add((dataset, filename))
-        error_id = hashlib.md5(f"{dataset}|{filename}".encode()).hexdigest()
-        with open(os.path.join(errors_dir, f"{error_id}.txt"), "w") as f:
+        error_name = os.path.splitext(os.path.basename(filename))[0] + ".err"
+        with open(os.path.join(errors_dir, error_name), "w") as f:
             f.write(f"dataset: {dataset}\nfilename: {filename}\n\n{error}\n")
 
     # Files that were failing before but aren't anymore -- delete their
     # error text so it doesn't outlive the failure it describes.
     for resolved_dataset, resolved_filename in previous_rows_for_dataset - new_rows_for_dataset:
-        error_id = hashlib.md5(f"{resolved_dataset}|{resolved_filename}".encode()).hexdigest()
-        error_path = os.path.join(errors_dir, f"{error_id}.txt")
+        error_name = os.path.splitext(os.path.basename(resolved_filename))[0] + ".err"
+        error_path = os.path.join(outputdir, "file_errors", resolved_dataset, error_name)
         if os.path.exists(error_path):
             os.remove(error_path)
 
+    if os.path.isdir(errors_dir) and not os.listdir(errors_dir):
+        os.rmdir(errors_dir)
+
     existing_rows |= new_rows_for_dataset
 
-    with open(csv_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["dataset", "filename"])
-        writer.writerows(sorted(existing_rows))
+    if existing_rows:
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["dataset", "filename"])
+            writer.writerows(sorted(existing_rows))
+    elif os.path.exists(csv_path):
+        os.remove(csv_path)
+
+
+def clear_failed_files(dataset, outputdir):
+    """Remove `dataset`'s rows from failed_files.csv and its
+    file_errors/<dataset>/ directory entirely. Called when a dataset is
+    marked fully failed in failed_jobs.json -- a per-file failure record
+    for a dataset that now needs a full reprocess is stale and misleading,
+    so failed_jobs.json takes precedence and the file-level record is
+    cleared rather than left to contradict it.
+    """
+    csv_path = os.path.join(outputdir, FAILED_FILES_CSV)
+    if os.path.exists(csv_path):
+        with open(csv_path, newline="") as f:
+            remaining_rows = [row for row in csv.DictReader(f) if row["dataset"] != dataset]
+        if remaining_rows:
+            with open(csv_path, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["dataset", "filename"])
+                writer.writerows((row["dataset"], row["filename"]) for row in remaining_rows)
+        else:
+            os.remove(csv_path)
+
+    errors_dir = os.path.join(outputdir, "file_errors", dataset)
+    if os.path.isdir(errors_dir):
+        shutil.rmtree(errors_dir)
 
 
 def update_failed_jobs(dataset, succeeded, outputdir):
     """Replace failed_jobs.json's entry for `dataset` based on this run's
-    outcome -- removed if it succeeded, added if it failed. Called
-    immediately per dataset rather than batched to the end of the script,
-    for the same reasons as save_failed_files: survives an early
+    outcome -- removed if it succeeded, added if it failed. Deleted entirely
+    once the result is empty, instead of being left behind holding `[]`.
+    Called immediately per dataset rather than batched to the end of the
+    script, for the same reasons as save_failed_files: survives an early
     interruption, and keeps --resubmit-failed accurate without needing a
     full pass to complete. Merges against what's on disk rather than
     overwriting wholesale, since a run restricted by --filter-datasets (or
@@ -97,7 +124,12 @@ def update_failed_jobs(dataset, succeeded, outputdir):
         failed_jobs.discard(dataset)
     else:
         failed_jobs.add(dataset)
-    save_failed_jobs(sorted(failed_jobs), outputdir)
+    if failed_jobs:
+        save_failed_jobs(sorted(failed_jobs), outputdir)
+    else:
+        failed_jobs_file = os.path.join(outputdir, FAILED_JOBS_FILENAME)
+        if os.path.exists(failed_jobs_file):
+            os.remove(failed_jobs_file)
 
 
 def load_failed_files(outputdir):
@@ -111,9 +143,23 @@ def load_failed_files(outputdir):
     return failed_files_by_dataset
 
 
+def _launch_tmux():
+    remote_args = [a for a in sys.argv[1:] if a != "--launch-tmux"]
+    cmd = "python scripts/run_lpc.py " + " ".join(shlex.quote(a) for a in remote_args)
+
+    result = subprocess.run(
+        ["tmux", "new-session", "-d", "-P", "-F", "#{session_name}"],
+        capture_output=True, text=True, check=True,
+    )
+    session = result.stdout.strip()
+
+    subprocess.run(["tmux", "send-keys", "-t", session, "./shell", "Enter"])
+    subprocess.run(["tmux", "send-keys", "-t", session, cmd, "Enter"])
+    os.execvp("tmux", ["tmux", "attach", "-t", session])
+
+
 @click.command(context_settings=dict(ignore_unknown_options=True, allow_extra_args=True))
-@click.option('--cfg', required=True, type=str,
-              help='Config file with parameters specific to the current run')
+@click.option('--cfg', required=True, type=str, help='Config file with parameters specific to the current run')
 @click.option("-ro", "--custom-run-options", type=str, default=None, help="User provided run options .yaml file")
 @click.option("-o", "--outputdir", required=True, type=str, help="Output folder")
 @click.option("-t", "--test", is_flag=True, help="Run with limit 1 interactively")
@@ -126,11 +172,32 @@ def load_failed_files(outputdir):
 @click.option("--filter-samples", type=str, help="Filter the samples to be processed (comma separated list)")
 @click.option("--filter-datasets", type=str, help="Filter the datasets to be processed (comma separated list)")
 @click.option("--resubmit-failed", is_flag=True, help="Resubmit only failed datasets and previously-skipped files from the previous run (from failed_jobs.json and/or failed_files.csv)", default=False)
-
+@click.option("--launch-tmux", is_flag=True, help="")
 def run(cfg,  custom_run_options, outputdir, test, limit_files,
-           limit_chunks, scaleout, chunksize,
-           queue,
-           filter_years, filter_samples, filter_datasets, resubmit_failed):
+           limit_chunks, scaleout, chunksize, queue,
+           filter_years, filter_samples, filter_datasets, resubmit_failed,
+           launch_tmux):
+
+    if launch_tmux:
+        _launch_tmux()
+        return
+
+    global load_failed_jobs, save_failed_jobs, FAILED_JOBS_FILENAME
+
+    from coffea.util import save, load
+    from coffea import processor
+    from coffea.processor import accumulate
+
+    from pocket_coffea.utils.configurator import Configurator
+    from pocket_coffea.utils.utils import load_config, path_import, adapt_chunksize, save_failed_jobs, load_failed_jobs, FAILED_JOBS_FILENAME
+    from pocket_coffea.utils.logging import setup_logging
+    from pocket_coffea.utils.time import wait_until
+    from pocket_coffea.parameters import defaults as parameters_utils
+    from pocket_coffea.executors import executors_base, executors_manual_jobs
+    from pocket_coffea.utils.benchmarking import print_processing_stats
+
+    from lib.workflow.runner import Runner as DisplacedLeptonsRunner
+
     '''Run an analysis on NanoAOD files using PocketCoffea processors'''
     # Setting up the output dir
     os.makedirs(outputdir, exist_ok=True)
@@ -204,6 +271,7 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
 
     # Options I always want
     run_options["skip-bad-files"] = True
+    run_options["retries"] = 5
 
 
     #Parsing additional runoptions from command line in the format --option=value, or --option.
@@ -365,6 +433,7 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
         if output is None:
             logging.error(f"Processing of dataset {group_name} failed, moving to the next one")
             update_failed_jobs(group_name, succeeded=False, outputdir=outputdir)
+            clear_failed_files(group_name, outputdir)
             continue
         else:
             if os.path.exists(error_log_file):
@@ -372,10 +441,31 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
             update_failed_jobs(group_name, succeeded=True, outputdir=outputdir)
             save_failed_files(group_name, coffea_runner.failed_files, outputdir)
             if coffea_runner.failed_files:
-                logging.warning(f"{len(coffea_runner.failed_files)} file(s) skipped in dataset {group_name}, see {FAILED_FILES_CSV}")
+                n_skipped = len(coffea_runner.failed_files)
+                n_total = sum(len(files["files"]) for files in fileset_.values())
+                pct_skipped = 100 * n_skipped / n_total
+                skip_msg = (
+                    f"{n_skipped} file(s) skipped out of {n_total} total file(s) "
+                    f"({pct_skipped:.1f}%) in dataset {group_name}, see {FAILED_FILES_CSV}"
+                )
+                logging.warning(skip_msg)
+                print(skip_msg)
 
-            print(f"Saving output to {outfile.format(group_name)}")
-            save(output, outfile.format(group_name))
+            outpath = outfile.format(group_name)
+            is_files_only_resubmit = (
+                resubmit_failed
+                and group_name in failed_files_by_dataset
+                and group_name not in failed_jobs_to_resubmit
+            )
+            if is_files_only_resubmit and os.path.exists(outpath):
+                # This run only reprocessed the previously-failed subset of
+                # files, so merge onto the existing output rather than
+                # overwriting the results from the files that already
+                # succeeded.
+                output = accumulate([load(outpath), output])
+
+            print(f"Saving output to {outpath}")
+            save(output, outpath)
             print_processing_stats(output, dataset_start_time, run_options["scaleout"])
 
 
@@ -393,7 +483,6 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
 
     # Closing the executor if needed
     executor_factory.close()
-
 
 
 if __name__ == "__main__":

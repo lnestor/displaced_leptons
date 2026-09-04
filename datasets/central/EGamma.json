@@ -7,7 +7,8 @@
             "isMC": "False",
             "nevents": "263689151",
             "size": "250478080158",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022C/EGamma/NANOAOD/22Sep2023-v1/40000/cbf47164-81b5-47a2-ae31-d68c7f5e722a.root",
@@ -333,7 +334,8 @@
             "isMC": "False",
             "nevents": "89134996",
             "size": "87706234303",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022D/EGamma/NANOAOD/22Sep2023-v1/2530000/e5762711-8726-4523-8891-32efa9ddb381.root",
@@ -455,7 +457,8 @@
             "isMC": "False",
             "nevents": "148654795",
             "size": "145940499225",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022E/EGamma/NANOAOD/22Sep2023-v1/50000/a2c2a0c9-b83e-4e96-b9e0-4ee52b136d86.root",
@@ -656,7 +659,8 @@
             "isMC": "False",
             "nevents": "464373259",
             "size": "458758402406",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022F/EGamma/NANOAOD/22Sep2023-v1/2520000/ac065dcd-00f0-42bd-969b-2b1d83ab93dc.root",
@@ -1159,7 +1163,8 @@
             "isMC": "False",
             "nevents": "76807350",
             "size": "75950426851",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022G/EGamma/NANOAOD/22Sep2023-v2/2560000/fc70d472-858a-481e-b717-72d755f76d63.root",
@@ -1259,7 +1264,8 @@
             "isMC": "False",
             "nevents": "67598081",
             "size": "64917127631",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma0/NANOAOD/22Sep2023_v1-v1/2540000/15785855-02ad-4ca7-95e8-92d42c6c9423.root",
@@ -1362,7 +1368,8 @@
             "isMC": "False",
             "nevents": "17233307",
             "size": "16755432675",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma0/NANOAOD/22Sep2023_v2-v1/40000/92637fb1-fc3d-4a4e-baff-46611b9313a6.root",
@@ -1397,7 +1404,8 @@
             "isMC": "False",
             "nevents": "21993048",
             "size": "21406311092",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma0/NANOAOD/22Sep2023_v3-v1/2540000/d00d0ef0-d2ed-497e-838b-ccad28e6efd4.root",
@@ -1436,7 +1444,8 @@
             "isMC": "False",
             "nevents": "160108119",
             "size": "160990136567",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma0/NANOAOD/22Sep2023_v4-v1/2530000/cd789dea-5a19-4261-8e16-99539efb5eff.root",
@@ -1617,7 +1626,8 @@
             "isMC": "False",
             "nevents": "67582665",
             "size": "64826915126",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma1/NANOAOD/22Sep2023_v1-v1/2530000/977cea8c-ed95-4dc6-ab86-e3dee403d26e.root",
@@ -1701,7 +1711,8 @@
             "isMC": "False",
             "nevents": "17230822",
             "size": "16762526365",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma1/NANOAOD/22Sep2023_v2-v1/30000/bcbae2eb-e6d3-42eb-ae02-67c71fad9109.root",
@@ -1738,7 +1749,8 @@
             "isMC": "False",
             "nevents": "21987586",
             "size": "21457930032",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma1/NANOAOD/22Sep2023_v3-v1/30000/4f2e4be1-cceb-4971-8551-670cdbdc1e1c.root",
@@ -1776,7 +1788,8 @@
             "isMC": "False",
             "nevents": "160049621",
             "size": "161064966548",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/EGamma1/NANOAOD/22Sep2023_v4-v1/2530000/97d69bf6-e630-4ec0-a353-725297392177.root",
@@ -1966,7 +1979,8 @@
             "isMC": "False",
             "nevents": "105892646",
             "size": "106362115433",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/EGamma0/NANOAOD/22Sep2023_v1-v1/50000/f0fa7ff8-cd99-4c90-a22b-696f1f17e36a.root",
@@ -2103,7 +2117,8 @@
             "isMC": "False",
             "nevents": "22657211",
             "size": "22851463854",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/EGamma0/NANOAOD/22Sep2023_v2-v1/50000/23d7ca77-f796-4443-a572-da5af19267ea.root",
@@ -2149,7 +2164,8 @@
             "isMC": "False",
             "nevents": "105824276",
             "size": "106255760941",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/EGamma1/NANOAOD/22Sep2023_v1-v1/40000/a146c6ce-83ad-4007-ba49-e8767c0e7680.root",
@@ -2266,7 +2282,8 @@
             "isMC": "False",
             "nevents": "22653287",
             "size": "22813681205",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/EGamma1/NANOAOD/22Sep2023_v2-v1/40000/11577200-78a3-4824-8a6d-f4a4c6356a75.root",
@@ -2309,7 +2326,8 @@
             "isMC": "False",
             "nevents": "157351226",
             "size": "250738438238",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024C/EGamma0/NANOAOD/MINIv6NANOv15-v1/2540000/3151ab41-a5bd-48f1-be40-449b760a60e6.root",
@@ -2489,7 +2507,8 @@
             "isMC": "False",
             "nevents": "156558757",
             "size": "248903435759",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024D/EGamma0/NANOAOD/MINIv6NANOv15-v1/110000/9d4e97c7-f23a-4cff-ac72-58488e544076.root",
@@ -2675,7 +2694,8 @@
             "isMC": "False",
             "nevents": "249417634",
             "size": "392918242385",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024E/EGamma0/NANOAOD/MINIv6NANOv15-v1/120000/948743c4-70af-40ab-9d7b-0954e7d98169.root",
@@ -2955,7 +2975,8 @@
             "isMC": "False",
             "nevents": "638196622",
             "size": "1012441569273",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024F/EGamma0/NANOAOD/MINIv6NANOv15-v1/120000/ff1714ab-598a-4f37-ae35-4489013ecf1b.root",
@@ -3687,7 +3708,8 @@
             "isMC": "False",
             "nevents": "903520258",
             "size": "1428952235031",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024G/EGamma0/NANOAOD/MINIv6NANOv15-v2/2530000/ed87126a-33ee-4e84-b37b-8f425e8badfd.root",
@@ -4550,7 +4572,8 @@
             "isMC": "False",
             "nevents": "134680448",
             "size": "213213759899",
-            "era": "H"
+            "era": "H",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024H/EGamma0/NANOAOD/MINIv6NANOv15-v2/2530000/0654da9b-873c-4aee-9273-e34968d572a7.root",
@@ -4701,7 +4724,8 @@
             "isMC": "False",
             "nevents": "132904290",
             "size": "207901997989",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/EGamma0/NANOAOD/MINIv6NANOv15-v1/90000/07df45e1-d7a2-4dc4-b4db-e0ea381a3e3b.root",
@@ -4925,7 +4949,8 @@
             "isMC": "False",
             "nevents": "150687674",
             "size": "229332670236",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/EGamma0/NANOAOD/MINIv6NANOv15_v2-v1/2540000/85e6c982-6b63-4d91-b20d-90b4c022ffcf.root",
@@ -5136,7 +5161,8 @@
             "isMC": "False",
             "nevents": "157860731",
             "size": "252139627451",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024C/EGamma1/NANOAOD/MINIv6NANOv15-v1/2810000/f74b343a-a774-42d8-b9f1-5a05b32e4cd4.root",
@@ -5396,7 +5422,8 @@
             "isMC": "False",
             "nevents": "156275778",
             "size": "248975237884",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024D/EGamma1/NANOAOD/MINIv6NANOv15-v1/90000/da8e0642-85ce-46a6-b690-2f858b7a66c0.root",
@@ -5688,7 +5715,8 @@
             "isMC": "False",
             "nevents": "249489829",
             "size": "393466558583",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024E/EGamma1/NANOAOD/MINIv6NANOv15-v1/2530000/207e5dd2-daf7-4d65-ad84-d4e823b838f6.root",
@@ -6036,7 +6064,8 @@
             "isMC": "False",
             "nevents": "631079889",
             "size": "1000028866937",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024F/EGamma1/NANOAOD/MINIv6NANOv15-v1/2530000/3faf8127-ffc4-44ff-aeff-f289e7172721.root",
@@ -6796,7 +6825,8 @@
             "isMC": "False",
             "nevents": "903441926",
             "size": "1429052849224",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024G/EGamma1/NANOAOD/MINIv6NANOv15-v2/2810000/a507c806-169b-4d53-a7a1-0229f4f03e70.root",
@@ -7697,7 +7727,8 @@
             "isMC": "False",
             "nevents": "134835799",
             "size": "213679288282",
-            "era": "H"
+            "era": "H",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024H/EGamma1/NANOAOD/MINIv6NANOv15-v1/2530000/1e3c64e3-88cf-4ba1-905a-45fa52064925.root",
@@ -7901,7 +7932,8 @@
             "isMC": "False",
             "nevents": "132903874",
             "size": "207758553084",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/EGamma1/NANOAOD/MINIv6NANOv15-v1/110000/8c966028-7b48-4a62-9a36-e027d74a42e7.root",
@@ -8090,7 +8122,8 @@
             "isMC": "False",
             "nevents": "150687112",
             "size": "229352604127",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/EGamma1/NANOAOD/MINIv6NANOv15_v2-v1/2540000/61914f96-75cc-4d91-af52-4989cbbc361b.root",
@@ -8282,7 +8315,8 @@
             "isMC": "False",
             "nevents": "243682359",
             "size": "387155423444",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma0/NANOAOD/PromptReco-v1/000/392/295/00000/53168bd9-a2b3-4af6-bcd3-03384acb2eb4.root",
@@ -8950,7 +8984,8 @@
             "isMC": "False",
             "nevents": "133952379",
             "size": "212914625066",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma0/NANOAOD/PromptReco-v2/000/393/147/00000/5e85feab-f416-434a-80e0-8bb7aebc5e58.root",
@@ -9305,7 +9340,8 @@
             "isMC": "False",
             "nevents": "414017171",
             "size": "673636223773",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/EGamma0/NANOAOD/PromptReco-v1/000/394/402/00000/2c8f97e2-8718-42b6-b408-0a84452b6be4.root",
@@ -10423,7 +10459,8 @@
             "isMC": "False",
             "nevents": "240927385",
             "size": "392755724035",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/EGamma0/NANOAOD/PromptReco-v1/000/396/134/00000/cc4c67eb-2457-4bf4-a257-910d1798d5cb.root",
@@ -11031,7 +11068,8 @@
             "isMC": "False",
             "nevents": "346019505",
             "size": "557841407232",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma0/NANOAOD/PromptReco-v1/000/396/629/00000/522caf37-f2cf-4569-8719-862dc867bc19.root",
@@ -11932,7 +11970,8 @@
             "isMC": "False",
             "nevents": "139317024",
             "size": "224923137705",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma0/NANOAOD/PromptReco-v2/000/397/619/00000/144b148e-5403-4b63-8b3c-9a746dd74337.root",
@@ -12296,7 +12335,8 @@
             "isMC": "False",
             "nevents": "421398444",
             "size": "672276737883",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/EGamma0/NANOAOD/PromptReco-v1/000/397/867/00000/167c2782-06bf-4812-a417-2dbcfdd5e248.root",
@@ -13321,7 +13361,8 @@
             "isMC": "False",
             "nevents": "243674671",
             "size": "387163042950",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma1/NANOAOD/PromptReco-v1/000/392/250/00000/08d8d91e-a74e-4201-81c1-700bf0893022.root",
@@ -13986,7 +14027,8 @@
             "isMC": "False",
             "nevents": "133951067",
             "size": "212930303512",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma1/NANOAOD/PromptReco-v2/000/393/111/00000/13b1c26a-c104-45ad-bf9a-e03bf99897fd.root",
@@ -14346,7 +14388,8 @@
             "isMC": "False",
             "nevents": "413556254",
             "size": "672934692811",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/EGamma1/NANOAOD/PromptReco-v1/000/394/402/00000/43bce2f3-0682-420a-813f-fb8df0f9dd68.root",
@@ -15454,7 +15497,8 @@
             "isMC": "False",
             "nevents": "240921314",
             "size": "392826436160",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/EGamma1/NANOAOD/PromptReco-v1/000/396/134/00000/f230990e-efb4-46c9-b67d-4252e7f19e51.root",
@@ -16063,7 +16107,8 @@
             "isMC": "False",
             "nevents": "346000262",
             "size": "557871431222",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma1/NANOAOD/PromptReco-v1/000/396/629/00000/91fe00c8-ea8b-407c-8485-712e2a69474d.root",
@@ -16951,7 +16996,8 @@
             "isMC": "False",
             "nevents": "139310909",
             "size": "224930903729",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma1/NANOAOD/PromptReco-v2/000/397/622/00000/dd1d5f04-d464-4dfa-b033-179e999fe136.root",
@@ -17314,7 +17360,8 @@
             "isMC": "False",
             "nevents": "421102377",
             "size": "671765973516",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/EGamma1/NANOAOD/PromptReco-v1/000/397/867/00000/87e002da-7a37-4429-aed8-2475bff3fc39.root",
@@ -18337,7 +18384,8 @@
             "isMC": "False",
             "nevents": "243672282",
             "size": "387187003064",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma2/NANOAOD/PromptReco-v1/000/392/293/00000/b1724793-8971-40f3-852a-5f410d3f972e.root",
@@ -19006,7 +19054,8 @@
             "isMC": "False",
             "nevents": "133950574",
             "size": "212981687850",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma2/NANOAOD/PromptReco-v2/000/393/111/00000/5fb29953-5270-42ab-9200-60e11d9ba32c.root",
@@ -19370,7 +19419,8 @@
             "isMC": "False",
             "nevents": "243679348",
             "size": "387211781780",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma3/NANOAOD/PromptReco-v1/000/392/295/00000/7500bd6a-2754-4a4d-b0e5-c0ef451a8180.root",
@@ -20043,7 +20093,8 @@
             "isMC": "False",
             "nevents": "133949781",
             "size": "212948307740",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/EGamma3/NANOAOD/PromptReco-v2/000/393/111/00000/91e20014-fd48-43ac-9a9a-ffc2b5f0a69a.root",
@@ -20399,7 +20450,8 @@
             "isMC": "False",
             "nevents": "414008481",
             "size": "673866690264",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/EGamma2/NANOAOD/PromptReco-v1/000/394/402/00000/41fd08ea-dc4d-4153-93eb-c275b9e7f873.root",
@@ -21533,7 +21585,8 @@
             "isMC": "False",
             "nevents": "414010046",
             "size": "673711721173",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/EGamma3/NANOAOD/PromptReco-v1/000/394/402/00000/142f882b-8cab-4f61-8988-22204bff969e.root",
@@ -22636,7 +22689,8 @@
             "isMC": "False",
             "nevents": "240923259",
             "size": "392823462595",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/EGamma2/NANOAOD/PromptReco-v1/000/396/134/00000/6725360f-b51b-44c7-b674-3387e053404c.root",
@@ -23242,7 +23296,8 @@
             "isMC": "False",
             "nevents": "240923335",
             "size": "392833028380",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/EGamma3/NANOAOD/PromptReco-v1/000/396/134/00000/d16ba0c7-8ff2-48a8-b1d9-6830da77e3f8.root",
@@ -23853,7 +23908,8 @@
             "isMC": "False",
             "nevents": "346008679",
             "size": "557864383738",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma2/NANOAOD/PromptReco-v1/000/396/629/00000/99b840f0-3a63-41bb-8014-7bf93c3bf239.root",
@@ -24742,7 +24798,8 @@
             "isMC": "False",
             "nevents": "139313488",
             "size": "224977995937",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma2/NANOAOD/PromptReco-v2/000/397/638/00000/ff266a64-404c-4cc2-b964-99320f3c04d5.root",
@@ -25113,7 +25170,8 @@
             "isMC": "False",
             "nevents": "346009210",
             "size": "557876679623",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma3/NANOAOD/PromptReco-v1/000/396/629/00000/e8c9b75e-4423-4407-b0d3-4b0b183fe75f.root",
@@ -26015,7 +26073,8 @@
             "isMC": "False",
             "nevents": "139314438",
             "size": "224932879253",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/EGamma3/NANOAOD/PromptReco-v2/000/397/619/00000/2e1ab522-054f-4de7-9acf-0a6236dff75f.root",
@@ -26368,7 +26427,8 @@
             "isMC": "False",
             "nevents": "421453068",
             "size": "672415782134",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/EGamma2/NANOAOD/PromptReco-v1/000/397/954/00000/e1a89899-35c5-40d1-8bac-f66fd1d24a3a.root",
@@ -27397,7 +27457,8 @@
             "isMC": "False",
             "nevents": "421124471",
             "size": "671881602678",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "EGamma"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/EGamma3/NANOAOD/PromptReco-v1/000/397/954/00000/428ebcfd-518f-4dfd-8b91-c713430c637c.root",

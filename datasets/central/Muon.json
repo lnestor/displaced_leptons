@@ -7,7 +7,8 @@
             "isMC": "False",
             "nevents": "138427345",
             "size": "113705223219",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022C/Muon/NANOAOD/22Sep2023-v1/30000/8c3c411a-6cac-4dae-b120-c038f36bd9fd.root",
@@ -144,7 +145,8 @@
             "isMC": "False",
             "nevents": "75468381",
             "size": "61753191845",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022D/Muon/NANOAOD/22Sep2023-v1/2520000/50eb4dec-d0c0-400a-a1eb-4561043b266c.root",
@@ -239,7 +241,8 @@
             "isMC": "False",
             "nevents": "141460608",
             "size": "115562746945",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022E/Muon/NANOAOD/22Sep2023-v1/30000/4b0c8ae0-6947-4cf3-a214-ae279c22d0f3.root",
@@ -399,7 +402,8 @@
             "isMC": "False",
             "nevents": "449887248",
             "size": "376252222086",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022F/Muon/NANOAOD/22Sep2023-v2/2550000/bf728a39-8670-4a87-954a-3adb2ddfa834.root",
@@ -771,7 +775,8 @@
             "isMC": "False",
             "nevents": "76689396",
             "size": "64269746338",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2022G/Muon/NANOAOD/22Sep2023-v1/30000/90390f8e-cb55-4507-8106-6e134d7fa259.root",
@@ -872,7 +877,8 @@
             "isMC": "False",
             "nevents": "54715896",
             "size": "44359555364",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon0/NANOAOD/22Sep2023_v1-v1/30000/0ceac210-9c0b-49a3-baea-ea57c85de9d4.root",
@@ -975,7 +981,8 @@
             "isMC": "False",
             "nevents": "17063451",
             "size": "13779255414",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon0/NANOAOD/22Sep2023_v2-v1/40000/d5075460-350f-475b-bc4c-f47b7e63323e.root",
@@ -1019,7 +1026,8 @@
             "isMC": "False",
             "nevents": "20015377",
             "size": "16407008367",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon0/NANOAOD/22Sep2023_v3-v1/40000/2884c3ce-c9bd-48b8-8a1b-486252b5c9ae.root",
@@ -1074,7 +1082,8 @@
             "isMC": "False",
             "nevents": "138943783",
             "size": "118040375245",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon0/NANOAOD/22Sep2023_v4-v1/50000/6d31478b-daf6-4021-a132-6685f4ebb97e.root",
@@ -1252,7 +1261,8 @@
             "isMC": "False",
             "nevents": "54698315",
             "size": "44258448094",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon1/NANOAOD/22Sep2023_v1-v1/30000/d93b0737-8e8a-4276-aae3-338423b4d3d9.root",
@@ -1338,7 +1348,8 @@
             "isMC": "False",
             "nevents": "17059895",
             "size": "13838491248",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon1/NANOAOD/22Sep2023_v2-v1/2540000/b5379903-b726-4d49-9a8a-418754302878.root",
@@ -1384,7 +1395,8 @@
             "isMC": "False",
             "nevents": "20010429",
             "size": "16380526417",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon1/NANOAOD/22Sep2023_v3-v1/30000/9f781db3-4c09-48e4-81ac-71d4141f46cc.root",
@@ -1427,7 +1439,8 @@
             "isMC": "False",
             "nevents": "138912262",
             "size": "117844008529",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023C/Muon1/NANOAOD/22Sep2023_v4-v2/2820000/cf830fae-8ceb-4945-b72b-dcfac4c36e92.root",
@@ -1548,7 +1561,8 @@
             "isMC": "False",
             "nevents": "100291308",
             "size": "83921898090",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/Muon0/NANOAOD/22Sep2023_v1-v1/2530000/dd9c19c9-84b4-47e1-bc42-34320f55faba.root",
@@ -1686,7 +1700,8 @@
             "isMC": "False",
             "nevents": "21462916",
             "size": "18064672092",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/Muon0/NANOAOD/22Sep2023_v2-v1/30000/9641bc54-993c-4a3e-a884-8835158de699.root",
@@ -1731,7 +1746,8 @@
             "isMC": "False",
             "nevents": "100281976",
             "size": "83689095709",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/Muon1/NANOAOD/22Sep2023_v1-v1/2530000/e9655ca7-9942-48cc-9f6d-5337c6c3ab26.root",
@@ -1844,7 +1860,8 @@
             "isMC": "False",
             "nevents": "21463645",
             "size": "17986756472",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2023D/Muon1/NANOAOD/22Sep2023_v2-v1/30000/d86577ff-7aa5-4bcf-99fb-74fcb98967df.root",
@@ -1887,7 +1904,8 @@
             "isMC": "False",
             "nevents": "97505587",
             "size": "134776924585",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024C/Muon0/NANOAOD/MINIv6NANOv15-v1/2530000/677e3bb0-8199-4ffb-83af-165410a7b7a6.root",
@@ -2003,7 +2021,8 @@
             "isMC": "False",
             "nevents": "120787065",
             "size": "164485932770",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024D/Muon0/NANOAOD/MINIv6NANOv15-v1/2540000/59956cf4-d632-4fa4-b930-4483e7a7f81c.root",
@@ -2196,7 +2215,8 @@
             "isMC": "False",
             "nevents": "169640946",
             "size": "234604200578",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024E/Muon0/NANOAOD/MINIv6NANOv15-v1/2520000/7531adac-d24d-4784-b028-e8b988bc578c.root",
@@ -2464,7 +2484,8 @@
             "isMC": "False",
             "nevents": "442432787",
             "size": "615054396443",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024F/Muon0/NANOAOD/MINIv6NANOv15-v1/2540000/7f4a3771-0ef4-4a84-a530-a0d4574056d4.root",
@@ -3071,7 +3092,8 @@
             "isMC": "False",
             "nevents": "642028803",
             "size": "888358140704",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024G/Muon0/NANOAOD/MINIv6NANOv15-v1/2540000/03f2d829-00be-4c48-8d87-49ffc6825a92.root",
@@ -4032,7 +4054,8 @@
             "isMC": "False",
             "nevents": "93983627",
             "size": "129634845343",
-            "era": "H"
+            "era": "H",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024H/Muon0/NANOAOD/MINIv6NANOv15-v1/90000/244fa588-5f93-4a47-b711-32b5ded4852d.root",
@@ -4197,7 +4220,8 @@
             "isMC": "False",
             "nevents": "97634104",
             "size": "131947994374",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/Muon0/NANOAOD/MINIv6NANOv15-v1/2530000/7417bff0-941a-492c-abcf-d35be0645afe.root",
@@ -4383,7 +4407,8 @@
             "isMC": "False",
             "nevents": "105194627",
             "size": "139264307671",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/Muon0/NANOAOD/MINIv6NANOv15_v2-v1/2530000/6c392d88-b78b-42bb-a6af-44746fdcff11.root",
@@ -4570,7 +4595,8 @@
             "isMC": "False",
             "nevents": "97531998",
             "size": "134790070936",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024C/Muon1/NANOAOD/MINIv6NANOv15-v1/2540000/bba44bd8-32cf-4c2e-9982-aa9c9eee562d.root",
@@ -4677,7 +4703,8 @@
             "isMC": "False",
             "nevents": "120467371",
             "size": "164032354112",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024D/Muon1/NANOAOD/MINIv6NANOv15-v1/2540000/d8fb6e78-69d9-4675-a576-258e11498acc.root",
@@ -4858,7 +4885,8 @@
             "isMC": "False",
             "nevents": "172848674",
             "size": "238791981906",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024E/Muon1/NANOAOD/MINIv6NANOv15-v1/110000/e241e15b-1ca2-4ee6-ab15-575e557d96d9.root",
@@ -5042,7 +5070,8 @@
             "isMC": "False",
             "nevents": "442360423",
             "size": "614702799116",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024F/Muon1/NANOAOD/MINIv6NANOv15-v1/2530000/49aff79b-990c-42a2-b193-9a1b8cbd41e9.root",
@@ -5593,7 +5622,8 @@
             "isMC": "False",
             "nevents": "641959643",
             "size": "886152452339",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024G/Muon1/NANOAOD/MINIv6NANOv15-v2/2530000/b784c8a2-59fa-4691-b6b6-7b65210c2f2f.root",
@@ -6171,7 +6201,8 @@
             "isMC": "False",
             "nevents": "93981102",
             "size": "129329625386",
-            "era": "H"
+            "era": "H",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024H/Muon1/NANOAOD/MINIv6NANOv15-v2/2810000/134d8f40-fb4f-4674-a6bf-eb5ca93b5133.root",
@@ -6277,7 +6308,8 @@
             "isMC": "False",
             "nevents": "97630010",
             "size": "131571503162",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/Muon1/NANOAOD/MINIv6NANOv15-v1/110000/76d98d08-ad81-41ef-ad15-9b68da9d89a5.root",
@@ -6384,7 +6416,8 @@
             "isMC": "False",
             "nevents": "105189040",
             "size": "139106942155",
-            "era": "I"
+            "era": "I",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2024I/Muon1/NANOAOD/MINIv6NANOv15_v2-v1/90000/c39b230c-907d-43c8-a969-f17ed136d446.root",
@@ -6530,7 +6563,8 @@
             "isMC": "False",
             "nevents": "250835953",
             "size": "357757980267",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/Muon0/NANOAOD/PromptReco-v1/000/392/295/00000/5f01b0be-3b57-49bc-bd9c-b2489dd21a29.root",
@@ -7181,7 +7215,8 @@
             "isMC": "False",
             "nevents": "148575745",
             "size": "212571285132",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/Muon0/NANOAOD/PromptReco-v2/000/393/111/00000/1c2dc1cc-a4fc-4dd5-a886-ab4165be43ca.root",
@@ -7550,7 +7585,8 @@
             "isMC": "False",
             "nevents": "479676562",
             "size": "697934031994",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/Muon0/NANOAOD/PromptReco-v1/000/394/412/00000/a2e6b888-b598-4d5f-a1f6-165bb5328d8d.root",
@@ -8729,7 +8765,8 @@
             "isMC": "False",
             "nevents": "265645863",
             "size": "388290135827",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/Muon0/NANOAOD/PromptReco-v1/000/396/134/00000/38722abc-04fb-47a6-94e4-5237f0a89f69.root",
@@ -9348,7 +9385,8 @@
             "isMC": "False",
             "nevents": "377119912",
             "size": "543565493187",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/Muon0/NANOAOD/PromptReco-v1/000/396/629/00000/ecd1073e-e1b5-4aeb-910d-5dba64538158.root",
@@ -10245,7 +10283,8 @@
             "isMC": "False",
             "nevents": "143519758",
             "size": "207795737715",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/Muon0/NANOAOD/PromptReco-v2/000/397/619/00000/370c182e-6a63-4bd9-946d-32cafc4d22c4.root",
@@ -10602,7 +10641,8 @@
             "isMC": "False",
             "nevents": "442329683",
             "size": "629337404394",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/Muon0/NANOAOD/PromptReco-v1/000/398/023/00000/b054aebb-651d-469a-a9e4-0a426dc5ad07.root",
@@ -11624,7 +11664,8 @@
             "isMC": "False",
             "nevents": "250819768",
             "size": "357830422448",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/Muon1/NANOAOD/PromptReco-v1/000/392/295/00000/5e65218b-6e2f-4c82-b048-4683fbaeb3c5.root",
@@ -12281,7 +12322,8 @@
             "isMC": "False",
             "nevents": "148565659",
             "size": "212539291128",
-            "era": "C"
+            "era": "C",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025C/Muon1/NANOAOD/PromptReco-v2/000/393/125/00000/db7f9272-e5dd-48fe-8da3-18493ec843e2.root",
@@ -12644,7 +12686,8 @@
             "isMC": "False",
             "nevents": "479642866",
             "size": "697904513043",
-            "era": "D"
+            "era": "D",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025D/Muon1/NANOAOD/PromptReco-v1/000/394/393/00000/6ef05e0d-23ac-4b92-bf89-93d1dc868574.root",
@@ -13816,7 +13859,8 @@
             "isMC": "False",
             "nevents": "265630211",
             "size": "388225843829",
-            "era": "E"
+            "era": "E",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025E/Muon1/NANOAOD/PromptReco-v1/000/396/134/00000/98571d39-a14f-498e-9a5f-238693a78c48.root",
@@ -14440,7 +14484,8 @@
             "isMC": "False",
             "nevents": "377092035",
             "size": "543561119651",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/Muon1/NANOAOD/PromptReco-v1/000/396/629/00000/99cd4744-1c0a-4625-85cc-f6a1c3b9efcb.root",
@@ -15344,7 +15389,8 @@
             "isMC": "False",
             "nevents": "143511119",
             "size": "207840786026",
-            "era": "F"
+            "era": "F",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025F/Muon1/NANOAOD/PromptReco-v2/000/397/619/00000/6af4fb0a-fba2-4cc7-b21b-cf73e4b655ab.root",
@@ -15702,7 +15748,8 @@
             "isMC": "False",
             "nevents": "442232031",
             "size": "629559066581",
-            "era": "G"
+            "era": "G",
+            "primaryDataset": "Muon"
         },
         "files": [
             "root://cmsxrootd.fnal.gov//store/data/Run2025G/Muon1/NANOAOD/PromptReco-v1/000/398/023/00000/430f49d3-6748-4c9e-b3d3-e20c444be43a.root",

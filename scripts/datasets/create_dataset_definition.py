@@ -4,6 +4,7 @@ import os
 import subprocess
 
 from catalog import DatasetCatalog
+from pocket_coffea.utils.rucio import get_dataset_files_replicas
 
 
 def _dasgoclient_json(query):
@@ -27,9 +28,25 @@ def get_summary(dataset_def):
     return nevents, size
 
 
-def get_files(dataset_def, redirector):
+def get_files_redirector(dataset_def, redirector):
     records = _dasgoclient_json(f"file dataset={dataset_def.nanoaod}")
     return [redirector + r["name"] for record in records for r in record["file"]]
+
+
+def get_files_sites(dataset_def):
+    files, _, _ = get_dataset_files_replicas(
+        dataset_def.nanoaod,
+        sort="geoip",
+        mode="first",
+        partial_allowed=False,
+    )
+    return files
+
+
+def get_files(dataset_def, mode, redirector):
+    if mode == "sites":
+        return get_files_sites(dataset_def)
+    return get_files_redirector(dataset_def, redirector)
 
 
 def load(output_path):
@@ -53,6 +70,7 @@ def main():
     parser.add_argument("--output-dir", default="datasets/central")
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--redirector", default="root://cmsxrootd.fnal.gov/")
+    parser.add_argument("--mode", choices=["redirector", "sites"], default="redirector")
     args = parser.parse_args()
 
     # WARNING: This won't work for data because I was combining datasets, i.e. EGamma0 and EGamma1 in one key
@@ -61,6 +79,8 @@ def main():
     dataset_defs = catalog.get(sample=args.samples, year=args.years)
 
     os.makedirs(args.output_dir, exist_ok=True)
+
+    failures = []
 
     for d in dataset_defs:
         output_path = f"{args.output_dir}/{d.sample}.json"
@@ -86,13 +106,26 @@ def main():
             metadata["xsec"] = d.xsec
         else:
             metadata["era"] = d.era
+            metadata["primaryDataset"] = d.sample
+
+        try:
+            files = get_files(d, args.mode, args.redirector)
+        except Exception as e:
+            print(f"ERROR: failed to resolve files for '{d.key}': {e}")
+            failures.append(d.key)
+            continue
 
         data[d.key] = {
             "metadata": {k: str(v) for k, v in metadata.items()},
-            "files": get_files(d, args.redirector),
+            "files": files,
         }
 
         save(output_path, data)
+
+    if failures:
+        print(f"\nFailed to resolve files for {len(failures)} dataset(s):")
+        for key in failures:
+            print(f"  - {key}")
 
 
 if __name__ == "__main__":

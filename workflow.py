@@ -125,14 +125,6 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def process_extra_after_skim(self):
-        # 2025 EGamma datasets for some reason keep objects with pt exactly on the threshold, even
-        # though the skim cut is supposed to be strictly greater-than. This causes our supplements
-        # to error because they have mismatched numbers of electrons/muon. We need to trim those
-        # objects before we run the supplement join.
-        if self._year == "2025" and self._sample == "EGamma":
-            self.events["Electron"] = self.events.Electron[self.events.Electron.pt > 5.0]
-            self.events["Muon"] = self.events.Muon[self.events.Muon.pt > 2.0]
-
         diag = self._supplement_diag()
         diag["chunks_after_skim"] += 1
 
@@ -169,6 +161,14 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
         else:
             schema_tree = uproot.open(supplement_files[0])["supplementTree/Events"]
             supplement = schema_tree.arrays(entry_stop=0)
+
+        if self._year == "2025" and self._sample == "EGamma":
+            self.events, supplement = ak_help.trim_to_shortest(
+                self.events,
+                supplement,
+                colls=["Muon", "Electron"],
+                key_fields=["run", "luminosityBlock", "event"]
+            )
 
         n_before_join = len(self.events)
         try:

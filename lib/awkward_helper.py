@@ -52,6 +52,58 @@ def match_indices(left, right, key_fields):
     return sort_order[matched_right_idx], matched_mask
 
 
+def trim_to_shortest(left, right, colls, key_fields):
+    """Trim jagged collections in left and right down to matching counts.
+
+    Rows are matched between left and right using key_fields (see
+    match_indices). For each matched row, each collection in colls is
+    trimmed on both sides to the smaller of the two per-event object
+    counts, keeping the first N objects. Unmatched rows are left untouched.
+
+    Use this when two jagged collections that should represent the same
+    objects have mismatched per-event counts, and it is acceptable to drop
+    the trailing objects on the longer side to make the counts agree. This
+    only makes sense if the collections are ordered so that the objects
+    being dropped are the ones you care about least -- e.g. sorted by
+    descending pt, so the objects trimmed off the end are low-pt ones that
+    would likely be cut by downstream selections anyway.
+
+    Args:
+        left: Array with nested collections (e.g. left["Muon"]).
+        right: Array with flat per-collection branches (e.g. right["Muon_pt"]).
+        colls: Names of the collections to trim (e.g. ["Muon", "Electron"]).
+        key_fields: Fields used to match rows between left and right.
+
+    Returns:
+        (left, right) with the specified collections trimmed.
+    """
+    matched_right_idx, matched_mask = match_indices(left, right, key_fields)
+    matched_mask = np.asarray(matched_mask)
+
+    for coll in colls:
+        right_fields = [
+            f for f in right.fields
+            if f.partition("_")[0] == coll and f.partition("_")[2]
+        ]
+        if not right_fields or coll not in left.fields:
+            continue
+
+        n_left = ak.to_numpy(ak.num(left[coll]))
+        n_right_matched = ak.to_numpy(ak.num(right[right_fields[0]][matched_right_idx]))
+        target_matched = np.minimum(n_left[matched_mask], n_right_matched)
+
+        left_target = n_left.copy()
+        left_target[matched_mask] = target_matched
+        left[coll] = left[coll][ak.local_index(left[coll]) < left_target]
+
+        right_target = ak.to_numpy(ak.num(right[right_fields[0]]))
+        right_target[matched_right_idx] = target_matched
+        for field in right_fields:
+            right[field] = right[field][ak.local_index(right[field]) < right_target]
+
+    return left, right
+
+
 def join(left, right, key_fields):
     right_mask = np.isin(create_key(right, key_fields), create_key(left, key_fields))
     right = right[right_mask]

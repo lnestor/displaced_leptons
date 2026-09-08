@@ -253,7 +253,6 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             "error": f"{log_directory}/dask_job_output.$(ClusterId).$(ProcId).err",
             "should_transfer_files": "Yes",
             "when_to_transfer_output": "ON_EXIT",
-            "preserve_relative_paths": "True",
             "+JobFlavour": f'"{self.run_options.get("queue", "workday")}"',
             "RequestCpus": str(cores_per_worker),
             "RequestMemory": memory_str,

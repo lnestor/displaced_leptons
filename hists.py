@@ -1,16 +1,45 @@
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
+
 def lepton_hists(coll=None, label=None, pos=None, only_categories=None):
     return {
         f"{label}_pt": HistConf([Axis(coll=coll, pos=pos, field="pt", bins=200, start=0, stop=2000, label=rf"{label} $p_T$ [GeV]")], only_categories=only_categories),
         f"{label}_eta": HistConf([Axis(coll=coll, pos=pos, field="eta", bins=30, start=-1.5, stop=1.5, label=rf"{label} $\eta$")], only_categories=only_categories),
         f"{label}_absd0": HistConf([Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label} $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        f"{label}_sabsd0": HistConf([Axis(coll=coll, pos=pos, field="sabsd0", bins=100, start=0, stop=10, label=rf"{label} $|d_0/\sigma_{{d_0}}|$")], only_categories=only_categories),
         f"{label}_d0": HistConf([Axis(coll=coll, pos=pos, field="d0_um", bins=100, start=-50, stop=50, label=rf"{label} $d_0$ [$\mu m$]")], only_categories=only_categories),
         f"{label}_d0vsphi": HistConf([
             Axis(coll=coll, pos=pos, field="phi", bins=100, start=-3.14, stop=3.14, label=rf"{label} $\phi$"),
             Axis(coll=coll, pos=pos, field="d0_um", bins=100, start=-20, stop=20, label=rf"{label} $d_0$ [$\mu m$]")
-        ], only_categories=only_categories)
+        ], only_categories=only_categories),
+        f"{label}_ip3d": HistConf([Axis(coll=coll, pos=pos, field="ip3d_um", bins=100, start=0, stop=300, label=rf"{label} ip3d [$\mu m$]")], only_categories=only_categories),
+        f"{label}_sip3d": HistConf([Axis(coll=coll, pos=pos, field="sip3d", bins=100, start=0, stop=10, label=rf"{label} sip3d")], only_categories=only_categories),
+        # f"{label}_gen_absd0": HistConf([Axis(coll=coll, pos=pos, field="gen_absd0_um", bins=100, start=0, stop=500, label=rf"{label} truth $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        # f"{label}_gen_absd0_vs_reco_absd0": HistConf([
+            # Axis(coll=coll, pos=pos, field="gen_absd0_um", bins=100, start=0, stop=500, label=rf"{label} truth $|d_0|$ [$\mu m$]"),
+            # Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=500, label=rf"{label} reco $|d_0|$ [$\mu m$]"),
+        # ], only_categories=only_categories),
     }
+
+
+def beamspot_hists():
+    return {
+        "Beamspot_d0": HistConf([Axis(coll="Beamspot", field="d0", bins=50, start=0, stop=200, label="Beamspot $d_0$ [$\mu m$]")])
+    }
+
+
+def pcr_hists(coll=None, label=None, pos=None, only_categories=None, threshold=50):
+    return {
+        f"{label}_pt": HistConf([Axis(coll=coll, pos=pos, field="pt", bins=100, start=0, stop=500, label=rf"{label} $p_T$ [GeV]")], only_categories=only_categories),
+        f"{label}_eta": HistConf([Axis(coll=coll, pos=pos, field="eta", bins=30, start=-1.5, stop=1.5, label=rf"{label} $\eta$")], only_categories=only_categories),
+        f"{label}_absd0": HistConf([Axis(coll=coll, pos=pos, field="absd0_um", bins=threshold, start=0, stop=threshold, label=rf"{label} $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        f"{label}_absd0_uncorrected": HistConf([Axis(coll=coll, pos=pos, field="absd0_um_original", bins=threshold, start=0, stop=threshold, label=rf"{label} uncorrected $|d_0|$ [$\mu m$]")], only_categories=only_categories),
+        f"{label}_d0vsphi": HistConf([
+            Axis(coll=coll, pos=pos, field="phi", bins=100, start=-3.14, stop=3.14, label=rf"{label} $\phi$"),
+            Axis(coll=coll, pos=pos, field="d0_um", bins=100, start=-20, stop=20, label=rf"{label} $d_0$ [$\mu m$]")
+        ], only_categories=only_categories),
+    }
+
 
 def background_hists():
     abcd_pt_bins = [0, 90, 100, 140, 300, 400, 1e6] # 1e6 is just a really high number to simulate infinity

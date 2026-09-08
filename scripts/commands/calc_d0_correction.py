@@ -1,5 +1,4 @@
 import argparse
-import gzip
 import os
 
 import correctionlib.schemav2 as cs
@@ -127,7 +126,7 @@ def save_corrections(corrections, output_dir):
         corrections=corrections
     )
 
-    with gzip.open(f"{output_dir}/d0_corrections.json.gz", "wt") as fout:
+    with open(f"{output_dir}/d0_corrections.json", "w") as fout:
         fout.write(cset.model_dump_json(exclude_unset=True))
 
 

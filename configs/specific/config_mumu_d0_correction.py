@@ -65,5 +65,5 @@ cfg = Configurator(
             )
         ])
     },
-    calibrators = [ElectronsScaleCalibrator, MuonsCalibrator], # No smear calibrator
+    calibrators = [ElectronsScaleCalibrator, MuonsCalibrator], # No correction calibrator
 )

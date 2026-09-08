@@ -253,6 +253,7 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             "error": f"{log_directory}/dask_job_output.$(ClusterId).$(ProcId).err",
             "should_transfer_files": "Yes",
             "when_to_transfer_output": "ON_EXIT",
+            "preserve_relative_paths": "True",
             "+JobFlavour": f'"{self.run_options.get("queue", "workday")}"',
             "RequestCpus": str(cores_per_worker),
             "RequestMemory": memory_str,
@@ -284,8 +285,10 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             cluster_kwargs["scheduler_options"] = scheduler_options
 
         supplement_files = glob.glob("datasets/supplements/*.json")
-        if supplement_files:
-            cluster_kwargs["transfer_input_files"] = supplement_files
+        correction_files = glob.glob("params/d0_correction.json")
+        transfer_files = supplement_files + correction_files
+        if transfer_files:
+            cluster_kwargs["transfer_input_files"] = transfer_files
 
         self.dask_cluster = None
         last_exception = None

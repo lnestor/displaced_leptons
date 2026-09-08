@@ -4,7 +4,6 @@ from coffea.analysis_tools import PackedSelection
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 import json
-import os
 from lib.object_cutflow import ObjectCutflow
 from lib.named_cut import NamedCut
 import lib.awkward_helper as ak_help
@@ -85,9 +84,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         matched_json = None
         for supplement_json in self.cfg.supplements:
-            # When running on condor, supplement_json lands in the root directory, not under a subdirectory
-            path = supplement_json if os.path.exists(supplement_json) else os.path.basename(supplement_json)
-            supp_dict = json.load(open(path))
+            with open(supplement_json) as f:
+                supp_dict = json.load(f)
 
             for supp in supp_dict.values():
                 metadata = supp["metadata"]

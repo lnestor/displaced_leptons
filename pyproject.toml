@@ -9,3 +9,6 @@ version = "0.1.0"
 [tool.setuptools]
 py-modules = ["workflow", "event_selection", "object_selection", "channel_selection", "hists"]
 packages = ["lib", "configs", "scripts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

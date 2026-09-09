@@ -144,7 +144,7 @@ def get_params():
         f"{path}/object_selection.yaml",
         f"{path}/regions.yaml",
         f"{path}/triggers.yaml",
-        f"{path}/d0_smearing.yaml",
+        f"{path}/d0_correction.yaml",
         update=True
     )
 

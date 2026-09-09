@@ -67,7 +67,8 @@ def get_default_skim_cuts(sample=None):
     if sample is None:
         cuts.append(NamedCut(cut=get_HLTsel(), label="Passes triggers"))
     else:
-        cuts.append(NamedCut(cut=get_HLTsel(primaryDatasets=[sample]), label="Passes triggers"))
+        primary_datasets = [sample] if isinstance(sample, str) else sample
+        cuts.append(NamedCut(cut=get_HLTsel(primaryDatasets=primary_datasets), label="Passes triggers"))
 
     return cuts
 

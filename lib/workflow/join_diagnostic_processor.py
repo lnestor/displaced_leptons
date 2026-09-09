@@ -3,6 +3,7 @@ import numpy as np
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
 import json
+import os
 import lib.awkward_helper as ak_help
 
 # To calculate nSupplementMuon/nSupplementElectron, choose an arbitrary field
@@ -30,7 +31,10 @@ class JoinDiagnosticProcessor(BaseProcessorABC):
 
         matched_json = None
         for supplement_json in self.cfg.supplements:
-            with open(supplement_json) as f:
+            # LPCCondorCluster ships transfer_input_files flat into the worker's
+            # working directory, not preserving the original relative path.
+            path = supplement_json if os.path.exists(supplement_json) else os.path.basename(supplement_json)
+            with open(path) as f:
                 supp_dict = json.load(f)
 
             for supp in supp_dict.values():

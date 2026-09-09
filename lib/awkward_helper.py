@@ -35,9 +35,15 @@ def _match_keys(left_key, right_key):
 def match_indices(left, right, key_fields):
     """Match each row of left to a row of right by key_fields.
 
-    Returns (right_idx, matched_mask): matched_mask marks which left rows
-    found a match, right_idx (same length as left[matched_mask]) indexes
-    into right for the matched rows.
+    Args:
+        left: Array to match from.
+        right: Array to match against.
+        key_fields: Fields used as the join key.
+
+    Returns:
+        (right_idx, matched_mask): matched_mask is a boolean array marking
+        which left rows found a match; right_idx (same length as
+        left[matched_mask]) indexes into right for the matched rows.
     """
     left_key = create_key(left, key_fields)
     right_key = create_key(right, key_fields)
@@ -105,6 +111,30 @@ def trim_to_shortest(left, right, colls, key_fields):
 
 
 def join(left, right, key_fields):
+    """Join right's branches into left by matching rows on key_fields.
+
+    Only rows in left that find a match in right are kept; unmatched left
+    rows are dropped. Fields in right are merged in by collection name:
+    fields whose collection already exists in left are added as new
+    sub-fields via ak.with_field, and fields for collections not present
+    in left are grouped and zipped into new collections. Counter branches
+    (e.g. "nMuon") are skipped since their jaggedness is already carried
+    by the sub-field arrays.
+
+    Args:
+        left: Array to join into; only matched rows survive.
+        right: Array whose non-key fields are merged into left.
+        key_fields: Fields used as the join key.
+
+    Returns:
+        left with right's fields merged in.
+
+    Raises:
+        JoinMismatchError: A field's collection already exists in left but
+            has a different per-event object count than left's version at
+            some row, so it can not be merged as the same jagged
+            collection.
+    """
     right_mask = np.isin(create_key(right, key_fields), create_key(left, key_fields))
     right = right[right_mask]
 

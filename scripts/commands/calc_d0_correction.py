@@ -1,4 +1,5 @@
 import argparse
+import gzip
 import os
 
 import correctionlib.schemav2 as cs
@@ -81,19 +82,33 @@ def get_hists(f_other, f_emu, hist_name, non_emu_data_sample, year):
     return h_data, h_mc
 
 
-def build_correction(fit_mc, fit_data, correction_name, n_bins=100):
-    percentiles = np.linspace(0, 1, n_bins + 1)
-    edges = fit_mc.inverse_cdf(percentiles) / 1e4
+LINEAR_FORMULA = cs.Formula(
+    nodetype="formula",
+    expression="[1]+([3]-[1])*(x-[0])/([2]-[0])",
+    parser="TFormula",
+    variables=["dxybs"],
+)
 
-    bin_centers = 0.5 * (percentiles[:-1] + percentiles[1:])
-    content = fit_data.inverse_cdf(bin_centers) / 1e4
+
+def build_correction(fit_mc, fit_data, correction_name, dx=1.0, fine_domain=250.0, outer_edge=500.0):
+    fine_edges_um = np.arange(-fine_domain, fine_domain + dx, dx)
+    edges_um = np.concatenate(([-outer_edge], fine_edges_um, [outer_edge]))
+    content_um = fit_data.inverse_cdf(fit_mc.cdf(edges_um))
+
+    edges = edges_um / 1e4
+    content = content_um / 1e4
+
+    bin_content = [
+        cs.FormulaRef(nodetype="formularef", index=0, parameters=[edges[i], content[i], edges[i + 1], content[i + 1]])
+        for i in range(len(edges) - 1)
+    ]
 
     # TODO: real up/down variations; nom/up/down are currently identical
     binning = cs.Binning(
         nodetype="binning",
         input="dxybs",
         edges=list(edges),
-        content=list(content),
+        content=bin_content,
         flow="clamp",
     )
 
@@ -116,6 +131,7 @@ def build_correction(fit_mc, fit_data, correction_name, n_bins=100):
                 cs.CategoryItem(key="down", value=binning),
             ],
         ),
+        generic_formulas=[LINEAR_FORMULA],
     )
 
 
@@ -126,7 +142,7 @@ def save_corrections(corrections, output_dir):
         corrections=corrections
     )
 
-    with open(f"{output_dir}/d0_corrections.json", "w") as fout:
+    with gzip.open(f"{output_dir}/d0_corrections.json.gz", "wt") as fout:
         fout.write(cset.model_dump_json(exclude_unset=True))
 
 

@@ -284,7 +284,7 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             cluster_kwargs["scheduler_options"] = scheduler_options
 
         supplement_files = glob.glob("datasets/supplements/*.json")
-        correction_files = glob.glob("params/d0_correction.json")
+        correction_files = glob.glob("params/d0_correction.json.gz")
         transfer_files = supplement_files + correction_files
         if transfer_files:
             cluster_kwargs["transfer_input_files"] = transfer_files

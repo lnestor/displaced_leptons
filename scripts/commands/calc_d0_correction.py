@@ -83,10 +83,10 @@ def get_hists(f_other, f_emu, hist_name, non_emu_data_sample, year):
 
 def build_correction(fit_mc, fit_data, correction_name, n_bins=100):
     percentiles = np.linspace(0, 1, n_bins + 1)
-    edges = fit_mc.inverse_cdf(percentiles)
+    edges = fit_mc.inverse_cdf(percentiles) / 1e4
 
     bin_centers = 0.5 * (percentiles[:-1] + percentiles[1:])
-    content = fit_data.inverse_cdf(bin_centers)
+    content = fit_data.inverse_cdf(bin_centers) / 1e4
 
     # TODO: real up/down variations; nom/up/down are currently identical
     binning = cs.Binning(

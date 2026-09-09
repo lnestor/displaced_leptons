@@ -37,7 +37,7 @@ cfg = Configurator(
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
     workflow_options = {"skim_mode": "presel_any_variation"},
-    save_skimmed_files = "root://cmseos.fnal.gov//store/user/lnestor/skims/mumu/",
+    save_skimmed_files = "root://cmseos.fnal.gov//store/user/lnestor/skims_staging/mumu/",
     skim = get_default_skim_cuts(sample="Muon"),
     custom_fields = {"common": [define_custom_nano_fields]},
     object_selections = {

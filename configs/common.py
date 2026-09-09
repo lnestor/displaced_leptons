@@ -115,21 +115,21 @@ def register_modules():
     import event_selection
     import object_selection
     import hists
-    import channel_selection
     import lib
     import lib.named_cut as named_cut
     import lib.object_cutflow as object_cutflow
     import lib.categories as categories
+    import lib.workflow.join_diagnostic_processor as join_diagnostic_processor
     import configs.common as configs_common
     cloudpickle.register_pickle_by_value(workflow)
     cloudpickle.register_pickle_by_value(event_selection)
     cloudpickle.register_pickle_by_value(object_selection)
     cloudpickle.register_pickle_by_value(hists)
-    cloudpickle.register_pickle_by_value(channel_selection)
     cloudpickle.register_pickle_by_value(lib)
     cloudpickle.register_pickle_by_value(named_cut)
     cloudpickle.register_pickle_by_value(object_cutflow)
     cloudpickle.register_pickle_by_value(categories)
+    cloudpickle.register_pickle_by_value(join_diagnostic_processor)
     cloudpickle.register_pickle_by_value(configs_common)
 
 

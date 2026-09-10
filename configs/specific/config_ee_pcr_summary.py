@@ -47,7 +47,10 @@ cfg = Configurator(
         NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices"),
         NamedCut(invert_cut(get_d0_gt("MuonGood", 100)), "emu veto")
     ],
-    categories = get_pcr_cat(channel="ee", field="absd0_um", threshold=PCR_THRESHOLD),
+    categories = {
+        "pcr": get_pcr_cat(channel="ee", field="absd0_um", threshold=PCR_THRESHOLD)["pcr"],
+        "pcr_uncorrected": get_pcr_cat(channel="ee", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD)["pcr"],
+    },
     hists = {
         **pcr_hists(coll="ElectronGood", label="AllElectron", threshold=PCR_THRESHOLD),
         **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron", threshold=PCR_THRESHOLD),

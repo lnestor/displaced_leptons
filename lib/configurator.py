@@ -1,6 +1,7 @@
 import pocket_coffea.utils.configurator as config
 from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from lib.d0_correction_calibrator import D0CorrectionCalibrator
+import json
 
 DEFAULT_WEIGHTS = {
     "common": {
@@ -44,6 +45,7 @@ class Configurator(config.Configurator):
         variations=DEFAULT_VARIATIONS,
         weights_classes=None,
         calibrators=DEFAULT_CALIBRATORS,
+        columns=None,
         workflow_options=None,
         save_skimmed_files=None,
         do_postprocessing=True
@@ -60,6 +62,7 @@ class Configurator(config.Configurator):
             variables=hists,
             weights_classes=weights_classes,
             calibrators=calibrators,
+            columns=columns,
             workflow_options=workflow_options,
             save_skimmed_files=save_skimmed_files,
             do_postprocessing=do_postprocessing
@@ -73,6 +76,16 @@ class Configurator(config.Configurator):
 
     def load_datasets(self):
         super().load_datasets()
+
+        skim_jsons = self.datasets_cfg.get("skims")
+        if skim_jsons:
+            skims = {}
+            for path in skim_jsons:
+                skims.update(json.load(open(path)))
+
+            for key in self.filesets:
+                if key in skims:
+                    self.filesets[key] = skims[key]
 
         priority = self.datasets_cfg.get("priority")
         if priority:

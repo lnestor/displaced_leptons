@@ -12,6 +12,7 @@ from event_selection import get_min_deltaR, get_no_in_material_vtx
 from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut
+from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from workflow import DisplacedLeptonProcessor
 
 
@@ -45,6 +46,6 @@ cfg = Configurator(
     ],
     categories = {},
     hists = {},
-    # The calibrators either change pt or d0, none of which are being used in this config
-    calibrators = []
+    # Isolation cut divides by pt, so we need pt calibrated; skip d0 calibration as d0 is unused here
+    calibrators = [ElectronsScaleCalibrator, MuonsCalibrator]
 )

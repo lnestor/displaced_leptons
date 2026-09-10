@@ -15,9 +15,9 @@ from event_selection import (
     get_no_in_material_vtx
 )
 from lib.configurator import Configurator
-from lib.cuts.generic import get_d0_gt, invert_cut
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut
+from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from workflow import DisplacedLeptonProcessor
 
 
@@ -49,10 +49,10 @@ cfg = Configurator(
         NamedCut(cut=get_min_muon_delta_t(-20), label="Veto muon paris with timing consistent with cosmics"),
         NamedCut(cut=get_min_deltaR("MuonGood", "MuonGood", 0.2), label="Dilepton dleta R"),
         NamedCut(cut=get_no_in_material_vtx(channel="mumu"), label="Material vtx"),
-        NamedCut(cut=invert_cut(get_d0_gt("ElectronGood", 100)), label="emu veto")
+        # Explicitly not applying emu veto to skims. If we did, a change to the d0 corrections would require reskimming
     ],
     categories = {},
     hists = {},
-    # The calibrators either change pt or d0, none of which are being used in this config
-    calibrators = []
+    # Isolation cut divides by pt, so we need pt calibrated; skip d0 calibration as d0 is unused here
+    calibrators = [ElectronsScaleCalibrator, MuonsCalibrator]
 )

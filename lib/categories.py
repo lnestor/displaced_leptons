@@ -46,15 +46,43 @@ def _sweep_cats(prefix, coll1, idx1, coll2, idx2, field, sweep_edges, other_edge
 def get_closure_test_cats(
     channel,
     field,
-    sweep_edges,
-    sweep_other_edges,
-    point_edges,
-    point_other_edges
+    sweep_axis1_edges,
+    sweep_axis2_edges,
+    point_axis1_edges,
+    point_axis2_edges
 ):
+    """Build closure test categories for one-prompt/one-displaced sidebands.
+
+    Two types of categories are built: sweep and point categories. Sweep
+    categories bin one lepton into many small bins (axis1) and the other
+    lepton into 2 fixed bins (axis2). Point categories bin both leptons
+    into 2 fixed bins.
+
+    Categories are built twice, swapping which lepton plays each role, so
+    the edges below apply symmetrically to both leptons rather than to a
+    specific one.
+
+    Args:
+        channel: Dilepton channel, one of "ee", "mumu", or "emu".
+        field: Name of the field to bin on (e.g. "absd0_um").
+        sweep_axis1_edges: Bin edges for the swept lepton in the sweep
+            categories. N edges define N - 1 contiguous bins.
+        sweep_axis2_edges: (lo, mid, hi) edges defining the two fixed bins
+            for the other lepton in the sweep categories: prompt
+            (lo to mid) and mid-range (mid to hi).
+        point_axis1_edges: (lo, mid, hi) edges defining the near (lo to
+            mid) and far (mid to hi) bins for the point-test lepton.
+        point_axis2_edges: (lo, mid, tail) edges defining the two bins for
+            the other lepton in the point categories: prompt (lo to mid,
+            bounded) and tail (greater than tail, open-ended).
+
+    Returns:
+        Dict mapping category name to a list of cuts.
+    """
     coll1, coll2, idx1, idx2 = _get_coll_from_channel(channel)
 
-    point_lo, point_mid, point_hi = point_edges
-    point_other_lo, point_other_mid, point_other_tail = point_other_edges
+    point_lo, point_mid, point_hi = point_axis1_edges
+    point_other_lo, point_other_mid, point_other_tail = point_axis2_edges
 
     lep1_point_near = get_val_between(coll1, field, point_lo, point_mid, pos=idx1)
     lep1_point_far = get_val_between(coll1, field, point_mid, point_hi, pos=idx1)
@@ -67,8 +95,8 @@ def get_closure_test_cats(
     lep2_other_tail = get_val_gt(coll2, field, point_other_tail, pos=idx2)
 
     cats = {
-        **_sweep_cats("closure_sweep_l1", coll1, idx1, coll2, idx2, field, sweep_edges, sweep_other_edges),
-        **_sweep_cats("closure_sweep_l2", coll2, idx2, coll1, idx1, field, sweep_edges, sweep_other_edges),
+        **_sweep_cats("closure_sweep_l1", coll1, idx1, coll2, idx2, field, sweep_axis1_edges, sweep_axis2_edges),
+        **_sweep_cats("closure_sweep_l2", coll2, idx2, coll1, idx1, field, sweep_axis1_edges, sweep_axis2_edges),
         "closure_point_l1_a": [lep1_point_near, lep2_other_prompt],
         "closure_point_l1_b": [lep1_point_near, lep2_other_tail],
         "closure_point_l1_c": [lep1_point_far, lep2_other_prompt],

@@ -53,7 +53,7 @@ cfg = Configurator(
         },
         "priority": ["EGamma", "DY", "TTbar", "Diboson"]
     },
-    supplements = get_supplements(),
+    supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
     custom_fields = {

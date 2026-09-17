@@ -37,7 +37,7 @@ cfg = Configurator(
             "year": RUN_3_YEARS
         }
     },
-    supplements = get_supplements(),
+    supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="Muon"),
     custom_fields = { "common": [define_custom_nano_fields] },

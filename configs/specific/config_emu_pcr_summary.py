@@ -38,7 +38,10 @@ cfg = Configurator(
         },
         "priority": ["MuonEG", "TTbar", "SingleTop", "Diboson", "DY", "QCDEle", "QCDMu"]
     },
-    supplements = get_supplements(),
+    supplements = {
+        "jsons": get_supplements("supplements"),
+        "skims": get_supplements("skim_supplements/test/emu")
+    },
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MuonEG"),
     custom_fields = { "common": [define_custom_nano_fields] },

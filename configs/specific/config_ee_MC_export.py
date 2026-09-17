@@ -29,7 +29,7 @@ cfg = Configurator(
         },
         "priority": ["DY", "TTbar", "Diboson"]
     },
-    supplements = get_supplements(),
+    supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     workflow_options = {"skim_mode": "presel_any_variation"},
     save_skimmed_files = "root://cmseos.fnal.gov//store/user/lnestor/skims_staging/ee/",

@@ -49,7 +49,7 @@ cfg = Configurator(
         },
         "priority": ["MuonEG", "TTbar", "SingleTop", "Diboson", "DY"]
     },
-    supplements = get_supplements(),
+    supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
     custom_fields = { "common": [define_custom_nano_fields] },

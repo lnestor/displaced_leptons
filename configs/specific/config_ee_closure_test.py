@@ -41,7 +41,7 @@ cfg = Configurator(
         "subsamples": DY_SUBSAMPLES,
         "priority": ["EGamma", "DY", "TTbar", "Diboson"]
     },
-    supplements = get_supplements(),
+    supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="EGamma"),
     custom_fields = {

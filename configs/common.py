@@ -120,6 +120,7 @@ def register_modules():
     import lib.object_cutflow as object_cutflow
     import lib.categories as categories
     import lib.workflow.join_diagnostic_processor as join_diagnostic_processor
+    import lib.workflow.runner as runner
     import configs.common as configs_common
     cloudpickle.register_pickle_by_value(workflow)
     cloudpickle.register_pickle_by_value(event_selection)
@@ -130,6 +131,7 @@ def register_modules():
     cloudpickle.register_pickle_by_value(object_cutflow)
     cloudpickle.register_pickle_by_value(categories)
     cloudpickle.register_pickle_by_value(join_diagnostic_processor)
+    cloudpickle.register_pickle_by_value(runner)
     cloudpickle.register_pickle_by_value(configs_common)
 
 

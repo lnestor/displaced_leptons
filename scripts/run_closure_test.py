@@ -1,35 +1,49 @@
 import argparse
 import os
+import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
 from coffea_file import CoffeaFile
 from asymmetric_uncertainty import a_u
 from hist.intervals import poisson_interval
-from lib.categories import CLOSURE_D0_SWEEP_VALS
-from configs.common import MC_SAMPLES
 import mplhep as hep
 
 hep.style.use("CMS")
 
 N_BAND_POINTS = 100
 
+# Must match sweep_axis1_edges in configs/specific/config_*_closure_test.py
+CLOSURE_D0_SWEEP_VALS = [20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+CHANNEL_LATEX_LABELS = {
+    "ee": "ee",
+    "emu": r"e$\mu$",
+    "mumu": r"$\mu\mu$",
+}
+
+MODE_KEYS = ["bkg"]
+
+MODE_CONSOLE_LABELS = {}
+
+MODE_LATEX_LABELS = {}
+
 
 def get_ratio(counts):
-    expected = counts["c"] * counts["b"] / counts["a"]
-    actual = counts["d"]
-    return actual / expected
-
-
-def get_a_u(val):
-    low, high = poisson_interval(np.atleast_1d(val))
-    low, high = low[0], high[0]
-    return a_u(val, high - val, val - low)
+    """Returns None if the ABCD estimate or its "a" denominator is exactly
+    zero (e.g. zero events observed and zero events expected in a sideband),
+    since the ratio is then undefined rather than a genuine measurement.
+    """
+    try:
+        expected = counts["c"] * counts["b"] / counts["a"]
+        return counts["d"] / expected
+    except ZeroDivisionError:
+        return None
 
 
 def get_weighted_a_u(sumw, sumw2):
-    """Same idea as get_a_u, but for a weighted MC yield: scales a Poisson
-    interval computed on the effective event count (sumw**2 / sumw2) back up
-    to the weighted yield, rather than assuming raw integer counts.
+    """Scales a Poisson interval computed on the effective event count
+    (sumw**2 / sumw2) back up to the weighted yield, rather than assuming
+    raw integer counts.
     """
     if sumw2 == 0:
         return a_u(sumw, 0, 0)
@@ -41,10 +55,10 @@ def get_weighted_a_u(sumw, sumw2):
     return a_u(sumw, (high - n_eff) * scale, (n_eff - low) * scale)
 
 
-def get_bkg_a_u(f, category, years):
+def get_bkg_a_u(f, category, years, samples):
     sumw = 0.0
     sumw2 = 0.0
-    for sample in MC_SAMPLES:
+    for sample in samples:
         try:
             sumw += f.get_count(category, sample, years)
             sumw2 += f.get_variance(category, sample, years)
@@ -54,13 +68,10 @@ def get_bkg_a_u(f, category, years):
     return get_weighted_a_u(sumw, sumw2)
 
 
-def extrapolate(ratios, extrapolation_point):
+def extrapolate(x_vals, ratios, extrapolation_point):
     import ROOT
     from array import array
 
-    d0 = CLOSURE_D0_SWEEP_VALS
-
-    x_vals = [(d0[i + 1] + d0[i]) / 2 for i in range(len(d0) - 1)]
     y_vals = [ratio.value for ratio in ratios]
     y_err_high = [ratio.plus for ratio in ratios]
     y_err_low = [ratio.minus for ratio in ratios]
@@ -170,97 +181,285 @@ def plot_extrapolation(result, extrapolation_point, output_path):
     plt.close(fig)
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("input")
-    parser.add_argument("channel", choices=["ee", "emu", "mumu"])
-    parser.add_argument("year", nargs="+", choices=["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"])
-    parser.add_argument("--plot", action="store_true", help="Save confidence interval plots for the extrapolated ratio.")
-    parser.add_argument("--background", action="store_true", help="Compute background simulation yields instead of data. No plots are made in this mode.")
-    parser.add_argument("--use-toys", action="store_true")
-    parser.add_argument("--extrapolation-point", default=200)
-    args = parser.parse_args()
-
-    f = CoffeaFile(args.input)
-
-    if args.background:
-        def get_counts(category):
-            return get_bkg_a_u(f, category, args.year)
-    else:
-        if args.channel == "ee":
-            sample = "EGamma"
-        elif args.channel == "emu":
-            sample = "MuonEG"
-        else:
-            sample = "Muon"
-
-        def get_counts(category):
-            return get_a_u(f.get_count(category, sample, args.year))
+def compute_closure_results(get_counts, extrapolation_point):
+    d0 = CLOSURE_D0_SWEEP_VALS
+    all_x = [(d0[i + 1] + d0[i]) / 2 for i in range(len(d0) - 1)]
 
     sweep1_counts = [
         {
-            "a": get_counts("closure_low_leptona_prompt_a"),
-            "b": get_counts("closure_low_leptona_prompt_b"),
-            "c": get_counts(f"closure_low_leptona_prompt_c{i}"),
-            "d": get_counts(f"closure_low_leptona_prompt_d{i}"),
-        } for i in range(1, len(CLOSURE_D0_SWEEP_VALS))
+            "a": get_counts("closure_sweep_l1_a"),
+            "b": get_counts("closure_sweep_l1_b"),
+            "c": get_counts(f"closure_sweep_l1_c{i}"),
+            "d": get_counts(f"closure_sweep_l1_d{i}"),
+        } for i in range(1, len(d0))
     ]
 
     sweep2_counts = [
         {
-            "a": get_counts("closure_low_leptonb_prompt_a"),
-            "b": get_counts("closure_low_leptonb_prompt_b"),
-            "c": get_counts(f"closure_low_leptonb_prompt_c{i}"),
-            "d": get_counts(f"closure_low_leptonb_prompt_d{i}"),
-        } for i in range(1, len(CLOSURE_D0_SWEEP_VALS))
+            "a": get_counts("closure_sweep_l2_a"),
+            "b": get_counts("closure_sweep_l2_b"),
+            "c": get_counts(f"closure_sweep_l2_c{i}"),
+            "d": get_counts(f"closure_sweep_l2_d{i}"),
+        } for i in range(1, len(d0))
     ]
 
     point1_counts = {
-        "a": get_counts("closure_high_leptona_prompt_a"),
-        "b": get_counts("closure_high_leptona_prompt_b"),
-        "c": get_counts("closure_high_leptona_prompt_c"),
-        "d": get_counts("closure_high_leptona_prompt_d"),
+        "a": get_counts("closure_point_l1_a"),
+        "b": get_counts("closure_point_l1_b"),
+        "c": get_counts("closure_point_l1_c"),
+        "d": get_counts("closure_point_l1_d"),
     }
 
     point2_counts = {
-        "a": get_counts("closure_high_leptonb_prompt_a"),
-        "b": get_counts("closure_high_leptonb_prompt_b"),
-        "c": get_counts("closure_high_leptonb_prompt_c"),
-        "d": get_counts("closure_high_leptonb_prompt_d"),
+        "a": get_counts("closure_point_l2_a"),
+        "b": get_counts("closure_point_l2_b"),
+        "c": get_counts("closure_point_l2_c"),
+        "d": get_counts("closure_point_l2_d"),
     }
 
-    sweep1_ratios = [get_ratio(c) for c in sweep1_counts]
-    sweep2_ratios = [get_ratio(c) for c in sweep2_counts]
+    sweep1_ratios_raw = [get_ratio(c) for c in sweep1_counts]
+    sweep2_ratios_raw = [get_ratio(c) for c in sweep2_counts]
+
+    sweep1_x = [x for x, r in zip(all_x, sweep1_ratios_raw) if r is not None]
+    sweep1_ratios = [r for r in sweep1_ratios_raw if r is not None]
+    sweep2_x = [x for x, r in zip(all_x, sweep2_ratios_raw) if r is not None]
+    sweep2_ratios = [r for r in sweep2_ratios_raw if r is not None]
+
     point1_ratio = get_ratio(point1_counts)
     point2_ratio = get_ratio(point2_counts)
 
-    sweep1_result = extrapolate(sweep1_ratios, args.extrapolation_point)
-    sweep2_result = extrapolate(sweep2_ratios, args.extrapolation_point)
+    sweep1_result = extrapolate(sweep1_x, sweep1_ratios, extrapolation_point) if sweep1_ratios else None
+    sweep2_result = extrapolate(sweep2_x, sweep2_ratios, extrapolation_point) if sweep2_ratios else None
 
-    print("Sweep 1 (lepton a) ratios:")
-    for x, ratio in zip(sweep1_result["x_vals"], sweep1_ratios):
-        print(f"  d0 = {x:.1f} um: {ratio}")
-    print(f"  extrapolated to {args.extrapolation_point} um: {sweep1_result['prediction']}")
+    averaged_sweep_ratio = (
+        (sweep1_result["prediction"] + sweep2_result["prediction"]) / 2
+        if sweep1_result is not None and sweep2_result is not None else None
+    )
+    averaged_point_ratio = (
+        (point1_ratio + point2_ratio) / 2
+        if point1_ratio is not None and point2_ratio is not None else None
+    )
 
-    print("Sweep 2 (lepton b) ratios:")
-    for x, ratio in zip(sweep2_result["x_vals"], sweep2_ratios):
-        print(f"  d0 = {x:.1f} um: {ratio}")
-    print(f"  extrapolated to {args.extrapolation_point} um: {sweep2_result['prediction']}")
+    return {
+        "sweep1_ratios": sweep1_ratios,
+        "sweep2_ratios": sweep2_ratios,
+        "sweep1_result": sweep1_result,
+        "sweep2_result": sweep2_result,
+        "point1_ratio": point1_ratio,
+        "point2_ratio": point2_ratio,
+        "averaged_sweep_ratio": averaged_sweep_ratio,
+        "averaged_point_ratio": averaged_point_ratio,
+    }
 
-    print(f"Point 1 (lepton a, high d0) ratio: {point1_ratio}")
-    print(f"Point 2 (lepton b, high d0) ratio: {point2_ratio}")
 
-    if args.plot and not args.background:
+def print_closure_results(label, results, extrapolation_point):
+    print(f"=== {label} ===")
+
+    for name, key in [("Sweep 1 (lepton a)", "sweep1"), ("Sweep 2 (lepton b)", "sweep2")]:
+        result = results[f"{key}_result"]
+        print(f"{name} ratios:")
+        if result is None:
+            print("  no valid d0 bins (all undefined)")
+            continue
+        for x, ratio in zip(result["x_vals"], results[f"{key}_ratios"]):
+            print(f"  d0 = {x:.1f} um: {ratio}")
+        print(f"  extrapolated to {extrapolation_point} um: {result['prediction']}")
+
+    print(f"Averaged sweep ratio (extrapolated to {extrapolation_point} um): {results['averaged_sweep_ratio']}")
+
+    print(f"Point 1 (lepton a, high d0) ratio: {results['point1_ratio']}")
+    print(f"Point 2 (lepton b, high d0) ratio: {results['point2_ratio']}")
+    print(f"Averaged point ratio: {results['averaged_point_ratio']}")
+    print()
+
+
+def compute_channel_results(input_path, channel, years, extrapolation_point, samples):
+    f = CoffeaFile(input_path)
+
+    def get_bkg_counts(category):
+        return get_bkg_a_u(f, category, years, samples)
+
+    get_counts_by_mode = {
+        "bkg": get_bkg_counts,
+    }
+
+    results_by_mode = {}
+    for mode in MODE_KEYS:
+        results = compute_closure_results(get_counts_by_mode[mode], extrapolation_point)
+        results_by_mode[mode] = results
+        print_closure_results(f"{channel}: {MODE_CONSOLE_LABELS[mode]}", results, extrapolation_point)
+
+    return results_by_mode
+
+
+def format_au_latex(value, decimals=1):
+    if value is None:
+        return "N/A"
+
+    fmt = f"{{:.{decimals}f}}"
+    central = fmt.format(round(value.value, decimals))
+    plus = fmt.format(round(value.plus, decimals))
+    minus = fmt.format(round(value.minus, decimals))
+
+    if plus == minus:
+        return f"${central} \\pm {plus}$"
+    return f"${central}^{{+{plus}}}_{{-{minus}}}$"
+
+
+def build_sweep_table(channel_results, extrapolation_point):
+    channels = list(channel_results.keys())
+
+    lines = [
+        r"\begin{tabular}{lccc}",
+        r"\toprule",
+        " & " + " & ".join(MODE_LATEX_LABELS[mode] for mode in MODE_KEYS) + r" \\",
+        r"\midrule",
+    ]
+    for channel in channels:
+        results_by_mode = channel_results[channel]
+        row = [CHANNEL_LATEX_LABELS[channel]]
+        row.extend(format_au_latex(results_by_mode[mode]["averaged_sweep_ratio"]) for mode in MODE_KEYS)
+        lines.append(" & ".join(row) + r" \\")
+    lines.append(r"\bottomrule")
+    lines.append(r"\end{tabular}")
+    return "\n".join(lines)
+
+
+def build_points_table(channel_results):
+    channels = list(channel_results.keys())
+    point_cols = list(MODE_KEYS)
+
+    lines = [
+        r"\begin{tabular}{l" + "c" * (2 * len(point_cols)) + "}",
+        r"\toprule",
+        " & \\multicolumn{"
+        + str(len(point_cols))
+        + "}{c}{Sideband 1} & \\multicolumn{"
+        + str(len(point_cols))
+        + r"}{c}{Sideband 2} \\",
+        f"\\cmidrule(lr){{2-{1 + len(point_cols)}}} \\cmidrule(lr){{{2 + len(point_cols)}-{1 + 2 * len(point_cols)}}}",
+        " & " + " & ".join([MODE_LATEX_LABELS[mode] for mode in point_cols] * 2) + r" \\",
+        r"\midrule",
+    ]
+    for channel in channels:
+        results_by_mode = channel_results[channel]
+        row = [CHANNEL_LATEX_LABELS[channel]]
+        for point_key in ["point1_ratio", "point2_ratio"]:
+            row.extend(format_au_latex(results_by_mode[mode][point_key]) for mode in point_cols)
+        lines.append(" & ".join(row) + r" \\")
+    lines.append(r"\bottomrule")
+    lines.append(r"\end{tabular}")
+    return "\n".join(lines)
+
+
+def render_latex_table_to_png(table_body, output_stem, dpi=300):
+    tex_content = (
+        "\\documentclass[10pt]{article}\n"
+        "\\usepackage{booktabs}\n"
+        "\\usepackage{amsmath}\n"
+        "\\usepackage[paperwidth=60cm,paperheight=60cm,margin=1cm]{geometry}\n"
+        "\\pagestyle{empty}\n"
+        "\\begin{document}\n"
+        f"{table_body}\n"
+        "\\end{document}\n"
+    )
+
+    output_dir = os.path.dirname(output_stem) or "."
+    stem_name = os.path.basename(output_stem)
+    tex_path = os.path.join(output_dir, f"{stem_name}.tex")
+    with open(tex_path, "w") as fh:
+        fh.write(tex_content)
+
+    subprocess.run(
+        ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "-output-directory", output_dir, tex_path],
+        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT,
+    )
+
+    pdf_path = os.path.join(output_dir, f"{stem_name}.pdf")
+    raw_png_stem = os.path.join(output_dir, f"{stem_name}_raw")
+    subprocess.run(["pdftoppm", "-png", "-r", str(dpi), pdf_path, raw_png_stem], check=True)
+
+    raw_png_path = f"{raw_png_stem}-1.png"
+    final_png_path = f"{output_stem}.png"
+    subprocess.run(
+        ["convert", raw_png_path, "-trim", "+repage", "-bordercolor", "white", "-border", "20", final_png_path],
+        check=True,
+    )
+
+    os.remove(raw_png_path)
+    for ext in (".aux", ".log"):
+        aux_path = os.path.join(output_dir, f"{stem_name}{ext}")
+        if os.path.exists(aux_path):
+            os.remove(aux_path)
+
+    return final_png_path
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("year", nargs="+", choices=["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"])
+    parser.add_argument("--ee", help="Path to the merged coffea file for the ee channel.")
+    parser.add_argument("--emu", help="Path to the merged coffea file for the emu channel.")
+    parser.add_argument("--mumu", help="Path to the merged coffea file for the mumu channel.")
+    parser.add_argument("--plot", action="store_true", help="Save confidence interval plots for the extrapolated data ratio.")
+    parser.add_argument("--use-toys", action="store_true")
+    parser.add_argument("--extrapolation-point", default=200)
+    parser.add_argument("--output-dir", default="plots/closure_test")
+    parser.add_argument("--samples", required=True, help="Comma-separated sample names as stored in the coffea file, e.g. TTbar or DY__ee,DY__mumu")
+    parser.add_argument("--label", required=True, help="Human-readable label for this sample group, used in console output and table headers.")
+    args = parser.parse_args()
+
+    samples = [s.strip() for s in args.samples.split(",")]
+    MODE_CONSOLE_LABELS["bkg"] = args.label
+    MODE_LATEX_LABELS["bkg"] = args.label
+
+    channel_inputs = {
+        channel: path
+        for channel, path in [("ee", args.ee), ("emu", args.emu), ("mumu", args.mumu)]
+        if path
+    }
+    if not channel_inputs:
+        parser.error("at least one of --ee, --emu, --mumu must be given")
+
+    os.makedirs(args.output_dir, exist_ok=True)
+
+    channel_results = {}
+    for channel, input_path in channel_inputs.items():
+        channel_results[channel] = compute_channel_results(
+            input_path, channel, args.year, args.extrapolation_point, samples
+        )
+
+    sweep_table = build_sweep_table(channel_results, args.extrapolation_point)
+    points_table = build_points_table(channel_results)
+
+    sweep_tex_path = os.path.join(args.output_dir, "sweep_table.tex")
+    points_tex_path = os.path.join(args.output_dir, "points_table.tex")
+    with open(sweep_tex_path, "w") as fh:
+        fh.write(sweep_table + "\n")
+    with open(points_tex_path, "w") as fh:
+        fh.write(points_table + "\n")
+    print(f"Wrote {sweep_tex_path}")
+    print(f"Wrote {points_tex_path}")
+
+    sweep_png_path = render_latex_table_to_png(sweep_table, os.path.join(args.output_dir, "sweep_table"))
+    points_png_path = render_latex_table_to_png(points_table, os.path.join(args.output_dir, "points_table"))
+    print(f"Rendered {sweep_png_path}")
+    print(f"Rendered {points_png_path}")
+
+    if args.plot:
         year_label = "-".join(args.year)
-        os.makedirs("plots/closure_test", exist_ok=True)
-        plot_extrapolation(
-            sweep1_result, args.extrapolation_point,
-            f"plots/closure_test/{args.channel}_{year_label}_sweep1.png"
-        )
-        plot_extrapolation(
-            sweep2_result, args.extrapolation_point,
-            f"plots/closure_test/{args.channel}_{year_label}_sweep2.png"
-        )
+        for channel, results_by_mode in channel_results.items():
+            bkg_results = results_by_mode["bkg"]
+            if bkg_results["sweep1_result"] is not None:
+                plot_extrapolation(
+                    bkg_results["sweep1_result"], args.extrapolation_point,
+                    os.path.join(args.output_dir, f"{channel}_{year_label}_sweep1.png")
+                )
+            if bkg_results["sweep2_result"] is not None:
+                plot_extrapolation(
+                    bkg_results["sweep2_result"], args.extrapolation_point,
+                    os.path.join(args.output_dir, f"{channel}_{year_label}_sweep2.png")
+                )
 
 if __name__ == "__main__":
     main()

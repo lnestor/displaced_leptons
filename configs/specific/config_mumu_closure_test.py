@@ -1,4 +1,5 @@
 from configs.common import (
+    DY_SUBSAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,
     get_default_skim_cuts,
@@ -18,7 +19,7 @@ from event_selection import (
 from lib.categories import get_closure_test_cats
 from lib.configurator import Configurator
 from lib.cuts.generic import get_d0_gt, invert_cut
-from lib.custom_fields import define_custom_nano_fields
+from lib.custom_fields import define_custom_nano_fields, define_DY_flavor
 from lib.named_cut import NamedCut
 from workflow import DisplacedLeptonProcessor
 
@@ -33,12 +34,16 @@ cfg = Configurator(
             "samples": ["Muon", *MC_SAMPLES],
             "year": RUN_3_YEARS
         },
+        "subsamples": DY_SUBSAMPLES,
         "priority": ["Muon", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"],
     },
     supplements = get_supplements(),
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="Muon"),
-    custom_fields = {"common": [define_custom_nano_fields]},
+    custom_fields = {
+        "common": [define_custom_nano_fields],
+        "bysample": {"DY": [define_DY_flavor]}
+    },
     object_selections = {
         "Electron": {"cuts": get_ele_cuts("emu")},
         "Muon": {"min": 2, "cuts": get_mu_cuts("mumu")}

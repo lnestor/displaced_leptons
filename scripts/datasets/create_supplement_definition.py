@@ -72,6 +72,21 @@ def get_lumis_from_file(file, lumis_tree_path):
     return list(zip(arrays["run"].tolist(), arrays["luminosityBlock"].tolist()))
 
 
+def load_skim_files(dataset_def, skim_channel, skim_dir="datasets/skims"):
+    """Return the skim ROOT files for a dataset from the already-built skim
+    dataset definition, or None if that definition doesn't have this
+    dataset's key yet."""
+    path = f"{skim_dir}/{skim_channel}/{dataset_def.sample}.json"
+    if not os.path.exists(path):
+        return None
+
+    with open(path) as f:
+        data = json.load(f)
+
+    entry = data.get(dataset_def.key)
+    return entry["files"] if entry else None
+
+
 def get_lumis_from_dataset(dataset, run):
     result = subprocess.run(
         # TODO: Can we make this query based on file, not run? MC only has 1 run,
@@ -171,6 +186,26 @@ def read_supplement_lumis(supp_files, report_fn):
     return supp_lumis_to_file
 
 
+def read_skim_lumis(skim_files, report_fn):
+    """Skim-mode equivalent of read_central_lumis: since the skim file list
+    is already known (unlike central NanoAOD, skim files aren't registered
+    in DAS), read each file's (run, luminosityBlock) directly instead of
+    querying DAS."""
+    skim_file_to_lumis = {}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(get_lumis_from_file, skim_file, "Events"): skim_file
+            for skim_file in skim_files
+        }
+
+        for future in as_completed(futures):
+            skim_file = futures[future]
+            skim_file_to_lumis[skim_file] = future.result()
+            report_fn(advance=1)
+
+    return skim_file_to_lumis
+
+
 def read_central_lumis(dataset, runs, report_fn):
     central_file_to_lumis = {}
     with ThreadPoolExecutor(max_workers=4) as executor:
@@ -187,6 +222,12 @@ def read_central_lumis(dataset, runs, report_fn):
             report_fn(advance=1)
 
     return central_file_to_lumis
+
+
+def resolve_supp_files(dataset_def):
+    """Return the supplement ROOT files for a dataset, or None if nothing
+    is available to process yet."""
+    return eos_helper.try_get_root_files(f"{EOS_REDIRECTOR}{dataset_def.supplements_path}")
 
 
 def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version):
@@ -211,7 +252,7 @@ def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_
     return supp_def
 
 
-def process_dataset(dataset_def, message_queue):
+def process_dataset(dataset_def, supp_files, skim_channel, skim_files, message_queue):
     step_statuses = ["pending", "pending", "pending", "pending"]
 
     def report(advance=0, reset=False, total=None, description=None, **fields):
@@ -223,17 +264,19 @@ def process_dataset(dataset_def, message_queue):
 
     report(started=True)
 
-    supp_files = eos_helper.get_root_files(f"{EOS_REDIRECTOR}/{dataset_def.supplements_path}") # TODO: make eos helper throw exception if this fails
-
     set_step(0, "active", show_bar=True)
     report(reset=True, total=len(supp_files), description="Reading supplement files")
     supp_lumis_to_file = read_supplement_lumis(supp_files, report)
     set_step(0, "done")
 
     set_step(1, "active", show_bar=True)
-    runs = {run for run, _ in supp_lumis_to_file}
-    report(reset=True, total=len(runs), description="Reading central files")
-    central_file_to_lumis = read_central_lumis(dataset_def.nanoaod, runs, report)
+    if skim_channel:
+        report(reset=True, total=len(skim_files), description="Reading skim files")
+        central_file_to_lumis = read_skim_lumis(skim_files, report)
+    else:
+        runs = {run for run, _ in supp_lumis_to_file}
+        report(reset=True, total=len(runs), description="Reading central files")
+        central_file_to_lumis = read_central_lumis(dataset_def.nanoaod, runs, report)
     set_step(1, "done")
 
     set_step(2, "active", show_bar=False)
@@ -282,22 +325,58 @@ def main():
     parser.add_argument("--years", nargs="+", choices=YEARS)
     parser.add_argument("--eras", nargs="+", choices=ERAS)
     parser.add_argument("--definition-path", default="datasets/sources/datasets.yaml")
-    parser.add_argument("--output-dir", default="datasets/supplements")
+    parser.add_argument("--output-dir", default=None, help="Defaults to datasets/supplements, or datasets/skim_supplements when --skim-channel is set")
+    parser.add_argument(
+        "--skim-channel", default=None,
+        help="Match supplement files against a channel's skim output instead of central "
+             "NanoAOD -- reads the skim file list from datasets/skims/<channel>/<sample>.json "
+             "and opens each skim file directly (skim files aren't registered in DAS, so "
+             "there's no dataset to query). Output goes to datasets/skim_supplements/<channel>/."
+    )
     write_mode_group = parser.add_mutually_exclusive_group()
     write_mode_group.add_argument("--overwrite", action="store_true", help="Replace an existing key in the output file")
     write_mode_group.add_argument("--append", action="store_true", help="Merge into an existing key (e.g. add EGamma1 files to EGamma0)")
     args = parser.parse_args()
 
+    output_dir = args.output_dir or ("datasets/skim_supplements" if args.skim_channel else "datasets/supplements")
+    if args.skim_channel:
+        output_dir = f"{output_dir}/{args.skim_channel}"
+
     catalog = DatasetCatalog(args.definition_path)
 
     dataset_defs = catalog.get(sample=args.samples, year=args.years, era=args.eras)
 
-    can_process = [
-        d.key for d in dataset_defs
-        if not has_supplement_definition(d, args.output_dir) or args.overwrite or args.append
+    dataset_defs = [
+        d for d in dataset_defs
+        if not has_supplement_definition(d, output_dir) or args.overwrite or args.append
     ]
+
+    resolved = {}
+    not_ready_no_supplements = []
+    not_ready_no_skim = []
+    for d in dataset_defs:
+        supp_files = resolve_supp_files(d)
+        if supp_files is None:
+            not_ready_no_supplements.append(d.key)
+            continue
+
+        skim_files = None
+        if args.skim_channel:
+            skim_files = load_skim_files(d, args.skim_channel)
+            if skim_files is None:
+                not_ready_no_skim.append(d.key)
+                continue
+
+        resolved[d.key] = (supp_files, skim_files)
+
+    if not_ready_no_supplements:
+        print(f"Skipping {len(not_ready_no_supplements)} dataset(s) with no supplement output yet: {', '.join(not_ready_no_supplements)}")
+    if not_ready_no_skim:
+        print(f"Skipping {len(not_ready_no_skim)} dataset(s) with no skim dataset definition yet: {', '.join(not_ready_no_skim)}")
+
+    can_process = list(resolved.keys())
     if len(can_process) > 0:
-        os.makedirs(args.output_dir, exist_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
 
     with Progress(
         TextColumn("[bold]{task.fields[dataset]:<30}"),
@@ -326,16 +405,19 @@ def main():
                 if "step_statuses" in fields:
                     step_statuses_by_key[key] = fields["step_statuses"]
 
-        with mp.Pool(processes=3, maxtasksperchild=1) as pool:
+        with mp.Pool(processes=1, maxtasksperchild=1) as pool:
             pending = {
-                d.key: pool.apply_async(process_dataset, args=(d, message_queue))
+                d.key: pool.apply_async(
+                    process_dataset,
+                    args=(d, resolved[d.key][0], args.skim_channel, resolved[d.key][1], message_queue)
+                )
                 for d in dataset_defs if d.key in can_process
             }
 
             try:
                 while pending:
                     cleanup_finished_tasks(
-                        pending, args.output_dir, args.overwrite, args.append,
+                        pending, output_dir, args.overwrite, args.append,
                         progress, tasks, step_statuses_by_key,
                     )
 

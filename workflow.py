@@ -11,7 +11,6 @@ import lib.awkward_helper as ak_help
 
 CENTRAL_NANOAOD_FLAG = 0
 
-RUN_2_YEARS = ['2016_PreVFP', '2016_PostVFP', '2017', '2018']
 
 class DisplacedLeptonProcessor(BaseProcessorABC):
     def __init__(self, cfg):
@@ -27,15 +26,16 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def apply_object_preselection(self, variation):
-        self._define_custom_fields()
+        self._define_custom_fields(self.cfg.custom_fields.get("preselection", {}))
         self._apply_object_cuts(variation)
+        self._define_custom_fields(self.cfg.custom_fields.get("postselection", {}))
 
 
-    def _define_custom_fields(self):
-        for fn in self.cfg.custom_fields.get("common", []):
+    def _define_custom_fields(self, fields):
+        for fn in fields.get("common", []):
             fn(self.events, self._year, self._isMC, self._supplement_version)
 
-        for fn in self.cfg.custom_fields.get("bysample", {}).get(self._sample, []):
+        for fn in fields.get("bysample", {}).get(self._sample, []):
             fn(self.events, self._year, self._isMC, self._supplement_version)
 
 
@@ -83,8 +83,10 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         das_names = self.events.metadata["das_names"]
 
+        supplement_jsons = self.cfg.supplements.get("skims" if self._isSkim else "jsons", [])
+
         matched_json = None
-        for supplement_json in self.cfg.supplements:
+        for supplement_json in supplement_jsons:
             # LPCCondorCluster ships transfer_input_files flat into the worker's
             # working directory, not preserving the original relative path.
             path = supplement_json if os.path.exists(supplement_json) else os.path.basename(supplement_json)
@@ -127,6 +129,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
 
     def process_extra_after_skim(self):
+        self._update_skim_cutflow_cumulative()
+
         diag = self._supplement_diag()
         diag["chunks_after_skim"] += 1
 
@@ -189,6 +193,8 @@ class DisplacedLeptonProcessor(BaseProcessorABC):
 
         self.output["cutflow_cumulative"]["initial"][self._dataset] = self.nEvents_initial - n_missing
 
+
+    def _update_skim_cutflow_cumulative(self):
         names = list(self._skim_masks.names)
         for i, cut_name in enumerate(names):
             cumul = ak.sum(self._skim_masks.all(*names[:i+1]))

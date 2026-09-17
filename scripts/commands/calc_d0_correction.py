@@ -14,7 +14,7 @@ from scripts.plotting.util import cms_loc_val
 hep.style.use("CMS")
 
 CAT = "pcr_absd0_um"
-YEARS = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024"]
+YEARS = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
 
 
 # TODO: extract this into class

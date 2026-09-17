@@ -167,6 +167,7 @@ def _launch_tmux():
 @click.option("-lc","--limit-chunks", type=int, help="Limit number of chunks", default=None)
 @click.option("-s","--scaleout", type=int, help="Overwrite scaleout config" )
 @click.option("-c","--chunksize", type=int, help="Overwrite chunksize config" )
+@click.option("-tr","--tree-reduction", type=int, help="Overwrite tree-reduction config" )
 @click.option("-q","--queue", type=str, help="Overwrite queue config" )
 @click.option("--filter-years", type=str, help="Filter the data taking period of the datasets to be processed (comma separated list)")
 @click.option("--filter-samples", type=str, help="Filter the samples to be processed (comma separated list)")
@@ -174,7 +175,7 @@ def _launch_tmux():
 @click.option("--resubmit-failed", is_flag=True, help="Resubmit only failed datasets and previously-skipped files from the previous run (from failed_jobs.json and/or failed_files.csv)", default=False)
 @click.option("--launch-tmux", is_flag=True, help="")
 def run(cfg,  custom_run_options, outputdir, test, limit_files,
-           limit_chunks, scaleout, chunksize, queue,
+           limit_chunks, scaleout, chunksize, tree_reduction, queue,
            filter_years, filter_samples, filter_datasets, resubmit_failed,
            launch_tmux):
 
@@ -259,6 +260,9 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
 
     if chunksize!=None:
         run_options["chunksize"] = chunksize
+
+    if tree_reduction!=None:
+        run_options["tree-reduction"] = tree_reduction
 
     if queue!=None:
         run_options["queue"] = queue

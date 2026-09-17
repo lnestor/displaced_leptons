@@ -31,7 +31,7 @@ cfg = Configurator(
     parameters = params,
     datasets = {
         "jsons": get_datasets("central"),
-        "skims": get_datasets("skims/emu"),
+        "skims": get_datasets("skims/test/emu"),
         "filter": {
             "samples": ["MuonEG", *MC_SAMPLES],
             "year": RUN_3_YEARS
@@ -53,8 +53,8 @@ cfg = Configurator(
         NamedCut(cut=get_no_in_material_vtx(channel="emu"), label="Material vtx")
     ],
     categories = {
-        "pcr": get_pcr_cat(channel="emu", field="absd0_um", threshold=PCR_THRESHOLD)["pcr"],
-        "pcr_uncorrected": get_pcr_cat(channel="emu", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD)["pcr"],
+        **get_pcr_cat(channel="emu", field="absd0_um", threshold=PCR_THRESHOLD),
+        **get_pcr_cat(channel="emu", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD),
     },
     hists = {
         **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron", threshold=PCR_THRESHOLD),

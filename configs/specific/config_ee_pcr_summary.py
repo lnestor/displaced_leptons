@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     MC_SAMPLES,
     RUN_3_YEARS,
     get_params,
@@ -18,8 +18,8 @@ from lib.named_cut import NamedCut
 from pocket_coffea.lib.cut_functions import get_nObj_min
 from lib.categories import get_pcr_cat
 from lib.cuts.generic import get_d0_gt, invert_cut
-from hists import pcr_hists
-from event_selection import get_min_deltaR, get_no_in_material_vtx
+from lib.hists import pcr_hists
+from lib.cuts.event_selection import get_min_deltaR, get_no_in_material_vtx
 
 params = get_params()
 

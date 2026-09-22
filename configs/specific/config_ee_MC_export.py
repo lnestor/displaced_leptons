@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     MC_SAMPLES,
     RUN_3_YEARS,
     get_default_skim_cuts,
@@ -8,7 +8,7 @@ from configs.common import (
     get_supplements,
     get_ele_cuts
 )
-from event_selection import get_min_deltaR, get_no_in_material_vtx
+from lib.cuts.event_selection import get_min_deltaR, get_no_in_material_vtx
 from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut

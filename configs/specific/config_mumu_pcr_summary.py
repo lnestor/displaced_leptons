@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     MC_SAMPLES,
     RUN_3_YEARS,
     get_default_skim_cuts,
@@ -9,13 +9,13 @@ from configs.common import (
     get_mu_cuts,
     get_supplements
 )
-from event_selection import (
+from lib.cuts.event_selection import (
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
     get_min_deltaR,
     get_no_in_material_vtx
 )
-from hists import pcr_hists
+from lib.hists import pcr_hists
 from lib.categories import get_pcr_cat
 from lib.configurator import Configurator
 from lib.cuts.generic import get_d0_gt, invert_cut

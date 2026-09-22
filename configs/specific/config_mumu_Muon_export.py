@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     RUN_3_YEARS,
     get_default_skim_cuts,
     get_params,
@@ -8,7 +8,7 @@ from configs.common import (
     get_ele_cuts,
     get_mu_cuts,
 )
-from event_selection import (
+from lib.cuts.event_selection import (
     get_min_deltaR,
     get_min_muon_delta_t,
     get_n_back_to_back_muons,

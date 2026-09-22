@@ -2,7 +2,7 @@ from pocket_coffea.lib.cut_functions import get_HLTsel_custom
 from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
-from common import (
+from lib.configuration import (
     MC_SAMPLES,
     RUN_3_YEARS,
     get_default_skim_cuts,
@@ -12,7 +12,7 @@ from common import (
     get_supplements,
     get_mu_cuts
 )
-from event_selection import (
+from lib.cuts.event_selection import (
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
     get_min_deltaR,

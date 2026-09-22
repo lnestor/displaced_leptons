@@ -2,7 +2,7 @@ from pocket_coffea.lib.cut_functions import get_HLTsel_custom
 from pocket_coffea.parameters.cuts import passthrough
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
-from common import (
+from lib.configuration import (
     MC_SAMPLES,
     RUN_3_YEARS,
     get_default_skim_cuts,
@@ -12,7 +12,7 @@ from common import (
     get_supplements,
     get_ele_cuts
 )
-from event_selection import get_min_deltaR, get_no_in_material_vtx, get_min_n_pt
+from lib.cuts.event_selection import get_min_deltaR, get_no_in_material_vtx, get_min_n_pt
 from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut

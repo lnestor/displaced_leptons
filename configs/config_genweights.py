@@ -1,6 +1,6 @@
 import awkward as ak
 
-from common import (
+from lib.configuration import (
     get_params,
     get_datasets,
     register_modules,

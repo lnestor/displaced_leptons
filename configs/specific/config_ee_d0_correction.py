@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     RUN_3_YEARS,
     get_datasets,
     get_default_skim_cuts,
@@ -8,7 +8,7 @@ from configs.common import (
     get_supplements,
     register_modules
 )
-from event_selection import get_min_deltaR, get_no_in_material_vtx
+from lib.cuts.event_selection import get_min_deltaR, get_no_in_material_vtx
 from lib.cuts.generic import get_d0_gt, invert_cut
 from lib.categories import get_pcr_cat
 from lib.configurator import Configurator

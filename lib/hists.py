@@ -1,6 +1,20 @@
+import numpy as np
+
 from pocket_coffea.parameters.histograms import HistConf, Axis
 
-from configs.common import MC_SAMPLES
+from lib.configuration import MC_SAMPLES
+
+
+def _zero_floor_bins(first_edge, high, growth=2):
+    edges = [0.0, first_edge]
+    while edges[-1] < high:
+        edges.append(edges[-1] * growth)
+    return edges
+
+
+def _signed_zero_floor_bins(first_edge, high, growth=2):
+    positive = _zero_floor_bins(first_edge, high, growth)
+    return [-e for e in reversed(positive[1:])] + positive
 
 
 def lepton_hists(coll=None, label=None, pos=None, only_categories=None):
@@ -64,39 +78,30 @@ def _get_legs_from_channel(channel):
 
 def genvtx_hists(only_categories=None):
     return {
-        "genvtx_v0": _hist(coll="GenVtx", field="v0_um", bins=100, start=0, stop=1e5, label=r"GenVtx $v_0$ [$\mu m$]", cats=only_categories, samples=MC_SAMPLES),
-        "genvtx_x_vs_y": HistConf([
-            Axis(coll="GenVtx", field="x", bins=100, start=-0.02, stop=0.02, label=r"GenVtx $x$ [cm]"),
-            Axis(coll="GenVtx", field="y", bins=100, start=-0.02, stop=0.02, label=r"GenVtx $y$ [cm]"),
+        "InteractionPoint_r": _hist(coll="GenVtx", field="r", bins=120, start=0, stop=0.12, label=r"Interaction point $r$ [cm]", cats=only_categories, samples=MC_SAMPLES),
+        "InteractionPoint_x_vs_y": HistConf([
+            Axis(coll="GenVtx", field="x", bins=100, start=0.02, stop=0.11, label=r"Interaction point $x$ [cm]"),
+            Axis(coll="GenVtx", field="y", bins=100, start=-0.025, stop=-0.005, label=r"Interaction point $y$ [cm]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
     }
 
 
 def lepton_displacement_hists(coll=None, label=None, pos=None, only_categories=None):
     return {
-        f"{label}_v0_origin": _hist(
-            coll=coll, pos=pos, field="v0_origin_um", bins=100, start=0, stop=1e5,
-            label=rf"{label} $v_0$ (origin) [$\mu m$]", cats=only_categories, samples=MC_SAMPLES
-        ),
-        f"{label}_v0_genvtx": _hist(
-            coll=coll, pos=pos, field="v0_genvtx_um", bins=100, start=0, stop=2000,
-            label=rf"{label} $v_0$ (GenVtx) [$\mu m$]", cats=only_categories, samples=MC_SAMPLES
-        ),
-        f"{label}_vx_vs_vy_origin": HistConf([
-            Axis(coll=coll, pos=pos, field="genVtx_x", bins=100, start=-0.02, stop=0.02, label=rf"{label} $v_x$ (origin) [cm]"),
-            Axis(coll=coll, pos=pos, field="genVtx_y", bins=100, start=-0.02, stop=0.02, label=rf"{label} $v_y$ (origin) [cm]"),
+        f"{label}_lxy": HistConf([
+            Axis(coll=coll, pos=pos, field="lxy", bins=_zero_floor_bins(5e-4, 16), label=rf"{label} $L_{{xy}}$ [cm]")
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
-        f"{label}_vx_vs_vy_genvtx": HistConf([
-            Axis(coll=coll, pos=pos, field="v0_genvtx_x_um", bins=100, start=-200, stop=200, label=rf"{label} $v_x$ (GenVtx) [$\mu m$]"),
-            Axis(coll=coll, pos=pos, field="v0_genvtx_y_um", bins=100, start=-200, stop=200, label=rf"{label} $v_y$ (GenVtx) [$\mu m$]"),
+        f"{label}_dx_vs_dy": HistConf([
+            Axis(coll=coll, pos=pos, field="dx", bins=_signed_zero_floor_bins(5e-4, 16), label=rf"{label} $dx$ [cm]"),
+            Axis(coll=coll, pos=pos, field="dy", bins=_signed_zero_floor_bins(5e-4, 16), label=rf"{label} $dy$ [cm]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
-        f"{label}_parentpt_vs_v0": HistConf([
+        f"{label}_parentpt_vs_lxy": HistConf([
             Axis(coll=coll, pos=pos, field="uniqueGenPartMotherPt", bins=100, start=0, stop=500, label=rf"{label} direct parent $p_T$ [GeV]"),
-            Axis(coll=coll, pos=pos, field="v0_genvtx_um", bins=100, start=0, stop=2000, label=rf"{label} $v_0$ (GenVtx) [$\mu m$]"),
+            Axis(coll=coll, pos=pos, field="lxy", bins=_zero_floor_bins(5e-4, 16), label=rf"{label} $L_{{xy}}$ [cm]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
         f"{label}_parentpt_vs_d0": HistConf([
             Axis(coll=coll, pos=pos, field="uniqueGenPartMotherPt", bins=100, start=0, stop=500, label=rf"{label} direct parent $p_T$ [GeV]"),
-            Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label} $|d_0|$ [$\mu m$]"),
+            Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=600, label=rf"{label} $|d_0|$ [$\mu m$]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
     }
 
@@ -105,25 +110,18 @@ def correlation_hists(channel, only_categories=None):
     (coll1, pos1, label1), (coll2, pos2, label2) = _get_legs_from_channel(channel)
 
     return {
-        "v0_vs_v0_origin": HistConf([
-            Axis(name="v0_vs_v0_origin_leg1", coll=coll1, pos=pos1, field="v0_origin_um", bins=100, start=0, stop=1e5, label=rf"{label1} $v_0$ (origin) [$\mu m$]"),
-            Axis(name="v0_vs_v0_origin_leg2", coll=coll2, pos=pos2, field="v0_origin_um", bins=100, start=0, stop=1e5, label=rf"{label2} $v_0$ (origin) [$\mu m$]"),
+        "lxy_vs_lxy": HistConf([
+            Axis(name="lxy_vs_lxy_leg1", coll=coll1, pos=pos1, field="lxy", bins=_zero_floor_bins(5e-4, 16), label=rf"{label1} $L_{{xy}}$ [cm]"),
+            Axis(name="lxy_vs_lxy_leg2", coll=coll2, pos=pos2, field="lxy", bins=_zero_floor_bins(5e-4, 16), label=rf"{label2} $L_{{xy}}$ [cm]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
-        "v0_vs_v0_genvtx": HistConf([
-            Axis(name="v0_vs_v0_genvtx_leg1", coll=coll1, pos=pos1, field="v0_genvtx_um", bins=100, start=0, stop=2000, label=rf"{label1} $v_0$ (GenVtx) [$\mu m$]"),
-            Axis(name="v0_vs_v0_genvtx_leg2", coll=coll2, pos=pos2, field="v0_genvtx_um", bins=100, start=0, stop=2000, label=rf"{label2} $v_0$ (GenVtx) [$\mu m$]"),
-        ], only_categories=only_categories, only_samples=MC_SAMPLES),
-        "v0_vs_v0_origin_extrap": HistConf([
-            Axis(name="v0_vs_v0_origin_extrap_leg1", coll=coll1, pos=pos1, field="v0_extrap_origin_um", bins=100, start=0, stop=2000, label=rf"{label1} extrapolated $v_0$ (origin) [$\mu m$]"),
-            Axis(name="v0_vs_v0_origin_extrap_leg2", coll=coll2, pos=pos2, field="v0_extrap_origin_um", bins=100, start=0, stop=2000, label=rf"{label2} extrapolated $v_0$ (origin) [$\mu m$]"),
-        ], only_categories=only_categories, only_samples=MC_SAMPLES),
-        "v0_vs_v0_genvtx_extrap": HistConf([
-            Axis(name="v0_vs_v0_genvtx_extrap_leg1", coll=coll1, pos=pos1, field="v0_extrap_genvtx_um", bins=100, start=0, stop=2000, label=rf"{label1} extrapolated $v_0$ (GenVtx) [$\mu m$]"),
-            Axis(name="v0_vs_v0_genvtx_extrap_leg2", coll=coll2, pos=pos2, field="v0_extrap_genvtx_um", bins=100, start=0, stop=2000, label=rf"{label2} extrapolated $v_0$ (GenVtx) [$\mu m$]"),
-        ], only_categories=only_categories, only_samples=MC_SAMPLES),
+        # v0_vs_v0_genvtx_extrap disabled -- range unclear, add back if needed
+        # "v0_vs_v0_genvtx_extrap": HistConf([
+        #     Axis(name="v0_vs_v0_genvtx_extrap_leg1", coll=coll1, pos=pos1, field="v0_extrap_genvtx_um", bins=100, start=0, stop=600, label=rf"{label1} extrapolated $v_0$ (GenVtx) [$\mu m$]"),
+        #     Axis(name="v0_vs_v0_genvtx_extrap_leg2", coll=coll2, pos=pos2, field="v0_extrap_genvtx_um", bins=100, start=0, stop=600, label=rf"{label2} extrapolated $v_0$ (GenVtx) [$\mu m$]"),
+        # ], only_categories=only_categories, only_samples=MC_SAMPLES),
         "d0_vs_d0": HistConf([
-            Axis(name="d0_vs_d0_leg1", coll=coll1, pos=pos1, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label1} $|d_0|$ [$\mu m$]"),
-            Axis(name="d0_vs_d0_leg2", coll=coll2, pos=pos2, field="absd0_um", bins=100, start=0, stop=2000, label=rf"{label2} $|d_0|$ [$\mu m$]"),
+            Axis(name="d0_vs_d0_leg1", coll=coll1, pos=pos1, field="absd0_um", bins=100, start=0, stop=300, label=rf"{label1} $|d_0|$ [$\mu m$]"),
+            Axis(name="d0_vs_d0_leg2", coll=coll2, pos=pos2, field="absd0_um", bins=100, start=0, stop=300, label=rf"{label2} $|d_0|$ [$\mu m$]"),
         ], only_categories=only_categories),
         # systemboost_vs_v0_vs_v0 and systemboost_reco_vs_d0_vs_d0 are no longer populated (all NaNs)
         # "systemboost_vs_v0_vs_v0": HistConf([

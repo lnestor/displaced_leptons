@@ -2,9 +2,9 @@ from pocket_coffea.lib.cut_functions import get_HLTsel, goldenJson, eventFlags
 from pocket_coffea.parameters import defaults
 
 from lib.named_cut import NamedCut
-from event_selection import get_DY_flavor
+from lib.cuts.event_selection import get_DY_flavor
 from lib.cuts.generic import get_d0_lt, get_d0_gt
-from object_selection import (
+from lib.cuts.object_selection import (
     get_min_pt,
     get_max_eta,
     get_sc_gap_veto,
@@ -111,28 +111,28 @@ def get_mu_cuts(channel, skip_pt=False):
 
 def register_modules():
     import cloudpickle
-    import workflow
-    import event_selection
-    import object_selection
-    import hists
+    import lib.workflow.analysis_processor as analysis_processor
+    import lib.cuts.event_selection as event_selection
+    import lib.cuts.object_selection as object_selection
+    import lib.hists as hists
     import lib
     import lib.named_cut as named_cut
-    import lib.object_cutflow as object_cutflow
     import lib.categories as categories
     import lib.workflow.join_diagnostic_processor as join_diagnostic_processor
+    import lib.workflow.supplement as supplement
     import lib.workflow.runner as runner
-    import configs.common as configs_common
-    cloudpickle.register_pickle_by_value(workflow)
+    import lib.configuration as configuration
+    cloudpickle.register_pickle_by_value(analysis_processor)
     cloudpickle.register_pickle_by_value(event_selection)
     cloudpickle.register_pickle_by_value(object_selection)
     cloudpickle.register_pickle_by_value(hists)
     cloudpickle.register_pickle_by_value(lib)
     cloudpickle.register_pickle_by_value(named_cut)
-    cloudpickle.register_pickle_by_value(object_cutflow)
     cloudpickle.register_pickle_by_value(categories)
     cloudpickle.register_pickle_by_value(join_diagnostic_processor)
+    cloudpickle.register_pickle_by_value(supplement)
     cloudpickle.register_pickle_by_value(runner)
-    cloudpickle.register_pickle_by_value(configs_common)
+    cloudpickle.register_pickle_by_value(configuration)
 
 
 def get_params():

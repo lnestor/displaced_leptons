@@ -1,6 +1,6 @@
 import numpy as np
 
-from configs.common import (
+from lib.configuration import (
     RUN_3_YEARS,
     get_params,
     get_datasets,

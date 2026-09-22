@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     DY_SUBSAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,
@@ -10,7 +10,7 @@ from configs.common import (
     get_mu_cuts,
     get_supplements
 )
-from event_selection import (
+from lib.cuts.event_selection import (
     get_n_back_to_back_muons,
     get_min_muon_delta_t,
     get_min_deltaR,

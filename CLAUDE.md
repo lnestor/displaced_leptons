@@ -44,8 +44,10 @@ Below are some notable directories and files.
 | `lib/workflow/analysis_processor.py` | `AnalysisProcessor` - builds good objects from the config, runs custom fields, joins supplement files |
 | `lib/` | Contains non-script related code that is meant to be shared in analysis code |
 | `scripts/` | Contains scripts and shared code that is to be run after analysis jobs finish |
-| `object_selection.py` | Cut definitions for specific physics objects |
-| `event_selection.py` | Cut definitions for entire events |
+| `lib/configuration.py` | Shared config helpers: years, samples, skim/object cut lists, dataset/supplement globbing, `register_modules()` |
+| `lib/cuts/object_selection.py` | Cut definitions for specific physics objects |
+| `lib/cuts/event_selection.py` | Cut definitions for entire events |
+| `lib/hists.py` | Histogram definitions shared across configs |
 | `params/` | YAML parameter files (object selection, triggers, regions) |
 | `datasets/` | Dataset and supplement JSON files for PocketCoffea input |
 | `datasets/sources/datasets.yaml` | Single source of truth for all dataset information |

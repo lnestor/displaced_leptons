@@ -1,4 +1,4 @@
-from configs.common import (
+from lib.configuration import (
     DY_SUBSAMPLES,
     MC_SAMPLES,
     RUN_3_YEARS,
@@ -26,8 +26,8 @@ from lib.named_cut import NamedCut
 from pocket_coffea.lib.cut_functions import get_nObj_min
 from lib.categories import get_baseline_cat, get_closure_test_cats
 from lib.cuts.generic import get_d0_gt, invert_cut
-from event_selection import get_min_deltaR, get_no_in_material_vtx
-from hists import correlation_hists, genvtx_hists, lepton_displacement_hists
+from lib.cuts.event_selection import get_min_deltaR, get_no_in_material_vtx
+from lib.hists import correlation_hists, genvtx_hists, lepton_displacement_hists
 
 params = get_params()
 

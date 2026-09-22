@@ -41,8 +41,10 @@ cfg = Configurator(
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="Muon"),
     custom_fields = {
-        "common": [define_custom_nano_fields],
-        "bysample": {"DY": [define_DY_flavor]}
+        "preselection": {
+            "common": [define_custom_nano_fields],
+            "bysample": {"DY": [define_DY_flavor]}
+        }
     },
     object_selections = {
         "Electron": {"cuts": get_ele_cuts("emu")},

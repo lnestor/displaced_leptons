@@ -57,7 +57,9 @@ cfg = Configurator(
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
     custom_fields = {
-        "common": [define_custom_nano_fields]
+        "preselection": {
+            "common": [define_custom_nano_fields]
+        }
     },
     object_selections = {
         "Electron": {"min": 2, "cuts": get_ele_cuts("ee", skip_pt=True, split_id=True)}

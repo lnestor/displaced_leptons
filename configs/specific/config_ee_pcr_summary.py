@@ -37,7 +37,7 @@ cfg = Configurator(
     supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="EGamma"),
-    custom_fields = {"common": [define_custom_nano_fields]},
+    custom_fields = {"preselection": {"common": [define_custom_nano_fields]}},
     object_selections = {
         "Electron": {"min": 2, "cuts": get_ele_cuts("ee")},
         "Muon": {"cuts": get_mu_cuts("emu")}
@@ -49,7 +49,7 @@ cfg = Configurator(
     ],
     categories = {
         "pcr": get_pcr_cat(channel="ee", field="absd0_um", threshold=PCR_THRESHOLD)["pcr"],
-        "pcr_uncorrected": get_pcr_cat(channel="ee", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD)["pcr"],
+        "pcr_uncorrected": get_pcr_cat(channel="ee", field="absd0_um_original", threshold=PCR_THRESHOLD)["pcr"],
     },
     hists = {
         **pcr_hists(coll="ElectronGood", label="AllElectron", threshold=PCR_THRESHOLD),

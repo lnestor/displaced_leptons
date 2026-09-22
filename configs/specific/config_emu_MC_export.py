@@ -40,7 +40,7 @@ cfg = Configurator(
     workflow_options = {"skim_mode": "presel_any_variation"},
     save_skimmed_files = "root://cmseos.fnal.gov//store/user/lnestor/skims_staging/emu/",
     skim = get_default_skim_cuts(sample=["MuonEG", "MET"]),
-    custom_fields = {"common": [define_custom_nano_fields]},
+    custom_fields = {"preselection": {"common": [define_custom_nano_fields]}},
     object_selections = {
         # Specifically skipping pt cut for trigger efficiency measurement
         "Electron": {"min": 1, "cuts": get_ele_cuts("emu", skip_pt=True)},

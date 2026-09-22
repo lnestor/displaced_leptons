@@ -42,7 +42,7 @@ cfg = Configurator(
     supplements = {"jsons": get_supplements("supplements")},
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="Muon"),
-    custom_fields = {"common": [define_custom_nano_fields]},
+    custom_fields = {"preselection": {"common": [define_custom_nano_fields]}},
     object_selections = {
         "Electron": {"cuts": get_ele_cuts("emu")},
         "Muon": {"min": 2, "cuts": get_mu_cuts("mumu")}
@@ -56,7 +56,7 @@ cfg = Configurator(
     ],
     categories = {
         "pcr": get_pcr_cat(channel="mumu", field="absd0_um", threshold=PCR_THRESHOLD)["pcr"],
-        "pcr_uncorrected": get_pcr_cat(channel="mumu", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD)["pcr"],
+        "pcr_uncorrected": get_pcr_cat(channel="mumu", field="absd0_um_original", threshold=PCR_THRESHOLD)["pcr"],
     },
     hists = {
         **pcr_hists(coll="MuonGood", pos=0, label="LeadingMuon", threshold=PCR_THRESHOLD),

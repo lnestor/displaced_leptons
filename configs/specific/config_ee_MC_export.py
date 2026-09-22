@@ -34,7 +34,7 @@ cfg = Configurator(
     workflow_options = {"skim_mode": "presel_any_variation"},
     save_skimmed_files = "root://cmseos.fnal.gov//store/user/lnestor/skims_staging/ee/",
     skim = get_default_skim_cuts(sample=["EGamma", "MET"]),
-    custom_fields = {"common": [define_custom_nano_fields]},
+    custom_fields = {"preselection": {"common": [define_custom_nano_fields]}},
     object_selections = {
         # Specifically skipping pt cut for trigger efficiency measurements
         "Electron": {"min": 2, "cuts": get_ele_cuts("ee", skip_pt=True)}

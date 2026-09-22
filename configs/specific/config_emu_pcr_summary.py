@@ -31,7 +31,7 @@ cfg = Configurator(
     parameters = params,
     datasets = {
         "jsons": get_datasets("central"),
-        "skims": get_datasets("skims/test/emu"),
+        "skims": get_datasets("skims/emu"),
         "filter": {
             "samples": ["MuonEG", *MC_SAMPLES],
             "year": RUN_3_YEARS
@@ -40,11 +40,11 @@ cfg = Configurator(
     },
     supplements = {
         "jsons": get_supplements("supplements"),
-        "skims": get_supplements("skim_supplements/test/emu")
+        "skims": get_supplements("skim_supplements/emu")
     },
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MuonEG"),
-    custom_fields = { "common": [define_custom_nano_fields] },
+    custom_fields = { "preselection": { "common": [define_custom_nano_fields] } },
     object_selections = {
         "Electron": {"min": 1, "cuts": get_ele_cuts("emu")},
         "Muon": {"min": 1, "cuts": get_mu_cuts("emu")}
@@ -57,7 +57,7 @@ cfg = Configurator(
     ],
     categories = {
         **get_pcr_cat(channel="emu", field="absd0_um", threshold=PCR_THRESHOLD),
-        **get_pcr_cat(channel="emu", field="absd0_um_uncorrected", threshold=PCR_THRESHOLD),
+        **get_pcr_cat(channel="emu", field="absd0_um_original", threshold=PCR_THRESHOLD),
     },
     hists = {
         **pcr_hists(coll="ElectronGood", pos=0, label="LeadingElectron", threshold=PCR_THRESHOLD),

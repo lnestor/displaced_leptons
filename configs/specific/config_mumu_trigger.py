@@ -55,7 +55,9 @@ cfg = Configurator(
     workflow = DisplacedLeptonProcessor,
     skim = get_default_skim_cuts(sample="MET"),
     custom_fields = {
-        "common": [define_custom_nano_fields]
+        "preselection": {
+            "common": [define_custom_nano_fields]
+        }
     },
     object_selections = {
         "Muon": {"min": 2, "cuts": get_mu_cuts("mumu", skip_pt=True)}

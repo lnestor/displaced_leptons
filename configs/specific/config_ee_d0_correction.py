@@ -14,9 +14,10 @@ from lib.categories import get_pcr_cat
 from lib.configurator import Configurator
 from lib.custom_fields import define_custom_nano_fields
 from lib.named_cut import NamedCut
+from pocket_coffea.lib.cut_functions import get_nObj_min
 from pocket_coffea.lib.calibrators.common import ElectronsScaleCalibrator, MuonsCalibrator
 from pocket_coffea.parameters.histograms import HistConf, Axis
-from workflow import DisplacedLeptonProcessor
+from lib.workflow.analysis_processor import AnalysisProcessor
 
 register_modules()
 params = get_params()
@@ -33,14 +34,15 @@ cfg = Configurator(
         }
     },
     supplements = {"jsons": get_supplements("supplements")},
-    workflow = DisplacedLeptonProcessor,
+    workflow = AnalysisProcessor,
     skim = get_default_skim_cuts(sample="EGamma"),
     custom_fields = {"preselection": {"common": [define_custom_nano_fields]}},
     object_selections = {
-        "Electron": {"min": 2, "cuts": get_ele_cuts("ee")},
-        "Muon": {"cuts": get_mu_cuts("emu")}
+        "Electron": get_ele_cuts("ee"),
+        "Muon": get_mu_cuts("emu")
     },
     event_preselections = [
+        NamedCut(get_nObj_min(2, coll="ElectronGood"), ">= 2 good electrons"),
         NamedCut(get_min_deltaR("ElectronGood", "ElectronGood", 0.2), "min deltaR"),
         NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices"),
         NamedCut(invert_cut(get_d0_gt("MuonGood", 100)), "emu veto")

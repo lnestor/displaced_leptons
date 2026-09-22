@@ -18,19 +18,19 @@ Normal NanoAOD files do not have all information we need. We use "supplement" fi
 
 ### Object Selection
 
-Normal PocketCoffea recommendations define a set of "good physics objects" and then makes cut on those. This analysis has customized this to track events that fail object selections for cutflow plotting. Object selections can optionally be set as event selections using the `min` keyword in the configuration.
+Object cuts are defined in the configuration (`object_selections`) rather than hardcoded in the processor, and build the `{coll}Good` collections. Object selections never drop events; require a number of good objects with an event preselection instead (e.g. `get_nObj_min(2, coll="ElectronGood")`).
 
 
 ### Custom Processor/Configurator
 
-The PocketCoffea processor and configuration classes have been heavily customized to allow defining everything in the configuration rather than code changes in the processor. The custom processor also adds supplement file joining and individual cut cutflow tracking.
+The PocketCoffea processor and configuration classes have been heavily customized to allow defining everything in the configuration rather than code changes in the processor. The custom processor also adds supplement file joining (see `lib/workflow/supplement.py`).
 
 The new keys to the configuration are:
 
  - `datasets["priority"]`: allows specifying an order to process datasets in
  - `supplements`: points to the supplement definition JSON files, akin to `datasets`
  - `custom_fields`: a list of functions that will define custom fields on the objects passing the skim
- - `object_selections`: a dict whose keys are the name of a collection and values specify which cuts to use. For example, `object_selections["Electron"]: {"min": 1, "cuts": my_cuts}` specifys all electrons must pass `my_cuts`, and at each step 1 electron must pass. Any events who don't have a single electron passing will be dropped. This is where object selections can act as event selections
+ - `object_selections`: a dict mapping a collection name to its list of object cuts. For example, `object_selections["Electron"] = my_cuts` builds `ElectronGood` from electrons passing all of `my_cuts`
  - `event_preselections`: renamed from `preselections` for clarity
 
 
@@ -41,7 +41,7 @@ Below are some notable directories and files.
 | File/Dir | Purpose |
 |---|---|
 | `configs` | Top-level configurations for different channels |
-| `workflow.py` | `DisplacedLeptonProcessor` — applies object and event selection |
+| `lib/workflow/analysis_processor.py` | `AnalysisProcessor` - builds good objects from the config, runs custom fields, joins supplement files |
 | `lib/` | Contains non-script related code that is meant to be shared in analysis code |
 | `scripts/` | Contains scripts and shared code that is to be run after analysis jobs finish |
 | `object_selection.py` | Cut definitions for specific physics objects |

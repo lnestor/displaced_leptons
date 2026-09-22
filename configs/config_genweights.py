@@ -10,7 +10,7 @@ register_modules()
 from pocket_coffea.lib.cut_definition import Cut
 from lib.named_cut import NamedCut
 from lib.configurator import Configurator
-from workflow import DisplacedLeptonProcessor
+from lib.workflow.analysis_processor import AnalysisProcessor
 
 params = get_params()
 
@@ -24,7 +24,7 @@ reject_all = Cut(name="reject_all", params={}, function=_reject_all_impl)
 cfg = Configurator(
     parameters=params,
     datasets={"jsons": get_datasets("central")},
-    workflow=DisplacedLeptonProcessor,
+    workflow=AnalysisProcessor,
     skim=[NamedCut(cut=reject_all, label="Reject all (genweights-only job)")],
     object_selections={},
     event_preselections=[],

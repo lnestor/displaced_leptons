@@ -69,12 +69,6 @@ class CoffeaFile:
         return self._f["datasets_metadata"]["by_dataset"][year_keys[0]]["isMC"] == "False"
 
 
-    def get_cut_labels(self, category):
-        labels = self._f["cut_labels"]
-        obj_labels = list(labels.get("object_selection", []))
-        return [*labels["skim"], *obj_labels, *labels["preselection"], *labels[category]]
-
-
     def get_count(self, category, sample, years=None):
         all_cats = sorted(self._f["cutflow"].keys())
         if category not in all_cats:
@@ -136,41 +130,6 @@ class CoffeaFile:
             )
 
         return total
-
-
-    def get_cutflow(self, category, sample, years=None):
-        all_datasets = list(self._f["cutflow_cumulative"]["initial"].keys())
-        if years is not None:
-            dataset_keys = [dk for dk in all_datasets if self._dataset_year(dk) in years]
-        else:
-            dataset_keys = all_datasets
-
-        values = []
-
-        initial = self._f["cutflow_cumulative"]["initial"]
-        values.append(sum(initial[dk] for dk in dataset_keys))
-
-        skim = self._f["cutflow_cumulative"]["skim"]
-        for cut_name in skim:
-            values.append(sum(skim[cut_name][dk] for dk in dataset_keys))
-
-        if "object_selection" in self._f["cutflow_cumulative"]:
-            obj_sel = self._f["cutflow_cumulative"]["object_selection"]
-            for cut_name in obj_sel:
-                values.append(sum(obj_sel[cut_name][dk]["nominal"] for dk in dataset_keys))
-
-        presel = self._f["cutflow_cumulative"]["preselection"]
-        for cut_name in presel:
-            values.append(sum(presel[cut_name][dk]["nominal"] for dk in dataset_keys))
-
-        cat = self._f["cutflow_cumulative"][category]
-        for cut_name in cat:
-            if sample is None:
-                values.append(sum(cat[cut_name][dk][s]["nominal"] for dk in dataset_keys for s in cat[cut_name][dk]))
-            else:
-                values.append(sum(cat[cut_name][dk][sample]["nominal"] for dk in dataset_keys))
-
-        return values
 
 
     def _get_year_keys(self, hist_name, samples):

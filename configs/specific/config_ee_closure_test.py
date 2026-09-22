@@ -12,7 +12,7 @@ from configs.common import (
 )
 register_modules()
 
-from workflow import DisplacedLeptonProcessor
+from lib.workflow.analysis_processor import AnalysisProcessor
 from lib.configurator import Configurator
 from lib.custom_fields import (
     define_custom_nano_fields,
@@ -23,6 +23,7 @@ from lib.custom_fields import (
     define_systemboost,
 )
 from lib.named_cut import NamedCut
+from pocket_coffea.lib.cut_functions import get_nObj_min
 from lib.categories import get_baseline_cat, get_closure_test_cats
 from lib.cuts.generic import get_d0_gt, invert_cut
 from event_selection import get_min_deltaR, get_no_in_material_vtx
@@ -42,7 +43,7 @@ cfg = Configurator(
         "priority": ["EGamma", "DY", "TTbar", "Diboson"]
     },
     supplements = {"jsons": get_supplements("supplements")},
-    workflow = DisplacedLeptonProcessor,
+    workflow = AnalysisProcessor,
     skim = get_default_skim_cuts(sample="EGamma"),
     custom_fields = {
         "preselection": {
@@ -54,10 +55,11 @@ cfg = Configurator(
         }
     },
     object_selections = {
-        "Electron": {"min": 2, "cuts": get_ele_cuts("ee")},
-        "Muon": {"cuts": get_mu_cuts("emu")}
+        "Electron": get_ele_cuts("ee"),
+        "Muon": get_mu_cuts("emu")
     },
     event_preselections = [
+        NamedCut(get_nObj_min(2, coll="ElectronGood"), ">= 2 good electrons"),
         NamedCut(get_min_deltaR("ElectronGood", "ElectronGood", 0.2), "min deltaR"),
         NamedCut(get_no_in_material_vtx(channel="ee"), "no material vertices"),
         NamedCut(invert_cut(get_d0_gt("MuonGood", 100)), "emu veto")
@@ -75,7 +77,7 @@ cfg = Configurator(
     },
     hists = {
         **genvtx_hists(only_categories=["baseline"]),
-        **lepton_displacement_hists(coll="SelectedLeptons", label="AllElectron", only_categories=["baseline"]),
+        **lepton_displacement_hists(coll="SelectedLeptons", label="Electron", only_categories=["baseline"]),
         **correlation_hists(channel="ee", only_categories=["baseline"]),
     }
 )

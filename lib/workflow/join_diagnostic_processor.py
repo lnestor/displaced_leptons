@@ -2,9 +2,8 @@ import awkward as ak
 import numpy as np
 from pocket_coffea.workflows.base import BaseProcessorABC
 import uproot
-import json
-import os
 import lib.awkward_helper as ak_help
+from lib.workflow.supplement import SupplementPlugin
 
 # To calculate nSupplementMuon/nSupplementElectron, choose an arbitrary field
 # from both to run ak.num() on since supplement files don't have nMuon/nElectron
@@ -24,37 +23,12 @@ class JoinDiagnosticProcessor(BaseProcessorABC):
 
 
     def load_metadata_extra(self):
-        self._supplement_files = {}
-        self._supplement_version = 0
-
-        das_names = self.events.metadata["das_names"]
-
-        matched_json = None
-        for supplement_json in self.cfg.supplements:
-            # LPCCondorCluster ships transfer_input_files flat into the worker's
-            # working directory, not preserving the original relative path.
-            path = supplement_json if os.path.exists(supplement_json) else os.path.basename(supplement_json)
-            with open(path) as f:
-                supp_dict = json.load(f)
-
-            for supp in supp_dict.values():
-                metadata = supp["metadata"]
-                supp_datasets = metadata["dataset"]
-                if not isinstance(supp_datasets, list):
-                    supp_datasets = [supp_datasets]
-
-                if not any(d in das_names for d in supp_datasets):
-                    continue
-
-                if matched_json is not None:
-                    raise ValueError(
-                        f"Multiple supplement entries match dataset for sample '{self._sample}', "
-                        f"year '{self._year}': found in both {matched_json} and {supplement_json}"
-                    )
-                matched_json = supplement_json
-
-                self._supplement_files = supp["files"]
-                self._supplement_version = metadata["version"]
+        self._supplement = SupplementPlugin(
+            self.cfg.supplements.get("jsons", []),
+            self.events.metadata["das_names"],
+            {},
+            self._dataset,
+        )
 
 
     def process_extra_after_skim(self):
@@ -63,7 +37,7 @@ class JoinDiagnosticProcessor(BaseProcessorABC):
         self.events["nElectron"] = ak.num(self.events.Electron)
 
         central_lfn = "/store/" + self.events.metadata["filename"].split("/store/", 1)[1]
-        supplement_files = self._supplement_files.get(central_lfn, [])
+        supplement_files = self._supplement.files.get(central_lfn, [])
 
         if supplement_files:
             supplement = ak.concatenate([

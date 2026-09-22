@@ -200,7 +200,8 @@ def read_skim_lumis(skim_files, report_fn):
 
         for future in as_completed(futures):
             skim_file = futures[future]
-            skim_file_to_lumis[skim_file] = future.result()
+            lfn = "/store/" + skim_file.split("/store/", 1)[1]
+            skim_file_to_lumis[lfn] = future.result()
             report_fn(advance=1)
 
     return skim_file_to_lumis

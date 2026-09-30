@@ -64,6 +64,27 @@ class CoffeaFile:
         return list(cats)
 
 
+    def has_hist(self, hist_name, samples=None, years=None, category=None):
+        if hist_name not in self.hist_names():
+            return False
+
+        valid_samples = self.get_samples(hist_name)
+        if isinstance(samples, str):
+            samples = [samples]
+        samples = valid_samples if samples is None else samples
+        if any(s not in valid_samples for s in samples):
+            return False
+
+        if isinstance(years, str):
+            years = [years]
+        if years is not None:
+            valid_years = {y for s in samples for y in self.get_years(hist_name, s)}
+            if any(y not in valid_years for y in years):
+                return False
+
+        return category is None or category in self.get_categories(hist_name)
+
+
     def is_data(self, sample, hist_name):
         year_keys = self._get_year_keys(hist_name, [sample])
         return self._f["datasets_metadata"]["by_dataset"][year_keys[0]]["isMC"] == "False"

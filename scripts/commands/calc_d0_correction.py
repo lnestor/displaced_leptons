@@ -9,7 +9,7 @@ import numpy as np
 
 from scripts.coffea_file import CoffeaFile
 from scripts.fitting.double_gaussian import DoubleGaussian
-from scripts.plotting.util import cms_loc_val
+from scripts.plotting.common import cms_label
 
 hep.style.use("CMS")
 
@@ -26,7 +26,7 @@ def plot_combined(h_data, fit_data, h_mc, fit_mc, fit_range, output_dir, suffix)
     scale = h_data.values().sum() / h_mc.values().sum()
 
     fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=True, loc=cms_loc_val("exterior"), com=13.6)
+    cms_label(ax, is_data=True, com=13.6)
     hep.histplot(h_data, histtype="errorbar", ax=ax, flow="none", color="black", label="Data")
     hep.histplot(h_mc * scale, histtype="errorbar", ax=ax, flow="none", color="red", label="MC")
 
@@ -43,7 +43,7 @@ def plot_combined(h_data, fit_data, h_mc, fit_mc, fit_range, output_dir, suffix)
 
 def plot_single(h, fit, fit_range, output_dir, plotname):
     fig, ax = plt.subplots()
-    hep.cms.label("Preliminary", ax=ax, data=True, loc=cms_loc_val("exterior"), com=13.6)
+    cms_label(ax, is_data=True, com=13.6)
     hep.histplot(h, histtype="errorbar", ax=ax, flow="none", color="black")
 
     x_vals = np.linspace(fit_range[0], fit_range[1], 200)

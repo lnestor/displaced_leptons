@@ -120,22 +120,22 @@ def define_gen_v0(events, year, is_mc, supplement_version):
     ele = events.Electron
 
     if is_mc:
-        events["GenVtx", "v0_um"] = np.sqrt(events.GenVtx.x**2 + events.GenVtx.y**2) * 1e4
+        events["GenVtx", "r"] = np.sqrt(events.GenVtx.x**2 + events.GenVtx.y**2)
 
     if is_mc and supplement_version >= 2:
         events["Muon", "v0_origin_um"] = np.sqrt(mu.genVtx_x**2 + mu.genVtx_y**2) * 1e4
-        events["Muon", "v0_genvtx_x_um"] = (mu.genVtx_x - events.GenVtx.x) * 1e4
-        events["Muon", "v0_genvtx_y_um"] = (mu.genVtx_y - events.GenVtx.y) * 1e4
-        events["Muon", "v0_genvtx_um"] = np.sqrt(
+        events["Muon", "dx"] = mu.genVtx_x - events.GenVtx.x
+        events["Muon", "dy"] = mu.genVtx_y - events.GenVtx.y
+        events["Muon", "lxy"] = np.sqrt(
             (mu.genVtx_x - events.GenVtx.x) ** 2 + (mu.genVtx_y - events.GenVtx.y) ** 2
-        ) * 1e4
+        )
 
         events["Electron", "v0_origin_um"] = np.sqrt(ele.genVtx_x**2 + ele.genVtx_y**2) * 1e4
-        events["Electron", "v0_genvtx_x_um"] = (ele.genVtx_x - events.GenVtx.x) * 1e4
-        events["Electron", "v0_genvtx_y_um"] = (ele.genVtx_y - events.GenVtx.y) * 1e4
-        events["Electron", "v0_genvtx_um"] = np.sqrt(
+        events["Electron", "dx"] = ele.genVtx_x - events.GenVtx.x
+        events["Electron", "dy"] = ele.genVtx_y - events.GenVtx.y
+        events["Electron", "lxy"] = np.sqrt(
             (ele.genVtx_x - events.GenVtx.x) ** 2 + (ele.genVtx_y - events.GenVtx.y) ** 2
-        ) * 1e4
+        )
 
         matched_mu, matched_ele = _match_gen_leptons(events)
         mu_gen_pt = ak.fill_none(matched_mu.pt, 0)
@@ -170,16 +170,16 @@ def define_gen_v0(events, year, is_mc, supplement_version):
         )
     else:
         events["Muon", "v0_origin_um"] = ak.full_like(mu.pt, np.nan)
-        events["Muon", "v0_genvtx_x_um"] = ak.full_like(mu.pt, np.nan)
-        events["Muon", "v0_genvtx_y_um"] = ak.full_like(mu.pt, np.nan)
-        events["Muon", "v0_genvtx_um"] = ak.full_like(mu.pt, np.nan)
+        events["Muon", "dx"] = ak.full_like(mu.pt, np.nan)
+        events["Muon", "dy"] = ak.full_like(mu.pt, np.nan)
+        events["Muon", "lxy"] = ak.full_like(mu.pt, np.nan)
         events["Muon", "v0_extrap_origin_um"] = ak.full_like(mu.pt, np.nan)
         events["Muon", "v0_extrap_genvtx_um"] = ak.full_like(mu.pt, np.nan)
 
         events["Electron", "v0_origin_um"] = ak.full_like(ele.pt, np.nan)
-        events["Electron", "v0_genvtx_x_um"] = ak.full_like(ele.pt, np.nan)
-        events["Electron", "v0_genvtx_y_um"] = ak.full_like(ele.pt, np.nan)
-        events["Electron", "v0_genvtx_um"] = ak.full_like(ele.pt, np.nan)
+        events["Electron", "dx"] = ak.full_like(ele.pt, np.nan)
+        events["Electron", "dy"] = ak.full_like(ele.pt, np.nan)
+        events["Electron", "lxy"] = ak.full_like(ele.pt, np.nan)
         events["Electron", "v0_extrap_origin_um"] = ak.full_like(ele.pt, np.nan)
         events["Electron", "v0_extrap_genvtx_um"] = ak.full_like(ele.pt, np.nan)
 

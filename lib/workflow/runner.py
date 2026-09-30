@@ -1,5 +1,6 @@
+import math
 from functools import partial
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from coffea.processor import (
     DaskExecutor,
@@ -8,8 +9,32 @@ from coffea.processor import (
     set_accumulator,
 )
 from coffea.processor.executor import Runner as CoffeaRunner
-from coffea.processor.executor import UprootMissTreeError
+from coffea.processor.executor import _PROTECTED_NAMES, UprootMissTreeError, WorkItem
 from coffea.util import _exception_chain
+
+
+def _failed_row_key(row):
+    return (row[0], row[1], -1 if row[2] is None else row[2])
+
+
+def _split_range(filemeta, entrystart, entrystop, chunksize):
+    start = 0 if entrystart is None else entrystart
+    stop = filemeta.metadata["numentries"] if entrystop is None else entrystop
+    if stop <= start:
+        return
+    user_meta = {k: v for k, v in filemeta.metadata.items() if k not in _PROTECTED_NAMES}
+    n = max(round((stop - start) / chunksize), 1)
+    size = math.ceil((stop - start) / n)
+    for chunk_start in range(start, stop, size):
+        yield WorkItem(
+            filemeta.dataset,
+            filemeta.filename,
+            filemeta.treename,
+            chunk_start,
+            min(chunk_start + size, stop),
+            filemeta.metadata["uuid"],
+            user_meta,
+        )
 
 
 def _fetch_populated_metadata(xrootdtimeout, align_clusters, item):
@@ -34,9 +59,17 @@ def _build_automatic_retries():
             item = args[0]
             if isinstance(item, tuple):  # when heavy_input is set
                 item = item[0]
+            # A FileMeta (metadata-fetch failure) has no entry range: the
+            # whole file failed.
             return {
                 "skipped_files": set_accumulator(
-                    [(item.dataset, item.filename, traceback.format_exc())]
+                    [(
+                        item.dataset,
+                        item.filename,
+                        getattr(item, "entrystart", None),
+                        getattr(item, "entrystop", None),
+                        traceback.format_exc(),
+                    )]
                 )
             }
 
@@ -120,7 +153,7 @@ class Runner(CoffeaRunner):
 
     def __post_init__(self):
         super().__post_init__()
-        self.failed_files: List[Tuple[str, str, str]] = []
+        self.failed_files: List[Tuple[str, str, Optional[int], Optional[int], str]] = []
 
     @property
     def retries(self):
@@ -136,9 +169,42 @@ class Runner(CoffeaRunner):
         # already appended any preprocessing-stage failures to
         # self.failed_files -- extend rather than overwrite so those survive.
         result = super().run(fileset, processor_instance, treename)
-        self.failed_files.extend(sorted(result.pop("skipped_files", set_accumulator())))
-        self.failed_files.sort()
+        self.failed_files.extend(result.pop("skipped_files", set_accumulator()))
+        self.failed_files.sort(key=_failed_row_key)
         return result
+
+    def run_ranges(self, fileset, ranges, processor_instance, treename=None):
+        """Process only the given (dataset, filename, entrystart, entrystop)
+        ranges of `fileset`, where an entrystart/entrystop of None means the
+        whole file. Each range is split into WorkItems of at most
+        self.chunksize. The ranges of a file whose metadata can't be fetched
+        are kept in self.failed_files as given, so a chunk failure isn't
+        turned into a whole-file one. Returns {} if nothing could be run."""
+        filemetas = list(self._normalize_fileset(fileset, treename))
+        for filemeta in filemetas:
+            filemeta.maybe_populate(self.metadata_cache)
+        self._preprocess_fileset(filemetas)
+
+        errors = {(row[0], row[1]): row[4] for row in self.failed_files}
+        self.failed_files = [
+            (dataset, filename, start, stop, errors[(dataset, filename)])
+            for dataset, filename, start, stop in ranges
+            if (dataset, filename) in errors
+        ]
+
+        populated = {
+            (filemeta.dataset, filemeta.filename): filemeta
+            for filemeta in filemetas
+            if filemeta.populated(clusters=self.align_clusters)
+        }
+        items = []
+        for dataset, filename, start, stop in ranges:
+            filemeta = populated.get((dataset, filename))
+            if filemeta is not None:
+                items.extend(_split_range(filemeta, start, stop, self.chunksize))
+        if not items:
+            return {}
+        return self(items, treename=treename, processor_instance=processor_instance)
 
     def _preprocess_fileset(self, fileset: Dict) -> None:
         """Same as coffea's Runner._preprocess_fileset, except a file that
@@ -171,7 +237,7 @@ class Runner(CoffeaRunner):
                 partial(_fetch_populated_metadata, self.xrootdtimeout, self.align_clusters),
             )
             out, _ = pre_executor(to_get, closure, out)
-            self.failed_files.extend(sorted(out.get("skipped_files", set_accumulator())))
+            self.failed_files.extend(sorted(out.get("skipped_files", set_accumulator()), key=_failed_row_key))
             populated = out.get("populated", set_accumulator())
             while populated:
                 item = populated.pop()

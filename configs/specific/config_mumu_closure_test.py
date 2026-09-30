@@ -16,10 +16,18 @@ from lib.cuts.event_selection import (
     get_min_deltaR,
     get_no_in_material_vtx
 )
-from lib.categories import get_closure_test_cats
+from lib.categories import get_baseline_cat, get_closure_test_cats
 from lib.configurator import Configurator
 from lib.cuts.generic import get_d0_gt, invert_cut
-from lib.custom_fields import define_custom_nano_fields, define_DY_flavor
+from lib.custom_fields import (
+    define_custom_nano_fields,
+    define_DY_flavor,
+    define_gen_parent_values,
+    define_gen_v0,
+    define_selected_leptons,
+    define_systemboost,
+)
+from lib.hists import correlation_hists, genvtx_hists, lepton_displacement_hists
 from lib.named_cut import NamedCut
 from pocket_coffea.lib.cut_functions import get_nObj_min
 from lib.workflow.analysis_processor import AnalysisProcessor
@@ -43,8 +51,11 @@ cfg = Configurator(
     skim = get_default_skim_cuts(sample="Muon"),
     custom_fields = {
         "preselection": {
-            "common": [define_custom_nano_fields],
+            "common": [define_custom_nano_fields, define_gen_parent_values, define_gen_v0],
             "bysample": {"DY": [define_DY_flavor]}
+        },
+        "postselection": {
+            "common": [define_selected_leptons("mumu"), define_systemboost("mumu")]
         }
     },
     object_selections = {
@@ -60,6 +71,7 @@ cfg = Configurator(
         NamedCut(cut=invert_cut(get_d0_gt("ElectronGood", 100)), label="emu veto")
     ],
     categories = {
+        **get_baseline_cat(),
         **get_closure_test_cats(
             channel="mumu",
             field="absd0_um",
@@ -69,5 +81,9 @@ cfg = Configurator(
             point_axis2_edges=[20, 100, 500]
         )
     },
-    hists = {}
+    hists = {
+        **genvtx_hists(only_categories=["baseline"]),
+        **lepton_displacement_hists(coll="SelectedLeptons", label="Muon", only_categories=["baseline"]),
+        **correlation_hists(channel="mumu", only_categories=["baseline"]),
+    }
 )

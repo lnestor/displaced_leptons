@@ -5,14 +5,14 @@ from pocket_coffea.parameters.histograms import HistConf, Axis
 from lib.configuration import MC_SAMPLES
 
 
-def _zero_floor_bins(first_edge, high, growth=2):
+def _zero_floor_bins(first_edge, high, growth=np.sqrt(2)):
     edges = [0.0, first_edge]
     while edges[-1] < high:
         edges.append(edges[-1] * growth)
     return edges
 
 
-def _signed_zero_floor_bins(first_edge, high, growth=2):
+def _signed_zero_floor_bins(first_edge, high, growth=np.sqrt(2)):
     positive = _zero_floor_bins(first_edge, high, growth)
     return [-e for e in reversed(positive[1:])] + positive
 

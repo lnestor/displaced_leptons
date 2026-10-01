@@ -9,11 +9,18 @@ class CoffeaFile:
 
     def get_total_hist(self, hist_name, samples=None, years=None, category=None):
         hists = []
+        available = self.get_samples(hist_name)
 
         if isinstance(samples, str):
             samples = [samples]
         elif samples is None:
-            samples = self.get_samples(hist_name)
+            samples = available
+
+        if not self.has_hist(hist_name, samples=samples):
+            raise ValueError(
+                f"samples {', '.join(samples)} not all present in histogram '{hist_name}'. "
+                f"Available samples: {', '.join(available)}"
+            )
 
         category = category if category is not None else "baseline"
 

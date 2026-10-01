@@ -180,11 +180,12 @@ def _launch_tmux():
 @click.option("--filter-samples", type=str, help="Filter the samples to be processed (comma separated list)")
 @click.option("--filter-datasets", type=str, help="Filter the datasets to be processed (comma separated list)")
 @click.option("--resubmit-failed", is_flag=True, help="Resubmit only failed datasets and previously-skipped chunks/files from the previous run (from failed_jobs.json and/or failed_files.csv)", default=False)
+@click.option("--executor", type=click.Choice(["dask", "futures", "iterative"]), default="dask", help="Executor to use. Defaults to the LPC dask executor; futures/iterative run locally on the current node")
 @click.option("--launch-tmux", is_flag=True, help="")
 def run(cfg,  custom_run_options, outputdir, test, limit_files,
            limit_chunks, scaleout, chunksize, tree_reduction, queue,
            filter_years, filter_samples, filter_datasets, resubmit_failed,
-           launch_tmux):
+           executor, launch_tmux):
 
     if launch_tmux:
         _launch_tmux()
@@ -236,9 +237,7 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
 
     print(config)
 
-    # This script only supports the LPC dask executor -- enforced by not
-    # exposing an --executor option at all.
-    executor_name = "dask"
+    executor_name = executor
     site = "lpc"
 
     # Getting the default run_options

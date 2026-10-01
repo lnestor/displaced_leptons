@@ -3,7 +3,7 @@ import os
 import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
-from coffea_file import CoffeaFile
+from scripts.coffea_file import CoffeaFile
 from asymmetric_uncertainty import a_u
 from hist.intervals import poisson_interval
 import mplhep as hep
@@ -22,10 +22,6 @@ CHANNEL_LATEX_LABELS = {
 }
 
 MODE_KEYS = ["bkg"]
-
-MODE_CONSOLE_LABELS = {}
-
-MODE_LATEX_LABELS = {}
 
 
 def get_ratio(counts):
@@ -275,6 +271,12 @@ def print_closure_results(label, results, extrapolation_point):
 
 def compute_channel_results(input_path, channel, years, extrapolation_point, samples):
     f = CoffeaFile(input_path)
+    hist_name = f.hist_names()[0]
+    if not f.has_hist(hist_name, samples=samples):
+        raise ValueError(
+            f"samples {', '.join(samples)} not all present in {input_path}. "
+            f"Available samples: {', '.join(f.get_samples(hist_name))}"
+        )
 
     def get_bkg_counts(category):
         return get_bkg_a_u(f, category, years, samples)
@@ -287,7 +289,7 @@ def compute_channel_results(input_path, channel, years, extrapolation_point, sam
     for mode in MODE_KEYS:
         results = compute_closure_results(get_counts_by_mode[mode], extrapolation_point)
         results_by_mode[mode] = results
-        print_closure_results(f"{channel}: {MODE_CONSOLE_LABELS[mode]}", results, extrapolation_point)
+        print_closure_results(channel, results, extrapolation_point)
 
     return results_by_mode
 
@@ -312,8 +314,6 @@ def build_sweep_table(channel_results, extrapolation_point):
     lines = [
         r"\begin{tabular}{lccc}",
         r"\toprule",
-        " & " + " & ".join(MODE_LATEX_LABELS[mode] for mode in MODE_KEYS) + r" \\",
-        r"\midrule",
     ]
     for channel in channels:
         results_by_mode = channel_results[channel]
@@ -337,8 +337,6 @@ def build_points_table(channel_results):
         + "}{c}{Sideband 1} & \\multicolumn{"
         + str(len(point_cols))
         + r"}{c}{Sideband 2} \\",
-        f"\\cmidrule(lr){{2-{1 + len(point_cols)}}} \\cmidrule(lr){{{2 + len(point_cols)}-{1 + 2 * len(point_cols)}}}",
-        " & " + " & ".join([MODE_LATEX_LABELS[mode] for mode in point_cols] * 2) + r" \\",
         r"\midrule",
     ]
     for channel in channels:
@@ -365,7 +363,7 @@ def render_latex_table_to_png(table_body, output_stem, dpi=300):
     )
 
     output_dir = os.path.dirname(output_stem) or "."
-    stem_name = os.path.basename(output_stem)
+    stem_name = f"{os.path.basename(output_stem)}_standalone"
     tex_path = os.path.join(output_dir, f"{stem_name}.tex")
     with open(tex_path, "w") as fh:
         fh.write(tex_content)
@@ -387,7 +385,7 @@ def render_latex_table_to_png(table_body, output_stem, dpi=300):
     )
 
     os.remove(raw_png_path)
-    for ext in (".aux", ".log"):
+    for ext in (".tex", ".pdf", ".aux", ".log"):
         aux_path = os.path.join(output_dir, f"{stem_name}{ext}")
         if os.path.exists(aux_path):
             os.remove(aux_path)
@@ -397,21 +395,18 @@ def render_latex_table_to_png(table_body, output_stem, dpi=300):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("year", nargs="+", choices=["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"])
+    all_years = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
+    parser.add_argument("--years", nargs="+", choices=all_years, default=all_years, help="Defaults to all years")
     parser.add_argument("--ee", help="Path to the merged coffea file for the ee channel.")
     parser.add_argument("--emu", help="Path to the merged coffea file for the emu channel.")
     parser.add_argument("--mumu", help="Path to the merged coffea file for the mumu channel.")
     parser.add_argument("--plot", action="store_true", help="Save confidence interval plots for the extrapolated data ratio.")
-    parser.add_argument("--use-toys", action="store_true")
-    parser.add_argument("--extrapolation-point", default=200)
+    parser.add_argument("--extrapolation-point", type=float, default=200)
     parser.add_argument("--output-dir", default="plots/closure_test")
     parser.add_argument("--samples", required=True, help="Comma-separated sample names as stored in the coffea file, e.g. TTbar or DY__ee,DY__mumu")
-    parser.add_argument("--label", required=True, help="Human-readable label for this sample group, used in console output and table headers.")
     args = parser.parse_args()
 
     samples = [s.strip() for s in args.samples.split(",")]
-    MODE_CONSOLE_LABELS["bkg"] = args.label
-    MODE_LATEX_LABELS["bkg"] = args.label
 
     channel_inputs = {
         channel: path
@@ -426,7 +421,7 @@ def main():
     channel_results = {}
     for channel, input_path in channel_inputs.items():
         channel_results[channel] = compute_channel_results(
-            input_path, channel, args.year, args.extrapolation_point, samples
+            input_path, channel, args.years, args.extrapolation_point, samples
         )
 
     sweep_table = build_sweep_table(channel_results, args.extrapolation_point)
@@ -447,7 +442,7 @@ def main():
     print(f"Rendered {points_png_path}")
 
     if args.plot:
-        year_label = "-".join(args.year)
+        year_label = "-".join(args.years)
         for channel, results_by_mode in channel_results.items():
             bkg_results = results_by_mode["bkg"]
             if bkg_results["sweep1_result"] is not None:

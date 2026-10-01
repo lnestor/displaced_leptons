@@ -51,6 +51,14 @@ class CoffeaFile:
         return list(self._f["variables"][hist_name].keys())
 
 
+    def get_datasets(self, hist_name, sample):
+        return sorted(self._get_year_keys(hist_name, sample))
+
+
+    def get_axes(self, hist_name, sample, dataset):
+        return list(self._f["variables"][hist_name][sample][dataset].axes)
+
+
     def get_years(self, hist_name, sample):
         return list(set(self._dataset_year(yk) for yk in self._get_year_keys(hist_name, sample)))
 

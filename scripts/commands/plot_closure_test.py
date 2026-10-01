@@ -36,11 +36,11 @@ def get_style(hist_name):
     return None
 
 
-def plot_independence(h, sample, com, **options):
+def plot_independence(h, com, **options):
     fig, axes = plt.subplots(1, 3, figsize=(30, 8))
     common = dict(is_data=False, com=com)
 
-    plot_2d(h, ax=axes[0], text=f"Actual ({sample})", **common, **options)
+    plot_2d(h, ax=axes[0], text="Actual", **common, **options)
     plot_2d(
         transforms.expected_if_independent(h),
         ax=axes[1],
@@ -68,8 +68,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="Merged closure test coffea file")
     parser.add_argument("--output-dir", help="Defaults to a plots/ directory next to the input file")
-    parser.add_argument("--samples", help="Comma-separated samples, e.g. DY__ee,DY__mumu. Defaults to all samples")
-    parser.add_argument("--years", help="Comma-separated years. Defaults to all years")
+    parser.add_argument("--samples", help="Comma-separated samples, e.g. DY__ee,DY__mumu, summed into one set of plots. Defaults to all samples")
+    parser.add_argument("--years", nargs="+", choices=["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"], help="Defaults to all years")
     parser.add_argument("--category", default="baseline")
     parser.add_argument("--com", type=float, default=13.6)
     args = parser.parse_args()
@@ -78,7 +78,6 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     requested_samples = args.samples.split(",") if args.samples else None
-    years = args.years.split(",") if args.years else None
 
     f = CoffeaFile(args.input)
 
@@ -89,25 +88,21 @@ def main():
             continue
         kind, options = style
 
-        for sample in f.get_samples(hist_name):
-            if requested_samples is not None and sample not in requested_samples:
-                continue
+        h = f.get_total_hist(hist_name, samples=requested_samples, years=args.years, category=args.category)
+        plot = plot_1d if kind == "1d" else plot_2d
+        fig, _ = plot(h, is_data=False, com=args.com, **options)
 
-            h = f.get_total_hist(hist_name, samples=sample, years=years, category=args.category)
-            plot = plot_1d if kind == "1d" else plot_2d
-            fig, _ = plot(h, is_data=False, com=args.com, **options)
+        output_path = os.path.join(output_dir, f"{hist_name}.png")
+        fig.savefig(output_path, bbox_inches="tight")
+        plt.close(fig)
+        print(f"Saved {output_path}")
 
-            output_path = os.path.join(output_dir, f"{hist_name}_{sample}.png")
+        if hist_name in INDEPENDENCE_HISTS:
+            fig = plot_independence(h, args.com, **options)
+            output_path = os.path.join(output_dir, f"{hist_name}_independence_check.png")
             fig.savefig(output_path, bbox_inches="tight")
             plt.close(fig)
             print(f"Saved {output_path}")
-
-            if hist_name in INDEPENDENCE_HISTS:
-                fig = plot_independence(h, sample, args.com, **options)
-                output_path = os.path.join(output_dir, f"{hist_name}_independence_check_{sample}.png")
-                fig.savefig(output_path, bbox_inches="tight")
-                plt.close(fig)
-                print(f"Saved {output_path}")
 
 
 if __name__ == "__main__":

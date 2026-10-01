@@ -135,14 +135,14 @@ def build_correction(fit_mc, fit_data, correction_name, dx=1.0, fine_domain=250.
     )
 
 
-def save_corrections(corrections, output_dir):
+def save_corrections(corrections, output_dir, fit_bounds):
     cset = cs.CorrectionSet(
         schema_version=2,
         description="dxybs corrections",
         corrections=corrections
     )
 
-    with gzip.open(f"{output_dir}/d0_corrections.json.gz", "wt") as fout:
+    with gzip.open(f"{output_dir}/d0_correction_fit{fit_bounds}.json.gz", "wt") as fout:
         fout.write(cset.model_dump_json(exclude_unset=True))
 
 
@@ -151,7 +151,7 @@ def main():
     parser.add_argument("--ee")
     parser.add_argument("--emu")
     parser.add_argument("--mumu")
-    parser.add_argument("--fit-bounds", default=50, type=int)
+    parser.add_argument("--fit-bounds", default=80, type=int)
     parser.add_argument("--output-dir", default=".")
     args = parser.parse_args()
 
@@ -201,7 +201,7 @@ def main():
         else:
             print("Missing --mumu and/or --emu: skipping muon fit.")
 
-    save_corrections(corrections, args.output_dir)
+    save_corrections(corrections, args.output_dir, args.fit_bounds)
 
 
 if __name__ == "__main__":

@@ -1,2 +1,2 @@
 d0_correction:
-  file: params/d0_correction.json.gz
+  file: params/d0_correction_fit50.json.gz

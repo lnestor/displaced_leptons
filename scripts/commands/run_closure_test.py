@@ -403,10 +403,8 @@ def main():
     parser.add_argument("--plot", action="store_true", help="Save confidence interval plots for the extrapolated data ratio.")
     parser.add_argument("--extrapolation-point", type=float, default=200)
     parser.add_argument("--output-dir", default="plots/closure_test")
-    parser.add_argument("--samples", required=True, help="Comma-separated sample names as stored in the coffea file, e.g. TTbar or DY__ee,DY__mumu")
+    parser.add_argument("--samples", nargs="+", required=True, help="Sample names as stored in the coffea file, e.g. TTbar or DY__ee DY__mumu")
     args = parser.parse_args()
-
-    samples = [s.strip() for s in args.samples.split(",")]
 
     channel_inputs = {
         channel: path
@@ -421,7 +419,7 @@ def main():
     channel_results = {}
     for channel, input_path in channel_inputs.items():
         channel_results[channel] = compute_channel_results(
-            input_path, channel, args.years, args.extrapolation_point, samples
+            input_path, channel, args.years, args.extrapolation_point, args.samples
         )
 
     sweep_table = build_sweep_table(channel_results, args.extrapolation_point)

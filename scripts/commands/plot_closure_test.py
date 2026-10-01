@@ -68,7 +68,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="Merged closure test coffea file")
     parser.add_argument("--output-dir", help="Defaults to a plots/ directory next to the input file")
-    parser.add_argument("--samples", help="Comma-separated samples, e.g. DY__ee,DY__mumu, summed into one set of plots. Defaults to all samples")
+    parser.add_argument("--samples", nargs="+", help="Samples, e.g. DY__ee DY__mumu, summed into one set of plots. Defaults to all samples")
     parser.add_argument("--years", nargs="+", choices=["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"], help="Defaults to all years")
     parser.add_argument("--category", default="baseline")
     parser.add_argument("--com", type=float, default=13.6)
@@ -76,8 +76,6 @@ def main():
 
     output_dir = args.output_dir or os.path.join(os.path.dirname(args.input), "plots")
     os.makedirs(output_dir, exist_ok=True)
-
-    requested_samples = args.samples.split(",") if args.samples else None
 
     f = CoffeaFile(args.input)
 
@@ -88,7 +86,7 @@ def main():
             continue
         kind, options = style
 
-        h = f.get_total_hist(hist_name, samples=requested_samples, years=args.years, category=args.category)
+        h = f.get_total_hist(hist_name, samples=args.samples, years=args.years, category=args.category)
         plot = plot_1d if kind == "1d" else plot_2d
         fig, _ = plot(h, is_data=False, com=args.com, **options)
 

@@ -10,6 +10,7 @@ from scripts.plotting.stack import plot_stack
 from scripts.plotting.transforms import weighted_mean_profile
 
 CATEGORY = "pcr_absd0_um"
+UNCORRECTED_CATEGORY = "pcr_absd0_um_original"
 MC_SAMPLES = ["DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"]
 INDIV_OBJECTS = {
     "ee": ["LeadingElectron", "SubleadingElectron"],
@@ -27,10 +28,14 @@ def get_hist_names(obj):
     return [f"{obj}_pt", f"{obj}_eta", f"{obj}_absd0", f"{obj}_absd0_uncorrected"]
 
 
+def get_category(hist_name):
+    return UNCORRECTED_CATEGORY if hist_name.endswith("_absd0_uncorrected") else CATEGORY
+
+
 def get_hists_if_present(f, hist_name, samples):
     hists = {}
     for sample in samples:
-        h = f.get_total_hist(hist_name, samples=sample, category=CATEGORY)
+        h = f.get_total_hist(hist_name, samples=sample, category=get_category(hist_name))
         if isinstance(h, hist.Hist):
             hists[sample] = h
     return hists
@@ -52,7 +57,7 @@ def main():
     hist_names = [name for obj in INDIV_OBJECTS[args.channel] for name in get_hist_names(obj)]
     for hist_name in hist_names:
         mc_hists = get_hists_if_present(f, hist_name, MC_SAMPLES)
-        h_data = f.get_total_hist(hist_name, samples=data_sample, category=CATEGORY)
+        h_data = f.get_total_hist(hist_name, samples=data_sample, category=get_category(hist_name))
 
         fig, _, _ = plot_stack(h_data, mc_hists, ylog=True, ymin=0.02, ymax=7e6, **style)
         fig.savefig(f"{args.output_dir}/{args.channel}_pcr_{hist_name}.png", bbox_inches="tight")

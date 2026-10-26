@@ -57,8 +57,8 @@ cfg = Configurator(
         NamedCut(cut=invert_cut(get_d0_gt("ElectronGood", 100)), label="emu veto")
     ],
     categories = {
-        "pcr": get_pcr_cat(channel="mumu", field="absd0_um", threshold=PCR_THRESHOLD)["pcr"],
-        "pcr_uncorrected": get_pcr_cat(channel="mumu", field="absd0_um_original", threshold=PCR_THRESHOLD)["pcr"],
+        **get_pcr_cat(channel="mumu", field="absd0_um", threshold=PCR_THRESHOLD),
+        **get_pcr_cat(channel="mumu", field="absd0_um_original", threshold=PCR_THRESHOLD),
     },
     hists = {
         **pcr_hists(coll="MuonGood", pos=0, label="LeadingMuon", threshold=PCR_THRESHOLD),

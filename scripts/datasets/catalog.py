@@ -4,13 +4,11 @@ import yaml
 DEFAULT_PATH = Path("datasets/sources/datasets.yaml")
 
 
-def _process_name(das_name):
-    return das_name.strip("/").split("/")[0]
-
-
 class DatasetDefinition:
-    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, cross_section=None, era=None, index=None, version=None):
+    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, type, key, cross_section=None, era=None, index=None, version=None):
         self.sample = sample
+        self.type = type
+        self.key = key
         self.miniaod = miniaod
         self.nanoaod = nanoaod
         self.year = year
@@ -20,16 +18,6 @@ class DatasetDefinition:
         self.xsec = cross_section
         self.index = index
         self.version = version
-
-        if is_mc:
-            self.key = f"{_process_name(nanoaod)}_{year}"
-        else:
-            key_parts = [sample, year, f"Era{era}"]
-            if index is not None:
-                key_parts.append(f"index{index}")
-            if version is not None:
-                key_parts.append(f"version{version}")
-            self.key = "_".join(key_parts)
 
     def __repr__(self):
         return (

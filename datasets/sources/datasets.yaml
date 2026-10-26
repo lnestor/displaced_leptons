@@ -1,4 +1,6 @@
 - sample: Muon
+  type: dataset
+  key: Muon_2022_preEE_EraC
   miniaod: /Muon/Run2022C-22Sep2023-v1/MINIAOD
   nanoaod: /Muon/Run2022C-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -6,6 +8,8 @@
   supplements_path: /store/user/lnestor/supplements/Muon_Run2022C
   is_mc: false
 - sample: Muon
+  type: dataset
+  key: Muon_2022_preEE_EraD
   miniaod: /Muon/Run2022D-22Sep2023-v1/MINIAOD
   nanoaod: /Muon/Run2022D-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -13,6 +17,8 @@
   supplements_path: /store/user/lnestor/supplements/Muon_Run2022D
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2022_preEE_EraC
   miniaod: /EGamma/Run2022C-22Sep2023-v1/MINIAOD
   nanoaod: /EGamma/Run2022C-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -20,6 +26,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma_Run2022C
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2022_preEE_EraD
   miniaod: /EGamma/Run2022D-22Sep2023-v1/MINIAOD
   nanoaod: /EGamma/Run2022D-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -27,6 +35,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma_Run2022D
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2022_preEE_EraC
   miniaod: /JetMET/Run2022C-22Sep2023-v1/MINIAOD
   nanoaod: /JetMET/Run2022C-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -34,6 +44,8 @@
   supplements_path: /store/user/lnestor/supplements/JetMET_Run2022C
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2022_preEE_EraD
   miniaod: /JetMET/Run2022D-22Sep2023-v1/MINIAOD
   nanoaod: /JetMET/Run2022D-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -41,6 +53,8 @@
   supplements_path: /store/user/lnestor/supplements/JetMET_Run2022D
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2022_preEE_EraC
   miniaod: /MuonEG/Run2022C-22Sep2023-v1/MINIAOD
   nanoaod: /MuonEG/Run2022C-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -48,6 +62,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2022C
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2022_preEE_EraD
   miniaod: /MuonEG/Run2022D-22Sep2023-v1/MINIAOD
   nanoaod: /MuonEG/Run2022D-22Sep2023-v1/NANOAOD
   year: 2022_preEE
@@ -55,6 +71,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2022D
   is_mc: false
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2022_preEE
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v3/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v2/NANOAODSIM
   year: 2022_preEE
@@ -62,6 +80,8 @@
   is_mc: true
   cross_section: 5467.0
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2022_preEE
   miniaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -69,6 +89,8 @@
   is_mc: true
   cross_section: 17380.0
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -76,6 +98,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -83,6 +107,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -90,6 +116,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v2/NANOAODSIM
   year: 2022_preEE
@@ -97,6 +125,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v2/NANOAODSIM
   year: 2022_preEE
@@ -104,6 +134,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v2/NANOAODSIM
   year: 2022_preEE
@@ -111,6 +143,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2022_preEE
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -118,6 +152,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2022_preEE
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -125,6 +161,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -132,6 +170,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -139,6 +179,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -146,6 +188,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_preEE
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -153,6 +197,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -160,6 +206,8 @@
   is_mc: true
   cross_section: 6854000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -167,6 +215,8 @@
   is_mc: true
   cross_section: 6686000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -174,6 +224,8 @@
   is_mc: true
   cross_section: 2118000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -181,6 +233,8 @@
   is_mc: true
   cross_section: 394100.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -188,6 +242,8 @@
   is_mc: true
   cross_section: 72170.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -195,6 +251,8 @@
   is_mc: true
   cross_section: 17920.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -202,6 +260,8 @@
   is_mc: true
   cross_section: 1224.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -209,6 +269,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -216,6 +278,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v4/NANOAODSIM
   year: 2022_preEE
@@ -223,6 +287,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -230,6 +296,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -237,6 +305,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -244,6 +314,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -251,6 +323,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -258,6 +332,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -265,6 +341,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -272,6 +350,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -279,6 +359,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_preEE
   miniaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22NanoAODv15-150X_mcRun3_2022_realistic_v1-v1/NANOAODSIM
   year: 2022_preEE
@@ -286,6 +368,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: Muon
+  type: dataset
+  key: Muon_2022_postEE_EraE
   miniaod: /Muon/Run2022E-22Sep2023-v1/MINIAOD
   nanoaod: /Muon/Run2022E-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -293,6 +377,8 @@
   supplements_path: /store/user/lnestor/supplements/Muon_Run2022E
   is_mc: false
 - sample: Muon
+  type: dataset
+  key: Muon_2022_postEE_EraF
   miniaod: /Muon/Run2022F-22Sep2023-v2/MINIAOD
   nanoaod: /Muon/Run2022F-22Sep2023-v2/NANOAOD
   year: 2022_postEE
@@ -300,6 +386,8 @@
   supplements_path: /store/user/lnestor/supplements/Muon_Run2022F
   is_mc: false
 - sample: Muon
+  type: dataset
+  key: Muon_2022_postEE_EraG
   miniaod: /Muon/Run2022G-22Sep2023-v1/MINIAOD
   nanoaod: /Muon/Run2022G-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -307,6 +395,8 @@
   supplements_path: /store/user/lnestor/supplements/Muon_Run2022G
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2022_postEE_EraE
   miniaod: /EGamma/Run2022E-22Sep2023-v1/MINIAOD
   nanoaod: /EGamma/Run2022E-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -314,6 +404,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma_Run2022E
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2022_postEE_EraF
   miniaod: /EGamma/Run2022F-22Sep2023-v1/MINIAOD
   nanoaod: /EGamma/Run2022F-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -321,6 +413,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma_Run2022F
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2022_postEE_EraG
   miniaod: /EGamma/Run2022G-22Sep2023-v2/MINIAOD
   nanoaod: /EGamma/Run2022G-22Sep2023-v2/NANOAOD
   year: 2022_postEE
@@ -328,6 +422,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma_Run2022G
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2022_postEE_EraE
   miniaod: /JetMET/Run2022E-22Sep2023-v1/MINIAOD
   nanoaod: /JetMET/Run2022E-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -335,6 +431,8 @@
   supplements_path: /store/user/lnestor/supplements/JetMET_Run2022E
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2022_postEE_EraF
   miniaod: /JetMET/Run2022F-22Sep2023-v2/MINIAOD
   nanoaod: /JetMET/Run2022F-22Sep2023-v2/NANOAOD
   year: 2022_postEE
@@ -342,6 +440,8 @@
   supplements_path: /store/user/lnestor/supplements/JetMET_Run2022F
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2022_postEE_EraG
   miniaod: /JetMET/Run2022G-22Sep2023-v2/MINIAOD
   nanoaod: /JetMET/Run2022G-22Sep2023-v2/NANOAOD
   year: 2022_postEE
@@ -349,6 +449,8 @@
   supplements_path: /store/user/lnestor/supplements/JetMET_Run2022G
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2022_postEE_EraE
   miniaod: /MuonEG/Run2022E-22Sep2023-v1/MINIAOD
   nanoaod: /MuonEG/Run2022E-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -356,6 +458,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2022E
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2022_postEE_EraF
   miniaod: /MuonEG/Run2022F-22Sep2023-v1/MINIAOD
   nanoaod: /MuonEG/Run2022F-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -363,6 +467,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2022F
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2022_postEE_EraG
   miniaod: /MuonEG/Run2022G-22Sep2023-v1/MINIAOD
   nanoaod: /MuonEG/Run2022G-22Sep2023-v1/NANOAOD
   year: 2022_postEE
@@ -370,6 +476,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2022G
   is_mc: false
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2022_postEE
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v3/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v2/NANOAODSIM
   year: 2022_postEE
@@ -377,6 +485,8 @@
   is_mc: true
   cross_section: 5467.0
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2022_postEE
   miniaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v4/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -384,6 +494,8 @@
   is_mc: true
   cross_section: 17380.0
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -391,6 +503,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -398,6 +512,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -405,6 +521,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v3/NANOAODSIM
   year: 2022_postEE
@@ -412,6 +530,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v2/NANOAODSIM
   year: 2022_postEE
@@ -419,6 +539,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v2/NANOAODSIM
   year: 2022_postEE
@@ -426,6 +548,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2022_postEE
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -433,6 +557,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2022_postEE
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -440,6 +566,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -447,6 +575,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -454,6 +584,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -461,6 +593,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2022_postEE
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -468,6 +602,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -475,6 +611,8 @@
   is_mc: true
   cross_section: 6854000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -482,6 +620,8 @@
   is_mc: true
   cross_section: 6686000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -489,6 +629,8 @@
   is_mc: true
   cross_section: 2118000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -496,6 +638,8 @@
   is_mc: true
   cross_section: 394100.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -503,6 +647,8 @@
   is_mc: true
   cross_section: 72170.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -510,6 +656,8 @@
   is_mc: true
   cross_section: 17920.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-300_EMEnriched_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -517,6 +665,8 @@
   is_mc: true
   cross_section: 1231.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -524,6 +674,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v2/NANOAODSIM
   year: 2022_postEE
@@ -531,6 +683,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -538,6 +692,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -545,6 +701,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v4/NANOAODSIM
   year: 2022_postEE
@@ -552,6 +710,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -559,6 +719,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v3/NANOAODSIM
   year: 2022_postEE
@@ -566,6 +728,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -573,6 +737,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -580,6 +746,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -587,6 +755,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -594,6 +764,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2022_postEE
   miniaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer22EENanoAODv15-150X_mcRun3_2022_realistic_postEE_v1-v1/NANOAODSIM
   year: 2022_postEE
@@ -601,6 +773,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index0_version1
   miniaod: /Muon0/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -610,6 +784,8 @@
   index: 0
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index0_version2
   miniaod: /Muon0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -619,6 +795,8 @@
   index: 0
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index0_version3
   miniaod: /Muon0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -628,6 +806,8 @@
   index: 0
   version: 3
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index0_version4
   miniaod: /Muon0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /Muon0/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -637,6 +817,8 @@
   index: 0
   version: 4
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index1_version1
   miniaod: /Muon1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -646,6 +828,8 @@
   index: 1
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index1_version2
   miniaod: /Muon1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -655,6 +839,8 @@
   index: 1
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index1_version3
   miniaod: /Muon1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -664,6 +850,8 @@
   index: 1
   version: 3
 - sample: Muon
+  type: dataset
+  key: Muon_2023_preBPix_EraC_index1_version4
   miniaod: /Muon1/Run2023C-22Sep2023_v4-v2/MINIAOD
   nanoaod: /Muon1/Run2023C-22Sep2023_v4-v2/NANOAOD
   year: 2023_preBPix
@@ -673,6 +861,8 @@
   index: 1
   version: 4
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index0_version1
   miniaod: /EGamma0/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -682,6 +872,8 @@
   index: 0
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index0_version2
   miniaod: /EGamma0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -691,6 +883,8 @@
   index: 0
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index0_version3
   miniaod: /EGamma0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -700,6 +894,8 @@
   index: 0
   version: 3
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index0_version4
   miniaod: /EGamma0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /EGamma0/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -709,6 +905,8 @@
   index: 0
   version: 4
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index1_version1
   miniaod: /EGamma1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -718,6 +916,8 @@
   index: 1
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index1_version2
   miniaod: /EGamma1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -727,6 +927,8 @@
   index: 1
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index1_version3
   miniaod: /EGamma1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -736,6 +938,8 @@
   index: 1
   version: 3
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_preBPix_EraC_index1_version4
   miniaod: /EGamma1/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /EGamma1/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -745,6 +949,8 @@
   index: 1
   version: 4
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_preBPix_EraC_version1
   miniaod: /MuonEG/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -753,6 +959,8 @@
   is_mc: false
   version: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_preBPix_EraC_version2
   miniaod: /MuonEG/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -761,6 +969,8 @@
   is_mc: false
   version: 2
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_preBPix_EraC_version3
   miniaod: /MuonEG/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -769,6 +979,8 @@
   is_mc: false
   version: 3
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_preBPix_EraC_version4
   miniaod: /MuonEG/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /MuonEG/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -777,6 +989,8 @@
   is_mc: false
   version: 4
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index0_version1
   miniaod: /JetMET0/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -786,6 +1000,8 @@
   index: 0
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index0_version2
   miniaod: /JetMET0/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -795,6 +1011,8 @@
   index: 0
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index0_version3
   miniaod: /JetMET0/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -804,6 +1022,8 @@
   index: 0
   version: 3
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index0_version4
   miniaod: /JetMET0/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /JetMET0/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -813,6 +1033,8 @@
   index: 0
   version: 4
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index1_version1
   miniaod: /JetMET1/Run2023C-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v1-v1/NANOAOD
   year: 2023_preBPix
@@ -822,6 +1044,8 @@
   index: 1
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index1_version2
   miniaod: /JetMET1/Run2023C-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v2-v1/NANOAOD
   year: 2023_preBPix
@@ -831,6 +1055,8 @@
   index: 1
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index1_version3
   miniaod: /JetMET1/Run2023C-22Sep2023_v3-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v3-v1/NANOAOD
   year: 2023_preBPix
@@ -840,6 +1066,8 @@
   index: 1
   version: 3
 - sample: MET
+  type: dataset
+  key: MET_2023_preBPix_EraC_index1_version4
   miniaod: /JetMET1/Run2023C-22Sep2023_v4-v1/MINIAOD
   nanoaod: /JetMET1/Run2023C-22Sep2023_v4-v1/NANOAOD
   year: 2023_preBPix
@@ -849,6 +1077,8 @@
   index: 1
   version: 4
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2023_preBPix
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v3/NANOAODSIM
   year: 2023_preBPix
@@ -856,6 +1086,8 @@
   is_mc: true
   cross_section: 5467.0
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2023_preBPix
   miniaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v4/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -863,6 +1095,8 @@
   is_mc: true
   cross_section: 17380.0
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -870,6 +1104,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -877,6 +1113,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -884,6 +1122,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v2/NANOAODSIM
   year: 2023_preBPix
@@ -891,6 +1131,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v2/NANOAODSIM
   year: 2023_preBPix
@@ -898,6 +1140,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v2/NANOAODSIM
   year: 2023_preBPix
@@ -905,6 +1149,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2023_preBPix
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -912,6 +1158,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2023_preBPix
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -919,6 +1167,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v4/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -926,6 +1176,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v6/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -933,6 +1185,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -940,6 +1194,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_preBPix
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -947,6 +1203,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -954,6 +1212,8 @@
   is_mc: true
   cross_section: 6854000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -961,6 +1221,8 @@
   is_mc: true
   cross_section: 6686000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -968,6 +1230,8 @@
   is_mc: true
   cross_section: 2118000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -975,6 +1239,8 @@
   is_mc: true
   cross_section: 394100.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -982,6 +1248,8 @@
   is_mc: true
   cross_section: 72170.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -989,6 +1257,8 @@
   is_mc: true
   cross_section: 17920.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v14-v2/NANOAODSIM
   year: 2023_preBPix
@@ -996,6 +1266,8 @@
   is_mc: true
   cross_section: 1224.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v3/MINIAODSIM
   nanoaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1003,6 +1275,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v2/NANOAODSIM
   year: 2023_preBPix
@@ -1010,6 +1284,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1017,6 +1293,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1024,6 +1302,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1031,6 +1311,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1038,6 +1320,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1045,6 +1329,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1052,6 +1338,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1059,6 +1347,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1066,6 +1356,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1073,6 +1365,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_preBPix
   miniaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM
   nanoaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23NanoAODv15-150X_mcRun3_2023_realistic_v1-v1/NANOAODSIM
   year: 2023_preBPix
@@ -1080,6 +1374,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: Muon
+  type: dataset
+  key: Muon_2023_postBPix_EraD_index0_version1
   miniaod: /Muon0/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon0/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1089,6 +1385,8 @@
   index: 0
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2023_postBPix_EraD_index0_version2
   miniaod: /Muon0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1098,6 +1396,8 @@
   index: 0
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2023_postBPix_EraD_index1_version1
   miniaod: /Muon1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /Muon1/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1107,6 +1407,8 @@
   index: 1
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2023_postBPix_EraD_index1_version2
   miniaod: /Muon1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1116,6 +1418,8 @@
   index: 1
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_postBPix_EraD_index0_version1
   miniaod: /EGamma0/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma0/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1125,6 +1429,8 @@
   index: 0
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_postBPix_EraD_index0_version2
   miniaod: /EGamma0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1134,6 +1440,8 @@
   index: 0
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_postBPix_EraD_index1_version1
   miniaod: /EGamma1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /EGamma1/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1143,6 +1451,8 @@
   index: 1
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2023_postBPix_EraD_index1_version2
   miniaod: /EGamma1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1152,6 +1462,8 @@
   index: 1
   version: 2
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_postBPix_EraD_version1
   miniaod: /MuonEG/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /MuonEG/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1160,6 +1472,8 @@
   is_mc: false
   version: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2023_postBPix_EraD_version2
   miniaod: /MuonEG/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /MuonEG/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1168,6 +1482,8 @@
   is_mc: false
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2023_postBPix_EraD_index0_version1
   miniaod: /JetMET0/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET0/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1177,6 +1493,8 @@
   index: 0
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2023_postBPix_EraD_index0_version2
   miniaod: /JetMET0/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1186,6 +1504,8 @@
   index: 0
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2023_postBPix_EraD_index1_version1
   miniaod: /JetMET1/Run2023D-22Sep2023_v1-v1/MINIAOD
   nanoaod: /JetMET1/Run2023D-22Sep2023_v1-v1/NANOAOD
   year: 2023_postBPix
@@ -1195,6 +1515,8 @@
   index: 1
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2023_postBPix_EraD_index1_version2
   miniaod: /JetMET1/Run2023D-22Sep2023_v2-v1/MINIAOD
   nanoaod: /JetMET1/Run2023D-22Sep2023_v2-v1/NANOAOD
   year: 2023_postBPix
@@ -1204,6 +1526,8 @@
   index: 1
   version: 2
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2023_postBPix
   miniaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1211,6 +1535,8 @@
   is_mc: true
   cross_section: 5467.0
 - sample: DY
+  type: dataset
+  key: DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2023_postBPix
   miniaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v4/MINIAODSIM
   nanoaod: /DYto2L-4Jets_MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1218,6 +1544,8 @@
   is_mc: true
   cross_section: 17380.0
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1225,6 +1553,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1232,6 +1562,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1239,6 +1571,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1246,6 +1580,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1253,6 +1589,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1260,6 +1598,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2023_postBPix
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1267,6 +1607,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2023_postBPix
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1274,6 +1616,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v2/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1281,6 +1625,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1288,6 +1634,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1295,6 +1643,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2023_postBPix
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v3/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1302,6 +1652,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-10to30_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1309,6 +1661,8 @@
   is_mc: true
   cross_section: 6854000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1316,6 +1670,8 @@
   is_mc: true
   cross_section: 6686000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1323,6 +1679,8 @@
   is_mc: true
   cross_section: 2118000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1330,6 +1688,8 @@
   is_mc: true
   cross_section: 394100.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1337,6 +1697,8 @@
   is_mc: true
   cross_section: 72170.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1344,6 +1706,8 @@
   is_mc: true
   cross_section: 17920.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-300toInf_EMEnriched_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v2-v2/NANOAODSIM
   year: 2023_postBPix
@@ -1351,6 +1715,8 @@
   is_mc: true
   cross_section: 1224.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1358,6 +1724,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-20to30_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1365,6 +1733,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-30to50_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1372,6 +1742,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-50to80_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1379,6 +1751,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-80to120_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1386,6 +1760,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-120to170_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1393,6 +1769,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-170to300_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1400,6 +1778,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-300to470_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1407,6 +1787,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-470to600_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1414,6 +1796,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-600to800_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1421,6 +1805,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-800to1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1428,6 +1814,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8_2023_postBPix
   miniaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v2-v2/MINIAODSIM
   nanoaod: /QCD_PT-1000_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/Run3Summer23BPixNanoAODv15-150X_mcRun3_2023_realistic_postBPix_v1-v1/NANOAODSIM
   year: 2023_postBPix
@@ -1435,6 +1823,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraC_index0
   miniaod: /Muon0/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1443,6 +1833,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraD_index0
   miniaod: /Muon0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1451,6 +1843,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraE_index0
   miniaod: /Muon0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1459,6 +1853,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraF_index0
   miniaod: /Muon0/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024F-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1467,6 +1863,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraG_index0
   miniaod: /Muon0/Run2024G-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024G-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1475,6 +1873,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraH_index0
   miniaod: /Muon0/Run2024H-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024H-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1483,6 +1883,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraI_index0_version1
   miniaod: /Muon0/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon0/Run2024I-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1492,6 +1894,8 @@
   index: 0
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraI_index0_version2
   miniaod: /Muon0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /Muon0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
   year: '2024'
@@ -1501,6 +1905,8 @@
   index: 0
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraC_index1
   miniaod: /Muon1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1509,6 +1915,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraD_index1
   miniaod: /Muon1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1517,6 +1925,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraE_index1
   miniaod: /Muon1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1525,6 +1935,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraF_index1
   miniaod: /Muon1/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024F-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1533,6 +1945,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraG_index1
   miniaod: /Muon1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /Muon1/Run2024G-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1541,6 +1955,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraH_index1
   miniaod: /Muon1/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /Muon1/Run2024H-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1549,6 +1965,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraI_index1_version1
   miniaod: /Muon1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /Muon1/Run2024I-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1558,6 +1976,8 @@
   index: 1
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2024_EraI_index1_version2
   miniaod: /Muon1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /Muon1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
   year: '2024'
@@ -1567,6 +1987,8 @@
   index: 1
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraC_index0
   miniaod: /EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1575,6 +1997,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraD_index0
   miniaod: /EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1583,6 +2007,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraE_index0
   miniaod: /EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1591,6 +2017,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraF_index0
   miniaod: /EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024F-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1599,6 +2027,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraG_index0
   miniaod: /EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma0/Run2024G-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1607,6 +2037,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraH_index0
   miniaod: /EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma0/Run2024H-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1615,6 +2047,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraI_index0_version1
   miniaod: /EGamma0/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma0/Run2024I-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1624,6 +2058,8 @@
   index: 0
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraI_index0_version2
   miniaod: /EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /EGamma0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
   year: '2024'
@@ -1633,6 +2069,8 @@
   index: 0
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraC_index1
   miniaod: /EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1641,6 +2079,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraD_index1
   miniaod: /EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1649,6 +2089,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraE_index1
   miniaod: /EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1657,6 +2099,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraF_index1
   miniaod: /EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024F-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1665,6 +2109,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraG_index1
   miniaod: /EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /EGamma1/Run2024G-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1673,6 +2119,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraH_index1
   miniaod: /EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024H-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1681,6 +2129,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraI_index1_version1
   miniaod: /EGamma1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /EGamma1/Run2024I-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1690,6 +2140,8 @@
   index: 1
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2024_EraI_index1_version2
   miniaod: /EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /EGamma1/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
   year: '2024'
@@ -1699,6 +2151,8 @@
   index: 1
   version: 2
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraC
   miniaod: /MuonEG/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /MuonEG/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1706,6 +2160,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024C
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraD
   miniaod: /MuonEG/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /MuonEG/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1713,6 +2169,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024D
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraE
   miniaod: /MuonEG/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /MuonEG/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1720,6 +2178,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024E
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraF
   miniaod: /MuonEG/Run2024F-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /MuonEG/Run2024F-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1727,6 +2187,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024F
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraG
   miniaod: /MuonEG/Run2024G-MINIv6NANOv15-v3/MINIAOD
   nanoaod: /MuonEG/Run2024G-MINIv6NANOv15-v3/NANOAOD
   year: '2024'
@@ -1734,6 +2196,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024G
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraH
   miniaod: /MuonEG/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /MuonEG/Run2024H-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1741,6 +2205,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2024H
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraI_version1
   miniaod: /MuonEG/Run2024I-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /MuonEG/Run2024I-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1749,6 +2215,8 @@
   is_mc: false
   version: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2024_EraI_version2
   miniaod: /MuonEG/Run2024I-MINIv6NANOv15_v2-v2/MINIAOD
   nanoaod: /MuonEG/Run2024I-MINIv6NANOv15_v2-v2/NANOAOD
   year: '2024'
@@ -1757,6 +2225,8 @@
   is_mc: false
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2024_EraC_index0
   miniaod: /JetMET0/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1765,6 +2235,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraD_index0
   miniaod: /JetMET0/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1773,6 +2245,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraE_index0
   miniaod: /JetMET0/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET0/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1781,6 +2255,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraF_index0
   miniaod: /JetMET0/Run2024F-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024F-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1789,6 +2265,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraG_index0
   miniaod: /JetMET0/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024G-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1797,6 +2275,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraH_index0
   miniaod: /JetMET0/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024H-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1805,6 +2285,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2024_EraI_index0_version1
   miniaod: /JetMET0/Run2024I-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET0/Run2024I-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1814,6 +2296,8 @@
   index: 0
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraI_index0_version2
   miniaod: /JetMET0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD
   nanoaod: /JetMET0/Run2024I-MINIv6NANOv15_v2-v1/NANOAOD
   year: '2024'
@@ -1823,6 +2307,8 @@
   index: 0
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2024_EraC_index1
   miniaod: /JetMET1/Run2024C-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024C-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1831,6 +2317,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraD_index1
   miniaod: /JetMET1/Run2024D-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024D-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1839,6 +2327,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraE_index1
   miniaod: /JetMET1/Run2024E-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024E-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1847,6 +2337,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraF_index1
   miniaod: /JetMET1/Run2024F-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024F-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1855,6 +2347,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraG_index1
   miniaod: /JetMET1/Run2024G-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024G-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1863,6 +2357,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraH_index1
   miniaod: /JetMET1/Run2024H-MINIv6NANOv15-v2/MINIAOD
   nanoaod: /JetMET1/Run2024H-MINIv6NANOv15-v2/NANOAOD
   year: '2024'
@@ -1871,6 +2367,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraI_index1_version1
   miniaod: /JetMET1/Run2024I-MINIv6NANOv15-v1/MINIAOD
   nanoaod: /JetMET1/Run2024I-MINIv6NANOv15-v1/NANOAOD
   year: '2024'
@@ -1880,6 +2378,8 @@
   index: 1
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2024_EraI_index1_version2
   miniaod: /JetMET1/Run2024I-MINIv6NANOv15_v2-v2/MINIAOD
   nanoaod: /JetMET1/Run2024I-MINIv6NANOv15_v2-v2/NANOAOD
   year: '2024'
@@ -1889,6 +2389,8 @@
   index: 1
   version: 2
 - sample: DY
+  type: dataset
+  key: DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2024'
@@ -1896,6 +2398,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2025'
@@ -1903,6 +2407,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -1910,6 +2416,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: DY
+  type: dataset
+  key: DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2E-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -1917,6 +2425,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: DY
+  type: dataset
+  key: DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2024'
@@ -1924,6 +2434,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /DYto2Mu-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2025'
@@ -1931,6 +2443,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -1938,6 +2452,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: DY
+  type: dataset
+  key: DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Mu-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -1945,6 +2461,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: DY
+  type: dataset
+  key: DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v5/MINIAODSIM
   nanoaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v5/NANOAODSIM
   year: '2024'
@@ -1952,6 +2470,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v5/MINIAODSIM
   nanoaod: /DYto2Tau-4Jets_Bin-MLL-50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v5/NANOAODSIM
   year: '2025'
@@ -1959,6 +2479,8 @@
   is_mc: true
   cross_section: 1822.33
 - sample: DY
+  type: dataset
+  key: DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2024
   miniaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -1966,6 +2488,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: DY
+  type: dataset
+  key: DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8_2025
   miniaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /DYto2Tau-4Jets_Bin-MLL-10to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -1973,6 +2497,8 @@
   is_mc: true
   cross_section: 5793.33
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -1980,6 +2506,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WW_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /WW_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -1987,6 +2515,8 @@
   is_mc: true
   cross_section: 80.23
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -1994,6 +2524,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: WZ_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /WZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2001,6 +2533,8 @@
   is_mc: true
   cross_section: 29.1
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2008,6 +2542,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: Diboson
+  type: dataset
+  key: ZZ_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /ZZ_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2015,6 +2551,8 @@
   is_mc: true
   cross_section: 12.75
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2024'
@@ -2022,6 +2560,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v3/MINIAODSIM
   nanoaod: /TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v3/NANOAODSIM
   year: '2025'
@@ -2029,6 +2569,8 @@
   is_mc: true
   cross_section: 98.88
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2036,6 +2578,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2043,6 +2587,8 @@
   is_mc: true
   cross_section: 407.43
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2050,6 +2596,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: TTbar
+  type: dataset
+  key: TTto4Q_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TTto4Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2057,6 +2605,8 @@
   is_mc: true
   cross_section: 419.69
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2024
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2064,6 +2614,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2025
   miniaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2071,6 +2623,8 @@
   is_mc: true
   cross_section: 1.42
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2024
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2078,6 +2632,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8_2025
   miniaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2085,6 +2641,8 @@
   is_mc: true
   cross_section: 2.278
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2024
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2092,6 +2650,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2025
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2099,6 +2659,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2024
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2106,6 +2668,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2025
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2113,6 +2677,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2120,6 +2686,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarWplusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2127,6 +2695,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2134,6 +2704,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TbarWplustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2141,6 +2713,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2148,6 +2722,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TWminusto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2155,6 +2731,8 @@
   is_mc: true
   cross_section: 14.38
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2024
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2162,6 +2740,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: SingleTop
+  type: dataset
+  key: TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8_2025
   miniaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /TWminustoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2169,6 +2749,8 @@
   is_mc: true
   cross_section: 29.63
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2176,6 +2758,8 @@
   is_mc: true
   cross_section: 1444000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-15to20_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2183,6 +2767,8 @@
   is_mc: true
   cross_section: 1444000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2190,6 +2776,8 @@
   is_mc: true
   cross_section: 5309000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2197,6 +2785,8 @@
   is_mc: true
   cross_section: 5309000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2204,6 +2794,8 @@
   is_mc: true
   cross_section: 6849000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-30to50_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2211,6 +2803,8 @@
   is_mc: true
   cross_section: 6849000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2218,6 +2812,8 @@
   is_mc: true
   cross_section: 2130000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2225,6 +2821,8 @@
   is_mc: true
   cross_section: 2130000.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2232,6 +2830,8 @@
   is_mc: true
   cross_section: 391400.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-80to120_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2239,6 +2839,8 @@
   is_mc: true
   cross_section: 391400.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2246,6 +2848,8 @@
   is_mc: true
   cross_section: 71630.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2253,6 +2857,8 @@
   is_mc: true
   cross_section: 71630.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2260,6 +2866,8 @@
   is_mc: true
   cross_section: 18010.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-170to300_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2267,6 +2875,8 @@
   is_mc: true
   cross_section: 18010.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2274,6 +2884,8 @@
   is_mc: true
   cross_section: 1116.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2281,6 +2893,8 @@
   is_mc: true
   cross_section: 1116.0
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2288,6 +2902,8 @@
   is_mc: true
   cross_section: 82.76
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-470to600_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2295,6 +2911,8 @@
   is_mc: true
   cross_section: 82.76
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2302,6 +2920,8 @@
   is_mc: true
   cross_section: 21.62
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2309,6 +2929,8 @@
   is_mc: true
   cross_section: 21.62
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2316,6 +2938,8 @@
   is_mc: true
   cross_section: 3.361
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-800to1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2323,6 +2947,8 @@
   is_mc: true
   cross_section: 3.361
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2330,6 +2956,8 @@
   is_mc: true
   cross_section: 1.02
 - sample: QCDEle
+  type: dataset
+  key: QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-EMEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2337,6 +2965,8 @@
   is_mc: true
   cross_section: 1.02
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2344,6 +2974,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-15to20_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2351,6 +2983,8 @@
   is_mc: true
   cross_section: 2982000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2358,6 +2992,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-20to30_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2365,6 +3001,8 @@
   is_mc: true
   cross_section: 2679000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2372,6 +3010,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-30to50_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2379,6 +3019,8 @@
   is_mc: true
   cross_section: 1465000.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2386,6 +3028,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-50to80_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2393,6 +3037,8 @@
   is_mc: true
   cross_section: 409500.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2400,6 +3046,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-80to120_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2407,6 +3055,8 @@
   is_mc: true
   cross_section: 96200.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2414,6 +3064,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-120to170_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2421,6 +3073,8 @@
   is_mc: true
   cross_section: 22980.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2428,6 +3082,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-170to300_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2435,6 +3091,8 @@
   is_mc: true
   cross_section: 7763.0
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2442,6 +3100,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-300to470_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2449,6 +3109,8 @@
   is_mc: true
   cross_section: 699.1
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2456,6 +3118,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-470to600_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2463,6 +3127,8 @@
   is_mc: true
   cross_section: 68.24
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2470,6 +3136,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-600to800_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2477,6 +3145,8 @@
   is_mc: true
   cross_section: 21.37
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2484,6 +3154,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-800to1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2491,6 +3163,8 @@
   is_mc: true
   cross_section: 3.913
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2024
   miniaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2024'
@@ -2498,6 +3172,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: QCDMu
+  type: dataset
+  key: QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8_2025
   miniaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24MiniAODv6-150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM
   nanoaod: /QCD_Bin-PT-1000_Fil-MuEnriched_TuneCP5_13p6TeV_pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM
   year: '2025'
@@ -2505,6 +3181,8 @@
   is_mc: true
   cross_section: 1.323
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraC_index0_version1
   miniaod: /Muon0/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2514,6 +3192,8 @@
   index: 0
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraC_index0_version2
   miniaod: /Muon0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /Muon0/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2523,6 +3203,8 @@
   index: 0
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraD_index0
   miniaod: /Muon0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2531,6 +3213,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraE_index0
   miniaod: /Muon0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2539,6 +3223,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraF_index0_version1
   miniaod: /Muon0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2548,6 +3234,8 @@
   index: 0
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraF_index0_version2
   miniaod: /Muon0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /Muon0/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2557,6 +3245,8 @@
   index: 0
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraG_index0
   miniaod: /Muon0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /Muon0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2565,6 +3255,8 @@
   is_mc: false
   index: 0
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraC_index1_version1
   miniaod: /Muon1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2574,6 +3266,8 @@
   index: 1
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraC_index1_version2
   miniaod: /Muon1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /Muon1/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2583,6 +3277,8 @@
   index: 1
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraD_index1
   miniaod: /Muon1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2591,6 +3287,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraE_index1
   miniaod: /Muon1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2599,6 +3297,8 @@
   is_mc: false
   index: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraF_index1_version1
   miniaod: /Muon1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2608,6 +3308,8 @@
   index: 1
   version: 1
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraF_index1_version2
   miniaod: /Muon1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /Muon1/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2617,6 +3319,8 @@
   index: 1
   version: 2
 - sample: Muon
+  type: dataset
+  key: Muon_2025_EraG_index1
   miniaod: /Muon1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /Muon1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2625,6 +3329,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index0_version1
   miniaod: /EGamma0/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2634,6 +3340,8 @@
   index: 0
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index0_version2
   miniaod: /EGamma0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma0/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2643,6 +3351,8 @@
   index: 0
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraD_index0
   miniaod: /EGamma0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2651,6 +3361,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraE_index0
   miniaod: /EGamma0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2659,6 +3371,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index0_version1
   miniaod: /EGamma0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2668,6 +3382,8 @@
   index: 0
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index0_version2
   miniaod: /EGamma0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma0/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2677,6 +3393,8 @@
   index: 0
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraG_index0
   miniaod: /EGamma0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2685,6 +3403,8 @@
   is_mc: false
   index: 0
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index1_version1
   miniaod: /EGamma1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2694,6 +3414,8 @@
   index: 1
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index1_version2
   miniaod: /EGamma1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma1/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2703,6 +3425,8 @@
   index: 1
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraD_index1
   miniaod: /EGamma1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2711,6 +3435,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraE_index1
   miniaod: /EGamma1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2719,6 +3445,8 @@
   is_mc: false
   index: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index1_version1
   miniaod: /EGamma1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2728,6 +3456,8 @@
   index: 1
   version: 1
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index1_version2
   miniaod: /EGamma1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma1/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2737,6 +3467,8 @@
   index: 1
   version: 2
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraG_index1
   miniaod: /EGamma1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2745,6 +3477,8 @@
   is_mc: false
   index: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraC_version1
   miniaod: /MuonEG/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2753,6 +3487,8 @@
   is_mc: false
   version: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraC_version2
   miniaod: /MuonEG/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /MuonEG/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2761,6 +3497,8 @@
   is_mc: false
   version: 2
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraD
   miniaod: /MuonEG/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2768,6 +3506,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025D
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraE
   miniaod: /MuonEG/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2775,6 +3515,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025E
   is_mc: false
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraF_version1
   miniaod: /MuonEG/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2783,6 +3525,8 @@
   is_mc: false
   version: 1
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraF_version2
   miniaod: /MuonEG/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /MuonEG/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2791,6 +3535,8 @@
   is_mc: false
   version: 2
 - sample: MuonEG
+  type: dataset
+  key: MuonEG_2025_EraG
   miniaod: /MuonEG/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /MuonEG/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2798,6 +3544,8 @@
   supplements_path: /store/user/lnestor/supplements/MuonEG_Run2025G
   is_mc: false
 - sample: MET
+  type: dataset
+  key: MET_2025_EraC_index0_version1
   miniaod: /JetMET0/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2807,6 +3555,8 @@
   index: 0
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraC_index0_version2
   miniaod: /JetMET0/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /JetMET0/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2816,6 +3566,8 @@
   index: 0
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2025_EraD_index0
   miniaod: /JetMET0/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2824,6 +3576,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2025_EraE_index0
   miniaod: /JetMET0/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2832,6 +3586,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2025_EraF_index0_version1
   miniaod: /JetMET0/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2841,6 +3597,8 @@
   index: 0
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraF_index0_version2
   miniaod: /JetMET0/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /JetMET0/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2850,6 +3608,8 @@
   index: 0
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2025_EraG_index0
   miniaod: /JetMET0/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /JetMET0/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2858,6 +3618,8 @@
   is_mc: false
   index: 0
 - sample: MET
+  type: dataset
+  key: MET_2025_EraC_index1_version1
   miniaod: /JetMET1/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2867,6 +3629,8 @@
   index: 1
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraC_index1_version2
   miniaod: /JetMET1/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /JetMET1/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2876,6 +3640,8 @@
   index: 1
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2025_EraD_index1
   miniaod: /JetMET1/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2884,6 +3650,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraE_index1
   miniaod: /JetMET1/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2892,6 +3660,8 @@
   is_mc: false
   index: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraF_index1_version1
   miniaod: /JetMET1/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2901,6 +3671,8 @@
   index: 1
   version: 1
 - sample: MET
+  type: dataset
+  key: MET_2025_EraF_index1_version2
   miniaod: /JetMET1/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /JetMET1/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2910,6 +3682,8 @@
   index: 1
   version: 2
 - sample: MET
+  type: dataset
+  key: MET_2025_EraG_index1
   miniaod: /JetMET1/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /JetMET1/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2918,6 +3692,8 @@
   is_mc: false
   index: 1
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2022_preEE
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -2925,6 +3701,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2022_postEE
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -2932,6 +3710,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2023_preBPix
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v1/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v1/NANOAODSIM
   year: 2023_preBPix
@@ -2939,6 +3719,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2023_postBPix
   miniaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v1/MINIAODSIM
   nanoaod: /TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v6-v1/NANOAODSIM
   year: 2023_postBPix
@@ -2946,6 +3728,8 @@
   is_mc: true
   cross_section: 38.6
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2022_preEE
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v2/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
   year: 2022_preEE
@@ -2953,6 +3737,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2022_postEE
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
   year: 2022_postEE
@@ -2960,6 +3746,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2023_preBPix
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v15-v1/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v1/NANOAODSIM
   year: 2023_preBPix
@@ -2967,6 +3755,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: SingleTop
+  type: dataset
+  key: TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8_2023_postBPix
   miniaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23BPixMiniAODv4-130X_mcRun3_2023_realistic_postBPix_v6-v1/MINIAODSIM
   nanoaod: /TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v6-v1/NANOAODSIM
   year: 2023_postBPix
@@ -2974,6 +3764,8 @@
   is_mc: true
   cross_section: 23.34
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index2_version1
   miniaod: /EGamma2/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma2/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -2983,6 +3775,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025C_v1
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index2_version2
   miniaod: /EGamma2/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma2/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -2992,6 +3786,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025C_v2
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index3_version1
   miniaod: /EGamma3/Run2025C-PromptReco-v1/MINIAOD
   nanoaod: /EGamma3/Run2025C-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3001,6 +3797,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025C_v1
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraC_index3_version2
   miniaod: /EGamma3/Run2025C-PromptReco-v2/MINIAOD
   nanoaod: /EGamma3/Run2025C-PromptReco-v2/NANOAOD
   year: '2025'
@@ -3010,6 +3808,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025C_v2
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraD_index2
   miniaod: /EGamma2/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma2/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3018,6 +3818,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025D
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraD_index3
   miniaod: /EGamma3/Run2025D-PromptReco-v1/MINIAOD
   nanoaod: /EGamma3/Run2025D-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3026,6 +3828,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025D
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraE_index2
   miniaod: /EGamma2/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma2/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3034,6 +3838,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025E
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraE_index3
   miniaod: /EGamma3/Run2025E-PromptReco-v1/MINIAOD
   nanoaod: /EGamma3/Run2025E-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3042,6 +3848,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025E
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index2_version1
   miniaod: /EGamma2/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma2/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3051,6 +3859,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025F_v1
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index2_version2
   miniaod: /EGamma2/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma2/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -3060,6 +3870,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025F_v2
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index3_version1
   miniaod: /EGamma3/Run2025F-PromptReco-v1/MINIAOD
   nanoaod: /EGamma3/Run2025F-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3069,6 +3881,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025F_v1
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraF_index3_version2
   miniaod: /EGamma3/Run2025F-PromptReco-v2/MINIAOD
   nanoaod: /EGamma3/Run2025F-PromptReco-v2/NANOAOD
   year: '2025'
@@ -3078,6 +3892,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma3_Run2025F_v2
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraG_index2
   miniaod: /EGamma2/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma2/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'
@@ -3086,6 +3902,8 @@
   supplements_path: /store/user/lnestor/supplements/EGamma2_Run2025G
   is_mc: false
 - sample: EGamma
+  type: dataset
+  key: EGamma_2025_EraG_index3
   miniaod: /EGamma3/Run2025G-PromptReco-v1/MINIAOD
   nanoaod: /EGamma3/Run2025G-PromptReco-v1/NANOAOD
   year: '2025'

@@ -101,8 +101,11 @@ def lepton_displacement_hists(coll=None, label=None, pos=None, only_categories=N
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
         f"{label}_parentpt_vs_d0": HistConf([
             Axis(coll=coll, pos=pos, field="uniqueGenPartMotherPt", bins=100, start=0, stop=500, label=rf"{label} direct parent $p_T$ [GeV]"),
-            Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=600, label=rf"{label} $|d_0|$ [$\mu m$]"),
+            Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=300, label=rf"{label} $|d_0|$ [$\mu m$]"),
         ], only_categories=only_categories, only_samples=MC_SAMPLES),
+        f"{label}_absd0": HistConf([
+            Axis(coll=coll, pos=pos, field="absd0_um", bins=100, start=0, stop=300, label=rf"{label} $|d_0|$ [$\mu m$]")
+        ], only_categories=only_categories),
     }
 
 

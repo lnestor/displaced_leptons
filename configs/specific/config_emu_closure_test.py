@@ -82,7 +82,8 @@ cfg = Configurator(
     },
     hists = {
         **genvtx_hists(only_categories=["baseline"]),
-        **lepton_displacement_hists(coll="SelectedLeptons", label="Lepton", only_categories=["baseline"]),
+        **lepton_displacement_hists(coll="ElectronGood", pos=0, label="Electron", only_categories=["baseline"]),
+        **lepton_displacement_hists(coll="MuonGood", pos=0, label="Muon", only_categories=["baseline"]),
         **correlation_hists(channel="emu", only_categories=["baseline"]),
     }
 )

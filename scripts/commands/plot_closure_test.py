@@ -24,6 +24,7 @@ HIST_STYLES_BY_SUFFIX = {
     "_dx_vs_dy": ("2d", dict(heatlog=True, xlog=True, ylog=True, xlinthresh=LINTHRESH, ylinthresh=LINTHRESH)),
     "_parentpt_vs_lxy": ("2d", dict(heatlog=True, ylog=True, ylinthresh=LINTHRESH)),
     "_parentpt_vs_d0": ("2d", dict(heatlog=True)),
+    "_absd0": ("1d", dict()),
 }
 
 

@@ -14,7 +14,7 @@ from rich.text import Text
 import uproot
 
 DATA_SAMPLES = ["EGamma", "Muon", "MuonEG", "MET"]
-MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle"]
+MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle", "Signal"]
 SAMPLES = DATA_SAMPLES + MC_SAMPLES
 
 YEARS = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
@@ -186,25 +186,33 @@ def read_supplement_lumis(supp_files, report_fn):
     return supp_lumis_to_file
 
 
-def read_skim_lumis(skim_files, report_fn):
-    """Skim-mode equivalent of read_central_lumis: since the skim file list
-    is already known (unlike central NanoAOD, skim files aren't registered
-    in DAS), read each file's (run, luminosityBlock) directly instead of
-    querying DAS."""
-    skim_file_to_lumis = {}
+def read_file_lumis(files, report_fn):
+    """Equivalent of read_central_lumis for files that aren't registered in DAS
+    (skim output, NanoAOD on EOS): read each file's (run, luminosityBlock)
+    directly instead of querying DAS."""
+    file_to_lumis = {}
     with ThreadPoolExecutor(max_workers=8) as executor:
         futures = {
-            executor.submit(get_lumis_from_file, skim_file, "Events"): skim_file
-            for skim_file in skim_files
+            executor.submit(get_lumis_from_file, file, "Events"): file
+            for file in files
         }
 
         for future in as_completed(futures):
-            skim_file = futures[future]
-            lfn = "/store/" + skim_file.split("/store/", 1)[1]
-            skim_file_to_lumis[lfn] = future.result()
+            file = futures[future]
+            lfn = "/store/" + file.split("/store/", 1)[1]
+            file_to_lumis[lfn] = future.result()
             report_fn(advance=1)
 
-    return skim_file_to_lumis
+    return file_to_lumis
+
+
+def check_unique_lumis(file_to_lumis):
+    lumi_to_file = {}
+    for file, lumis in file_to_lumis.items():
+        for lumi in lumis:
+            if lumi in lumi_to_file and lumi_to_file[lumi] != file:
+                raise ValueError(f"run/lumi {lumi} is in both {lumi_to_file[lumi]} and {file}")
+            lumi_to_file[lumi] = file
 
 
 def read_central_lumis(dataset, runs, report_fn):
@@ -273,7 +281,12 @@ def process_dataset(dataset_def, supp_files, skim_channel, skim_files, message_q
     set_step(1, "active", show_bar=True)
     if skim_channel:
         report(reset=True, total=len(skim_files), description="Reading skim files")
-        central_file_to_lumis = read_skim_lumis(skim_files, report)
+        central_file_to_lumis = read_file_lumis(skim_files, report)
+    elif dataset_def.type == "eos":
+        eos_files = eos_helper.get_root_files(f"{EOS_REDIRECTOR}{dataset_def.nanoaod}")
+        report(reset=True, total=len(eos_files), description="Reading NanoAOD files")
+        central_file_to_lumis = read_file_lumis(eos_files, report)
+        check_unique_lumis(central_file_to_lumis)
     else:
         runs = {run for run, _ in supp_lumis_to_file}
         report(reset=True, total=len(runs), description="Reading central files")

@@ -282,6 +282,7 @@ def run(cfg,  custom_run_options, outputdir, test, limit_files,
     # Options I always want
     run_options["skip-bad-files"] = True
     run_options["retries"] = 5
+    run_options["dask-worker-start-timeout"] = None
 
 
     #Parsing additional runoptions from command line in the format --option=value, or --option.

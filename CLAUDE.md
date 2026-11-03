@@ -13,7 +13,11 @@ This analysis uses a customized version of PocketCoffea.
 
 ### Supplement Files
 
-Normal NanoAOD files do not have all information we need. We use "supplement" files that are produced via CMSSW. At runtime, we join the supplement files with the central files based on a (run, lumi, event) key. Supplement files are skimmed by trigger, so the join happens after triggers have been processed. We have found that (run, lumi, event) is not necessarily unique in MC, and are searching for a way to solve this problem.
+Normal NanoAOD files do not have all information we need. We use "supplement" files that are produced via CMSSW. At runtime, we join the supplement files with the central files based on a (run, lumi, event) key. Supplement files are skimmed by trigger, so the join happens after triggers have been processed.
+
+(run, lumi, event) is not always unique in MC: a few datasets simulated the same events twice, in different MiniAOD files. The supplement definition lists every lumi that appears in more than one valid MiniAOD file as `rejected_lumis`, and `SupplementPlugin.drop_rejected_lumis` removes those events in `load_metadata_extra()`, before PocketCoffea sums genWeight.
+
+MC events that pass the skim but have no supplement row (including whole chunks whose central file has no supplement file) are excluded rather than cut: their genWeight is subtracted from `sum_genweights` after the join. Nothing in supplement production drops events by content, so a missing row means a production gap, not a selection.
 
 
 ### Object Selection

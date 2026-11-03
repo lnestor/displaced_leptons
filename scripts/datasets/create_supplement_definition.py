@@ -87,11 +87,33 @@ def load_skim_files(dataset_def, skim_channel, skim_dir="datasets/skims"):
     return entry["files"] if entry else None
 
 
+def load_rejected_lumis(dataset_def, supp_dir="datasets/supplements"):
+    """Return the rejected lumis from the central supplement definition for
+    this dataset, or None if it doesn't have any."""
+    path = f"{supp_dir}/{dataset_def.sample}.json"
+    if not os.path.exists(path):
+        return None
+
+    with open(path) as f:
+        data = json.load(f)
+
+    return data.get(dataset_def.key, {}).get("rejected_lumis")
+
+
+def find_duplicated_lumis(file_to_lumis):
+    lumi_to_files = {}
+    for file, lumis in file_to_lumis.items():
+        for lumi in lumis:
+            lumi_to_files.setdefault(tuple(lumi), set()).add(file)
+
+    return sorted([list(lumi) for lumi, files in lumi_to_files.items() if len(files) > 1])
+
+
 def get_lumis_from_dataset(dataset, run):
     result = subprocess.run(
         # TODO: Can we make this query based on file, not run? MC only has 1 run,
         #       so it takes awhile
-        ["dasgoclient", "-query", f"file,lumi dataset={dataset} run={run}", "-json"],
+        ["dasgoclient", "-query", f"file,lumi dataset={dataset} run={run} status=valid", "-json"],
         capture_output=True, text=True
     )
 
@@ -143,10 +165,14 @@ def merge_definitions(existing, new):
     merged_files = dict(existing["files"])
     merged_files.update(new["files"])
 
-    return {
-        "metadata": {**existing_meta, "dataset": existing_datasets},
-        "files": merged_files,
-    }
+    merged = {"metadata": {**existing_meta, "dataset": existing_datasets}}
+
+    if "rejected_lumis" in existing or "rejected_lumis" in new:
+        rejected = {tuple(l) for l in existing.get("rejected_lumis", []) + new.get("rejected_lumis", [])}
+        merged["rejected_lumis"] = sorted([list(l) for l in rejected])
+
+    merged["files"] = merged_files
+    return merged
 
 
 def save(key, supp_def, output, overwrite, append):
@@ -239,7 +265,7 @@ def resolve_supp_files(dataset_def):
     return eos_helper.try_get_root_files(f"{EOS_REDIRECTOR}{dataset_def.supplements_path}")
 
 
-def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version):
+def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version, rejected_lumis=None):
     central_to_supp_mapping = {}
     for central_file, central_lumis in central_file_to_lumis.items():
         supp_files = list(set(supp_lumis_to_file[l] for l in central_lumis if l in supp_lumis_to_file))
@@ -252,16 +278,20 @@ def get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_
             "year": dataset_def.year,
             "version": version
         },
-        "files": central_to_supp_mapping
     }
 
     if dataset_def.era is not None:
         supp_def["metadata"]["era"] = dataset_def.era
 
+    if rejected_lumis is not None:
+        supp_def["rejected_lumis"] = rejected_lumis
+
+    supp_def["files"] = central_to_supp_mapping
+
     return supp_def
 
 
-def process_dataset(dataset_def, supp_files, skim_channel, skim_files, message_queue):
+def process_dataset(dataset_def, supp_files, skim_channel, skim_files, rejected_lumis, message_queue):
     step_statuses = ["pending", "pending", "pending", "pending"]
 
     def report(advance=0, reset=False, total=None, description=None, **fields):
@@ -291,11 +321,18 @@ def process_dataset(dataset_def, supp_files, skim_channel, skim_files, message_q
         runs = {run for run, _ in supp_lumis_to_file}
         report(reset=True, total=len(runs), description="Reading central files")
         central_file_to_lumis = read_central_lumis(dataset_def.nanoaod, runs, report)
+
+        if dataset_def.is_mc:
+            report(reset=True, total=len(runs), description="Reading MiniAOD files")
+            miniaod_file_to_lumis = read_central_lumis(dataset_def.miniaod, runs, report)
+            rejected_lumis = find_duplicated_lumis(miniaod_file_to_lumis)
     set_step(1, "done")
 
     set_step(2, "active", show_bar=False)
     version = read_supplement_version(supp_files[0])
-    supp_def = get_supplement_definition(dataset_def, central_file_to_lumis, supp_lumis_to_file, version)
+    supp_def = get_supplement_definition(
+        dataset_def, central_file_to_lumis, supp_lumis_to_file, version, rejected_lumis
+    )
     set_step(2, "done")
 
     return dataset_def.key, supp_def
@@ -314,6 +351,8 @@ def cleanup_finished_tasks(pending, output_dir, overwrite, append, progress, tas
             progress.update(tasks[key], step_statuses=list(step_statuses), show_bar=False)
 
             save(key, supp_def, output, overwrite, append)
+            if "rejected_lumis" in supp_def:
+                progress.console.print(f"{key}: {len(supp_def['rejected_lumis'])} rejected lumis")
 
             step_statuses[3] = "done"
             progress.update(tasks[key], step_statuses=list(step_statuses), done=True)
@@ -375,13 +414,15 @@ def main():
             continue
 
         skim_files = None
+        rejected_lumis = None
         if args.skim_channel:
             skim_files = load_skim_files(d, args.skim_channel)
             if skim_files is None:
                 not_ready_no_skim.append(d.key)
                 continue
+            rejected_lumis = load_rejected_lumis(d)
 
-        resolved[d.key] = (supp_files, skim_files)
+        resolved[d.key] = (supp_files, skim_files, rejected_lumis)
 
     if not_ready_no_supplements:
         print(f"Skipping {len(not_ready_no_supplements)} dataset(s) with no supplement output yet: {', '.join(not_ready_no_supplements)}")
@@ -423,7 +464,7 @@ def main():
             pending = {
                 d.key: pool.apply_async(
                     process_dataset,
-                    args=(d, resolved[d.key][0], args.skim_channel, resolved[d.key][1], message_queue)
+                    args=(d, resolved[d.key][0], args.skim_channel, resolved[d.key][1], resolved[d.key][2], message_queue)
                 )
                 for d in dataset_defs if d.key in can_process
             }

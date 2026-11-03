@@ -12,10 +12,16 @@ LUMI_FIELDS = ["run", "luminosityBlock"]
 EVENT_FIELDS = ["run", "luminosityBlock", "event"]
 
 
+def lumi_key(lumis):
+    lumis = np.array(lumis, dtype=np.int64).reshape(-1, len(LUMI_FIELDS))
+    return np.rec.fromarrays(lumis.T, names=",".join(LUMI_FIELDS))
+
+
 class SupplementPlugin:
     def __init__(self, json_paths, das_names, diagnostics, dataset):
         self.files = {}
         self.version = 0
+        self.rejected_lumis = lumi_key([])
         self.matched_mask = None
         self._diag = None
 
@@ -28,11 +34,22 @@ class SupplementPlugin:
                 "events_matched": 0,
                 "events_unmatched": 0,
                 "events_without_supplement_file": 0,
+                "events_in_rejected_lumis": 0,
             })
+
+    def drop_rejected_lumis(self, events):
+        if len(self.rejected_lumis) == 0:
+            return events
+
+        events_key = ak_help.create_key(events, LUMI_FIELDS)
+        rejected = np.isin(events_key, self.rejected_lumis.astype(events_key.dtype))
+        self._diag["events_in_rejected_lumis"] += int(rejected.sum())
+
+        return events[~rejected]
 
     def join(self, events, central_filename, trim_colls=None):
         if self.version == 0:
-            return events
+            return events, events[:0]
 
         central_lfn = "/store/" + central_filename.split("/store/", 1)[1]
         files = self.files.get(central_lfn, [])
@@ -40,7 +57,7 @@ class SupplementPlugin:
         if not files:
             self._diag["chunks_without_supplement_file"] += 1
             self._diag["events_without_supplement_file"] += len(events)
-            return self._join_without_file(events)
+            return self._join_without_file(events), events
 
         supplement = self._load_for_chunk(files, events)
 
@@ -50,6 +67,7 @@ class SupplementPlugin:
             )
 
         _, self.matched_mask = ak_help.match_indices(events, supplement, EVENT_FIELDS)
+        unmatched = events[~self.matched_mask]
 
         n_before_join = len(events)
         try:
@@ -64,7 +82,7 @@ class SupplementPlugin:
         self._diag["events_matched"] += len(events)
         self._diag["events_unmatched"] += n_before_join - len(events)
 
-        return events
+        return events, unmatched
 
     def expand_to_prejoin(self, mask):
         full = np.zeros(len(self.matched_mask), dtype=bool)
@@ -87,6 +105,9 @@ class SupplementPlugin:
             lines.append(f"    {chunks_without}/{chunks_with + chunks_without} chunks had no supplement file")
             lines.append(f"    {events_matched}/{events_total} events matched ({pct:.1f}%): "
                          f"{events_unmatched} unmatched, {events_without} in chunks without a supplement file")
+            events_rejected = diag.get("events_in_rejected_lumis", 0)
+            if events_rejected:
+                lines.append(f"    {events_rejected} events in rejected lumis (removed before the skim)")
         return "\n".join(lines)
 
     def _load_definitions(self, json_paths, das_names):
@@ -113,6 +134,7 @@ class SupplementPlugin:
                 matched_json = json_path
                 self.files = supp["files"]
                 self.version = metadata["version"]
+                self.rejected_lumis = lumi_key(supp.get("rejected_lumis", []))
 
     def _join_without_file(self, events):
         self.matched_mask = np.zeros(len(events), dtype=bool)

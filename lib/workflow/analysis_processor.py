@@ -1,6 +1,14 @@
 import awkward as ak
+import numpy as np
 from pocket_coffea.workflows.base import BaseProcessorABC
 from lib.workflow.supplement import SupplementPlugin
+
+
+def genweight_sums(events, is_skim):
+    genweight = events.genWeight
+    if is_skim:
+        genweight = genweight * events.skimRescaleGenWeight
+    return ak.sum(genweight), ak.sum(np.sign(events.genWeight))
 
 
 class AnalysisProcessor(BaseProcessorABC):
@@ -48,11 +56,17 @@ class AnalysisProcessor(BaseProcessorABC):
             self.output["supplement_diagnostics"],
             self._dataset,
         )
+        self.events = self._supplement.drop_rejected_lumis(self.events)
 
 
     def process_extra_after_skim(self):
         trim_colls = ["Muon", "Electron"] if (self._year, self._sample) == ("2025", "EGamma") else None
-        self.events = self._supplement.join(self.events, self.events.metadata["filename"], trim_colls)
+        self.events, unmatched = self._supplement.join(self.events, self.events.metadata["filename"], trim_colls)
+
+        if self._isMC:
+            sumw, sum_sign = genweight_sums(unmatched, self._isSkim)
+            self.output["sum_genweights"][self._dataset] -= sumw
+            self.output["sum_signOf_genweights"][self._dataset] -= sum_sign
 
 
     def get_preselection_mask(self, variation):

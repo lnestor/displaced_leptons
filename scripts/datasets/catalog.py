@@ -5,7 +5,7 @@ DEFAULT_PATH = Path("datasets/sources/datasets.yaml")
 
 
 class DatasetDefinition:
-    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, type, key, cross_section=None, era=None, index=None, version=None):
+    def __init__(self, sample, miniaod, nanoaod, year, supplements_path, is_mc, type, key, cross_section=None, era=None, index=None, version=None, nanoaod_version=None):
         self.sample = sample
         self.type = type
         self.key = key
@@ -18,6 +18,7 @@ class DatasetDefinition:
         self.xsec = cross_section
         self.index = index
         self.version = version
+        self.nanoaod_version = nanoaod_version
 
     def __repr__(self):
         return (

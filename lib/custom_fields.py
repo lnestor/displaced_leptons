@@ -29,9 +29,7 @@ def define_DY_flavor(events, year, is_mc, supplement_version):
 
 
 def define_custom_nano_fields(events, year, is_mc, supplement_version):
-    events["Electron", "original_idx"] = ak.local_index(events.Electron, axis=1)
     events["Electron", "ip3d_um"] = events.Electron.ip3d * 1e4
-    events["Muon", "original_idx"] = ak.local_index(events.Muon, axis=1)
     events["Muon", "absd0_um"] = abs(events.Muon.dxybs) * 1e4
 
     if is_mc and "dxybs_original" in events.Muon.fields:

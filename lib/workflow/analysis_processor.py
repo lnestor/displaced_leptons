@@ -11,10 +11,21 @@ def genweight_sums(events, is_skim):
     return ak.sum(genweight), ak.sum(np.sign(events.genWeight))
 
 
+def sort_by_pt(events, colls):
+    for coll in colls:
+        objs = ak.with_field(events[coll], ak.local_index(events[coll], axis=1), "original_idx")
+        events = ak.with_field(events, objs[ak.argsort(objs.pt, axis=1, ascending=False)], coll)
+    return events
+
+
 class AnalysisProcessor(BaseProcessorABC):
     def __init__(self, cfg):
         super().__init__(cfg)
         self.output_format["supplement_diagnostics"] = {}
+
+
+    def process_extra_after_calibrators(self, variation):
+        self.events = sort_by_pt(self.events, ["Electron", "Muon"])
 
 
     def apply_object_preselection(self, variation):

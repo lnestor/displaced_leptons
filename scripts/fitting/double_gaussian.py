@@ -3,6 +3,7 @@ import warnings
 import numpy as np
 from iminuit import Minuit
 from iminuit.cost import LeastSquares
+from scipy.optimize import brentq
 from scipy.stats import norm
 from uncertainties import ufloat
 
@@ -139,13 +140,22 @@ class DoubleGaussian:
         return (self.q * norm.cdf(x, self.mean, self.sigma1)
                 + (1 - self.q) * norm.cdf(x, self.mean, self.sigma2))
 
-    def inverse_cdf(self, p, pad_factor=8.0, n_grid=4000):
-        """Numerically inverts cdf() via interpolation, since a two-component
-        Gaussian mixture has no closed-form inverse. pad_factor sets how many
-        multiples of sigma2 (the wider component) to grid out to on each side
-        of mean -- too narrow and the cdf never reaches ~0/~1, so p near 0 or
-        1 gets silently clipped to the grid edge instead of extrapolated."""
-        pad = pad_factor * self.sigma2
-        x_grid = np.linspace(self.mean - pad, self.mean + pad, n_grid)
-        cdf_grid = self.cdf(x_grid)
-        return np.interp(p, cdf_grid, x_grid)
+    def log_tail(self, x, upper):
+        """Log of the fraction of the distribution above x (upper=True) or
+        below x (upper=False). Stays accurate far into the tails, where
+        cdf() rounds to exactly 0 or 1."""
+        f = norm.logsf if upper else norm.logcdf
+        with np.errstate(divide="ignore"):
+            return np.logaddexp(
+                np.log(self.q) + f(x, self.mean, self.sigma1),
+                np.log(1 - self.q) + f(x, self.mean, self.sigma2),
+            )
+
+    def quantile_from_log_tail(self, log_p, upper):
+        """Inverse of log_tail: the x where log_tail(x, upper) == log_p."""
+        sign = 1 if upper else -1
+        step = 10 * max(self.sigma1, self.sigma2)
+        while self.log_tail(self.mean + sign * step, upper) > log_p:
+            step *= 2
+        lo, hi = sorted([self.mean, self.mean + sign * step])
+        return brentq(lambda x: self.log_tail(x, upper) - log_p, lo, hi, xtol=1e-9, rtol=1e-14)

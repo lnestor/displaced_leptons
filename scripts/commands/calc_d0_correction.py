@@ -90,10 +90,20 @@ LINEAR_FORMULA = cs.Formula(
 )
 
 
-def build_correction(fit_mc, fit_data, correction_name, dx=1.0, fine_domain=250.0, outer_edge=500.0):
-    fine_edges_um = np.arange(-fine_domain, fine_domain + dx, dx)
-    edges_um = np.concatenate(([-outer_edge], fine_edges_um, [outer_edge]))
-    content_um = fit_data.inverse_cdf(fit_mc.cdf(edges_um))
+def match_quantile(fit_mc, fit_data, x):
+    upper = x >= fit_mc.mean
+    return fit_data.quantile_from_log_tail(fit_mc.log_tail(x, upper), upper)
+
+
+def correction_edges(dx, fine_domain, max_d0, n_tail):
+    fine = np.arange(-fine_domain, fine_domain + dx, dx)
+    tail = np.geomspace(fine_domain, max_d0, n_tail + 1)[1:]
+    return np.concatenate((-tail[::-1], fine, tail))
+
+
+def build_correction(fit_mc, fit_data, correction_name, dx=1.0, fine_domain=250.0, max_d0=1e5, n_tail=50):
+    edges_um = correction_edges(dx, fine_domain, max_d0, n_tail)
+    content_um = np.array([match_quantile(fit_mc, fit_data, x) for x in edges_um])
 
     edges = edges_um / 1e4
     content = content_um / 1e4
@@ -144,6 +154,52 @@ def save_corrections(corrections, output_dir, fit_bounds):
 
     with gzip.open(f"{output_dir}/d0_correction_fit{fit_bounds}.json.gz", "wt") as fout:
         fout.write(cset.model_dump_json(exclude_unset=True))
+
+
+SR_EDGES_UM = [100, 500]
+
+
+def plot_correction_curves(corrections, flavor, suffix, output_dir):
+    prefix = f"{flavor}_d0_correction_"
+    curves = {c.name.removeprefix(prefix): c.to_evaluator() for c in corrections if c.name.startswith(prefix)}
+    if not curves:
+        return
+
+    label = flavor.capitalize()
+    x_label = rf"{label} input $|d_0|$ [$\mu m$]"
+
+    x = np.linspace(0, 1000, 2001)
+    fig, ax = plt.subplots()
+    cms_label(ax, is_data=False, com=13.6)
+    for year, corr in curves.items():
+        ax.plot(x, corr.evaluate("nom", x / 1e4) * 1e4, label=year)
+    ax.plot(x, x, color="gray", linestyle=":", label="No correction")
+    for edge in SR_EDGES_UM:
+        ax.axvline(edge, color="black", linestyle=":", linewidth=1)
+    ax.set_xlim(0, 1000)
+    ax.set_ylim(0, 1200)
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(rf"{label} corrected $|d_0|$ [$\mu m$]")
+    ax.legend(fontsize=15, loc="upper left")
+    fig.savefig(os.path.join(output_dir, f"correction_{suffix}.png"), bbox_inches="tight")
+    plt.close(fig)
+
+    x = np.geomspace(1, 1e5, 3000)
+    fig, ax = plt.subplots()
+    cms_label(ax, is_data=False, com=13.6)
+    for year, corr in curves.items():
+        ax.plot(x, corr.evaluate("nom", x / 1e4) * 1e4 / x, label=year)
+    ax.axhline(1, color="gray", linestyle=":", label="No correction")
+    for edge in SR_EDGES_UM:
+        ax.axvline(edge, color="black", linestyle=":", linewidth=1)
+    ax.set_xscale("log")
+    ax.set_xlim(1, 1e5)
+    ax.set_ylim(0, 2)
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(r"Corrected / input $|d_0|$")
+    ax.legend(fontsize=15, loc="lower left", ncol=2)
+    fig.savefig(os.path.join(output_dir, f"correction_ratio_{suffix}.png"), bbox_inches="tight")
+    plt.close(fig)
 
 
 def main():
@@ -202,6 +258,8 @@ def main():
             print("Missing --mumu and/or --emu: skipping muon fit.")
 
     save_corrections(corrections, args.output_dir, args.fit_bounds)
+    plot_correction_curves(corrections, "electron", "ele", args.output_dir)
+    plot_correction_curves(corrections, "muon", "mu", args.output_dir)
 
 
 if __name__ == "__main__":

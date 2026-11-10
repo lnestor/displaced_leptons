@@ -112,18 +112,30 @@ def test_cdf_reduces_to_single_gaussian_when_tail_has_zero_amplitude():
     np.testing.assert_allclose(dg.cdf(x), norm.cdf(x, 2.0, 8))
 
 
-def test_inverse_cdf_of_cdf_is_noop():
+@pytest.mark.parametrize("upper", [True, False])
+def test_log_tail_matches_cdf_near_mean(upper):
     dg = DoubleGaussian(mean=3.0, amp1=100, sigma1=8, amp2=300, sigma2=25)
     x = np.linspace(-60, 60, 25)
-    np.testing.assert_allclose(dg.inverse_cdf(dg.cdf(x)), x, atol=0.5)
+    expected = 1 - dg.cdf(x) if upper else dg.cdf(x)
+    np.testing.assert_allclose(np.exp(dg.log_tail(x, upper)), expected, rtol=1e-10)
 
 
-def test_inverse_cdf_at_one_half_equals_mean():
-    dg = DoubleGaussian(mean=-4.0, amp1=100, sigma1=8, amp2=300, sigma2=25)
-    assert dg.inverse_cdf(0.5) == pytest.approx(-4.0, abs=1e-3)
+def test_log_tail_is_finite_far_beyond_double_precision_of_cdf():
+    dg = DoubleGaussian(mean=3.0, amp1=100, sigma1=8, amp2=300, sigma2=25)
+    x = 3.0 + 1000 * 25
+    expected = np.log(1 - dg.q) + norm.logsf(x, 3.0, 25)
+    assert dg.log_tail(x, upper=True) == pytest.approx(expected, rel=1e-10)
 
 
-def test_inverse_cdf_reduces_to_single_gaussian_when_tail_has_zero_amplitude():
+@pytest.mark.parametrize("x", [-1e4, -300, -40, 3.0, 40, 300, 1e4])
+def test_quantile_from_log_tail_inverts_log_tail(x):
+    dg = DoubleGaussian(mean=3.0, amp1=100, sigma1=8, amp2=300, sigma2=25)
+    upper = x >= dg.mean
+    assert dg.quantile_from_log_tail(dg.log_tail(x, upper), upper) == pytest.approx(x, abs=1e-6)
+
+
+def test_quantile_from_log_tail_reduces_to_single_gaussian_when_tail_has_zero_amplitude():
     dg = DoubleGaussian(mean=2.0, amp1=100, sigma1=8, amp2=0, sigma2=25)
-    p = np.linspace(0.05, 0.95, 25)
-    np.testing.assert_allclose(dg.inverse_cdf(p), norm.ppf(p, 2.0, 8), atol=1e-3)
+    p = np.array([0.4, 0.1, 1e-5, 1e-50])
+    x = [dg.quantile_from_log_tail(np.log(pi), upper=True) for pi in p]
+    np.testing.assert_allclose(x, norm.isf(p, 2.0, 8), rtol=1e-8)

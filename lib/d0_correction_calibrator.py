@@ -1,5 +1,3 @@
-import os
-
 import awkward as ak
 import numpy as np
 import correctionlib
@@ -22,12 +20,7 @@ class D0CorrectionCalibrator(Calibrator):
     def __init__(self, params, metadata, do_variations, **kwargs):
         super().__init__(params, metadata, do_variations, **kwargs)
         self.year = metadata["year"]
-        # LPCCondorCluster ships transfer_input_files flat into the worker's
-        # working directory, not preserving the original relative path.
-        correction_file = self.params.d0_correction.file
-        if not os.path.exists(correction_file):
-            correction_file = os.path.basename(correction_file)
-        self.cset = correctionlib.CorrectionSet.from_file(correction_file)
+        self.cset = correctionlib.CorrectionSet.from_file(self.params.d0_correction.file)
 
         self.electron_correction_name = f"electron_d0_correction_{self.year}"
         self.muon_correction_name = f"muon_d0_correction_{self.year}"

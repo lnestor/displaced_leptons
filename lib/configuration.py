@@ -148,6 +148,7 @@ def get_params():
         f"{path}/regions.yaml",
         f"{path}/triggers.yaml",
         f"{path}/d0_correction.yaml",
+        f"{path}/lumi.yaml",
         update=True
     )
 

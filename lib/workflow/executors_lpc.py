@@ -284,8 +284,7 @@ class DaskExecutorFactory(ExecutorFactoryABC):
             cluster_kwargs["scheduler_options"] = scheduler_options
 
         supplement_dirs = [d for d in glob.glob("datasets/*supplements") if os.path.isdir(d)]
-        correction_files = glob.glob("params/d0_correction_fit80.json.gz")
-        transfer_files = supplement_dirs + correction_files
+        transfer_files = supplement_dirs + ["params"]
         if transfer_files:
             cluster_kwargs["transfer_input_files"] = transfer_files
 

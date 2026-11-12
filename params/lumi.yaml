@@ -1,0 +1,9 @@
+# 2026B and 2026D are treated as eras of 2025. tot is the 2025 total plus 2026B and 2026D.
+lumi:
+  goldenJSON:
+    "2025": params/golden_2025_2026.json
+  picobarns:
+    "2025":
+      tot: 136150
+      "2026B": 15280
+      "2026D": 10030

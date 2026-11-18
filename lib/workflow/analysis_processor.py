@@ -71,7 +71,8 @@ class AnalysisProcessor(BaseProcessorABC):
 
 
     def process_extra_after_skim(self):
-        trim_colls = ["Muon", "Electron"] if (self._year, self._sample) == ("2025", "EGamma") else None
+        trim = (self._year, self._sample) == ("2025", "EGamma") or self._dataset == "MuonEG_2025_Era2026B"
+        trim_colls = ["Muon", "Electron"] if trim else None
         self.events, unmatched = self._supplement.join(self.events, self.events.metadata["filename"], trim_colls)
 
         if self._isMC:

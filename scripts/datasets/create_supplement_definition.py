@@ -18,7 +18,7 @@ MC_SAMPLES = ["DY", "Diboson", "TTbar", "SingleTop", "QCDMu", "QCDEle", "Signal"
 SAMPLES = DATA_SAMPLES + MC_SAMPLES
 
 YEARS = ["2022_preEE", "2022_postEE", "2023_preBPix", "2023_postBPix", "2024", "2025"]
-ERAS = ["C", "D", "E", "F", "G", "H", "I"]
+ERAS = ["C", "D", "E", "F", "G", "H", "I", "2026B", "2026D"]
 
 EOS_REDIRECTOR = "root://cmseos.fnal.gov/"
 

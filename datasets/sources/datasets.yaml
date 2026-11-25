@@ -4017,7 +4017,7 @@
   nanoaod_version: 15
   year: '2025'
   era: C
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025C
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025C_v2
   is_mc: false
   index: 1
   version: 2
@@ -4063,7 +4063,7 @@
   nanoaod_version: 15
   year: '2025'
   era: F
-  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025F
+  supplements_path: /store/user/lnestor/supplements/JetMET1_Run2025F_v2
   is_mc: false
   index: 1
   version: 2

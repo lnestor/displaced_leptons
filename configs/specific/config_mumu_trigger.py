@@ -47,10 +47,10 @@ cfg = Configurator(
     datasets = {
         "jsons": get_datasets("central"),
         "filter": {
-            "samples": ["Muon", *MC_SAMPLES],
+            "samples": ["MET", *MC_SAMPLES],
             "year": RUN_3_YEARS
         },
-        "priority": ["Muon", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"]
+        "priority": ["MET", "DY", "Diboson", "SingleTop", "TTbar", "QCDEle", "QCDMu"]
     },
     supplements = {"jsons": get_supplements("supplements")},
     workflow = AnalysisProcessor,
